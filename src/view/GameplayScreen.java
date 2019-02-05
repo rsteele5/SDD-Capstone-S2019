@@ -1,4 +1,8 @@
 package view;
 
-public class GameplayScreen {
+import model.Level;
+
+public class GameplayScreen extends GameScreen {
+    Level currentLevel;
+
 }

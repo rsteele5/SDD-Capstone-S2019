@@ -1,4 +1,4 @@
 package view;
 
-public class TitleScreen {
+public class TitleScreen extends GameScreen {
 }

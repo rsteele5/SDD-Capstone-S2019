@@ -1,4 +1,8 @@
 package view;
 
-public class ScreenState {
+public enum ScreenState{
+    TransitionOn,
+    Active,
+    TransitionOff,
+    Hidden
 }

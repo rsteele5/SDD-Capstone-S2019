@@ -1,4 +1,4 @@
 package model;
 
-public class PuzzleLevel {
+public class PuzzleLevel extends Level {
 }

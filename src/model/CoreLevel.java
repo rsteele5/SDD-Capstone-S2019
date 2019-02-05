@@ -1,4 +1,4 @@
 package model;
 
-public class CoreLevel {
+public class CoreLevel extends Level {
 }

@@ -1,4 +1,4 @@
 package model;
 
-public class Level {
+public abstract class Level {
 }
