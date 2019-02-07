@@ -1,9 +1,14 @@
 package control;
 
 
+import view.GameWindow;
 import view.RenderEngine;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class GameEngine implements Runnable {
+
 
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
@@ -21,11 +26,16 @@ public class GameEngine implements Runnable {
         renderEngine = new RenderEngine(houseGenerator.getHouse());
     }
 
+    public void initializeWindow(JFrame gameWindow){
+        Container contentPane = gameWindow.getContentPane();
+        contentPane.add(renderEngine);
+    }
+
     @Override
     public void run() {
         //TODO: stuff
         while(true){
-            renderEngine.gameRender();
+            renderEngine.render();
         }
     }
 }
