@@ -1,28 +1,31 @@
 package control;
 
 
+import view.RenderEngine;
+
 public class GameEngine implements Runnable {
 
     private PhysicsEngine physicsEngine;
-    private RenderingEngine renderingEngine;
+    private RenderEngine renderEngine;
     private HouseGenerator houseGenerator;
     private CharacterGenerator characterGenerator;
 
     private InputManager inputManager;
-    private ScreenManager screenManager;
 
     public GameEngine(){
         houseGenerator = new HouseGenerator();
         physicsEngine = new PhysicsEngine();
-        renderingEngine = new RenderingEngine();
         characterGenerator = new CharacterGenerator();
 
         inputManager = new InputManager();
-        screenManager = new ScreenManager(houseGenerator.getHouse());
+        renderEngine = new RenderEngine(houseGenerator.getHouse());
     }
 
     @Override
     public void run() {
         //TODO: stuff
+        while(true){
+            renderEngine.gameRender();
+        }
     }
 }
