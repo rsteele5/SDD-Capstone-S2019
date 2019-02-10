@@ -3,8 +3,6 @@ package view.renderengine;
 import control.ScreenManager;
 import model.gameobjects.GameObject;
 import model.gameobjects.Renderable;
-import utilities.Log;
-
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;

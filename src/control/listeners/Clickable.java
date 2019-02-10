@@ -1,4 +1,11 @@
 package control.listeners;
 
-public class Clickable {
+import java.awt.event.MouseEvent;
+
+public interface Clickable {
+
+    boolean clicked = false;
+
+    void onClick(MouseEvent e);
+
 }
