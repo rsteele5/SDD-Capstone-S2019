@@ -1,14 +1,19 @@
 package control;
 
 
-import view.GameWindow;
-import view.RenderEngine;
+import control.listeners.MouseController;
+import control.physics.PhysicsEngine;
+import utilities.Log;
+import view.renderengine.RenderEngine;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 public class GameEngine implements Runnable {
 
+    private final int FRAMES_PER_SECOND = 60;
+    private int frameCounter = 0;
 
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
@@ -23,7 +28,8 @@ public class GameEngine implements Runnable {
         characterGenerator = new CharacterGenerator();
 
         inputManager = new InputManager();
-        renderEngine = new RenderEngine(houseGenerator.getHouse());
+        renderEngine = new RenderEngine();
+        renderEngine.addMouseListener(new MouseController());
     }
 
     public void initializeWindow(JFrame gameWindow){
@@ -35,7 +41,27 @@ public class GameEngine implements Runnable {
     public void run() {
         //TODO: stuff
         while(true){
-            renderEngine.render();
+            frameCounter++;
+            //Log.log("Frame: " + frameCounter);
+            long startTime = System.currentTimeMillis();
+
+            renderEngine.draw();
+
+            long endTime = System.currentTimeMillis();
+
+
+            int sleepTime = (int) (1.0 / FRAMES_PER_SECOND * 1000)
+                    - (int) (endTime - startTime);
+
+            if (sleepTime >= 0) {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(sleepTime);
+                } catch (InterruptedException e) {
+
+                }
+            } else {
+                //Log.logWarning("FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
+            }
         }
     }
 }

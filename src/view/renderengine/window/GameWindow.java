@@ -1,7 +1,6 @@
-package view;
+package view.renderengine.window;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class GameWindow extends JFrame {
 

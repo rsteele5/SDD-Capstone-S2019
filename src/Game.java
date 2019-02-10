@@ -1,5 +1,6 @@
 import control.GameEngine;
-import view.GameWindow;
+import utilities.Log;
+import view.renderengine.window.GameWindow;
 
 import javax.swing.JFrame;
 
@@ -13,20 +14,29 @@ public class Game {
 
 
     public static void main(String[] args) {
-        gameEngine = new GameEngine();
+        Log.startLog();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            Log.endLog();
+        }));
+        Log.loggingActive = true;
+        Log.drawingActive = true;
+
 
         //Initialize and display the renderable portion
         JFrame gameWindow = new GameWindow();
         gameWindow.setTitle("Nightbears");
         gameWindow.setSize(WIN_WIDTH, WIN_HEIGHT);
-        gameWindow.setLocation(50,50);
+        gameWindow.setLocation(320,20);
         gameWindow.setResizable(false);
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameWindow.setVisible(true);
-
+        //Uncomment these to make the game full screen
+        //gameWindow.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        gameEngine = new GameEngine();
         //Attach the RenderEngine to the window
         gameEngine.initializeWindow(gameWindow);
-
+        gameWindow.setUndecorated(true);
+        gameWindow.setVisible(true);
         new Thread(gameEngine).start();
+
     }
 }
