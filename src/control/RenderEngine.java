@@ -34,6 +34,7 @@ public class RenderEngine extends JPanel {
 
     public RenderEngine() {
         screenManager = new ScreenManager();
+        setBackground(Color.BLACK);
         graphicsConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
     }
 
@@ -41,6 +42,7 @@ public class RenderEngine extends JPanel {
 
         //TODO: Remove this after testing, update should be called from the physics engine
         screenManager.update();
+
 
         width = getSize().width;
         height = getSize().height;
