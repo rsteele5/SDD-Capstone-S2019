@@ -5,19 +5,21 @@ import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 public class Debug {
 
-    public static PrintWriter out;
+    private static PrintWriter out;
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[91m";
-    public static final String ANSI_GREEN = "\u001B[92m";
-    public static final String ANSI_YELLOW = "\u001B[93m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[91m";
+    private static final String ANSI_GREEN = "\u001B[92m";
+    private static final String ANSI_YELLOW = "\u001B[93m";
+
+    private static long startTime = System.currentTimeMillis();
 
     public static void log(boolean status, String message) {
+        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println("[Debug] -> " + message);
             out.println("[Debug] -> " + message + "\n");
@@ -25,6 +27,7 @@ public class Debug {
     }
 
     public static void success(boolean status,String message) {
+        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_GREEN + "[Success] -> " + message + ANSI_RESET);
             out.println("[Success] -> " + message + "\n");
@@ -32,6 +35,7 @@ public class Debug {
     }
 
     public static void  warning(boolean status,String message) {
+        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_YELLOW + "[Warning] -> "+  message + ANSI_RESET);
             out.println("[Warning] -> "+  message + "\n");
@@ -39,6 +43,7 @@ public class Debug {
     }
 
     public static void error(boolean status,String message) {
+        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_RED + "[Error] -> "+  message + ANSI_RESET);
             out.println("[Error] -> "+  message + "\n");
@@ -57,10 +62,22 @@ public class Debug {
         }
     }
 
-    public static void startLog() {
-        String fileName = "log.txt";
-        try {
+    public static void checkForRefresh(long currentTime){
+        //File IO will save every minute
+        long refreshTime = 60000;
+        if(currentTime > startTime + refreshTime){
+            startTime = currentTime;
+            warning(DebugEnabler.LOGGING_ACTIVE, "Log refresh");
+            endLog();
+            startLog();
+        }
+    }
 
+    public static void startLog() {
+
+        startTime = System.currentTimeMillis();
+        String fileName = "logs/log" + startTime + ".txt";
+        try {
             out = new PrintWriter(fileName);
             if(DebugEnabler.LOGGING_ACTIVE){
                 out.println("[Success] -> Logging activated successfully");

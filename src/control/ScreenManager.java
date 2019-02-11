@@ -1,9 +1,9 @@
 package control;
 
-import _test.splashscreentest.TestLoadingScreen;
 import utilities.Debug;
 import utilities.DebugEnabler;
 import view.screens.GameScreen;
+import view.screens.LoadingScreen;
 import view.screens.TeamSplashScreen;
 
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -12,8 +12,7 @@ public class ScreenManager {
     //region <Variables>
     private CopyOnWriteArrayList<GameScreen> gameScreens;
 
-    //TODO: Change to LoadingScreen after Test complete
-    private TestLoadingScreen loadingScreen;
+    private LoadingScreen loadingScreen;
     //endregion
 
     //region <Getters and Setters>
@@ -25,7 +24,7 @@ public class ScreenManager {
     public ScreenManager() {
         gameScreens = new CopyOnWriteArrayList<>();
         //
-        loadingScreen = new TestLoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
+        loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
         addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
     }

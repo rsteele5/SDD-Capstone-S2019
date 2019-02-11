@@ -20,17 +20,14 @@ import utilities.DebugEnabler;
 
 public class RenderEngine extends JPanel {
 
+    //region <Variables>
     private ScreenManager screenManager;
-
-    // size of the canvas - determined at runtime once rendered
-    public static int width;
-    public static int height;
 
     // off screen rendering
     private Graphics2D graphics;
     private BufferedImage dbImage = null;
-    GraphicsConfiguration graphicsConfig;
-
+    private GraphicsConfiguration graphicsConfig;
+    //endregion
 
     public RenderEngine() {
         screenManager = new ScreenManager();
@@ -38,14 +35,18 @@ public class RenderEngine extends JPanel {
         graphicsConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
     }
 
+    public ScreenManager getScreenManager() {
+        return screenManager;
+    }
+
     public void draw() {
 
         //TODO: Remove this after testing, update should be called from the physics engine
         screenManager.update();
 
-
-        width = getSize().width;
-        height = getSize().height;
+        // size of the canvas - determined at runtime once rendered
+        int width = getSize().width;
+        int height = getSize().height;
         if(width > 0 && height > 0) {
             if (dbImage == null) {
                 //Creates an off-screen drawable image to be used for double buffering
@@ -66,7 +67,7 @@ public class RenderEngine extends JPanel {
         }
     }
 
-    public void createRenderBuffer(Graphics2D graphics) {
+    private void createRenderBuffer(Graphics2D graphics) {
         for (view.screens.GameScreen screen : screenManager.getScreens()) {
             if (!screen.isLoading()) {
                 screen.draw(graphics);
@@ -74,7 +75,7 @@ public class RenderEngine extends JPanel {
         }
     }
 
-    public void renderBufferToScreen() {
+    private void renderBufferToScreen() {
         Graphics g;
         try {
             g = this.getGraphics();
@@ -89,9 +90,5 @@ public class RenderEngine extends JPanel {
             System.out.println("Graphics error: " + e);
         }
 
-    }
-
-    public ScreenManager getScreenManager() {
-        return screenManager;
     }
 }

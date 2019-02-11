@@ -28,6 +28,7 @@ public class GameEngine implements Runnable {
         inputManager = new InputManager();
         renderEngine = new RenderEngine();
         renderEngine.addMouseListener(new MouseController());
+
     }
 
     public void initializeWindow(JFrame gameWindow){

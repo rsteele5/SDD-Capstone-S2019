@@ -17,11 +17,9 @@ public class Game {
 
     public static void main(String[] args) {
         Debug.startLog();
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            Debug.endLog();
-        }));
-        if(!DebugEnabler.LOGGING_ACTIVE){
 
+        if(!DebugEnabler.LOGGING_ACTIVE){
+            Debug.endLog();
         }
 
         //Initialize and display the renderable portion
