@@ -86,7 +86,7 @@ public class TestLoadingScreen extends view.screens.GameScreen {
     @Override
     public void draw(Graphics2D graphics){
         super.draw(graphics);
-        graphics.drawString("Loading: " + loadedData + "//" + totalDataToLoad, 500, 500);
+        graphics.drawString("Loading: " + loadedData + "/" + totalDataToLoad, 500, 500);
 
     }
 

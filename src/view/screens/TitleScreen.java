@@ -19,6 +19,7 @@ public class TitleScreen extends view.screens.GameScreen {
     public TitleScreen(ScreenManager screenManager) {
         super(screenManager);
         name = "TitleScreen";
+        overlay = true;
     }
 
     @Override

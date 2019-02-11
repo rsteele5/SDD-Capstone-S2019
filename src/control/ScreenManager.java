@@ -77,6 +77,16 @@ public class ScreenManager {
         return false;
     }
 
+    public boolean coveredByLoading(GameScreen screen){
+        for(GameScreen screenCheck: gameScreens){
+            if(screen == screenCheck)
+                return false;
+            else if(screenCheck.isLoading())
+                return true;
+        }
+        return false;
+    }
+
     public void clickEventAtLocation(int x, int y) {
         //Check active screen
         for(GameScreen gameScreen: gameScreens) {

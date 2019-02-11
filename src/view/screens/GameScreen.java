@@ -36,7 +36,7 @@ public abstract class GameScreen {
      *  The variable overlay describes if a screen is covering another screen in it's entirety, but
      *  does not prevent updates or rendering on screens below it in the list.
      */
-    private boolean overlay = false;
+    protected boolean overlay = false;
 
     protected CopyOnWriteArrayList<GameObject> gameObjects = new CopyOnWriteArrayList<>();
     /**
