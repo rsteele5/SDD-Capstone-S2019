@@ -15,7 +15,8 @@ import java.awt.image.BufferedImage;
 
 //Project Imports
 import control.ScreenManager;
-import utilities.Log;
+import utilities.Debug;
+import utilities.DebugEnabler;
 
 
 public class RenderEngine extends JPanel {
@@ -40,9 +41,7 @@ public class RenderEngine extends JPanel {
     public void draw() {
 
         //TODO: Remove this after testing, update should be called from the physics engine
-        for(GameScreen gameScreen: screenManager.getScreens()) {
-            gameScreen.update();
-        }
+        screenManager.update();
 
         width = getSize().width;
         height = getSize().height;
@@ -51,7 +50,7 @@ public class RenderEngine extends JPanel {
                 //Creates an off-screen drawable image to be used for double buffering
                 dbImage = graphicsConfig.createCompatibleImage(width, height, Transparency.OPAQUE);
                 if (dbImage == null) {
-                    Log.logError("Critical Error: dbImage is null");
+                    Debug.error(DebugEnabler.RENDER_ENGINE,"Critical Error: dbImage is null");
                     System.exit(1);
                 } else {
                     graphics = (Graphics2D) dbImage.getGraphics();

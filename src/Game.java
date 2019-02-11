@@ -1,5 +1,6 @@
 import control.GameEngine;
-import utilities.Log;
+import utilities.Debug;
+import utilities.DebugEnabler;
 import view.renderengine.window.GameWindow;
 
 import javax.swing.JFrame;
@@ -14,13 +15,13 @@ public class Game {
 
 
     public static void main(String[] args) {
-        Log.startLog();
+        Debug.startLog();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            Log.endLog();
+            Debug.endLog();
         }));
-        Log.loggingActive = true;
-        Log.drawingActive = true;
+        if(!DebugEnabler.LOGGING_ACTIVE){
 
+        }
 
         //Initialize and display the renderable portion
         JFrame gameWindow = new GameWindow();

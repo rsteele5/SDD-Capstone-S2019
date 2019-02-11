@@ -3,7 +3,6 @@ package control;
 
 import control.listeners.MouseController;
 import control.physics.PhysicsEngine;
-import utilities.Log;
 import view.renderengine.RenderEngine;
 
 import javax.swing.*;
@@ -42,7 +41,7 @@ public class GameEngine implements Runnable {
         //TODO: stuff
         while(true){
             frameCounter++;
-            //Log.log("Frame: " + frameCounter);
+            //Debug.log("Frame: " + frameCounter);
             long startTime = System.currentTimeMillis();
 
             renderEngine.draw();
@@ -60,7 +59,7 @@ public class GameEngine implements Runnable {
 
                 }
             } else {
-                //Log.logWarning("FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
+                //Debug.logWarning("FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
             }
         }
     }

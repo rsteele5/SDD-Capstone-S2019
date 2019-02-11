@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
-public class Log {
+public class Debug {
 
     public static PrintWriter out;
 
@@ -17,45 +17,42 @@ public class Log {
     public static final String ANSI_GREEN = "\u001B[92m";
     public static final String ANSI_YELLOW = "\u001B[93m";
 
-    public static boolean loggingActive = false;
-    public static boolean drawingActive = false;
-
-    public static void log(String message) {
-        if(loggingActive){
-            System.out.println("[Log] -> " + message);
-            out.println("[Log] -> " + message + "\n");
+    public static void log(boolean status, String message) {
+        if(DebugEnabler.LOGGING_ACTIVE && status){
+            System.out.println("[Debug] -> " + message);
+            out.println("[Debug] -> " + message + "\n");
         }
     }
 
-    public static void  logSuccess(String message) {
-        if(loggingActive){
+    public static void success(boolean status,String message) {
+        if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_GREEN + "[Success] -> " + message + ANSI_RESET);
             out.println("[Success] -> " + message + "\n");
         }
     }
 
-    public static void  logWarning(String message) {
-        if(loggingActive){
+    public static void  warning(boolean status,String message) {
+        if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_YELLOW + "[Warning] -> "+  message + ANSI_RESET);
             out.println("[Warning] -> "+  message + "\n");
         }
     }
 
-    public static void  logError(String message) {
-        if(loggingActive){
+    public static void error(boolean status,String message) {
+        if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_RED + "[Error] -> "+  message + ANSI_RESET);
             out.println("[Error] -> "+  message + "\n");
         }
     }
 
-    public static void drawImage(Graphics2D graphics, int x, int y, BufferedImage image) {
-        if(drawingActive) {
+    public static void drawImage(boolean status, Graphics2D graphics, int x, int y, BufferedImage image) {
+        if(DebugEnabler.DRAWING_ACTIVE && status) {
             graphics.drawImage(image, x, y, null);
         }
     }
 
-    public static void drawRect(Graphics2D graphics, Rectangle2D rect) {
-        if(drawingActive) {
+    public static void drawRect(boolean status, Graphics2D graphics, Rectangle2D rect) {
+        if(DebugEnabler.DRAWING_ACTIVE && status) {
             graphics.drawRect((int)rect.getX(), (int)rect.getY(), (int)rect.getWidth(), (int)rect.getHeight());
         }
     }
@@ -63,11 +60,17 @@ public class Log {
     public static void startLog() {
         String fileName = "log.txt";
         try {
+
             out = new PrintWriter(fileName);
-            out.println("[Success] -> " + "Logging activated successfully");
-            System.out.println(ANSI_GREEN + "[Success] -> " + "Logging activated successfully" + ANSI_RESET);
+            if(DebugEnabler.LOGGING_ACTIVE){
+                out.println("[Success] -> Logging activated successfully");
+                System.out.println(ANSI_GREEN + "[Success] -> Logging activated successfully" + ANSI_RESET);
+            }else{
+                out.println("[Warning] -> Logging Disabled");
+                System.out.println(ANSI_YELLOW + "[Warning] -> Logging Disabled" + ANSI_RESET);
+            }
         } catch (FileNotFoundException exception) {
-            System.out.println(ANSI_RED + "[Error] -> "+  "Cannot open file: " + fileName + ANSI_RESET);
+            System.out.println(ANSI_RED + "[Error] -> Cannot open file: " + fileName + ANSI_RESET);
         }
 
     }

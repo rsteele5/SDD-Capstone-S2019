@@ -1,6 +1,7 @@
 package model.gameobjects;
 
-import utilities.Log;
+import utilities.Debug;
+import utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -59,7 +60,7 @@ public abstract class Renderable extends GameObject{
                 images.add(ImageIO.read(getClass().getResource(path)));
             }
         } catch (IOException exception) {
-            Log.logError("Unable to load images");
+            Debug.error(DebugEnabler.RENDERABLE_LOG,"Unable to load images");
         }
 
         currentImage = images.get(0);

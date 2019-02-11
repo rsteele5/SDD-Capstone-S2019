@@ -1,8 +1,8 @@
 package model.gameobjects.buttons;
 
+import control.ScreenManager;
 import model.gameobjects.Renderable;
 
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 public abstract class Button extends Renderable {
@@ -20,5 +20,5 @@ public abstract class Button extends Renderable {
 
     }
 
-    public abstract void onClick(MouseEvent e);
+    public abstract void onClick(ScreenManager screenManager);
 }
