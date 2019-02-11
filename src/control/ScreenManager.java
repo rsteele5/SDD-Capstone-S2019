@@ -1,46 +1,57 @@
 package control;
 
 import _test.splashscreentest.TestLoadingScreen;
-import _test.splashscreentest.TestTeamSplashScreen;
 import utilities.Debug;
 import utilities.DebugEnabler;
-import view.renderengine.GameScreen;
+import view.screens.GameScreen;
+import view.screens.TeamSplashScreen;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ScreenManager {
-
+    //region <Variables>
     private CopyOnWriteArrayList<GameScreen> gameScreens;
 
     //TODO: Change to LoadingScreen after Test complete
     private TestLoadingScreen loadingScreen;
+    //endregion
+
+    //region <Getters and Setters>
+    public CopyOnWriteArrayList<GameScreen> getScreens() {
+        return gameScreens;
+    }
+    //endregion
 
     public ScreenManager() {
         gameScreens = new CopyOnWriteArrayList<>();
         //
         loadingScreen = new TestLoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
-        addScreen(new TestTeamSplashScreen(this)); //TODO: Change to SplashScreen after Test complete.
-    }
-
-    public void addScreen(GameScreen screen) {
-        for(GameScreen gameScreen: gameScreens){
-            gameScreen.setScreenState(GameScreen.ScreenState.Hidden);
-        }
-        gameScreens.add(0,screen);
+        addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
     }
 
     public void update() {
         for(GameScreen screen: gameScreens) {
-            if(screen.isLoading()) {
-                break;
-            }
-            else if(screen.isExiting())
+            if(screen.isLoading()) { }
+            else if(screen.isExiting()) {
                 removeScreen(screen);
-            else if(screen.isHidden())
-                screen.hiddenUpdate();
+                screen.reset();
+            }
             else
                 screen.update();
+        }
+    }
+
+    //region <Support Functions>
+    public void addScreen(GameScreen screen) {
+        if(!screen.isOverlay()){
+            for(GameScreen gameScreen: gameScreens){
+                gameScreen.setScreenState(GameScreen.ScreenState.Hidden);
+            }
+        }
+        gameScreens.add(0,screen);
+        if(screen.isLoadingScreenRequired()){
+            gameScreens.add(0,loadingScreen);
         }
     }
 
@@ -48,10 +59,23 @@ public class ScreenManager {
         gameScreens.remove(screen);
     }
 
-    public CopyOnWriteArrayList<GameScreen> getScreens() {
-        return gameScreens;
+    public void initializeLoadingScreen(int amountOfData){
+        loadingScreen.initializeLoadingScreen(amountOfData);
     }
 
+    public void updateLoadingScreen(int dataloaded){
+        loadingScreen.dataLoaded(dataloaded);
+    }
+
+    public boolean coveredByOverlay(GameScreen screen){
+        for(GameScreen screenCheck: gameScreens){
+            if(screen == screenCheck)
+                return false;
+            else if(screenCheck.isOverlay())
+                return true;
+        }
+        return false;
+    }
 
     public void clickEventAtLocation(int x, int y) {
         //Check active screen
@@ -59,7 +83,9 @@ public class ScreenManager {
             if(gameScreen.isActive()) {
                 Debug.log(DebugEnabler.GAME_SCREEN_LOG, "Handle Click at x: " + x + ", y: " + y);
                 gameScreen.handleClickEvent(x,y);
+                return;
             }
         }
     }
+    //endregion
 }

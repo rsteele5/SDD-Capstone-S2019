@@ -1,4 +1,4 @@
-package view.renderengine.window;
+package view.window;
 
 import javax.swing.*;
 

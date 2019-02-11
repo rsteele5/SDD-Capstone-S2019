@@ -1,6 +1,7 @@
-package view.renderengine;
+package view.screens;
 
 import control.ScreenManager;
+import model.gameobjects.GameObject;
 import model.gameobjects.Renderable;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -13,28 +14,38 @@ import java.util.concurrent.Executors;
 public abstract class GameScreen {
 
     //region <Variables>
+    protected String name;
+    protected ScreenState previousState = null;
     protected ScreenManager screenManager;
-    protected boolean loadingScreenRequired;
-    private volatile boolean loading = false;
+    protected boolean loadingScreenRequired = false;
+    private volatile boolean loading;
     //TODO: Maybe consider making one of these a default behavior then set the variable when we want the other behavior
     /**
-     *  The variable popup describes if a screen is covering another screen.
+     *  The variable popup describes if a screen is covering a portion of another screen.
      *  A popup screen allows updates on screens below it in the list.
      */
-    private boolean popup = false;
+    protected boolean popup = false;
 
     /**
-     *  The variable exclusivePopup describes if a screen is covering another screen.
+     *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
      *  An exclusive popup screen prevents updates on screens below it in the list.
      */
-    private boolean exclusivePopup = false;
+    protected boolean exclusivePopup = false;
 
+    /**
+     *  The variable overlay describes if a screen is covering another screen in it's entirety, but
+     *  does not prevent updates or rendering on screens below it in the list.
+     */
+    private boolean overlay = false;
+
+    protected CopyOnWriteArrayList<GameObject> gameObjects = new CopyOnWriteArrayList<>();
     /**
      * RederableLayers hold a list of layers that can be rendered.
      * Each index value represents a layer to be rendered to the screen. Layers with
      * higher index values will rendered on top of layers with lower index values.
      */
-    protected CopyOnWriteArrayList<CopyOnWriteArrayList<Renderable>> rederableLayers;
+    protected CopyOnWriteArrayList<CopyOnWriteArrayList<Renderable>> renderableLayers = new CopyOnWriteArrayList<>();
+
 
     /**
      *  <p>Screen state describes all possible states that a screen can be in:</p>
@@ -59,6 +70,10 @@ public abstract class GameScreen {
 
     //region <Getters and Setters>
     public boolean isLoading() { return loading; }
+
+    public boolean isLoadingScreenRequired(){
+        return loadingScreenRequired;
+    }
 
     /**
      *  Returns true if a screen is active and can accept input or updates
@@ -86,28 +101,22 @@ public abstract class GameScreen {
     public boolean isPopup() {return popup;}
 
     /**
-     *  Sets whether a screen is a popup. A popup screen
-     *  allows updates on screens below it in the list
-     */
-    public void setPopup(boolean p) {popup = p;}
-
-    /**
      *  Returns true if a screen is an exclusive popup. An exclusive popup screen
      *  prevents updates on screens below it in the list
      */
     public boolean isExclusivePopup() {return exclusivePopup;}
 
     /**
-     *  Sets whether a screen is an exclusive popup. An exclusive popup screen
-     *  prevents updates on screens below it in the list
+     *  Returns true if a screen is an overlay. An overlay screen
+     *  does not prevent updates on screens below it in the list.
      */
-    public void setExclusivePopup(boolean ep) { exclusivePopup = ep;}
+    public boolean isOverlay() {return overlay;}
+
     //endregion
 
     //region<Construction and Initialization>
     public GameScreen(ScreenManager screenManager) {
         this.screenManager = screenManager;
-        rederableLayers = new CopyOnWriteArrayList<>();
         initializeLayers();
 
         //Load contents of the screen in a thread
@@ -132,7 +141,7 @@ public abstract class GameScreen {
 
     public CopyOnWriteArrayList<Renderable> getRenderables() {
         CopyOnWriteArrayList<Renderable> renderables = new CopyOnWriteArrayList<>();
-        for (CopyOnWriteArrayList<Renderable> layer : rederableLayers) {
+        for (CopyOnWriteArrayList<Renderable> layer : renderableLayers) {
             renderables.addAll(layer);
         }
         return renderables;
@@ -140,20 +149,25 @@ public abstract class GameScreen {
     //endregion
 
     //region <Update>
-    public abstract void updateTransitionOn();
-    public abstract void updateTransitionOff();
-    public abstract void hiddenUpdate();
+    protected abstract void updateTransitionOn();
+    protected abstract void updateTransitionOff();
+    protected abstract void hiddenUpdate();
+    protected abstract void activeUpdate();
 
     /**
      *  Updates the state of the screen
      */
     public void update(){
-        //if state is hidden do stuff
+        if(currentState != previousState){
+            previousState = currentState;
+            Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
+        }
+
         switch(currentState) {
             case TransitionOn: updateTransitionOn(); break;
             case TransitionOff: updateTransitionOff(); break;
-            case Active: break;
-            case Hidden: break;
+            case Active: activeUpdate(); break;
+            case Hidden: hiddenUpdate(); break;
             default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
         }
     }
@@ -164,7 +178,7 @@ public abstract class GameScreen {
      *  Draws the screen to the monitor
      */
     public void draw(Graphics2D graphics) {
-        for (CopyOnWriteArrayList<Renderable> layer : rederableLayers) {
+        for (CopyOnWriteArrayList<Renderable> layer : renderableLayers) {
             for (Renderable gameObject : layer) {
                 gameObject.draw(graphics);
             }
@@ -174,5 +188,9 @@ public abstract class GameScreen {
 
     //region <Support Functions>
     public abstract void handleClickEvent(int x, int y);
+    public void reset(){
+        previousState = null;
+        exiting = false;
+    }
     //endregion
 }

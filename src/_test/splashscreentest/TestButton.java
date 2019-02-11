@@ -1,6 +1,5 @@
 package _test.splashscreentest;
 
-
 import control.ScreenManager;
 import model.gameobjects.buttons.Button;
 import utilities.Debug;
@@ -21,6 +20,6 @@ public class TestButton extends Button {
     @Override
     public void onClick(ScreenManager screenManager) {
         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Test Button");
-        //screenManager.addScreen(new TestPopUpScreen(screenManager));
+        screenManager.addScreen(new TestGameplayScreen(screenManager)); //TODO: Change to GameplayScreen post test
     }
 }

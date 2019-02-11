@@ -1,4 +1,4 @@
-package view.renderengine;
+package control;
 
 //TODO: Add javadoc comments
 
@@ -14,7 +14,6 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 //Project Imports
-import control.ScreenManager;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -66,7 +65,7 @@ public class RenderEngine extends JPanel {
     }
 
     public void createRenderBuffer(Graphics2D graphics) {
-        for (GameScreen screen : screenManager.getScreens()) {
+        for (view.screens.GameScreen screen : screenManager.getScreens()) {
             if (!screen.isLoading()) {
                 screen.draw(graphics);
             }

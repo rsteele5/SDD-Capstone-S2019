@@ -1,9 +1,10 @@
 import control.GameEngine;
 import utilities.Debug;
 import utilities.DebugEnabler;
-import view.renderengine.window.GameWindow;
+import view.window.GameWindow;
 
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class Game {
 
@@ -30,6 +31,7 @@ public class Game {
         gameWindow.setLocation(320,20);
         gameWindow.setResizable(false);
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameWindow.setBackground(Color.BLACK);
         //Uncomment these to make the game full screen
         //gameWindow.setExtendedState(JFrame.MAXIMIZED_BOTH);
         gameEngine = new GameEngine();

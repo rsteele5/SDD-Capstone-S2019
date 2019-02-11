@@ -3,7 +3,6 @@ package control;
 
 import control.listeners.MouseController;
 import control.physics.PhysicsEngine;
-import view.renderengine.RenderEngine;
 
 import javax.swing.*;
 import java.awt.*;

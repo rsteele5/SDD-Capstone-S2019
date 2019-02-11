@@ -20,5 +20,5 @@ public abstract class Button extends Renderable {
 
     }
 
-    public abstract void onClick(ScreenManager screenManager);
+    public abstract void onClick(ScreenManager screen);
 }
