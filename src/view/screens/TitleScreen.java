@@ -59,14 +59,15 @@ public class TitleScreen extends view.screens.GameScreen {
 
     @Override
     public void updateTransitionOff() {
-        exiting = true;
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,"Constructing MainMenuScreen");
         screenManager.addScreen(new MainMenuScreen(screenManager));
     }
 
     @Override
     public void hiddenUpdate() {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG,"State is hidden"); //TODO: handle hidden state
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG,name+"-CurrentState: Hidden"); //TODO: handle hidden state
+        if(!screenManager.coveredByLoading(this))
+            exiting = true;
     }
 
     @Override
