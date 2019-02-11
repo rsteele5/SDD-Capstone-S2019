@@ -5,4 +5,4 @@ out/
 
 \.idea/misc\.xml
 
-logs/
+logs/*\.txt

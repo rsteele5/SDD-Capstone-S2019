@@ -26,7 +26,7 @@ public class Game {
         JFrame gameWindow = new GameWindow();
         gameWindow.setTitle("Nightbears");
         gameWindow.setSize(WIN_WIDTH, WIN_HEIGHT);
-        gameWindow.setLocation(320,20);
+        gameWindow.setLocation(20,20);
         gameWindow.setResizable(false);
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameWindow.setBackground(Color.BLACK);

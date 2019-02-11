@@ -9,4 +9,5 @@ public class DebugEnabler {
     public static final boolean GAME_SCREEN_LOG = true;
     public static final boolean RENDERABLE_LOG = true;
     public static final boolean BUTTON_LOG = true;
+    public static final boolean GAME_ENGINE = false;
 }

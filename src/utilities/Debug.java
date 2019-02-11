@@ -19,7 +19,6 @@ public class Debug {
     private static long startTime = System.currentTimeMillis();
 
     public static void log(boolean status, String message) {
-        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println("[Debug] -> " + message);
             out.println("[Debug] -> " + message + "\n");
@@ -27,7 +26,6 @@ public class Debug {
     }
 
     public static void success(boolean status,String message) {
-        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_GREEN + "[Success] -> " + message + ANSI_RESET);
             out.println("[Success] -> " + message + "\n");
@@ -35,7 +33,6 @@ public class Debug {
     }
 
     public static void  warning(boolean status,String message) {
-        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_YELLOW + "[Warning] -> "+  message + ANSI_RESET);
             out.println("[Warning] -> "+  message + "\n");
@@ -43,7 +40,6 @@ public class Debug {
     }
 
     public static void error(boolean status,String message) {
-        checkForRefresh(System.currentTimeMillis());
         if(DebugEnabler.LOGGING_ACTIVE && status){
             System.out.println(ANSI_RED + "[Error] -> "+  message + ANSI_RESET);
             out.println("[Error] -> "+  message + "\n");
