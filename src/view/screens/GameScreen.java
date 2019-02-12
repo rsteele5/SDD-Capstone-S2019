@@ -2,7 +2,7 @@ package view.screens;
 
 import control.ScreenManager;
 import model.gameobjects.GameObject;
-import model.gameobjects.Renderable;
+import model.gameobjects.RenderableObject;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -44,7 +44,7 @@ public abstract class GameScreen {
      * Each index value represents a layer to be rendered to the screen. Layers with
      * higher index values will rendered on top of layers with lower index values.
      */
-    protected CopyOnWriteArrayList<CopyOnWriteArrayList<Renderable>> renderableLayers = new CopyOnWriteArrayList<>();
+    protected CopyOnWriteArrayList<CopyOnWriteArrayList<RenderableObject>> renderableLayers = new CopyOnWriteArrayList<>();
 
 
     /**
@@ -139,12 +139,12 @@ public abstract class GameScreen {
      */
     protected abstract void loadContent();
 
-    public CopyOnWriteArrayList<Renderable> getRenderables() {
-        CopyOnWriteArrayList<Renderable> renderables = new CopyOnWriteArrayList<>();
-        for (CopyOnWriteArrayList<Renderable> layer : renderableLayers) {
-            renderables.addAll(layer);
+    public CopyOnWriteArrayList<RenderableObject> getRenderables() {
+        CopyOnWriteArrayList<RenderableObject> renderableObjects = new CopyOnWriteArrayList<>();
+        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
+            renderableObjects.addAll(layer);
         }
-        return renderables;
+        return renderableObjects;
     }
     //endregion
 
@@ -178,8 +178,8 @@ public abstract class GameScreen {
      *  Draws the screen to the monitor
      */
     public void draw(Graphics2D graphics) {
-        for (CopyOnWriteArrayList<Renderable> layer : renderableLayers) {
-            for (Renderable gameObject : layer) {
+        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
+            for (RenderableObject gameObject : layer) {
                 gameObject.draw(graphics);
             }
         }

@@ -2,13 +2,14 @@ package control.physics;
 
 import control.CollisionManager;
 import control.ScreenManager;
+import model.levels.LevelData;
 
 import java.util.Set;
 
 public class PhysicsEngine {
     CollisionManager collisionManager;
     ScreenManager screenManager;
-    levelData levelData = null;
+    LevelData levelData = null;
 
     private PhysicsVector position = new PhysicsVector(0,400);        //Position of object
     private PhysicsVector velocity = new PhysicsVector(0, 0);         //Velocity of object

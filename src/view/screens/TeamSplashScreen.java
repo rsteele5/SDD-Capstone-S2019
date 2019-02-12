@@ -2,7 +2,7 @@ package view.screens;
 
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
-import model.gameobjects.Renderable;
+import model.gameobjects.RenderableObject;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -85,8 +85,8 @@ public class TeamSplashScreen extends view.screens.GameScreen {
     //region <Render>
     @Override
     public void draw(Graphics2D graphics) {
-        for (CopyOnWriteArrayList<Renderable> layer : renderableLayers) {
-            for (Renderable gameObject : layer) {
+        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
+            for (RenderableObject gameObject : layer) {
                 gameObject.draw(graphics);
             }
         }

@@ -1,11 +1,11 @@
 package model.gameobjects.buttons;
 
 import control.ScreenManager;
-import model.gameobjects.Renderable;
+import model.gameobjects.RenderableObject;
 
 import java.awt.image.BufferedImage;
 
-public abstract class Button extends Renderable {
+public abstract class Button extends RenderableObject {
 
     public Button(int x, int y) {
         super(x, y);

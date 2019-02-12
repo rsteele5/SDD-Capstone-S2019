@@ -3,7 +3,7 @@ package view.screens;
 import _test.splashscreentest.TestButton;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
-import model.gameobjects.Renderable;
+import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -36,7 +36,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
         try {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
 
-            //Renderable object paths
+            //RenderableObject object paths
             BufferedImage background = ImageIO.read(getClass().getResource("/assets/MainMenu.png"));
             BufferedImage button = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
             BufferedImage button2 = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
@@ -49,7 +49,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
             for(Button butt: buttons)
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
             //Consolidate GameObjects
-            for(CopyOnWriteArrayList<Renderable> layer: renderableLayers)
+            for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
                 gameObjects.addAll(layer);
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");

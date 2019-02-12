@@ -1,8 +1,8 @@
 package model.gameobjects;
 
-public abstract class Dynamic extends Renderable {
+public abstract class DynamicObject extends RenderableObject {
 
-    public Dynamic(int x, int y) {
+    public DynamicObject(int x, int y) {
         super(x, y);
     }
 
