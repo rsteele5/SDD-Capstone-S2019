@@ -29,8 +29,8 @@ public class RenderEngine extends JPanel {
     private GraphicsConfiguration graphicsConfig;
     //endregion
 
-    public RenderEngine() {
-        screenManager = new ScreenManager();
+    public RenderEngine(ScreenManager myScreenManager) {
+        screenManager = myScreenManager;
         setBackground(Color.BLACK);
         graphicsConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
     }
@@ -40,10 +40,6 @@ public class RenderEngine extends JPanel {
     }
 
     public void draw() {
-
-        //TODO: Remove this after testing, update should be called from the physics engine
-        screenManager.update();
-
         // size of the canvas - determined at runtime once rendered
         int width = getSize().width;
         int height = getSize().height;

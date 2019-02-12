@@ -17,6 +17,7 @@ public class GameEngine implements Runnable {
 
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
+    private ScreenManager screenManager;
     private HouseGenerator houseGenerator;
     private CharacterGenerator characterGenerator;
 
@@ -24,11 +25,12 @@ public class GameEngine implements Runnable {
 
     public GameEngine(){
         houseGenerator = new HouseGenerator();
-        physicsEngine = new PhysicsEngine();
         characterGenerator = new CharacterGenerator();
+        screenManager = new ScreenManager();
 
         inputManager = new InputManager();
-        renderEngine = new RenderEngine();
+        renderEngine = new RenderEngine(screenManager);
+        physicsEngine = new PhysicsEngine(screenManager);
         renderEngine.addMouseListener(new MouseController());
 
     }
@@ -46,6 +48,9 @@ public class GameEngine implements Runnable {
             Debug.log(DebugEnabler.GAME_ENGINE, "Frame: " + frameCounter);
             long startTime = System.currentTimeMillis();
 
+            //Update
+            physicsEngine.update();
+            //Render
             renderEngine.draw();
 
             long endTime = System.currentTimeMillis();
