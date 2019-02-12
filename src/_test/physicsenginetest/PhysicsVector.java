@@ -1,8 +1,6 @@
 class PhysicsVector{
     double x, y;
     private double mass;
-    private int jumpCount = 0;
-    private static final int MAX_JUMP_COUNT = 2;
 
     public PhysicsVector(double x, double y) {
         this.x = x;
