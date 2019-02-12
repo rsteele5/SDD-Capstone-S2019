@@ -15,9 +15,9 @@ public class GameEngine implements Runnable {
     private final int FRAMES_PER_SECOND = 60;
     private int frameCounter = 0;
 
+    private ScreenManager screenManager;
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
-    private ScreenManager screenManager;
     private HouseGenerator houseGenerator;
     private CharacterGenerator characterGenerator;
 
@@ -54,8 +54,6 @@ public class GameEngine implements Runnable {
             renderEngine.draw();
 
             long endTime = System.currentTimeMillis();
-
-
             int sleepTime = (int) (1.0 / FRAMES_PER_SECOND * 1000)
                     - (int) (endTime - startTime);
 

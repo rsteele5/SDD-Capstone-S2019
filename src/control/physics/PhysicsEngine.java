@@ -8,6 +8,7 @@ import java.util.Set;
 public class PhysicsEngine {
     CollisionManager collisionManager;
     ScreenManager screenManager;
+    levelData levelData = null;
 
     private PhysicsVector position = new PhysicsVector(0,400);        //Position of object
     private PhysicsVector velocity = new PhysicsVector(0, 0);         //Velocity of object
@@ -27,7 +28,7 @@ public class PhysicsEngine {
         //TODO: Process collisions and adjust objects
     }
 
-    //TODO: Moved from MyCanvas
+    //TODO: getRid from MyCanvas
     private void calculateMove(){
         //This is where the movement is being calculated
         acceleration.applyForce(GRAVITY);
