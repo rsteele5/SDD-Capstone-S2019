@@ -6,6 +6,7 @@ import view.screens.GameScreen;
 import view.screens.LoadingScreen;
 import view.screens.TeamSplashScreen;
 
+import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ScreenManager {
@@ -27,6 +28,14 @@ public class ScreenManager {
         loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
         addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
+    }
+
+    public void drawScreens(Graphics2D graphics){
+        for (GameScreen screen : gameScreens) {
+            if (!screen.isLoading()) {
+                screen.draw(graphics);
+            }
+        }
     }
 
     public void update() {

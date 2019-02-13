@@ -76,8 +76,17 @@ public class TitleScreen extends view.screens.GameScreen {
     }
     //endregion
 
+    //region <Getters and Setters>
+    @Override
+    public boolean isActive(){
+        return true;
+    }
+    //endregion
+
     //region <Support Functions>
     @Override
-    public void handleClickEvent(int x, int y) {}
+    public void handleClickEvent(int x, int y) {
+        screenManager.addScreen(new MainMenuScreen(screenManager));
+    }
     //endregion
 }

@@ -73,7 +73,8 @@ public class TeamSplashScreen extends view.screens.GameScreen {
 
     @Override
     public void hiddenUpdate() {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG,"State is hidden");
+        if(!screenManager.coveredByLoading(this))
+            exiting = true;
     }
 
     @Override
@@ -93,8 +94,19 @@ public class TeamSplashScreen extends view.screens.GameScreen {
     }
     //endregion
 
+    //region <Getters and Setters>
+    @Override
+    public boolean isActive(){
+        return true;
+    }
+    //endregion
+
     //region <Support Functions>
     @Override
-    public void handleClickEvent(int x, int y) {}
+    public void handleClickEvent(int x, int y) {
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, "Clicked the splash screen");
+        exiting = true;
+        screenManager.addScreen(new TitleScreen(screenManager));
+    }
     //endregion
 }

@@ -64,11 +64,7 @@ public class RenderEngine extends JPanel {
     }
 
     private void createRenderBuffer(Graphics2D graphics) {
-        for (view.screens.GameScreen screen : screenManager.getScreens()) {
-            if (!screen.isLoading()) {
-                screen.draw(graphics);
-            }
-        }
+        screenManager.drawScreens(graphics);
     }
 
     private void renderBufferToScreen() {

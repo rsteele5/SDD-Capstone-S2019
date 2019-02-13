@@ -6,3 +6,5 @@ out/
 \.idea/misc\.xml
 
 logs/*\.txt
+
+log\.txt

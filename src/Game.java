@@ -21,7 +21,6 @@ public class Game {
         if(!DebugEnabler.LOGGING_ACTIVE){
             Debug.endLog();
         }
-
         //Initialize and display the renderable portion
         JFrame gameWindow = new GameWindow();
         gameWindow.setTitle("Nightbears");
@@ -38,6 +37,5 @@ public class Game {
         gameWindow.setUndecorated(true);
         gameWindow.setVisible(true);
         new Thread(gameEngine).start();
-
     }
 }
