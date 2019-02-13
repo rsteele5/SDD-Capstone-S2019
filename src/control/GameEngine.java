@@ -45,7 +45,6 @@ public class GameEngine implements Runnable {
         //TODO: stuff
         while(true){
             frameCounter++;
-            Debug.log(DebugEnabler.GAME_ENGINE, "Frame: " + frameCounter);
             long startTime = System.currentTimeMillis();
 
             //Update
@@ -64,12 +63,10 @@ public class GameEngine implements Runnable {
 
                 }
             } else {
-                Debug.warning(DebugEnabler.GAME_ENGINE,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
+                Debug.warning(DebugEnabler.FPS,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
             }
-            //Refresh Debugger
-            if(DebugEnabler.LOGGING_ACTIVE){
-                Debug.checkForRefresh(System.currentTimeMillis());
-            }
+
+            Debug.flush();
         }
     }
 }
