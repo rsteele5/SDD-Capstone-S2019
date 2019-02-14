@@ -1,0 +1,10 @@
+
+\.idea/workspace\.xml
+
+out/
+
+\.idea/misc\.xml
+
+logs/*\.txt
+
+log\.txt
