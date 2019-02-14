@@ -1,7 +1,6 @@
 package view.screens;
 
 import control.ScreenManager;
-import model.gameobjects.GameObject;
 import model.gameobjects.ImageContainer;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -13,8 +12,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class VendorScreen extends GameScreen {
     /** Remove after testing. Create arrays for bear's and vendor's items (identified by image name) **/
-    public CopyOnWriteArrayList<String> berInventory;
-    public CopyOnWriteArrayList<String> vendorInventory;
+    private CopyOnWriteArrayList<String> bearInventory;
+    private CopyOnWriteArrayList<String> vendorInventory;
+    private String itemsPath = "/assets/Items/";
 
     /** Array of x values for bear item boxes **/
     private int [] xValBearItems = {191, 239, 287, 335};
@@ -29,7 +29,17 @@ public class VendorScreen extends GameScreen {
         super(screenManager);
         name = "VendorScreen";
 
-        /** Remove after testing. Populates inventories with red potion **/
+        /* Remove after testing. Populates inventories with red potion **/
+        bearInventory = new CopyOnWriteArrayList<>();
+        vendorInventory = new CopyOnWriteArrayList<>();
+        for (int i = 0; i < 12; i++){
+            String path = "/assets/Items/redPotionSmall.png";
+            bearInventory.add(path);
+        }
+        for (int i = 0; i < 21; i++){
+            String path = "/assets/Items/redPotionSmall.png";
+            vendorInventory.add(path);
+        }
 
     }
 
@@ -46,8 +56,36 @@ public class VendorScreen extends GameScreen {
 
             BufferedImage background = ImageIO.read(getClass().getResource("/assets/VendorBackground.png"));
             renderableLayers.get(0).add(new ImageContainer(150, 75, background, 0));
-            BufferedImage redPotion = ImageIO.read(getClass().getResource("/assets/Items/redPotionSmall.png"));
-            renderableLayers.get(1).add(new ImageContainer(927, 549, redPotion, 0));
+
+            /* Render item images into bear's inventory **/
+            int itemCount = bearInventory.size();
+            int k = 0;
+            for (int yValItem1 : yValItems) {
+                for (int xValBearItem : xValBearItems) {
+                    if (k < itemCount) {
+                        BufferedImage item = ImageIO.read(getClass().getResource(bearInventory.get(k)));
+                        renderableLayers.get(1).add(new ImageContainer(xValBearItem, yValItem1, item, 1));
+                        k++;
+                    }
+                }
+            }
+
+            /* Render item images into vendor's inventory **/
+            itemCount = vendorInventory.size();
+            k = 0;
+            for (int yValItem : yValItems) {
+                for (int xValVendorItem : xValVendorItems) {
+                    if (k < itemCount) {
+                        BufferedImage item = ImageIO.read(getClass().getResource(vendorInventory.get(k)));
+                        renderableLayers.get(1).add(new ImageContainer(xValVendorItem, yValItem, item, 1));
+                        k++;
+                    }
+                }
+            }
+
+            /* Render vendor **/
+            BufferedImage vendorImage = ImageIO.read(getClass().getResource("/assets/Vendor.png"));
+            renderableLayers.get(0).add(new ImageContainer(750, 450, vendorImage, 0));
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + "Loaded Success");
         }catch(IOException e) {
