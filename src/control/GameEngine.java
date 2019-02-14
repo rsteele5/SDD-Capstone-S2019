@@ -15,6 +15,7 @@ public class GameEngine implements Runnable {
     private final int FRAMES_PER_SECOND = 60;
     private int frameCounter = 0;
 
+    private ScreenManager screenManager;
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
     private HouseGenerator houseGenerator;
@@ -24,11 +25,12 @@ public class GameEngine implements Runnable {
 
     public GameEngine(){
         houseGenerator = new HouseGenerator();
-        physicsEngine = new PhysicsEngine();
         characterGenerator = new CharacterGenerator();
+        screenManager = new ScreenManager();
 
         inputManager = new InputManager();
-        renderEngine = new RenderEngine();
+        renderEngine = new RenderEngine(screenManager);
+        physicsEngine = new PhysicsEngine(screenManager);
         renderEngine.addMouseListener(new MouseController());
 
     }
@@ -43,14 +45,14 @@ public class GameEngine implements Runnable {
         //TODO: stuff
         while(true){
             frameCounter++;
-            Debug.log(DebugEnabler.GAME_ENGINE, "Frame: " + frameCounter);
             long startTime = System.currentTimeMillis();
 
+            //Update
+            physicsEngine.update();
+            //Render
             renderEngine.draw();
 
             long endTime = System.currentTimeMillis();
-
-
             int sleepTime = (int) (1.0 / FRAMES_PER_SECOND * 1000)
                     - (int) (endTime - startTime);
 
@@ -61,12 +63,10 @@ public class GameEngine implements Runnable {
 
                 }
             } else {
-                Debug.warning(DebugEnabler.GAME_ENGINE,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
+                Debug.warning(DebugEnabler.FPS,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
             }
-            //Refresh Debugger
-            if(DebugEnabler.LOGGING_ACTIVE){
-                Debug.checkForRefresh(System.currentTimeMillis());
-            }
+
+            Debug.flush();
         }
     }
 }

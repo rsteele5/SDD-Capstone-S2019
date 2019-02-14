@@ -1,24 +1,24 @@
 package model.gameobjects.buttons;
 
 import control.ScreenManager;
-import model.gameobjects.Renderable;
+import model.gameobjects.RenderableObject;
 
 import java.awt.image.BufferedImage;
+import java.util.function.Consumer;
 
-public abstract class Button extends Renderable {
+public class Button extends RenderableObject {
 
     public Button(int x, int y) {
         super(x, y);
     }
 
-    public Button(int x, int y, BufferedImage image, int drawLayer) {
+    public Button(int x, int y, BufferedImage image, int drawLayer, Consumer<ScreenManager> handleOnClick) {
         super(x, y, image, drawLayer);
+        onClick = handleOnClick;
     }
 
     @Override
-    public void update() {
+    public void update() { }
 
-    }
-
-    public abstract void onClick(ScreenManager screen);
+    public Consumer<ScreenManager> onClick;
 }

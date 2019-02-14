@@ -1,11 +1,8 @@
 package model.gameobjects;
 
-import model.gameobjects.GameObject;
-import model.gameobjects.Renderable;
-
 import java.awt.image.BufferedImage;
 
-public class ImageContainer extends Renderable {
+public class ImageContainer extends RenderableObject {
 
     public ImageContainer() {
         super();

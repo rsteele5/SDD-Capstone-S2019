@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class Renderable extends GameObject{
+public abstract class RenderableObject extends GameObject{
 
     //region <Variables>
     protected BufferedImage currentImage = null;
@@ -23,7 +23,7 @@ public abstract class Renderable extends GameObject{
     //endregion
 
     //region <Construction and Initialization>
-    public Renderable() {
+    public RenderableObject() {
         super();
         currentImage = null;
         width = 0;
@@ -31,7 +31,7 @@ public abstract class Renderable extends GameObject{
         drawLayer = 0;
     }
 
-    public Renderable(int x, int y) {
+    public RenderableObject(int x, int y) {
         super(x,y);
         currentImage = null;
         width = 0;
@@ -39,7 +39,7 @@ public abstract class Renderable extends GameObject{
         drawLayer = 0;
     }
 
-    public Renderable(int x, int y, BufferedImage image, int drawLayer) {
+    public RenderableObject(int x, int y, BufferedImage image, int drawLayer) {
         super(x,y);
         currentImage = image;
         width = currentImage.getWidth();

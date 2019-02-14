@@ -1,11 +1,13 @@
+package _test.physicsenginetest;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JFrame;
-public class Main {
-    public static void main(String[] args){
-        MyCanvas c = new MyCanvas();
+public class GetRidOfMe {
+    public GetRidOfMe(){
+        //MyCanvas c = new MyCanvas();
         JFrame window = new JFrame();
 
         window.addKeyListener(new KeyListener() {
@@ -18,7 +20,7 @@ public class Main {
             @Override
             public void keyPressed(KeyEvent e) {
                 pressed.add(e.getKeyChar());
-                c.movement(pressed);
+               // c.movement(pressed);
             }
 
             @Override
@@ -29,7 +31,7 @@ public class Main {
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setBounds(0, 0, 600, 600);
-        window.getContentPane().add(c);
+        //window.getContentPane().add(c);
         window.setVisible(true);
     }
 }

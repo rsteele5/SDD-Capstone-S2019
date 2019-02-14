@@ -1,5 +1,6 @@
 package view.screens;
 
+import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import utilities.Debug;
@@ -41,16 +42,16 @@ public class LoadingScreen extends view.screens.GameScreen {
         try {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Content");
             //Background
-            BufferedImage background = ImageIO.read(getClass().getResource("/assets/LoadingScreen.png"));
+            BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-Loading.png")));
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
 
             //Foreground
-            BufferedImage loadingBarBackgroundImage = ImageIO.read(getClass().getResource("/assets/LoadingBarBackground.png"));
+            BufferedImage loadingBarBackgroundImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/LoadingBarBackground.png")));
             ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X, START_POINT_Y, loadingBarBackgroundImage, 1);
             loadingBarBackground.setSize(MAX_WIDTH-3, MAX_HEIGHT);
             renderableLayers.get(1).add(loadingBarBackground);
 
-            BufferedImage loadingBarImage = ImageIO.read(getClass().getResource("/assets/LoadingBar.png"));
+            BufferedImage loadingBarImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/LoadingBar.png")));
             loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, loadingBarImage, 1);
             renderableLayers.get(1).add(loadingBar);
 
