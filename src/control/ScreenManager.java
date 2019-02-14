@@ -5,6 +5,7 @@ import utilities.DebugEnabler;
 import view.screens.GameScreen;
 import view.screens.LoadingScreen;
 import view.screens.TeamSplashScreen;
+import view.screens.VendorScreen;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
