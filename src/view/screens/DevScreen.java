@@ -54,6 +54,8 @@ public class DevScreen extends GameScreen {
                     .getResource("/assets/buttons/Button-Inventory.png")));
             BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-MainMenu.png")));
+            BufferedImage vendorButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Vendor.png")));
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, loadingButtonIMG, 1,
                     (screenManager) ->{
@@ -77,6 +79,12 @@ public class DevScreen extends GameScreen {
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                         this.setScreenState(ScreenState.TransitionOff);
+                    }));
+
+            buttons.add(new Button(X_INIT_BUTTON+(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON - 300, vendorButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
+                        screenManager.addScreen(new VendorScreen(screenManager));
                     }));
 
             //Create Background on layer 0

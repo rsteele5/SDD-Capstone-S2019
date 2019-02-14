@@ -1,5 +1,6 @@
 package view.screens;
 
+import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.buttons.Button;
@@ -63,9 +64,12 @@ public class VendorScreen extends GameScreen {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + "Loading content");
 
             /* Get images **/
-            BufferedImage background = ImageIO.read(getClass().getResource("/assets/VendorBackground.png"));
-            BufferedImage vendorImage = ImageIO.read(getClass().getResource("/assets/Vendor.png"));
-            BufferedImage exitButton = ImageIO.read(getClass().getResource("/assets/ExitButton.png"));
+            BufferedImage background = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/VendorBackground.png")));
+            BufferedImage vendorImage = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/Vendor.png")));
+            BufferedImage exitButton = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/ExitButton.png")));
 
             /* Create buttons **/
 
