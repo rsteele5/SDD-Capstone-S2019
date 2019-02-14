@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class DevScreen extends GameScreen {
+public class OptionScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
 
@@ -24,9 +24,9 @@ public class DevScreen extends GameScreen {
     //endregion
 
     //region <Construction and Initialization>
-    public DevScreen(ScreenManager screenManager) {
+    public OptionScreen(ScreenManager screenManager) {
         super(screenManager);
-        name = "DevScreen";
+        name = "OptionScreen";
         exclusivePopup = true;
     }
 
@@ -43,33 +43,31 @@ public class DevScreen extends GameScreen {
 
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-DevMenu.png")));
-            BufferedImage bgCover = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-BlackCover.png")));
-            BufferedImage loadingButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Loading.png")));
-            BufferedImage physicsButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Physics.png")));
-            BufferedImage inventoryButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Inventory.png")));
+                    .getResource("/assets/backgrounds/BG-OptionMenu.png")));
+            BufferedImage graphicButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Graphics.png")));
+            BufferedImage controlButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Controls.png")));
+            BufferedImage soundButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Sound.png")));
             BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-MainMenu.png")));
             //Create buttons
-            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, loadingButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, graphicButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
                         //TODO: Add Loading Screen
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, physicsButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, soundButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
                         //TODO: Add Physics Test Screen
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, inventoryButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, controlButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
                         //TODO: Add Inventory Screen
                     }));
 
@@ -115,11 +113,6 @@ public class DevScreen extends GameScreen {
                     renderable.setAlpha(1.0f);
             currentState = ScreenState.Active;
         }
-//        float alpha = renderableLayers.get(0).get(1).getAlpha();
-//        if(alpha > 0.055f){
-//            renderableLayers.get(0).get(1).setAlpha(alpha - 0.05f);
-//        }else
-//            currentState = ScreenState.Active;
     }
 
     @Override
@@ -128,7 +121,7 @@ public class DevScreen extends GameScreen {
         if(alpha > 0.055f){
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
                 for(RenderableObject renderable : layer)
-                        renderable.setAlpha(alpha - 0.05f);
+                    renderable.setAlpha(alpha - 0.05f);
         } else {
             exiting = true;
         }
@@ -144,7 +137,6 @@ public class DevScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
-
     }
 
     @Override

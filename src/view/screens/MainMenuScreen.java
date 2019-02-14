@@ -21,7 +21,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
-    private final int X_BUFFER = 64;
+    private final int X_BUFFER = 48;
     //endregion
 
     //region <Construction and Initialization>
@@ -58,7 +58,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
 
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, optionsButtonIMG, 1, (screenManager) ->{
                 Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
-                //TODO: Add Options Screen
+                screenManager.addScreen(new OptionScreen(screenManager));
             }));
 
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, devModeButtonIMG, 1, (screenManager) ->{
