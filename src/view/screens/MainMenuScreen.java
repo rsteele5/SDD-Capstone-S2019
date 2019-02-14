@@ -1,6 +1,7 @@
 package view.screens;
 
 import _test.splashscreentest.TestButton;
+import _test.vendorTest.VendorTestButton;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
@@ -40,9 +41,13 @@ public class MainMenuScreen extends view.screens.GameScreen {
             BufferedImage background = ImageIO.read(getClass().getResource("/assets/MainMenu.png"));
             BufferedImage button = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
             BufferedImage button2 = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
+            BufferedImage button3 = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
+
             //Create buttons
             buttons.add(new TestButton(360,590, button, 1));
             buttons.add(new TestButton(30,590, button2, 1));
+            buttons.add(new VendorTestButton(690, 590, button3, 1));
+
             //Create all other Renderables
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
             //Consolidate Renderables
