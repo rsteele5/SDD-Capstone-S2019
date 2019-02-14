@@ -3,6 +3,7 @@ package view.screens;
 import control.ScreenManager;
 import model.gameobjects.GameObject;
 import model.gameobjects.RenderableObject;
+import model.levels.Level;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -18,8 +19,8 @@ public abstract class GameScreen {
     protected ScreenState previousState = null;
     protected ScreenManager screenManager;
     protected boolean loadingScreenRequired = false;
-    private volatile boolean loading;
-    //TODO: Maybe consider making one of these a default behavior then set the variable when we want the other behavior
+    protected volatile boolean loading;
+
     /**
      *  The variable popup describes if a screen is covering a portion of another screen.
      *  A popup screen allows updates on screens below it in the list.
@@ -39,6 +40,7 @@ public abstract class GameScreen {
     protected boolean overlay = false;
 
     protected CopyOnWriteArrayList<GameObject> gameObjects = new CopyOnWriteArrayList<>();
+
     /**
      * RederableLayers hold a list of layers that can be rendered.
      * Each index value represents a layer to be rendered to the screen. Layers with
@@ -118,6 +120,8 @@ public abstract class GameScreen {
     //endregion
 
     //region<Construction and Initialization>
+    public GameScreen(){ }
+
     public GameScreen(ScreenManager screenManager) {
         this.screenManager = screenManager;
         initializeLayers();

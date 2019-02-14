@@ -1,5 +1,6 @@
 package view.screens;
 
+import _test.splashscreentest.TestGameplayScreen;
 import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
@@ -53,7 +54,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, newGameButtonIMG, 1, (screenManager) ->{
                 Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
-                //TODO: Add New Game Screen
+                screenManager.addScreen(new TestGameplayScreen(screenManager));
             }));
 
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, optionsButtonIMG, 1, (screenManager) ->{
