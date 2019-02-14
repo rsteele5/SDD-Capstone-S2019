@@ -1,6 +1,6 @@
 package view.screens;
 
-import _test.splashscreentest.TestButton;
+import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
@@ -13,10 +13,15 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+
 public class MainMenuScreen extends view.screens.GameScreen {
 
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
+
+    private final int X_INIT_BUTTON = 64;
+    private final int Y_INIT_BUTTON = 576;
+    private final int X_BUFFER = 64;
     //endregion
 
     //region <Construction and Initialization>
@@ -37,17 +42,37 @@ public class MainMenuScreen extends view.screens.GameScreen {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
 
             //RenderableObject object paths
-            BufferedImage background = ImageIO.read(getClass().getResource("/assets/MainMenu.png"));
-            BufferedImage button = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
-            BufferedImage button2 = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
+            BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/backgrounds/BG-MainMenu.png")));
+            BufferedImage newGameButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-NewGame.png")));
+            BufferedImage optionsButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Options.png")));
+            BufferedImage devModeButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Dev.png")));
             //Create buttons
-            buttons.add(new TestButton(360,590, button, 1));
-            buttons.add(new TestButton(30,590, button2, 1));
-            //Create all other Renderables
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, newGameButtonIMG, 1, (screenManager) ->{
+                Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
+                //TODO: Add New Game Screen
+            }));
+
+            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, optionsButtonIMG, 1, (screenManager) ->{
+                Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
+                //TODO: Add Options Screen
+            }));
+
+            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, devModeButtonIMG, 1, (screenManager) ->{
+                Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - DevMode");
+                screenManager.addScreen(new DevScreen(screenManager));
+            }));
+
+            //Create Background on layer 0
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
+
             //Consolidate Renderables
             for(Button butt: buttons)
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
+
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
                 gameObjects.addAll(layer);
@@ -89,7 +114,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
     public void handleClickEvent(int x, int y) {
         for(Button butt: buttons) {
             if(butt.getBoundingBox().contains(x,y)) {
-                butt.onClick(screenManager);
+                butt.onClick.accept(screenManager);
                 return;
             }
         }

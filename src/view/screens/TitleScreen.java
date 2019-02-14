@@ -1,5 +1,6 @@
 package view.screens;
 
+import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import utilities.Debug;
@@ -32,13 +33,16 @@ public class TitleScreen extends view.screens.GameScreen {
         try {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Loading Content");
 
-            BufferedImage background = ImageIO.read(getClass().getResource("/assets/TitleScreenBackground.png"));
+            BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/backgrounds/BG-BlackCover.png")));
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
 
-            BufferedImage cover = ImageIO.read(getClass().getResource("/assets/TitleScreenCover.png"));
+            BufferedImage cover = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/backgrounds/BG-TitleScreenCover.png")));
             renderableLayers.get(0).add(new ImageContainer(0,-720, cover, 3));
 
-            BufferedImage title = ImageIO.read(getClass().getResource("/assets/Title.png"));
+            BufferedImage title = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/backgrounds/BG-Title.png")));
             renderableLayers.get(0).add(new ImageContainer(350,75, title, 2));
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Loaded Success");

@@ -1,6 +1,6 @@
 package model.gameobjects;
 
-import model.levels.Kinematic;
+import control.physics.Kinematic;
 
 public class Player extends DynamicObject implements Kinematic {
 

@@ -1,5 +1,6 @@
 package model.levels;
 
+import control.physics.Kinematic;
 import model.gameobjects.*;
 
 import java.util.concurrent.CopyOnWriteArrayList;

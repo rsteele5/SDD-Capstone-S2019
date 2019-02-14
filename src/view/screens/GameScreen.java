@@ -66,6 +66,9 @@ public abstract class GameScreen {
      */
     protected ScreenState currentState = ScreenState.TransitionOn;
     protected boolean exiting = false;
+
+    public static final int WIDTH_BUTTON = 256;
+    public static final int HEIGHT_BUTTON = 96;
     //endregion
 
     //region <Getters and Setters>

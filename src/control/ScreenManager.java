@@ -31,22 +31,27 @@ public class ScreenManager {
     }
 
     public void drawScreens(Graphics2D graphics){
-        for (GameScreen screen : gameScreens) {
-            if (!screen.isLoading()) {
-                screen.draw(graphics);
+        for (int i = gameScreens.size()-1; i >= 0; i--) {
+            if (!gameScreens.get(i).isLoading()) {
+                gameScreens.get(i).draw(graphics);
             }
         }
     }
 
     public void update() {
+        boolean exclusiveAbove = false;
+
         for(GameScreen screen: gameScreens) {
-            if(screen.isLoading()) { }
-            else if(screen.isExiting()) {
-                removeScreen(screen);
-                screen.reset();
+            if (!screen.isLoading()) {
+                if (screen.isExiting()) {
+                    removeScreen(screen);
+                } else if (!exclusiveAbove) {
+                    screen.update();
+                    exclusiveAbove = screen.isExclusivePopup();
+                }
+            }else if (!exclusiveAbove){
+                exclusiveAbove = screen.isExclusivePopup();
             }
-            else
-                screen.update();
         }
     }
 
@@ -64,15 +69,23 @@ public class ScreenManager {
     }
 
     public void removeScreen(GameScreen screen) {
+        if(gameScreens.indexOf(screen) == 0){
+            for(int i = 1; i < gameScreens.size(); i++) {
+                gameScreens.get(i).setScreenState(GameScreen.ScreenState.Active);
+                if(!gameScreens.get(i).isOverlay())
+                    break;
+            }
+        }
         gameScreens.remove(screen);
+        screen.reset();
     }
 
     public void initializeLoadingScreen(int amountOfData){
         loadingScreen.initializeLoadingScreen(amountOfData);
     }
 
-    public void updateLoadingScreen(int dataloaded){
-        loadingScreen.dataLoaded(dataloaded);
+    public void updateLoadingScreen(int dataLoaded){
+        loadingScreen.dataLoaded(dataLoaded);
     }
 
     public boolean coveredByOverlay(GameScreen screen){
@@ -97,10 +110,12 @@ public class ScreenManager {
 
     public void clickEventAtLocation(int x, int y) {
         //Check active screen
-        for(GameScreen gameScreen: gameScreens) {
-            if(gameScreen.isActive()) {
+        for(GameScreen screen: gameScreens) {
+            if(screen.isActive()) {
                 Debug.log(DebugEnabler.GAME_SCREEN_LOG, "Handle Click at x: " + x + ", y: " + y);
-                gameScreen.handleClickEvent(x,y);
+                screen.handleClickEvent(x,y);
+            }
+            else if(screen.isHidden()){
                 return;
             }
         }
