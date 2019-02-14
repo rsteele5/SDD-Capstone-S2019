@@ -28,8 +28,7 @@ public class ScreenManager {
         //
         loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
-        //addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
-        addScreen(new VendorScreen(this));
+        addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
     }
 
     public void drawScreens(Graphics2D graphics){

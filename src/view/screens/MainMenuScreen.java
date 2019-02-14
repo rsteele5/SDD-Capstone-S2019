@@ -41,7 +41,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
             BufferedImage background = ImageIO.read(getClass().getResource("/assets/MainMenu.png"));
             BufferedImage button = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
             BufferedImage button2 = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
-            BufferedImage button3 = ImageIO.read(getClass().getResource("/assets/testAssets/TestButton.png"));
+            BufferedImage button3 = ImageIO.read(getClass().getResource("/assets/testAssets/VendorButton.png"));
 
             //Create buttons
             buttons.add(new TestButton(360,590, button, 1));
