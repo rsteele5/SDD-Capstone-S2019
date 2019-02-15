@@ -21,6 +21,7 @@ public class ControlsScreen extends GameScreen {
     protected CopyOnWriteArrayList<Label> labels = new CopyOnWriteArrayList<>();
 
     private final int X_INIT_BUTTON = 64;
+    private final int X_INIT_LABEL = 96;
     private final int Y_INIT_BUTTON = 576;
     private final int X_BUFFER = 48;
     //endregion
@@ -54,6 +55,13 @@ public class ControlsScreen extends GameScreen {
                     .getResource("/assets/buttons/Button-Confirm.png")));
             BufferedImage backButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Back.png")));
+            BufferedImage keyboardLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Keyboard.png")));
+            BufferedImage gamepadLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Gamepad.png")));
+            //Create labels
+            labels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, keyboardLabelIMG, 1, true));
+            labels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, gamepadLabelIMG, 1, false));
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
                     (screenManager) ->{
@@ -87,7 +95,8 @@ public class ControlsScreen extends GameScreen {
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
 
             for (Label lab: labels)
-                renderableLayers.get(lab.getDrawLayer()).add(lab);
+                if(lab.isActive)
+                    renderableLayers.get(lab.getDrawLayer()).add(lab);
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
