@@ -81,7 +81,7 @@ public class DevScreen extends GameScreen {
                         this.setScreenState(ScreenState.TransitionOff);
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON - 300, vendorButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160, vendorButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
                         screenManager.addScreen(new VendorScreen(screenManager));
