@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class OptionScreen extends GameScreen {
+public class ControlsScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
 
@@ -24,7 +24,7 @@ public class OptionScreen extends GameScreen {
     //endregion
 
     //region <Construction and Initialization>
-    public OptionScreen(ScreenManager screenManager) {
+    public ControlsScreen(ScreenManager screenManager) {
         super(screenManager);
         name = "OptionScreen";
         exclusivePopup = true;
@@ -43,7 +43,7 @@ public class OptionScreen extends GameScreen {
 
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-OptionMenu.png")));
+                    .getResource("/assets/backgrounds/BG-ControlsMenu.png")));
             BufferedImage graphicButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Graphics.png")));
             BufferedImage controlButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
@@ -51,25 +51,25 @@ public class OptionScreen extends GameScreen {
             BufferedImage soundButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Sound.png")));
             BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-MainMenu.png")));
+                    .getResource("/assets/buttons/Button-Back.png")));
             //Create buttons
-            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, graphicButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
-                        //TODO: Add Loading Screen
-                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, soundButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
-                        //TODO: Add Physics Test Screen
-                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, controlButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
-                        screenManager.addScreen(new ControlsScreen(screenManager));
-                    }));
+//            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, graphicButtonIMG, 1,
+//                    (screenManager) ->{
+//                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
+//                        //TODO: Add Loading Screen
+//                    }));
+//
+//            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, soundButtonIMG, 1,
+//                    (screenManager) ->{
+//                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
+//                        //TODO: Add Physics Test Screen
+//                    }));
+//
+//            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, controlButtonIMG, 1,
+//                    (screenManager) ->{
+//                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
+//                        //TODO: Add Inventory Screen
+//                    }));
 
             buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, mainMenuButtonIMG, 1,
                     (screenManager) ->{
