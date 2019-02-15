@@ -5,6 +5,7 @@ import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
+import model.gameobjects.labels.Label;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -17,6 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ControlsScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
+    protected CopyOnWriteArrayList<Label> labels = new CopyOnWriteArrayList<>();
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
@@ -44,36 +46,35 @@ public class ControlsScreen extends GameScreen {
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/backgrounds/BG-ControlsMenu.png")));
-            BufferedImage graphicButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Graphics.png")));
-            BufferedImage controlButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Controls.png")));
-            BufferedImage soundButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Sound.png")));
-            BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+            BufferedImage leftArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-LeftArrow.png")));
+            BufferedImage rightArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-RightArrow.png")));
+            BufferedImage confirmButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Confirm.png")));
+            BufferedImage backButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Back.png")));
             //Create buttons
-//            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, graphicButtonIMG, 1,
-//                    (screenManager) ->{
-//                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
-//                        //TODO: Add Loading Screen
-//                    }));
-//
-//            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, soundButtonIMG, 1,
-//                    (screenManager) ->{
-//                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
-//                        //TODO: Add Physics Test Screen
-//                    }));
-//
-//            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, controlButtonIMG, 1,
-//                    (screenManager) ->{
-//                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
-//                        //TODO: Add Inventory Screen
-//                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, mainMenuButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
+                    }));
+
+            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, rightArrowButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
+                    }));
+
+            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, confirmButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
+                        //TODO: Save input settings
+                        this.setScreenState(ScreenState.TransitionOff);
+                    }));
+
+            buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, backButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                         this.setScreenState(ScreenState.TransitionOff);
                     }));
 
@@ -84,6 +85,9 @@ public class ControlsScreen extends GameScreen {
             //Consolidate Renderables
             for(Button butt: buttons)
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
+
+            for (Label lab: labels)
+                renderableLayers.get(lab.getDrawLayer()).add(lab);
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
