@@ -64,19 +64,34 @@ public class VendorScreen extends GameScreen {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + "Loading content");
 
             /* Get images **/
-            BufferedImage background = RenderEngine.convertToARGB(
+            BufferedImage backgroundIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/VendorBackground.png")));
-            BufferedImage vendorImage = RenderEngine.convertToARGB(
+            BufferedImage vendorImageIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/Vendor.png")));
-            //BufferedImage exitButton = RenderEngine.convertToARGB(
-            //        ImageIO.read(getClass().getResource("/assets/ExitButton.png")));
+            BufferedImage exitButtonIMG = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Exit.png")));
+            BufferedImage buyButtonIMG = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Buy.png")));
+            BufferedImage sellButtonIMG = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Sell.png")));
+
 
             /* Create buttons **/
-
-
-            /* Create all other renderables **/
-            renderableLayers.get(0).add(new ImageContainer(150, 75, background, 0));
-            renderableLayers.get(0).add(new ImageContainer(750, 450, vendorImage, 0));
+            buttons.add(new Button(175, 100, exitButtonIMG, 1,
+                    (screenManager1 -> {
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Exit Vendor");
+                        this.setScreenState(ScreenState.TransitionOff);
+                    })));
+            buttons.add(new Button(590, 225, buyButtonIMG, 1,
+                    (screenManager1 -> {
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Buy from Vendor");
+                        this.setScreenState(ScreenState.TransitionOff);
+                    })));
+            buttons.add(new Button(590, 300, sellButtonIMG, 1,
+                    (screenManager1 -> {
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sell to Vendor");
+                        this.setScreenState(ScreenState.TransitionOff);
+                    })));
 
 
             /* Render item images into bear's inventory **/
@@ -85,25 +100,43 @@ public class VendorScreen extends GameScreen {
             for (int yValItem1 : yValItems) {
                 for (int xValBearItem : xValBearItems) {
                     if (k < itemCount) {
-                        BufferedImage item = ImageIO.read(getClass().getResource(bearInventory.get(k)));
-                        renderableLayers.get(1).add(new ImageContainer(xValBearItem, yValItem1, item, 1));
+                        BufferedImage item = RenderEngine.convertToARGB(
+                                ImageIO.read(getClass().getResource(bearInventory.get(k))));
+                        buttons.add(new Button(xValBearItem, yValItem1, item, 1,
+                                (screenManager -> {
+                                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Bear Item");
+                                    // TODO: get item description & value to display on small overlay screen
+                                })));
                         k++;
                     }
                 }
             }
-
             /* Render item images into vendor's inventory **/
             itemCount = vendorInventory.size();
             k = 0;
             for (int yValItem : yValItems) {
                 for (int xValVendorItem : xValVendorItems) {
                     if (k < itemCount) {
-                        BufferedImage item = ImageIO.read(getClass().getResource(vendorInventory.get(k)));
+                        BufferedImage item = RenderEngine.convertToARGB(
+                                ImageIO.read(getClass().getResource(vendorInventory.get(k))));
+                        buttons.add(new Button(xValVendorItem, yValItem, item, 1,
+                                (screenManager -> {
+                                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor Item");
+                                    // TODO: get item description & cost to display on small overlay screen
+                                })));
                         renderableLayers.get(1).add(new ImageContainer(xValVendorItem, yValItem, item, 1));
                         k++;
                     }
                 }
             }
+
+            /* Create all renderables **/
+            renderableLayers.get(0).add(new ImageContainer(150, 75, backgroundIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(750, 450, vendorImageIMG, 0));
+
+            for (Button button: buttons)
+                renderableLayers.get(button.getDrawLayer()).add(button);
+
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + "Loaded Success");
         }catch(IOException e) {
@@ -133,6 +166,11 @@ public class VendorScreen extends GameScreen {
 
     @Override
     public void handleClickEvent(int x, int y) {
-
+        for(Button butt: buttons) {
+            if(butt.getBoundingBox().contains(x,y)) {
+                butt.onClick.accept(screenManager);
+                return;
+            }
+        }
     }
 }
