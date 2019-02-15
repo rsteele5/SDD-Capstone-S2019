@@ -85,12 +85,12 @@ public class VendorScreen extends GameScreen {
             buttons.add(new Button(590, 225, buyButtonIMG, 1,
                     (screenManager1 -> {
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Buy from Vendor");
-                        this.setScreenState(ScreenState.TransitionOff);
+                        // TODO: Add buy function
                     })));
             buttons.add(new Button(590, 300, sellButtonIMG, 1,
                     (screenManager1 -> {
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sell to Vendor");
-                        this.setScreenState(ScreenState.TransitionOff);
+                        // TODO: Add sell function
                     })));
 
 
