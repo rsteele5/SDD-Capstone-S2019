@@ -68,8 +68,8 @@ public class VendorScreen extends GameScreen {
                     ImageIO.read(getClass().getResource("/assets/VendorBackground.png")));
             BufferedImage vendorImage = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/Vendor.png")));
-            BufferedImage exitButton = RenderEngine.convertToARGB(
-                    ImageIO.read(getClass().getResource("/assets/ExitButton.png")));
+            //BufferedImage exitButton = RenderEngine.convertToARGB(
+            //        ImageIO.read(getClass().getResource("/assets/ExitButton.png")));
 
             /* Create buttons **/
 
