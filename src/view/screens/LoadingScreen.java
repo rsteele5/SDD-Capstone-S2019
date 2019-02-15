@@ -104,7 +104,9 @@ public class LoadingScreen extends view.screens.GameScreen {
         totalDataToLoad = 0;
         progressRate = 0;
         loadedData = 0.0;
-        loadingBar.setSize(loadingBar.getCurrentImage().getWidth(), loadingBar.getCurrentImage().getHeight());
+        loadingBar.setSize(
+                loadingBar.getCurrentImage().getWidth(),
+                loadingBar.getCurrentImage().getHeight());
     }
 
     public void initializeLoadingScreen(int amount){

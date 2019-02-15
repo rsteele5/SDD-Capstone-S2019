@@ -6,6 +6,7 @@ public class DebugEnabler {
 
     public static final boolean TEST_LOG =              true;
     public static final boolean RENDER_ENGINE =         true;
+    public static final boolean ASSET_MANAGER =            true;
     public static final boolean GAME_SCREEN_LOG =       true;
     public static final boolean RENDERABLE_LOG =        true;
     public static final boolean BUTTON_LOG =            true;
