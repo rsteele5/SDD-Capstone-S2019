@@ -1,17 +1,16 @@
 package _test.splashscreentest;
 
 import control.ScreenManager;
-import model.gameobjects.RenderableObject;
 import model.levels.Level;
 import utilities.Debug;
 import utilities.DebugEnabler;
+import view.screens.GameScreen;
 
 import java.awt.*;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class TestGameplayScreen extends view.screens.GameScreen {
+public class TestGameplayScreen extends GameScreen {
 
 
     //region <Variable Declarations>
@@ -23,10 +22,8 @@ public class TestGameplayScreen extends view.screens.GameScreen {
     public TestGameplayScreen(ScreenManager screenManager) {
         name = "TestGameplayScreen";
         this.screenManager = screenManager;
-        currentLevel = new TestLevel();
-        currentLevel.initializeLayers();
-
         loadingScreenRequired = true;
+        currentLevel = new TestLevel();
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
             loadContent();
@@ -36,20 +33,19 @@ public class TestGameplayScreen extends view.screens.GameScreen {
     }
 
     @Override
-    protected void initializeLayers() {
-        currentLevel.initializeLayers();
-    }
+    protected void initializeScreen() { }
 
     @Override
     protected void loadContent() {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
 
-            int dataLoaded = 0;
+        int dataLoaded = 0;
 
-            int totalDataToLoad = currentLevel.getLoadData();
-            screenManager.initializeLoadingScreen(totalDataToLoad);
-            currentLevel.loadObjects(screenManager);
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
+        int totalDataToLoad = currentLevel.getLoadData();
+        screenManager.initializeLoadingScreen(totalDataToLoad);
+        currentLevel.loadObjects(screenManager);
+
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Completed");
     }
     //endregion
 
@@ -73,6 +69,7 @@ public class TestGameplayScreen extends view.screens.GameScreen {
     protected void activeUpdate() {
         currentLevel.update();
     }
+
     //endregion
 
     //region<Draw>

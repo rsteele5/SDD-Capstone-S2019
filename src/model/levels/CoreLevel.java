@@ -1,12 +1,11 @@
 package model.levels;
 
 import control.ScreenManager;
-import model.gameobjects.RenderableObject;
 
 import java.awt.*;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CoreLevel extends Level {
+
     @Override
     public void update() {
 
@@ -28,8 +27,8 @@ public class CoreLevel extends Level {
     }
 
     @Override
-    public void initializeLayers() {
-
+    public LevelData getLevelData() {
+        return null;
     }
 
 }

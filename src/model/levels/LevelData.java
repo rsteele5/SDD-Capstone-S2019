@@ -1,15 +1,13 @@
 package model.levels;
 
-import control.RenderEngine;
 import control.ScreenManager;
 import control.physics.Kinematic;
 import model.gameobjects.*;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import model.gameobjects.renderable.dynamicObject.player.Player;
+import model.gameobjects.renderable.dynamicObject.enemy.Enemy;
+import model.gameobjects.renderable.RenderableObject;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class LevelData {
@@ -21,9 +19,9 @@ public abstract class LevelData {
     protected CopyOnWriteArrayList<Kinematic> kinematicObjects;
     protected CopyOnWriteArrayList<CopyOnWriteArrayList<RenderableObject>> renderableLayers;
     protected CopyOnWriteArrayList<Enemy> enemies;
-    protected CopyOnWriteArrayList<StaticObject> staticObjects;
+    //protected CopyOnWriteArrayList staticObjects;
 
-    public abstract void initializeLayers();
+    public abstract void initializeData();
 
 
     public CopyOnWriteArrayList<CopyOnWriteArrayList<RenderableObject>> getRenderableLayers(){
@@ -46,5 +44,7 @@ public abstract class LevelData {
 
     public abstract int getLoadData();
 
-
+    public CopyOnWriteArrayList<Kinematic> getKinematicObjects(){
+        return kinematicObjects;
+    }
 }

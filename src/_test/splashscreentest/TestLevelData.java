@@ -2,8 +2,9 @@ package _test.splashscreentest;
 
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
+import model.gameobjects.GameObject;
+import model.gameobjects.renderable.RenderableObject;
+import model.gameobjects.renderable.dynamicObject.enemy.floatingeye.FloatingEye;
 import model.levels.LevelData;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -17,11 +18,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class TestLevelData extends LevelData {
 
     private final String name = "TestLevelData";
+    private int totalImagesToLoad = 0;
 
-    //TODO: Flesh out this class
+    public TestLevelData() {
+        initializeData();
+    }
+
     @Override
     public void update() {
-        //TODO: Send update down the chain to objects
+        for(GameObject gameObject: gameObjects){
+            gameObject.update();
+        }
     }
 
     @Override
@@ -34,59 +41,35 @@ public class TestLevelData extends LevelData {
 
     @Override
     public void loadObjects(ScreenManager screenManager) {
-        try {
-            initializeLayers();
-            int objectsLoaded = 0;
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Content");
-//            //Background
-//            BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-BlackCover.png")));
-//            getRenderableLayers().get(0).add(new ImageContainer(0,0, background, 0));
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Teddy");
-            //Foreground
-            BufferedImage teddy = ImageIO.read(getClass().getResource("/assets/gameObjects/Teddy.png"));
-            getRenderableLayers().get(1).add(new ImageContainer(100, 500, teddy, 1));
+        initializeData();
+        int objectsLoaded = 0;
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Content");
+        for(RenderableObject renderableObject: getAllRenderables()){
+            renderableObject.loadImages();
             screenManager.updateLoadingScreen(++objectsLoaded);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Eye");
-            //Foreground
-            BufferedImage eye = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/gameObjects/StabbyEye.png")));
-            getRenderableLayers().get(1).add(new ImageContainer(1000, 500, eye, 1));
-            screenManager.updateLoadingScreen(++objectsLoaded);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Eye");
-            //Foreground
-            getRenderableLayers().get(1).add(new ImageContainer(1000, 500-100, eye, 1));
-            screenManager.updateLoadingScreen(++objectsLoaded);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Eye");
-            //Foreground
-            getRenderableLayers().get(1).add(new ImageContainer(1000-100, 500-100, eye, 1));
-            screenManager.updateLoadingScreen(++objectsLoaded);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Eye");
-            //Foreground
-            getRenderableLayers().get(1).add(new ImageContainer(1000-100, 500, eye, 1));
-            screenManager.updateLoadingScreen(++objectsLoaded);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Success");
-        } catch(IOException e)  {
-            Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error loading image: " + e.getMessage());
         }
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Successful");
+        screenManager.setLevelData(this);
     }
 
     @Override
     public int getLoadData() {
-        return 5;
+        return totalImagesToLoad;
     }
 
     @Override
-    public void initializeLayers() {
+    public void initializeData() {
         Debug.log(DebugEnabler.RENDERABLE_LOG, name+" Initializing Layers");
+        kinematicObjects = new CopyOnWriteArrayList<>();
+        gameObjects = new CopyOnWriteArrayList<>();
         renderableLayers = new CopyOnWriteArrayList<>();
         renderableLayers.add(new CopyOnWriteArrayList<>());
         renderableLayers.add(new CopyOnWriteArrayList<>());
-        renderableLayers.add(new CopyOnWriteArrayList<>());
+
+        FloatingEye floatingEye = new FloatingEye(1000, 500, "/assets/gameObjects/StabbyEye.png", 1);
+        gameObjects.add(floatingEye);
+        kinematicObjects.add(floatingEye);
+        totalImagesToLoad++;
+        renderableLayers.get(1).add(floatingEye);
     }
 }

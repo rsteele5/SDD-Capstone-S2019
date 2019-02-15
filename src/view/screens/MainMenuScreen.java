@@ -3,8 +3,8 @@ package view.screens;
 import _test.splashscreentest.TestGameplayScreen;
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
+import _test.splashscreentest.ImageContainer;
+import model.gameobjects.renderable.RenderableObject;
 import model.gameobjects.buttons.Button;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -32,7 +32,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
     }
 
     @Override
-    protected void initializeLayers() {
+    protected void initializeScreen() {
         renderableLayers.add(new CopyOnWriteArrayList<>());
         renderableLayers.add(new CopyOnWriteArrayList<>());
     }
@@ -40,8 +40,6 @@ public class MainMenuScreen extends view.screens.GameScreen {
     @Override
     public void loadContent(){
         try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
-
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/backgrounds/BG-MainMenu.png")));
@@ -68,7 +66,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
             }));
 
             //Create Background on layer 0
-            renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
+            renderableLayers.get(0).add(new ImageContainer(0,0, "/assets/backgrounds/BG-MainMenu.png", background, 0));
 
             //Consolidate Renderables
             for(Button butt: buttons)
@@ -77,8 +75,6 @@ public class MainMenuScreen extends view.screens.GameScreen {
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
                 gameObjects.addAll(layer);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
         }

@@ -1,10 +1,8 @@
 package model.levels;
 
 import control.ScreenManager;
-import model.gameobjects.RenderableObject;
 
 import java.awt.*;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class Level {
 
@@ -23,5 +21,5 @@ public abstract class Level {
     public abstract void loadObjects(ScreenManager screenManager);
     public abstract int getLoadData();
 
-    public abstract void initializeLayers();
+    public abstract LevelData getLevelData();
 }

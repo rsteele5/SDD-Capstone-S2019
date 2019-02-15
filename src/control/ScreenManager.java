@@ -1,5 +1,7 @@
 package control;
 
+import control.physics.Kinematic;
+import model.levels.LevelData;
 import utilities.Debug;
 import utilities.DebugEnabler;
 import view.screens.GameScreen;
@@ -12,6 +14,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ScreenManager {
     //region <Variables>
     private CopyOnWriteArrayList<GameScreen> gameScreens;
+    private LevelData levelData = null;
 
     private LoadingScreen loadingScreen;
     //endregion
@@ -19,6 +22,18 @@ public class ScreenManager {
     //region <Getters and Setters>
     public CopyOnWriteArrayList<GameScreen> getScreens() {
         return gameScreens;
+    }
+
+    public void setLevelData(LevelData levelData) {
+        this.levelData = levelData;
+    }
+
+    public LevelData getLevelData() {
+        return levelData;
+    }
+
+    public void clearLevelData(){
+        levelData = null;
     }
     //endregion
 
@@ -49,7 +64,7 @@ public class ScreenManager {
                     screen.update();
                     exclusiveAbove = screen.isExclusivePopup();
                 }
-            }else if (!exclusiveAbove){
+            } else if (!exclusiveAbove){
                 exclusiveAbove = screen.isExclusivePopup();
             }
         }

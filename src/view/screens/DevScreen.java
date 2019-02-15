@@ -2,8 +2,8 @@ package view.screens;
 
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
+import _test.splashscreentest.ImageContainer;
+import model.gameobjects.renderable.RenderableObject;
 import model.gameobjects.buttons.Button;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -31,7 +31,7 @@ public class DevScreen extends GameScreen {
     }
 
     @Override
-    protected void initializeLayers() {
+    protected void initializeScreen() {
         renderableLayers.add(new CopyOnWriteArrayList<>());
         renderableLayers.add(new CopyOnWriteArrayList<>());
     }
@@ -39,8 +39,6 @@ public class DevScreen extends GameScreen {
     @Override
     protected void loadContent() {
         try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
-
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/backgrounds/BG-DevMenu.png")));
@@ -80,7 +78,7 @@ public class DevScreen extends GameScreen {
                     }));
 
             //Create Background on layer 0
-            renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
+            renderableLayers.get(0).add(new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", background, 0));
             //renderableLayers.get(0).add(new ImageContainer(0,0, bgCover, 0));
 
             //Consolidate Renderables
@@ -94,8 +92,6 @@ public class DevScreen extends GameScreen {
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
                 for(RenderableObject renderable : layer)
                     renderable.setAlpha(0.0f);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
         }

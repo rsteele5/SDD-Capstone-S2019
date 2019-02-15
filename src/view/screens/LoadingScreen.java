@@ -2,7 +2,7 @@ package view.screens;
 
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
+import _test.splashscreentest.ImageContainer;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class LoadingScreen extends view.screens.GameScreen {
 
     //region <Variables>
-    private int totalDataToLoad = 0;
+    private int totalDataToLoad = -1;
     private ImageContainer loadingBar;
     private final int START_POINT_X = 63;
     private final int START_POINT_Y = 612;
@@ -32,7 +32,7 @@ public class LoadingScreen extends view.screens.GameScreen {
     }
 
     @Override
-    protected void initializeLayers() {
+    protected void initializeScreen() {
         renderableLayers.add(new CopyOnWriteArrayList<>());
         renderableLayers.add(new CopyOnWriteArrayList<>());
     }
@@ -40,22 +40,19 @@ public class LoadingScreen extends view.screens.GameScreen {
     @Override
     public void loadContent(){
         try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Content");
             //Background
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-Loading.png")));
-            renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
+            renderableLayers.get(0).add(new ImageContainer(0,0, "/assets/backgrounds/BG-Loading.png", background, 0));
 
             //Foreground
             BufferedImage loadingBarBackgroundImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/LoadingBarBackground.png")));
-            ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X, START_POINT_Y, loadingBarBackgroundImage, 1);
+            ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X, START_POINT_Y, "/assets/LoadingBarBackground.png", loadingBarBackgroundImage, 1);
             loadingBarBackground.setSize(MAX_WIDTH-3, MAX_HEIGHT);
             renderableLayers.get(1).add(loadingBarBackground);
 
             BufferedImage loadingBarImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/LoadingBar.png")));
-            loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, loadingBarImage, 1);
+            loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, "/assets/LoadingBar.png", loadingBarImage, 1);
             renderableLayers.get(1).add(loadingBar);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
         }
@@ -78,10 +75,12 @@ public class LoadingScreen extends view.screens.GameScreen {
 
     @Override
     protected void activeUpdate() {
-        if(loadedData >= totalDataToLoad){
-            currentState = ScreenState.TransitionOff;
-        }else{
-            loadingBar.setSize((int)(loadedData/totalDataToLoad * MAX_WIDTH), MAX_HEIGHT);
+        if(totalDataToLoad != -1){
+            if(loadedData >= totalDataToLoad){
+                currentState = ScreenState.TransitionOff;
+            }else{
+                loadingBar.setSize((int)(loadedData/totalDataToLoad * MAX_WIDTH), MAX_HEIGHT);
+            }
         }
     }
     //endregion
@@ -101,7 +100,7 @@ public class LoadingScreen extends view.screens.GameScreen {
     @Override
     public void reset(){
         super.reset();
-        totalDataToLoad = 0;
+        totalDataToLoad = -1;
         progressRate = 0;
         loadedData = 0.0;
         loadingBar.setSize(loadingBar.getCurrentImage().getWidth(), loadingBar.getCurrentImage().getHeight());

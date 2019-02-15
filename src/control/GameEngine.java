@@ -48,6 +48,7 @@ public class GameEngine implements Runnable {
             long startTime = System.currentTimeMillis();
 
             //Update
+            physicsEngine.physicsUpdate();
             physicsEngine.update();
             //Render
             renderEngine.draw();
@@ -63,7 +64,7 @@ public class GameEngine implements Runnable {
 
                 }
             } else {
-                Debug.warning(DebugEnabler.FPS,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
+                Debug.warning(DebugEnabler.FPS_LOG,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
             }
 
             Debug.flush();

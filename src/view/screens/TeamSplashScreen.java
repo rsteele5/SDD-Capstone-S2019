@@ -2,8 +2,8 @@ package view.screens;
 
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
+import _test.splashscreentest.ImageContainer;
+import model.gameobjects.renderable.RenderableObject;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -25,24 +25,19 @@ public class TeamSplashScreen extends view.screens.GameScreen {
     }
 
     @Override
-    protected void initializeLayers() {
+    protected void initializeScreen() {
         renderableLayers.add(new CopyOnWriteArrayList<>());
     }
 
     @Override
     public void loadContent(){
         try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
-
             BufferedImage logo = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-TeamLogo.png")));
-            renderableLayers.get(0).add(new ImageContainer(0,0, logo, 0));
-
+            renderableLayers.get(0).add(new ImageContainer(0,0, "/assets/backgrounds/BG-TeamLogo.png", logo, 0));
             BufferedImage coverImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-BlackCover.png")));
-            ImageContainer cover = new ImageContainer(0,0, coverImg, 0);
+            ImageContainer cover = new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", coverImg, 0);
             cover.setAlpha(1f);
             renderableLayers.get(0).add(cover);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
         }

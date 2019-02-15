@@ -1,19 +1,12 @@
 package _test.splashscreentest;
 
-import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
 import model.levels.Level;
 import model.levels.LevelData;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TestLevel extends Level {
 
@@ -29,7 +22,7 @@ public class TestLevel extends Level {
 
     @Override
     public void update() {
-        //TODO: Update GameObjects in level data here
+        levelData.update();
     }
 
     @Override
@@ -50,7 +43,7 @@ public class TestLevel extends Level {
     }
 
     @Override
-    public void initializeLayers() {
-        levelData.initializeLayers();
+    public LevelData getLevelData() {
+        return null;
     }
 }

@@ -2,7 +2,7 @@ package view.screens;
 
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
+import _test.splashscreentest.ImageContainer;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -24,28 +24,22 @@ public class TitleScreen extends view.screens.GameScreen {
     }
 
     @Override
-    protected void initializeLayers() {
+    protected void initializeScreen() {
         renderableLayers.add(new CopyOnWriteArrayList<>());
     }
 
     @Override
     public void loadContent(){
         try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Loading Content");
-
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/backgrounds/BG-BlackCover.png")));
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
-
             BufferedImage cover = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/backgrounds/BG-TitleScreenCover.png")));
             renderableLayers.get(0).add(new ImageContainer(0,-720, cover, 3));
-
             BufferedImage title = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/backgrounds/BG-Title.png")));
             renderableLayers.get(0).add(new ImageContainer(350,75, title, 2));
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Loaded Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
         }
@@ -63,13 +57,11 @@ public class TitleScreen extends view.screens.GameScreen {
 
     @Override
     public void updateTransitionOff() {
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,"Constructing MainMenuScreen");
         screenManager.addScreen(new MainMenuScreen(screenManager));
     }
 
     @Override
     public void hiddenUpdate() {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG,name+"-CurrentState: Hidden"); //TODO: handle hidden state
         if(!screenManager.coveredByLoading(this))
             exiting = true;
     }

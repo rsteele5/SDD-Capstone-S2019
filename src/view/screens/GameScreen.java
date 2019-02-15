@@ -2,8 +2,7 @@ package view.screens;
 
 import control.ScreenManager;
 import model.gameobjects.GameObject;
-import model.gameobjects.RenderableObject;
-import model.levels.Level;
+import model.gameobjects.renderable.RenderableObject;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -47,7 +46,6 @@ public abstract class GameScreen {
      * higher index values will rendered on top of layers with lower index values.
      */
     protected CopyOnWriteArrayList<CopyOnWriteArrayList<RenderableObject>> renderableLayers = new CopyOnWriteArrayList<>();
-
 
     /**
      *  <p>Screen state describes all possible states that a screen can be in:</p>
@@ -124,7 +122,7 @@ public abstract class GameScreen {
 
     public GameScreen(ScreenManager screenManager) {
         this.screenManager = screenManager;
-        initializeLayers();
+        initializeScreen();
 
         //Load contents of the screen in a thread
         loading = true;
@@ -136,10 +134,7 @@ public abstract class GameScreen {
         executorService.shutdown();
     }
 
-    /**
-     *  Initializes the renderableLayers array with an arbitrary amount of layers.
-     */
-    protected abstract void initializeLayers();
+    protected abstract void initializeScreen();
 
     /**
      *  Loads the contents of this Game Screen.

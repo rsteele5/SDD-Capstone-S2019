@@ -3,8 +3,11 @@ package control.physics;
 import control.CollisionManager;
 import control.ScreenManager;
 import model.levels.LevelData;
+import utilities.Debug;
+import utilities.DebugEnabler;
 
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PhysicsEngine {
     CollisionManager collisionManager;
@@ -19,6 +22,22 @@ public class PhysicsEngine {
 
     public PhysicsEngine(ScreenManager myScreenManager){
         screenManager = myScreenManager;
+    }
+
+    public void physicsUpdate() {
+        //Get all objects to preform physics update on
+        //GameScreen will add its level data when it gets there
+        levelData = screenManager.getLevelData();
+        if(levelData != null){
+            for(Kinematic kinematic: levelData.getKinematicObjects()){
+                Debug.success(DebugEnabler.PHYSICS_LOG, "FloatingEye -> My physics are being updated");
+            }
+        }
+        //Do physics calculations and get the global motion vector
+        //globalMotionVector = calculatePhysics(levelData);
+
+        //clear our level data
+        //levelData.clear();
     }
 
     public void update(){
