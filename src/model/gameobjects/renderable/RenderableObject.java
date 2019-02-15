@@ -1,5 +1,7 @@
-package model.gameobjects;
+package model.gameobjects.renderable;
 
+import control.RenderEngine;
+import model.gameobjects.GameObject;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -10,7 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class RenderableObject extends GameObject{
+public abstract class RenderableObject extends GameObject {
 
     //region <Variables>
     protected BufferedImage currentImage = null;
@@ -18,30 +20,35 @@ public abstract class RenderableObject extends GameObject{
     protected float alpha = 1f;
     protected int width;
     protected int height;
-    private ArrayList<String> imagePaths;
-    private ArrayList<BufferedImage> images;
+    private String imagePath;
     //endregion
 
     //region <Construction and Initialization>
-    public RenderableObject() {
+    public RenderableObject(String imagePath, int drawLayer) {
         super();
-        currentImage = null;
-        width = 0;
-        height = 0;
-        drawLayer = 0;
+        this.imagePath = imagePath;
+        this.drawLayer = drawLayer;
     }
 
-    public RenderableObject(int x, int y) {
+    public RenderableObject(int x, int y, String imagePath, int drawLayer) {
         super(x,y);
-        currentImage = null;
-        width = 0;
-        height = 0;
-        drawLayer = 0;
+        this.imagePath = imagePath;
+        this.drawLayer = drawLayer;
     }
 
     public RenderableObject(int x, int y, BufferedImage image, int drawLayer) {
         super(x,y);
-        currentImage = image;
+        this.imagePath = "/assets/MissingImage.png";
+        this.currentImage = image;
+        width = currentImage.getWidth();
+        height = currentImage.getHeight();
+        this.drawLayer = drawLayer;
+    }
+
+    public RenderableObject(int x, int y, String imagePath, BufferedImage image, int drawLayer) {
+        super(x,y);
+        this.imagePath = imagePath;
+        this.currentImage = image;
         width = currentImage.getWidth();
         height = currentImage.getHeight();
         this.drawLayer = drawLayer;
@@ -100,14 +107,12 @@ public abstract class RenderableObject extends GameObject{
 
     public void loadImages() {
         try{
-            for(String path: imagePaths){
-                images.add(ImageIO.read(getClass().getResource(path)));
-            }
+            currentImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource(imagePath)));
+            this.width = currentImage.getWidth();
+            this.height = currentImage.getHeight();
         } catch (IOException exception) {
             Debug.error(DebugEnabler.RENDERABLE_LOG,"Unable to load images");
         }
-
-        currentImage = images.get(0);
     }
 
     public abstract void update();

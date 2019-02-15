@@ -1,14 +1,9 @@
-package model.gameobjects;
+package model.gameobjects.renderable.dynamicObject;
 
-public abstract class DynamicObject extends RenderableObject {
+public interface DynamicObject<T> {
 
-    public DynamicObject(int x, int y) {
-        super(x, y);
-    }
-
-    //private StateManager stateManager;
-    //TODO: Make objects stateful
-
-    public abstract void update();
+    public void setState(T t);
+    public T getState();
+    public void nextState();
 
 }
