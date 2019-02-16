@@ -66,23 +66,25 @@ public class PlayerCountScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON+0*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, soloButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
-                        screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-ConfirmSoloPopup.png"));
+                        //screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-ConfirmSoloPopup.png"));
+                        screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-TempSolo.png"));
                         this.setScreenState(ScreenState.TransitionOff);
                         //
-                        Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                        /*Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
                                 + this.getScreenState().name()
-                                + ", index: " + screenManager.getScreens().indexOf(this));
+                                + ", index: " + screenManager.getScreens().indexOf(this));*/
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, coopButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Coop");
-                        screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-ConfirmCoopPopup.png"));
+                        //screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-ConfirmCoopPopup.png"));
+                        screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-TempCoop.png"));
                         this.setScreenState(ScreenState.TransitionOff);
                         //
-                        Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                        /*Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
                                 + this.getScreenState().name()
-                                + ", index: " + screenManager.getScreens().indexOf(this));
+                                + ", index: " + screenManager.getScreens().indexOf(this));*/
                     }));
             buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, backButtonIMG, 1,
                     (screenManager) ->{
