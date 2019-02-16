@@ -1,5 +1,6 @@
 package view.screens;
 
+import _test.splashscreentest.TestGameplayScreen;
 import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
@@ -60,6 +61,7 @@ public class DevScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, loadingButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
+                        screenManager.addScreen(new TestGameplayScreen(screenManager));
                         //TODO: Add Loading Screen
                     }));
 

@@ -1,7 +1,9 @@
 package _test.splashscreentest;
 
+import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
+import model.gameobjects.buttons.Button;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -12,11 +14,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TestGameplayScreen extends view.screens.GameScreen {
 
+    private final int X_INIT_BUTTON = 64;
+    private final int Y_INIT_BUTTON = 576;
+    protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
+
     //region <Construction and Initialization>
     public TestGameplayScreen(ScreenManager screenManager) {
         super(screenManager);
         name = "TestGameplayScreen";
         loadingScreenRequired = true;
+        exclusivePopup = true;
     }
 
     @Override
@@ -32,7 +39,7 @@ public class TestGameplayScreen extends view.screens.GameScreen {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
 
             int dataLoaded = 0;
-            int totalDataToLoad = 350;
+            int totalDataToLoad = 351;
             screenManager.initializeLoadingScreen(totalDataToLoad);
 
             for(int i = 0; i < 50; i++) {
@@ -65,6 +72,16 @@ public class TestGameplayScreen extends view.screens.GameScreen {
                 screenManager.updateLoadingScreen(dataLoaded);
             }
 
+            BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Back.png")));
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, mainMenuButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                        this.setScreenState(ScreenState.TransitionOff);
+                    }));
+            renderableLayers.get(2).addAll(buttons);
+            ++dataLoaded;
+            screenManager.updateLoadingScreen(dataLoaded);
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
         } catch(IOException e)  {
@@ -95,6 +112,11 @@ public class TestGameplayScreen extends view.screens.GameScreen {
 
     @Override
     public void handleClickEvent(int x, int y) {
-
+        for(Button butt: buttons) {
+            if(butt.getBoundingBox().contains(x,y)) {
+                butt.onClick.accept(screenManager);
+                return;
+            }
+        }
     }
 }
