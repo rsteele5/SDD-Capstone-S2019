@@ -18,18 +18,19 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ControlsScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
-    protected CopyOnWriteArrayList<Label> labels = new CopyOnWriteArrayList<>();
+    protected CopyOnWriteArrayList<Label> labels;
+    private Label currentLabel; //Variable that keeps track of the current label displayed on screen
 
     private final int X_INIT_BUTTON = 64;
-    private final int X_INIT_LABEL = 96;
     private final int Y_INIT_BUTTON = 576;
     private final int X_BUFFER = 48;
     //endregion
 
     //region <Construction and Initialization>
-    public ControlsScreen(ScreenManager screenManager) {
+    public ControlsScreen(ScreenManager screenManager, CopyOnWriteArrayList<Label> controlLabels) {
         super(screenManager);
-        name = "ControlScreen";
+        labels = controlLabels;
+        name = "ControlsScreen";
         exclusivePopup = true;
     }
 
@@ -55,28 +56,34 @@ public class ControlsScreen extends GameScreen {
                     .getResource("/assets/buttons/Button-Confirm.png")));
             BufferedImage backButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Back.png")));
-            BufferedImage keyboardLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/labels/Label-Keyboard.png")));
-            BufferedImage gamepadLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/labels/Label-Gamepad.png")));
-            //Create labels
-            labels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, keyboardLabelIMG, 1, true));
-            labels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, gamepadLabelIMG, 1, false));
+
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
+                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
+                        currentLabel = labels.get((labels.indexOf(currentLabel) > 0 ? labels.indexOf(currentLabel) - 1
+                                : labels.size() - 1));
+                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, rightArrowButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
+                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
+                        currentLabel = labels.get((labels.indexOf(currentLabel) + 1) % labels.size());
+                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, confirmButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
-                        //TODO: Save input settings
+                        for (Label lab : labels) {
+                            if (lab == currentLabel)
+                                lab.setActive(true);
+                            else
+                                lab.setActive(false);
+                        }
                         this.setScreenState(ScreenState.TransitionOff);
                     }));
 
@@ -100,8 +107,10 @@ public class ControlsScreen extends GameScreen {
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
 
             for (Label lab: labels)
-                if(lab.isActive)
+                if(lab.isActive) {
                     renderableLayers.get(lab.getDrawLayer()).add(lab);
+                    currentLabel = lab;
+                }
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
@@ -155,6 +164,10 @@ public class ControlsScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
+        //Set all labels alpha equal to one, even if they aren't being rendered at the time
+        for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
+            for(RenderableObject renderable : layer)
+                renderable.setAlpha(1.0f);
     }
 
     @Override
