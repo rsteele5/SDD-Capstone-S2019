@@ -16,6 +16,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class TeamSplashScreen extends view.screens.GameScreen {
 
     //region <Variables>
+    private ImageContainer logo;
+    private ImageContainer cover;
+    private ImageContainer skipMsg;
     //endregion
 
     //region <Construction and Initialization>
@@ -34,19 +37,22 @@ public class TeamSplashScreen extends view.screens.GameScreen {
         try {
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
 
-            BufferedImage logo = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-TeamLogo.png")));
-            renderableLayers.get(0).add(new ImageContainer(0,0, logo, 0));
-
-            BufferedImage skipMsg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/text/TXT-SkipMsg.png")));
-            renderableLayers.get(0).add(new ImageContainer(10,10, skipMsg, 0));
+            BufferedImage logoImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-TeamLogo.png")));
+            logo = new ImageContainer(0,0, logoImg, 0);
+            renderableLayers.get(0).add(logo);
 
             BufferedImage coverImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-BlackCover.png")));
-            ImageContainer cover = new ImageContainer(0,0, coverImg, 0);
+            cover = new ImageContainer(0,0, coverImg, 0);
             cover.setAlpha(1f);
             renderableLayers.get(0).add(cover);
 
+            BufferedImage skipImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/text/TXT-SkipMsg.png")));
+            skipMsg = new ImageContainer(575,660, skipImg, 0);
+            renderableLayers.get(0).add(skipMsg);
+
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
         } catch(IOException e)  {
+            System.out.println(e.getMessage());
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
         }
     }
@@ -55,10 +61,10 @@ public class TeamSplashScreen extends view.screens.GameScreen {
     //region <Update>
     @Override
     public void updateTransitionOn() {
-        float alpha = renderableLayers.get(0).get(1).getAlpha();
+        float alpha = cover.getAlpha();
         if(alpha > 0.008f) {
-            renderableLayers.get(0).get(1).setAlpha(alpha - 0.008f);
-            if(renderableLayers.get(0).get(1).getAlpha() <= 0.008f) {
+            cover.setAlpha(alpha - 0.008f);
+            if(cover.getAlpha() <= 0.008f) {
                 currentState = ScreenState.Active;
             }
         }
@@ -66,9 +72,9 @@ public class TeamSplashScreen extends view.screens.GameScreen {
 
     @Override
     public void updateTransitionOff() {
-        float alpha = renderableLayers.get(0).get(1).getAlpha();
+        float alpha = cover.getAlpha();
         if(alpha < 1f){
-            renderableLayers.get(0).get(1).setAlpha(alpha + 0.008f);
+            cover.setAlpha(alpha + 0.008f);
         } else {
             exiting = true;
             screenManager.addScreen(new TitleScreen(screenManager));

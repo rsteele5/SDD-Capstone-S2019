@@ -45,6 +45,10 @@ public class TitleScreen extends view.screens.GameScreen {
                     .getResource("/assets/backgrounds/BG-Title.png")));
             renderableLayers.get(0).add(new ImageContainer(350,75, title, 2));
 
+            BufferedImage skipImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/text/TXT-SkipMsg.png")));
+            ImageContainer skipMsg = new ImageContainer(575,660, skipImg, 0);
+            renderableLayers.get(0).add(skipMsg);
+
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Loaded Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
