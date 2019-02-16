@@ -5,6 +5,7 @@ import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
+import model.gameobjects.labels.Label;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -14,19 +15,21 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class DevScreen extends GameScreen {
+public class ControlsScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
+    protected CopyOnWriteArrayList<Label> labels = new CopyOnWriteArrayList<>();
 
     private final int X_INIT_BUTTON = 64;
+    private final int X_INIT_LABEL = 96;
     private final int Y_INIT_BUTTON = 576;
     private final int X_BUFFER = 48;
     //endregion
 
     //region <Construction and Initialization>
-    public DevScreen(ScreenManager screenManager) {
+    public ControlsScreen(ScreenManager screenManager) {
         super(screenManager);
-        name = "DevScreen";
+        name = "ControlScreen";
         exclusivePopup = true;
     }
 
@@ -43,48 +46,49 @@ public class DevScreen extends GameScreen {
 
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-DevMenu.png")));
-            BufferedImage bgCover = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-BlackCover.png")));
-            BufferedImage loadingButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Loading.png")));
-            BufferedImage physicsButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Physics.png")));
-            BufferedImage inventoryButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Inventory.png")));
-            BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-MainMenu.png")));
-            BufferedImage vendorButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Vendor.png")));
+                    .getResource("/assets/backgrounds/BG-ControlsMenu.png")));
+            BufferedImage leftArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-LeftArrow.png")));
+            BufferedImage rightArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-RightArrow.png")));
+            BufferedImage confirmButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Confirm.png")));
+            BufferedImage backButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Back.png")));
+            BufferedImage keyboardLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Keyboard.png")));
+            BufferedImage gamepadLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Gamepad.png")));
+            //Create labels
+            labels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, keyboardLabelIMG, 1, true));
+            labels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, gamepadLabelIMG, 1, false));
             //Create buttons
-            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, loadingButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
-                        //TODO: Add Loading Screen
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, physicsButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, rightArrowButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
-                        //TODO: Add Physics Test Screen
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, inventoryButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, confirmButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
-                        //TODO: Add Inventory Screen
-                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, mainMenuButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
+                        //TODO: Save input settings
                         this.setScreenState(ScreenState.TransitionOff);
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160, vendorButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, backButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
-                        screenManager.addScreen(new VendorScreen(screenManager));
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
+                        screenManager.addScreen(new ConfirmationPopup(screenManager));
+                        this.setScreenState(ScreenState.TransitionOff);
+                        //Askjasdkljadsfkljvalkdjnfva;jldnfbj
+                        Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                                + this.getScreenState().name()
+                                + ", index: " + screenManager.getScreens().indexOf(this));
                     }));
 
             //Create Background on layer 0
@@ -94,6 +98,10 @@ public class DevScreen extends GameScreen {
             //Consolidate Renderables
             for(Button butt: buttons)
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
+
+            for (Label lab: labels)
+                if(lab.isActive)
+                    renderableLayers.get(lab.getDrawLayer()).add(lab);
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
@@ -123,11 +131,6 @@ public class DevScreen extends GameScreen {
                     renderable.setAlpha(1.0f);
             currentState = ScreenState.Active;
         }
-//        float alpha = renderableLayers.get(0).get(1).getAlpha();
-//        if(alpha > 0.055f){
-//            renderableLayers.get(0).get(1).setAlpha(alpha - 0.05f);
-//        }else
-//            currentState = ScreenState.Active;
     }
 
     @Override
@@ -136,7 +139,7 @@ public class DevScreen extends GameScreen {
         if(alpha > 0.055f){
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
                 for(RenderableObject renderable : layer)
-                        renderable.setAlpha(alpha - 0.05f);
+                    renderable.setAlpha(alpha - 0.05f);
         } else {
             exiting = true;
         }
@@ -152,7 +155,6 @@ public class DevScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
-
     }
 
     @Override
