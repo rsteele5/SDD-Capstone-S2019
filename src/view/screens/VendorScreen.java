@@ -3,14 +3,17 @@ package view.screens;
 import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
+import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
 import utilities.Debug;
 import utilities.DebugEnabler;
-
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Logger;
+
 
 public class VendorScreen extends GameScreen {
     /* Initialize variables *****************/
@@ -24,9 +27,25 @@ public class VendorScreen extends GameScreen {
 
     /* Array of y values for bear AND vendor item box locations **/
     private int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
+
+    /* TEMPORARY text for displaying the item information. //TODO: update to item information when available **/
+    private String itemName = "";
+    private String type = "Potion";
+    private String damage = "0";
+    private String immunity = "2-4";
+    private int critChance = 6;
+    private String description1 = "This will boost your fire";
+    private String description2 = "resistance!";
+    private int value = 5;
+
+    /* x and y positions for text */
+    private int x_position = 765;
+    private int y_position = 220;
+    private String fullDescription = "";
+
+    /* Off-screen rendering */
+    private Graphics2D graphics;
     /* ****************************************/
-
-
 
     /** Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
     private CopyOnWriteArrayList<String> bearInventory;
@@ -49,7 +68,6 @@ public class VendorScreen extends GameScreen {
         for (int i = 0; i < 21; i++){
             vendorInventory.add(path);
         }
-
     }
 
     @Override
@@ -68,78 +86,46 @@ public class VendorScreen extends GameScreen {
                     ImageIO.read(getClass().getResource("/assets/VendorBackground.png")));
             BufferedImage vendorImageIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/Vendor.png")));
-            BufferedImage exitButtonIMG = RenderEngine.convertToARGB(
+                        BufferedImage exitButtonIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Exit.png")));
             BufferedImage buyButtonIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Buy.png")));
             BufferedImage sellButtonIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Sell.png")));
 
+            /* TODO: Change to reflect current user's bear **/
+            BufferedImage teddyImageIMG = RenderEngine.convertToARGB(
+                    ImageIO.read(getClass().getResource("/assets/Teddy.png")));
 
             /* Create buttons **/
             buttons.add(new Button(175, 100, exitButtonIMG, 1,
                     (screenManager1 -> {
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Exit Vendor");
+                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Exit Vendor");
                         this.setScreenState(ScreenState.TransitionOff);
                     })));
-            buttons.add(new Button(590, 225, buyButtonIMG, 1,
+            buttons.add(new Button(775, 560, buyButtonIMG, 1,
                     (screenManager1 -> {
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Buy from Vendor");
+                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
                         // TODO: Add buy function
                     })));
-            buttons.add(new Button(590, 300, sellButtonIMG, 1,
+            buttons.add(new Button(400, 560, sellButtonIMG, 1,
                     (screenManager1 -> {
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sell to Vendor");
+                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Sell to Vendor");
                         // TODO: Add sell function
                     })));
-
-
-            /* Render item images into bear's inventory **/
-            int itemCount = bearInventory.size();
-            int k = 0;
-            for (int yValItem1 : yValItems) {
-                for (int xValBearItem : xValBearItems) {
-                    if (k < itemCount) {
-                        BufferedImage item = RenderEngine.convertToARGB(
-                                ImageIO.read(getClass().getResource(bearInventory.get(k))));
-                        buttons.add(new Button(xValBearItem, yValItem1, item, 1,
-                                (screenManager -> {
-                                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Bear Item");
-                                    // TODO: get item description & value to display on small overlay screen
-                                })));
-                        k++;
-                    }
-                }
-            }
-            /* Render item images into vendor's inventory **/
-            itemCount = vendorInventory.size();
-            k = 0;
-            for (int yValItem : yValItems) {
-                for (int xValVendorItem : xValVendorItems) {
-                    if (k < itemCount) {
-                        BufferedImage item = RenderEngine.convertToARGB(
-                                ImageIO.read(getClass().getResource(vendorInventory.get(k))));
-                        buttons.add(new Button(xValVendorItem, yValItem, item, 1,
-                                (screenManager -> {
-                                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor Item");
-                                    // TODO: get item description & cost to display on small overlay screen
-                                })));
-                        renderableLayers.get(1).add(new ImageContainer(xValVendorItem, yValItem, item, 1));
-                        k++;
-                    }
-                }
-            }
+            createItemButtons();
 
             /* Create all renderables **/
             renderableLayers.get(0).add(new ImageContainer(150, 75, backgroundIMG, 0));
-            renderableLayers.get(0).add(new ImageContainer(750, 450, vendorImageIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(765, 410, vendorImageIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(400, 380, teddyImageIMG, 0));
 
-            for (Button button: buttons)
+            for (Button button : buttons)
                 renderableLayers.get(button.getDrawLayer()).add(button);
 
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + "Loaded Success");
-        }catch(IOException e) {
+        } catch (IOException e) {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Error: " + e.getMessage());
         }
     }
@@ -161,7 +147,7 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
-
+        //createItemButtons();
     }
 
     @Override
@@ -171,6 +157,75 @@ public class VendorScreen extends GameScreen {
                 butt.onClick.accept(screenManager);
                 return;
             }
+        }
+    }
+
+    @Override
+    public void draw(Graphics2D graphics) {
+        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
+            for (RenderableObject gameObject : layer) {
+                gameObject.draw(graphics);
+            }
+        }
+
+        //Call this method to draw a string to the screen///////////////
+        if (itemName != ""){
+            graphics.setColor(Color.BLACK);
+            graphics.drawString(itemName, x_position, y_position);
+            graphics.drawString("Type: " + type, x_position, y_position += 20);
+            graphics.drawString("Damage: " + damage, x_position, y_position += 20);
+            graphics.drawString("Immunity: " + immunity, x_position, y_position += 20);
+            graphics.drawString("CritChance: " + critChance + "%", x_position, y_position += 20);
+            graphics.drawString("Cost: $" + value, x_position, y_position += 20);
+            graphics.drawString(description1, x_position, y_position += 30);
+            graphics.drawString(description2, x_position, y_position += 20);
+        }
+
+
+        // reset y_position
+        y_position = 220;
+    }
+
+    private void createItemButtons(){
+        try {
+            /* Render item images (buttons) into bear's inventory **/
+            int itemCount = bearInventory.size();
+            int k = 0;
+            for (int yValItem1 : yValItems) {
+                for (int xValBearItem : xValBearItems) {
+                    if (k < itemCount) {
+                        BufferedImage item = RenderEngine.convertToARGB(
+                                ImageIO.read(getClass().getResource(bearInventory.get(k))));
+                        buttons.add(new Button(xValBearItem, yValItem1, item, 1,
+                                (screenManager -> {
+                                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
+                                    // TODO: get item description & value to display on small overlay screen
+                                })));
+                        k++;
+                    }
+                }
+            }
+            /* Render item images (buttons) into vendor's inventory **/
+            itemCount = vendorInventory.size();
+            k = 0;
+            for (int yValItem : yValItems) {
+                for (int xValVendorItem : xValVendorItems) {
+                    if (k < itemCount) {
+                        BufferedImage item = RenderEngine.convertToARGB(
+                                ImageIO.read(getClass().getResource(vendorInventory.get(k))));
+                        buttons.add(new Button(xValVendorItem, yValItem, item, 1,
+                                (screenManager -> {
+                                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
+                                    x_position = 765;
+                                    itemName = "Fire Potion";
+                                })));
+                        k++;
+                    }
+                }
+            }
+
+        }catch (IOException e) {
+            Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Error: " + e.getMessage());
         }
     }
 }
