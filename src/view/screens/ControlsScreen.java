@@ -19,6 +19,7 @@ public class ControlsScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
     protected CopyOnWriteArrayList<Label> labels = new CopyOnWriteArrayList<>();
+    private Label currentLabel; //Variable that keeps track of the current label displayed on screen
 
     private final int X_INIT_BUTTON = 64;
     private final int X_INIT_LABEL = 96;
@@ -66,11 +67,18 @@ public class ControlsScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
+                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
+                        currentLabel = labels.get((labels.indexOf(currentLabel) > 0 ? labels.indexOf(currentLabel) - 1
+                                : labels.size() - 1));
+                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, rightArrowButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
+                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
+                        currentLabel = labels.get((labels.indexOf(currentLabel) + 1) % labels.size());
+                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, confirmButtonIMG, 1,
@@ -95,8 +103,10 @@ public class ControlsScreen extends GameScreen {
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
 
             for (Label lab: labels)
-                if(lab.isActive)
+                if(lab.isActive) {
                     renderableLayers.get(lab.getDrawLayer()).add(lab);
+                    currentLabel = lab;
+                }
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
