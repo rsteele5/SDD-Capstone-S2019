@@ -5,18 +5,21 @@ import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
+import model.gameobjects.labels.Label;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class OptionScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
+    private HashMap<String, CopyOnWriteArrayList<Label>> savedLabels;
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
@@ -24,8 +27,9 @@ public class OptionScreen extends GameScreen {
     //endregion
 
     //region <Construction and Initialization>
-    public OptionScreen(ScreenManager screenManager) {
+    public OptionScreen(ScreenManager screenManager, HashMap savedLabels) {
         super(screenManager);
+        this.savedLabels = savedLabels;
         name = "OptionScreen";
         exclusivePopup = true;
     }
@@ -68,7 +72,7 @@ public class OptionScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, controlButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
-                        screenManager.addScreen(new ControlsScreen(screenManager));
+                        screenManager.addScreen(new ControlsScreen(screenManager, savedLabels.get("Controls")));
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, mainMenuButtonIMG, 1,

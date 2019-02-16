@@ -20,4 +20,8 @@ public class Label extends RenderableObject {
     public void update() {
 
     }
+
+    public void setActive(boolean activeState) {
+        isActive = activeState;
+    }
 }
