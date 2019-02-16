@@ -101,10 +101,11 @@ public class LoadingScreen extends view.screens.GameScreen {
     @Override
     public void reset(){
         super.reset();
-        totalDataToLoad = 0;
+        totalDataToLoad = -1;
         progressRate = 0;
         loadedData = 0.0;
         loadingBar.setSize(loadingBar.getCurrentImage().getWidth(), loadingBar.getCurrentImage().getHeight());
+        currentState = ScreenState.TransitionOn;
     }
 
     public void initializeLoadingScreen(int amount){
