@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 public abstract class GameScreen {
 
     //region <Variables>
-    protected String name;
+    public String name;
     protected ScreenState previousState = null;
     protected ScreenManager screenManager;
     protected boolean loadingScreenRequired = false;

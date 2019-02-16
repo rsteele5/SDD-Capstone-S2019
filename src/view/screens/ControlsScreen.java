@@ -29,7 +29,7 @@ public class ControlsScreen extends GameScreen {
     //region <Construction and Initialization>
     public ControlsScreen(ScreenManager screenManager) {
         super(screenManager);
-        name = "OptionScreen";
+        name = "ControlScreen";
         exclusivePopup = true;
     }
 
@@ -83,7 +83,12 @@ public class ControlsScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, backButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
+                        screenManager.addScreen(new ConfirmationPopup(screenManager));
                         this.setScreenState(ScreenState.TransitionOff);
+                        //Askjasdkljadsfkljvalkdjnfva;jldnfbj
+                        Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                                + this.getScreenState().name()
+                                + ", index: " + screenManager.getScreens().indexOf(this));
                     }));
 
             //Create Background on layer 0
