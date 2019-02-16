@@ -2,8 +2,7 @@ package view.screens;
 
 import control.RenderEngine;
 import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
+import model.gameobjects.*;
 import model.gameobjects.buttons.Button;
 import utilities.Debug;
 import utilities.DebugEnabler;
@@ -12,7 +11,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Logger;
 
 
 public class VendorScreen extends GameScreen {
@@ -28,29 +26,19 @@ public class VendorScreen extends GameScreen {
     /* Array of y values for bear AND vendor item box locations **/
     private int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
 
-    /* TEMPORARY text for displaying the item information. //TODO: update to item information when available **/
-    private String itemName = "";
-    private String type = "Potion";
-    private String damage = "0";
-    private String immunity = "2-4";
-    private int critChance = 6;
-    private String description1 = "This will boost your fire";
-    private String description2 = "resistance!";
-    private int value = 5;
-
     /* x and y positions for text */
     private int x_position = 765;
     private int y_position = 220;
-    private String fullDescription = "";
 
-    /* Off-screen rendering */
-    private Graphics2D graphics;
+    private Item currentItem = null;
+    private boolean updateInventory = false;
+    private Button currentButton = null;
     /* ****************************************/
 
     /** Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
-    private CopyOnWriteArrayList<String> bearInventory;
-    private CopyOnWriteArrayList<String> vendorInventory;
-    private String itemsPath = "/assets/Items/";
+    private CopyOnWriteArrayList<Item> bearInventory;
+    private CopyOnWriteArrayList<Item> vendorInventory;
+
 
     public VendorScreen(ScreenManager screenManager) {
         super(screenManager);
@@ -60,15 +48,12 @@ public class VendorScreen extends GameScreen {
         /* Remove after testing. Populates inventories with red potion **/
         bearInventory = new CopyOnWriteArrayList<>();
         vendorInventory = new CopyOnWriteArrayList<>();
-
-        String path = "/assets/Items/redPotionSmall.png";
-        for (int i = 0; i < 12; i++){
-            bearInventory.add(path);
-        }
-        for (int i = 0; i < 21; i++){
-            vendorInventory.add(path);
-        }
-    }
+        bearInventory.add(new Sword());
+        vendorInventory.add(new Potion());
+        vendorInventory.add(new Potion());
+        vendorInventory.add(new Sword());
+        vendorInventory.add(new Helmet());
+     }
 
     @Override
     protected void initializeLayers() {
@@ -106,12 +91,21 @@ public class VendorScreen extends GameScreen {
             buttons.add(new Button(775, 560, buyButtonIMG, 1,
                     (screenManager1 -> {
                         Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
-                        // TODO: Add buy function
+                        vendorInventory.remove(currentItem);
+                        buttons.remove(currentItem.getButton());
+                        bearInventory.add(currentItem);
+                        updateInventory = true;
+                        Debug.log(true, "B-count: " + bearInventory.size());
+                        Debug.log(true, "V-count: " + vendorInventory.size());
                     })));
             buttons.add(new Button(400, 560, sellButtonIMG, 1,
                     (screenManager1 -> {
                         Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Sell to Vendor");
-                        // TODO: Add sell function
+                        bearInventory.remove(currentItem);
+                        vendorInventory.add(currentItem);
+                        updateInventory = true;
+                        Debug.log(true, "B-count: " + bearInventory.size());
+                        Debug.log(true, "V-count: " + vendorInventory.size());
                     })));
             createItemButtons();
 
@@ -147,7 +141,20 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
-        //createItemButtons();
+        // Called when buy or sell occurs
+        /*if (updateInventory){
+            // Delete previous button images and reset
+            for (int i = 3;i < buttons.size(); i++){
+                buttons.remove(3);
+            }
+
+            createItemButtons();
+
+            for (Button button : buttons)
+                renderableLayers.get(button.getDrawLayer()).add(button);
+
+            updateInventory = false;
+        }*/
     }
 
     @Override
@@ -168,21 +175,36 @@ public class VendorScreen extends GameScreen {
             }
         }
 
-        //Call this method to draw a string to the screen///////////////
-        if (itemName != ""){
-            graphics.setColor(Color.BLACK);
-            graphics.drawString(itemName, x_position, y_position);
-            graphics.drawString("Type: " + type, x_position, y_position += 20);
-            graphics.drawString("Damage: " + damage, x_position, y_position += 20);
-            graphics.drawString("Immunity: " + immunity, x_position, y_position += 20);
-            graphics.drawString("CritChance: " + critChance + "%", x_position, y_position += 20);
-            graphics.drawString("Cost: $" + value, x_position, y_position += 20);
-            graphics.drawString(description1, x_position, y_position += 30);
-            graphics.drawString(description2, x_position, y_position += 20);
+        // Called when buy or sell occurs
+        if (updateInventory){
+            // Delete previous button images and reset
+            for (int i = 3;i < buttons.size(); i++){
+                buttons.remove(3);
+            }
+
+            createItemButtons();
+
+            for (Button button : buttons)
+                renderableLayers.get(button.getDrawLayer()).add(button);
+
+            updateInventory = false;
         }
 
-
-        // reset y_position
+        // Call this method to draw a string to the screen
+        if (currentItem != null){
+            graphics.setColor(Color.BLACK);
+            graphics.drawString(currentItem.getItemName(), x_position, y_position);
+            graphics.drawString("Type: " + currentItem.getType(), x_position, y_position += 20);
+            graphics.drawString("Damage: " + currentItem.getDamage(), x_position, y_position += 20);
+            graphics.drawString("Immunity: " + currentItem.getImmunity(), x_position, y_position += 20);
+            graphics.drawString("CritChance: " + currentItem.getCritChance() + "%", x_position, y_position += 20);
+            graphics.drawString("Cost: $" + currentItem.getValue(), x_position, y_position += 20);
+            graphics.drawString(currentItem.getDescription1(), x_position, y_position += 30);
+            if (currentItem.getDescription2() != null) {
+                graphics.drawString(currentItem.getDescription2(), x_position, y_position += 20);
+            }
+        }
+        // reset y_position for next item description
         y_position = 220;
     }
 
@@ -194,11 +216,15 @@ public class VendorScreen extends GameScreen {
             for (int yValItem1 : yValItems) {
                 for (int xValBearItem : xValBearItems) {
                     if (k < itemCount) {
+                        Item myItem = bearInventory.get(k);
                         BufferedImage item = RenderEngine.convertToARGB(
-                                ImageIO.read(getClass().getResource(bearInventory.get(k))));
+                                ImageIO.read(getClass().getResource(myItem.getImagePath())));
                         buttons.add(new Button(xValBearItem, yValItem1, item, 1,
                                 (screenManager -> {
                                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
+                                    currentItem = myItem;
+                                    // Adjust where text is rendered
+                                    x_position = 400;
                                     // TODO: get item description & value to display on small overlay screen
                                 })));
                         k++;
@@ -211,14 +237,18 @@ public class VendorScreen extends GameScreen {
             for (int yValItem : yValItems) {
                 for (int xValVendorItem : xValVendorItems) {
                     if (k < itemCount) {
+                        Item myItem = vendorInventory.get(k);
                         BufferedImage item = RenderEngine.convertToARGB(
-                                ImageIO.read(getClass().getResource(vendorInventory.get(k))));
-                        buttons.add(new Button(xValVendorItem, yValItem, item, 1,
+                                ImageIO.read(getClass().getResource(myItem.getImagePath())));
+                        Button butt = new Button(xValVendorItem, yValItem, item, 1,
                                 (screenManager -> {
                                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
+                                    currentItem = myItem;
+                                    // Adjust where text is rendered
                                     x_position = 765;
-                                    itemName = "Fire Potion";
-                                })));
+                                }));
+                        buttons.add(butt);
+                        myItem.setButton(butt);
                         k++;
                     }
                 }
