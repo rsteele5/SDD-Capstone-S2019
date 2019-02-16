@@ -2,24 +2,18 @@ package control.physics;
 
 class PhysicsVector{
     double x, y;
-    private double mass;
 
     public PhysicsVector(double x, double y) {
         this.x = x;
         this.y = y;
-        this.mass = 1;
     }
 
-    private double magnitude(double nX, double nY) {
-        return Math.sqrt(nX * nX + nY * nY);
+    private double magnitude(double x, double y) {
+        return Math.sqrt(x * x + y * y);
     }
 
     private double direction(double nX, double nY) {
         return Math.atan(nY/nX); //NOTE: The direction will be in radians
-    }
-
-    public void setMass(double mass) {
-        this.mass = mass;
     }
 
     public void normalize() {
@@ -55,7 +49,6 @@ class PhysicsVector{
 
     //Newton's 2nd Law of Motion: Acceleration = Force / Mass
     public void applyForce(PhysicsVector vector) {
-        vector.div(this.mass);
         this.add(vector);
     }
 

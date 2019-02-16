@@ -1,5 +1,7 @@
 package control;
 
+import model.gameobjects.GameObject;
+import model.levels.LevelData;
 import utilities.Debug;
 import utilities.DebugEnabler;
 import view.screens.GameScreen;
@@ -30,6 +32,11 @@ public class ScreenManager {
         //add Splash screen to the
         addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
     }
+
+    public LevelData getLevelData() {
+        return null;
+    }
+
 
     public void drawScreens(Graphics2D graphics){
         for (int i = gameScreens.size()-1; i >= 0; i--) {

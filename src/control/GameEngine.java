@@ -50,6 +50,7 @@ public class GameEngine implements Runnable {
             //Update
             physicsEngine.update();
             //Render
+            screenManager.update();
             renderEngine.draw();
 
             long endTime = System.currentTimeMillis();

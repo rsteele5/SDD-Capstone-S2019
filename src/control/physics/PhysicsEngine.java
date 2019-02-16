@@ -3,8 +3,11 @@ package control.physics;
 import control.CollisionManager;
 import control.ScreenManager;
 import model.levels.LevelData;
+import utilities.Debug;
+import utilities.DebugEnabler;
 
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PhysicsEngine {
     CollisionManager collisionManager;
@@ -14,25 +17,30 @@ public class PhysicsEngine {
     private PhysicsVector position = new PhysicsVector(0,400);        //Position of object
     private PhysicsVector velocity = new PhysicsVector(0, 0);         //Velocity of object
     private PhysicsVector acceleration = new PhysicsVector(0,0);      //Acceleration of object
-    private final PhysicsVector GRAVITY = new PhysicsVector(0, 0.1);  //Represents gravity acting on an object
 
 
     public PhysicsEngine(ScreenManager myScreenManager){
         screenManager = myScreenManager;
     }
+/*
+    public void physicsUpdate() {
 
+
+    }
+/*
+
+ */
     public void update(){
         //TODO: Calculate physics with specified data from screenManager
-        calculateMove();
-        //Update
-        screenManager.update();
+        //for(Kinematic kinematic: screenManager.getLevelData().getKinematicObjects())
+        //    Debug.success(DebugEnabler.PHYSICS_LOG, "FloatingEye -> My physics are being updated");
         //TODO: Process collisions and adjust objects
     }
 
     //TODO: getRid from MyCanvas
     private void calculateMove(){
         //This is where the movement is being calculated
-        acceleration.applyForce(GRAVITY);
+        acceleration.applyForce(PhysicsMeta.Gravity);
         acceleration.add(acceleration.calculateFriction(velocity));
         velocity.add(acceleration);
         position.add(velocity);
