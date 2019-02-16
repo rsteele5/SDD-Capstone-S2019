@@ -92,7 +92,9 @@ public class VendorScreen extends GameScreen {
                     (screenManager1 -> {
                         Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
                         vendorInventory.remove(currentItem);
-                        buttons.remove(currentItem.getButton());
+                        //TODO: This is hard coded need to change
+                        currentItem.getButton().setX(239);
+                        currentItem.getButton().setY(220);
                         bearInventory.add(currentItem);
                         updateInventory = true;
                         Debug.log(true, "B-count: " + bearInventory.size());
@@ -116,6 +118,7 @@ public class VendorScreen extends GameScreen {
 
             for (Button button : buttons)
                 renderableLayers.get(button.getDrawLayer()).add(button);
+
 
 
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + "Loaded Success");
@@ -177,17 +180,17 @@ public class VendorScreen extends GameScreen {
 
         // Called when buy or sell occurs
         if (updateInventory){
-            // Delete previous button images and reset
-            for (int i = 3;i < buttons.size(); i++){
-                buttons.remove(3);
-            }
-
-            createItemButtons();
-
-            for (Button button : buttons)
-                renderableLayers.get(button.getDrawLayer()).add(button);
-
-            updateInventory = false;
+//            // Delete previous button images and reset
+//            for (int i = 3;i < buttons.size(); i++){
+//                buttons.remove(3);
+//            }
+//
+//            //createItemButtons();
+//
+//            for (Button button : buttons)
+//                renderableLayers.get(button.getDrawLayer()).add(button);
+//
+//            updateInventory = false;
         }
 
         // Call this method to draw a string to the screen
