@@ -37,6 +37,9 @@ public class TeamSplashScreen extends view.screens.GameScreen {
             BufferedImage logo = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-TeamLogo.png")));
             renderableLayers.get(0).add(new ImageContainer(0,0, logo, 0));
 
+            BufferedImage skipMsg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/text/TXT-SkipMsg.png")));
+            renderableLayers.get(0).add(new ImageContainer(10,10, skipMsg, 0));
+
             BufferedImage coverImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-BlackCover.png")));
             ImageContainer cover = new ImageContainer(0,0, coverImg, 0);
             cover.setAlpha(1f);
