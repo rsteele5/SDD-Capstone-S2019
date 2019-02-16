@@ -19,6 +19,7 @@ public class ConfirmationPopup extends GameScreen {
     private final int X_INIT_BUTTON = 427;
     private final int Y_INIT_BUTTON = 400;
     private final int X_BUFFER = 142;
+    private boolean goBack = false;
 
     public ConfirmationPopup(ScreenManager screenManager) {
         super(screenManager);
@@ -52,13 +53,14 @@ public class ConfirmationPopup extends GameScreen {
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Yes");
                         //TODO: Saves to a file?? maybe?
+                        goBack = true;
                         this.setScreenState(ScreenState.TransitionOff);
-
                     }));
             buttons.add(new Button(X_INIT_BUTTON + noButtonIMG.getWidth() + X_BUFFER,Y_INIT_BUTTON, noButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - No");
                         //TODO: remove changes if any?
+                        goBack = false;
                         this.setScreenState(ScreenState.TransitionOff);
                     }));
             //popup background
@@ -102,7 +104,8 @@ public class ConfirmationPopup extends GameScreen {
                 for(RenderableObject renderable : layer)
                     renderable.setAlpha(alpha - 0.05f);
         } else {
-            screenManager.removeScreen(screenManager.getScreens().get(1));
+            if(goBack)
+                screenManager.removeScreen(screenManager.getScreens().get(1));
             exiting = true;
         }
     }
