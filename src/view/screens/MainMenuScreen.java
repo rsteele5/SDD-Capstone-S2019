@@ -54,6 +54,8 @@ public class MainMenuScreen extends view.screens.GameScreen {
                     .getResource("/assets/buttons/Button-Options.png")));
             BufferedImage devModeButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Dev.png")));
+            //Create labels
+            createMenuLabels();
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, newGameButtonIMG, 1, (screenManager) ->{
                 Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
@@ -140,11 +142,11 @@ public class MainMenuScreen extends view.screens.GameScreen {
             BufferedImage gamepadLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/labels/Label-Gamepad.png")));
             BufferedImage lowLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/labels/Label-Keyboard.png")));
+                    .getResource("/assets/labels/Label-Low.png")));
             BufferedImage mediumLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/labels/Label-Keyboard.png")));
+                    .getResource("/assets/labels/Label-Medium.png")));
             BufferedImage highLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/labels/Label-Keyboard.png")));
+                    .getResource("/assets/labels/Label-High.png")));
             //Add Control Menu labels
             controlLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, keyboardLabelIMG, 1, true));
             controlLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, gamepadLabelIMG, 1, false));
