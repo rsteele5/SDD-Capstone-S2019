@@ -10,6 +10,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
+import java.io.*;
+import java.net.URL;
+import javax.sound.sampled.*;
+import javax.swing.*;
+
 public class GameEngine implements Runnable {
 
     private final int FRAMES_PER_SECOND = 60;
@@ -38,6 +43,22 @@ public class GameEngine implements Runnable {
     public void initializeWindow(JFrame gameWindow){
         Container contentPane = gameWindow.getContentPane();
         contentPane.add(renderEngine);
+        try {
+            // Open an audio input stream.
+            URL url = this.getClass().getClassLoader().getResource("assets/music/title.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            // Get a sound clip resource.
+            Clip clip = AudioSystem.getClip();
+            // Open audio clip and load samples from the audio input stream.
+            clip.open(audioIn);
+            clip.start();
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
