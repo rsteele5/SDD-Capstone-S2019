@@ -57,7 +57,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, newGameButtonIMG, 1, (screenManager) ->{
                 Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
-                //TODO: Add New Game Screen
+                screenManager.addScreen(new PlayerCountScreen(screenManager));
             }));
 
             //Create labels

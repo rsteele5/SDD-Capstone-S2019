@@ -20,11 +20,13 @@ public class ConfirmationPopup extends GameScreen {
     private final int Y_INIT_BUTTON = 400;
     private final int X_BUFFER = 142;
     private boolean goBack = false;
+    private String bgImage = "";
 
-    public ConfirmationPopup(ScreenManager screenManager) {
+    public ConfirmationPopup(ScreenManager screenManager, String bgImage) {
         super(screenManager);
         name = "ConfirmationPopup";
         exclusivePopup = true;
+        this.bgImage = bgImage;
     }
 
     /**
@@ -43,7 +45,7 @@ public class ConfirmationPopup extends GameScreen {
     protected void loadContent() {
         try {
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-ConfirmationPopup.png")));
+                    .getResource(bgImage)));
             BufferedImage yesButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Yes.png")));
             BufferedImage noButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class ControlsScreen extends GameScreen {
+public class PlayerCountScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
     protected CopyOnWriteArrayList<Label> labels;
@@ -24,13 +24,16 @@ public class ControlsScreen extends GameScreen {
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int X_BUFFER = 48;
+    private final int TEDDY_HEIGHT = 200;
+    private final int HALF_TEDDY_WIDTH = 50;
+    private final int QRTR_BUTTON_WIDTH = 65;
+
     //endregion
 
     //region <Construction and Initialization>
-    public ControlsScreen(ScreenManager screenManager, CopyOnWriteArrayList<Label> controlLabels) {
+    public PlayerCountScreen(ScreenManager screenManager) {
         super(screenManager);
-        labels = controlLabels;
-        name = "ControlsScreen";
+        name = "PlayerCountScreen";
         exclusivePopup = true;
     }
 
@@ -47,70 +50,58 @@ public class ControlsScreen extends GameScreen {
 
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-ControlsMenu.png")));
-            BufferedImage leftArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-LeftArrow.png")));
-            BufferedImage rightArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-RightArrow.png")));
-            BufferedImage confirmButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Confirm.png")));
+                    .getResource("/assets/backgrounds/BG-PlayersMenu.png")));
+            BufferedImage soloButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Solo.png")));
+            BufferedImage coopButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Coop.png")));
             BufferedImage backButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
                     .getResource("/assets/buttons/Button-Back.png")));
+            BufferedImage teddyImageIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/Teddy.png")));
+            BufferedImage teddy2ImageIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/Teddy2.png")));
 
             //Create buttons
-            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+0*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, soloButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
-                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
-                        currentLabel = labels.get((labels.indexOf(currentLabel) > 0 ? labels.indexOf(currentLabel) - 1
-                                : labels.size() - 1));
-                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
-                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, rightArrowButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
-                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
-                        currentLabel = labels.get((labels.indexOf(currentLabel) + 1) % labels.size());
-                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
-                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, confirmButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
-                        for (Label lab : labels) {
-                            if (lab == currentLabel)
-                                lab.setActive(true);
-                            else
-                                lab.setActive(false);
-                        }
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
+                        //screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-ConfirmSoloPopup.png"));
+                        screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-TempSolo.png"));
                         this.setScreenState(ScreenState.TransitionOff);
+                        //
+                        /*Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                                + this.getScreenState().name()
+                                + ", index: " + screenManager.getScreens().indexOf(this));*/
                     }));
 
+            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, coopButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Coop");
+                        //screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-ConfirmCoopPopup.png"));
+                        screenManager.addScreen(new ConfirmationPopup(screenManager,"/assets/backgrounds/BG-TempCoop.png"));
+                        this.setScreenState(ScreenState.TransitionOff);
+                        //
+                        /*Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                                + this.getScreenState().name()
+                                + ", index: " + screenManager.getScreens().indexOf(this));*/
+                    }));
             buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, backButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
-                        screenManager.addScreen(new ConfirmationPopup(screenManager, "/assets/backgrounds/BG-ConfirmationPopup.png"));
                         this.setScreenState(ScreenState.TransitionOff);
-                        //Askjasdkljadsfkljvalkdjnfva;jldnfbj
-                        Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
-                                + this.getScreenState().name()
-                                + ", index: " + screenManager.getScreens().indexOf(this));
+
                     }));
 
-            //Create Background on layer 0
+            /* Create all renderables */
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
-            //renderableLayers.get(0).add(new ImageContainer(0,0, bgCover, 0));
+            renderableLayers.get(0).add(new ImageContainer(X_INIT_BUTTON + 2*QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH, Y_INIT_BUTTON- TEDDY_HEIGHT, teddyImageIMG, 1));
+            renderableLayers.get(0).add(new ImageContainer(X_INIT_BUTTON + QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH +2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON- TEDDY_HEIGHT, teddyImageIMG, 1));
+            renderableLayers.get(0).add(new ImageContainer(X_INIT_BUTTON + 3*QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH +2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON- TEDDY_HEIGHT, teddy2ImageIMG, 1));
 
             //Consolidate Renderables
             for(Button butt: buttons)
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
-
-            for (Label lab: labels)
-                if(lab.isActive) {
-                    renderableLayers.get(lab.getDrawLayer()).add(lab);
-                    currentLabel = lab;
-                }
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
