@@ -44,12 +44,25 @@ public class Level extends GameScreen {
                     .getResource("/assets/backgrounds/BG-BlackCover.png")));
             renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
             renderableLayers.get(1).add(new Square(50,50,square,1));
-            //renderableLayers.get(1).add(new Square(50,100,square,1));
             renderableLayers.get(1).add(new Square(50,200,square,1));
-           // renderableLayers.get(1).add(new Square(100,200,square,1));
-            //renderableLayers.get(1).add(new Square(100,0,square,1));
             renderableLayers.get(1).add(new Square(50,400,square,1));
             renderableLayers.get(1).add(new Square(50,600,square,1));
+
+            renderableLayers.get(1).add(new Square(100,75,square,1));
+            renderableLayers.get(1).add(new Square(100,300,square,1));
+            renderableLayers.get(1).add(new Square(100,450,square,1));
+            renderableLayers.get(1).add(new Square(100,527,square,1));
+            renderableLayers.get(1).add(new Square(100,600,square,1));
+
+            renderableLayers.get(1).add(new Square(200,50,square,1));
+            renderableLayers.get(1).add(new Square(200,150,square,1));
+            renderableLayers.get(1).add(new Square(200,250,square,1));
+            renderableLayers.get(1).add(new Square(200,350,square,1));
+            renderableLayers.get(1).add(new Square(200,450,square,1));
+            renderableLayers.get(1).add(new Square(200,700,square,1));
+
+            renderableLayers.get(1).add(new Square(400,50,square,1));
+            renderableLayers.get(1).add(new Square(400,100,square,1));
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
                 gameObjects.addAll(layer);

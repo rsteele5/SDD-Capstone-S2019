@@ -10,6 +10,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
+import java.io.*;
+import java.net.URL;
+import javax.sound.sampled.*;
+import javax.swing.*;
+
 public class GameEngine implements Runnable {
 
     private final int FRAMES_PER_SECOND = 60;
@@ -38,6 +43,7 @@ public class GameEngine implements Runnable {
     public void initializeWindow(JFrame gameWindow){
         Container contentPane = gameWindow.getContentPane();
         contentPane.add(renderEngine);
+
     }
 
     @Override
