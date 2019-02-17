@@ -1,6 +1,6 @@
 package control.physics;
 
-class PhysicsVector{
+public class PhysicsVector{
     double x, y;
 
     public PhysicsVector(double x, double y) {
@@ -37,9 +37,10 @@ class PhysicsVector{
         y -= vector.y;
     }
 
-    public void mult(double scalar) {
+    public PhysicsVector mult(double scalar) {
         x *= scalar;
         y *= scalar;
+        return new PhysicsVector(this.x * scalar, this.y * scalar);
     }
 
     public void div(double scalar) {

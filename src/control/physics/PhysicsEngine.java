@@ -1,82 +1,70 @@
 package control.physics;
 
-import control.CollisionManager;
+import _test.splashscreentest.Square;
 import control.ScreenManager;
-import model.levels.LevelData;
+import model.gameobjects.GameObject;
 import utilities.Debug;
-import utilities.DebugEnabler;
 
-import java.util.Set;
+import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PhysicsEngine {
-    CollisionManager collisionManager;
     ScreenManager screenManager;
-    LevelData levelData = null;
-
-    private PhysicsVector position = new PhysicsVector(0,400);        //Position of object
-    private PhysicsVector velocity = new PhysicsVector(0, 0);         //Velocity of object
-    private PhysicsVector acceleration = new PhysicsVector(0,0);      //Acceleration of object
-
-
+    final int winWidth = 1280;
+    final int winheight = 720;
+    //Rectangle boundaries = new Rectangle(0,0,1280,720);
     public PhysicsEngine(ScreenManager myScreenManager){
         screenManager = myScreenManager;
     }
-/*
-    public void physicsUpdate() {
 
-
-    }
-/*
-
- */
     public void update(){
-        //TODO: Calculate physics with specified data from screenManager
-        //for(Kinematic kinematic: screenManager.getLevelData().getKinematicObjects())
-        //    Debug.success(DebugEnabler.PHYSICS_LOG, "FloatingEye -> My physics are being updated");
-        //TODO: Process collisions and adjust objects
-    }
+        CopyOnWriteArrayList<GameObject> objects = screenManager.getLevelData().levelObjects();
+        int indices = objects.size();
+        for(int i1 = 0; i1 < indices; i1++){
+            if(objects.get(i1) instanceof Kinematic) {
+                GameObject obj = objects.get(i1);
 
-    //TODO: getRid from MyCanvas
-    private void calculateMove(){
-        //This is where the movement is being calculated
-        acceleration.applyForce(PhysicsMeta.Gravity);
-        acceleration.add(acceleration.calculateFriction(velocity));
-        velocity.add(acceleration);
-        position.add(velocity);
+                if((((Kinematic) obj).getAcceleration() + PhysicsMeta.Gravity) < PhysicsMeta.terminalVelocity )
+                    ((Kinematic) obj).setAcceleration(((Kinematic) obj).getAcceleration() + PhysicsMeta.Gravity);
 
-        //Handles screen collision
-        if (position.x > 400){
-            position.x = 400;
-        } else if (position.x < 0) {
-            position.x = 0;
-        }
-        if (position.y > 400){
-            position.y = 400;
-        }else if (position.y < 0) {
-            position.y = 0;
-        }
+                obj.setY(obj.getY() + (int)((Kinematic) obj).getVelocity().y);
 
-        //Reset acceleration after at the end of each update
-        acceleration.mult(0);
+                if ((obj.getY() + ((Kinematic) obj).getHitbox().height) > winheight) {
+                    obj.setY(winheight - ((Kinematic) obj).getHitbox().height);
+                }
 
-    }
+                if ((obj.getX() + ((Kinematic) obj).getHitbox().width) > winWidth) {
+                    obj.setX(winWidth - ((Kinematic) obj).getHitbox().width);
+                }
 
-    public void movement(Set<Character> pressed) {
-        for(char key: pressed) {
-            if (key == 'w') {
-                acceleration.applyForce(new PhysicsVector(0,-5));
+                if (obj.getX() < 0) {
+                    obj.setX(0);
+                }
+
+                if (obj.getY() < 0) {
+                    obj.setY(0);
+                }
+                /*
+                if(!((Kinematic) objects.get(i1)).getHitbox().intersects(boundaries)){
+                    ((Kinematic) obj).setAcceleration(0);
+                    Debug.log(true,obj + "");
+                    Rectangle intersect = ((Kinematic) obj).getHitbox().intersection(boundaries);
+                    obj.setY((int)intersect.getY() + intersect.height - ((Kinematic) obj).getHitbox().height);
+                }
+                */
             }
-            if (key == 'a') {
-                velocity.applyForce(new PhysicsVector(-2,0));
+            for(int i2 = i1; i2 < indices - 1; i2++) {
+                if(objects.get(i2) instanceof Kinematic && objects.get(i2 + 1) instanceof Kinematic) {
+                    GameObject obj1 = objects.get(i2);
+                    GameObject obj2 = objects.get(i2 + 1);
+                    if(((Kinematic)obj1).getHitbox().intersects(((Kinematic)obj2).getHitbox())){
+                        ((Kinematic) obj1).setAcceleration(1);
+                        Rectangle intersect = ((Kinematic) obj1).getHitbox().intersection(((Kinematic)obj2).getHitbox());
+                      //  Debug.log(true, ((Square)obj1).description());
+                        obj1.setY(obj1.getY() - intersect.height);
+                    }
+                }
             }
-            if (key == 's') {
-                velocity.applyForce(new PhysicsVector(0,2));
-            }
-            if (key == 'd') {
-                velocity.applyForce(new PhysicsVector(2,0));
-            }
-            velocity.normalize();
         }
     }
 

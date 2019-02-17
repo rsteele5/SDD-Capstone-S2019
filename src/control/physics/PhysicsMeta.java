@@ -1,5 +1,6 @@
 package control.physics;
 
-public class PhysicsMeta {
-    public static PhysicsVector Gravity = new PhysicsVector(0, 0.1);
+public enum PhysicsMeta {;
+    public static double Gravity = .015;
+    public static int terminalVelocity = 3;
 }

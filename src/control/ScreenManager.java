@@ -1,13 +1,11 @@
 package control;
 
-import model.gameobjects.GameObject;
-import model.levels.LevelData;
+import model.levels.Level;
 import utilities.Debug;
 import utilities.DebugEnabler;
 import view.screens.GameScreen;
 import view.screens.LoadingScreen;
 import view.screens.TeamSplashScreen;
-import view.screens.VendorScreen;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -33,10 +31,13 @@ public class ScreenManager {
         addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
     }
 
-    public LevelData getLevelData() {
+    public Level getLevelData(){
+        for(GameScreen screen : gameScreens){
+            if(screen instanceof  Level)
+                return (Level)screen;
+        }
         return null;
     }
-
 
     public void drawScreens(Graphics2D graphics){
         for (int i = gameScreens.size()-1; i >= 0; i--) {

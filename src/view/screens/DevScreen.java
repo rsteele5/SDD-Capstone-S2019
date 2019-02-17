@@ -6,6 +6,7 @@ import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
+import model.levels.Level;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -68,7 +69,7 @@ public class DevScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, physicsButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
-                        //TODO: Add Physics Test Screen
+                        this.screenManager.addScreen(new Level(screenManager));
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, inventoryButtonIMG, 1,

@@ -48,7 +48,7 @@ public class GameEngine implements Runnable {
             long startTime = System.currentTimeMillis();
 
             //Update
-            physicsEngine.update();
+            if(screenManager.getLevelData() != null) physicsEngine.update();
             //Render
             screenManager.update();
             renderEngine.draw();
