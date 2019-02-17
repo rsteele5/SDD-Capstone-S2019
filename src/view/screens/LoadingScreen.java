@@ -90,6 +90,7 @@ public class LoadingScreen extends view.screens.GameScreen {
     @Override
     public void draw(Graphics2D graphics){
         super.draw(graphics);
+        graphics.setColor(Color.WHITE);
         graphics.drawString("Loading: " + (int)(loadedData) + "/" + totalDataToLoad, 500, 500);
     }
     //endregion
