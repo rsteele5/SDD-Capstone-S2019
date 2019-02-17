@@ -5,7 +5,7 @@ public class Sword extends Item {
     /* Temporary set up for Sprint 1 */
     public Sword(){
         super();
-        imagePath = "/assets/Items/swordSmall.png";
+        imagePath = "/assets/Items/sword2.png";
         itemName = "Wooden Sword";
         type = "Weapon";
         damage = 4;

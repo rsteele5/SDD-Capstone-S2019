@@ -5,7 +5,7 @@ public class Potion extends Item {
     /* Temporary set up for Sprint 1 */
     public Potion(){
         super();
-        imagePath = "/assets/Items/redPotionSmall.png";
+        imagePath = "/assets/Items/redPotion.png";
         itemName = "Fire Potion";
         type = "Potion";
         damage = 0;

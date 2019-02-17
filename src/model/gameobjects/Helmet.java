@@ -5,7 +5,7 @@ public class Helmet extends Item {
     /* Temporary set up for Sprint 1 */
     public Helmet(){
         super();
-        imagePath = "/assets/Items/helmetSmall.png";
+        imagePath = "/assets/Items/helmet.png";
         itemName = "Bronze Helmet";
         type = "Armor";
         damage = 0;

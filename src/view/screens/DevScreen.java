@@ -62,7 +62,6 @@ public class DevScreen extends GameScreen {
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
                         screenManager.addScreen(new TestGameplayScreen(screenManager));
-                        //TODO: Add Loading Screen
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, physicsButtonIMG, 1,
@@ -74,7 +73,7 @@ public class DevScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, inventoryButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
-                        //TODO: Add Inventory Screen
+                        screenManager.addScreen(new InventoryScreen(screenManager));
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, mainMenuButtonIMG, 1,
