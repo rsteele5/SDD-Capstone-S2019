@@ -12,14 +12,14 @@ import utilities.DebugEnabler;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class OptionScreen extends GameScreen {
+public class GraphicsScreen extends GameScreen {
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
-    private HashMap<String, CopyOnWriteArrayList<Label>> savedLabels;
+    protected CopyOnWriteArrayList<Label> labels;
+    private Label currentLabel; //Variable that keeps track of the current label displayed on screen
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
@@ -27,10 +27,10 @@ public class OptionScreen extends GameScreen {
     //endregion
 
     //region <Construction and Initialization>
-    public OptionScreen(ScreenManager screenManager, HashMap savedLabels) {
+    public GraphicsScreen(ScreenManager screenManager, CopyOnWriteArrayList<Label> controlLabels) {
         super(screenManager);
-        this.savedLabels = savedLabels;
-        name = "OptionScreen";
+        labels = controlLabels;
+        name = "ControlsScreen";
         exclusivePopup = true;
     }
 
@@ -47,38 +47,55 @@ public class OptionScreen extends GameScreen {
 
             //RenderableObject object paths
             BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/backgrounds/BG-OptionMenu.png")));
-            BufferedImage graphicButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Graphics.png")));
-            BufferedImage controlButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Controls.png")));
-            BufferedImage soundButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-Sound.png")));
-            BufferedImage mainMenuButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
-                    .getResource("/assets/buttons/Button-MainMenu.png")));
+                    .getResource("/assets/backgrounds/BG-GraphicsMenu.png")));
+            BufferedImage leftArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-LeftArrow.png")));
+            BufferedImage rightArrowButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-RightArrow.png")));
+            BufferedImage confirmButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Confirm.png")));
+            BufferedImage backButtonIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/buttons/Button-Back.png")));
+
             //Create buttons
-            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, graphicButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, leftArrowButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
-                        screenManager.addScreen(new GraphicsScreen(screenManager, savedLabels.get("Graphics")));
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
+                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
+                        currentLabel = labels.get((labels.indexOf(currentLabel) > 0 ? labels.indexOf(currentLabel) - 1
+                                : labels.size() - 1));
+                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, soundButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, rightArrowButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
-                        //TODO: Add Sound Menu
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
+                        renderableLayers.get(currentLabel.getDrawLayer()).remove(currentLabel);
+                        currentLabel = labels.get((labels.indexOf(currentLabel) + 1) % labels.size());
+                        renderableLayers.get(currentLabel.getDrawLayer()).add(currentLabel);
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, controlButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, confirmButtonIMG, 1,
                     (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
-                        screenManager.addScreen(new ControlsScreen(screenManager, savedLabels.get("Controls")));
-                    }));
-
-            buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, mainMenuButtonIMG, 1,
-                    (screenManager) ->{
-                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
+                        for (Label lab : labels) {
+                            if (lab == currentLabel)
+                                lab.setActive(true);
+                            else
+                                lab.setActive(false);
+                        }
                         this.setScreenState(ScreenState.TransitionOff);
+                    }));
+
+            buttons.add(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, backButtonIMG, 1,
+                    (screenManager) ->{
+                        Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
+                        screenManager.addScreen(new ConfirmationPopup(screenManager, "/assets/backgrounds/BG-ConfirmationPopup.png"));
+                        this.setScreenState(ScreenState.TransitionOff);
+                        //Askjasdkljadsfkljvalkdjnfva;jldnfbj
+                        Debug.warning(DebugEnabler.GAME_SCREEN_LOG, this.name + "-State: "
+                                + this.getScreenState().name()
+                                + ", index: " + screenManager.getScreens().indexOf(this));
                     }));
 
             //Create Background on layer 0
@@ -88,6 +105,12 @@ public class OptionScreen extends GameScreen {
             //Consolidate Renderables
             for(Button butt: buttons)
                 renderableLayers.get(butt.getDrawLayer()).add(butt);
+
+            for (Label lab: labels)
+                if(lab.isActive) {
+                    renderableLayers.get(lab.getDrawLayer()).add(lab);
+                    currentLabel = lab;
+                }
 
             //Consolidate GameObjects
             for(CopyOnWriteArrayList<RenderableObject> layer: renderableLayers)
@@ -141,6 +164,10 @@ public class OptionScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
+        //Set all labels alpha equal to one, even if they aren't being rendered at the time
+        for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
+            for(RenderableObject renderable : layer)
+                renderable.setAlpha(1.0f);
     }
 
     @Override
