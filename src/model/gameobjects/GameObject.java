@@ -6,7 +6,6 @@ public abstract class GameObject {
     protected int x;
     protected int y;
 
-
     public GameObject() {
         x = 0;
         y = 0;
