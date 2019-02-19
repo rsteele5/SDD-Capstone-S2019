@@ -17,28 +17,35 @@ public class InventoryScreen extends GameScreen {
     /* Initialize variables *****************/
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
 
+    // Squares horizontal
+    private int numSQHorz = 4;
+    // Squares vertical
+    private int numSQVert = 8;
+    // Starting x and y value of Background
+    private int xValBG = 180;
+    private int yValBG = 105;
+    // Inventory square Padding
+    private int invPadding = 2;
+    // Inventory square size and distance between them x and y
+    private int invSQSize = 44;
+    private int invSQxDist = 5;
+    // X & Y Distance from image sides to first inv sq
+    private int xDistToSQ = 10;
+    private int yDistToSQ = 115;
     // Starting x value of inventory items.
-    private int xValItemsStart = 191;
+    private int xValItemsStart = xValBG + xDistToSQ + invPadding;
     // x value spacing of inventory boxes.
-    private int xValItemsSpacing = 48;
+    private int xValItemsSpacing = invSQSize + invSQxDist;
     // Last inventory square's x value
-    private int xValItemsEnd = xValItemsStart + 3*xValItemsSpacing;
+    private int xValItemsEnd = xValItemsStart + (numSQHorz-1)*xValItemsSpacing;
     // Starting x value of inventory items.
-    private int yValItemsStart = 220;
+    private int yValItemsStart = yValBG + yDistToSQ + invPadding;
     // y value spacing of inventory boxes.
-    private int yValItemsSpacing = 46;
+    private int yValItemsSpacing = invSQSize + invSQxDist;
     // Last inventory square's y value
-    private int yValItemsEnd = yValItemsStart + 7*yValItemsSpacing;
-
-    /* Array of x values for teddy item box locations
-    private int [] xValBearItems = {191, 239, 287, 335};
-
-    /* Array of x values for vendor item box locations *
-    private int [] xValVendorItems = {927, 975, 1023, 1071};
-
-    /* Array of y values for bear AND vendor item box locations
-    private int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};*/
-
+    private int yValItemsEnd = yValItemsStart + (numSQVert-1)*yValItemsSpacing;
+    // Number of squares right of first
+    // Number of squares below first
     /* x and y positions for text */
     private int x_position = 400;
     private int y_position = 220;
@@ -47,9 +54,8 @@ public class InventoryScreen extends GameScreen {
     private boolean updateInventory = false;
     /* ****************************************/
 
-    /* Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
+    /* TODO: Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
     private CopyOnWriteArrayList<Item> bearInventory;
-    private CopyOnWriteArrayList<Item> vendorInventory;
 
 
     public InventoryScreen(ScreenManager screenManager) {
@@ -57,16 +63,27 @@ public class InventoryScreen extends GameScreen {
         name = "InventoryScreen";
         exclusivePopup = true;
 
-        /* Remove after testing. Populates inventories with items **/
+        /* TODO Remove after testing. Populates inventories with items **/
         bearInventory = new CopyOnWriteArrayList<>();
-        bearInventory.add(new Sword());
-        bearInventory.add(new Potion());
-        bearInventory.add(new Potion());
-        bearInventory.add(new Sword());
-        bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
+        bearInventory.add(new Sword());bearInventory.add(new Sword());bearInventory.add(new Helmet());bearInventory.add(new Helmet());
 
     }
-
+    /**
+     * This resize method is used to resize a BufferedImage
+     * to a new width and heigth.
+     * show the usage of various javadoc Tags.
+     * @param img This parameter is the BufferedImage to resize
+     * @param newW  This parameter is new width of the image
+     * @param newH  This parameter is new heigth of the image
+     * @return BufferedImage This returns the resized image as a new BufferedImage
+     */
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
@@ -92,8 +109,17 @@ public class InventoryScreen extends GameScreen {
             /* Get images **/
             BufferedImage backgroundIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/backgrounds/BG-Inventory.png")));
-
-            /* TODO: Change to reflect current user's bear **/
+            // Get Labels
+            BufferedImage equippedLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Equipped.png")));
+            BufferedImage itemsLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Items.png")));
+            BufferedImage pauseMenuLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Pause-Menu.png")));
+            BufferedImage selectedItemLabelIMG = RenderEngine.convertToARGB(ImageIO.read(getClass()
+                    .getResource("/assets/labels/Label-Selected-Item.png")));
+            /* TODO: Change to reflect current user's bear */
+            /* TODO: Fix Bear Height */
             BufferedImage teddyImageIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/Teddy.png")));
             BufferedImage teddyResizeIMG = resize( teddyImageIMG, 100, 136);
@@ -101,10 +127,12 @@ public class InventoryScreen extends GameScreen {
             /* Create main buttons and item buttons */
             createButtons();
             createItemButtons();
-
             /* Create all renderables **/
-            renderableLayers.get(0).add(new ImageContainer(150, 75, backgroundIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(xValBG, yValBG, backgroundIMG, 0));
             renderableLayers.get(0).add(new ImageContainer(415, 413, teddyResizeIMG, 0));
+            // TODO Change these positions to use the size of the labels and their middle to find where they should be
+            renderableLayers.get(0).add(new ImageContainer(xValBG + xDistToSQ,  yValBG + yDistToSQ/16, pauseMenuLabelIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(xValBG + xDistToSQ + (3*(invSQSize/2)),  yValBG + 5*(yDistToSQ/8), itemsLabelIMG, 0));
 
             for (Button button : buttons)
                 renderableLayers.get(button.getDrawLayer()).add(button);
@@ -222,7 +250,7 @@ public class InventoryScreen extends GameScreen {
                     ImageIO.read(getClass().getResource("/assets/buttons/Button-Vendor-Exit.png")));
 
             /* Create buttons **/
-            buttons.add(new Button(175, 100, exitButtonIMG, 1,
+            buttons.add(new Button(800, 400, exitButtonIMG, 1,
                     (screenManager1 -> {
                         Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Exit Vendor");
                         this.setScreenState(ScreenState.TransitionOff);
