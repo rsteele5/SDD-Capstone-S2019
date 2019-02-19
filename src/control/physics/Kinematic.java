@@ -1,5 +1,10 @@
 package control.physics;
 
+import java.awt.*;
+
 public interface Kinematic {
-    //TODO: Implement physics component
+   PhysicsVector getVelocity();
+   double getAcceleration();
+   void setAcceleration(double d);
+   Rectangle getHitbox();
 }

@@ -1,10 +1,12 @@
 package view.screens;
 
+import _test.splashscreentest.TestGameplayScreen;
 import control.RenderEngine;
 import control.ScreenManager;
 import model.gameobjects.ImageContainer;
 import model.gameobjects.RenderableObject;
 import model.gameobjects.buttons.Button;
+import model.levels.Level;
 import utilities.Debug;
 import utilities.DebugEnabler;
 
@@ -20,7 +22,7 @@ public class DevScreen extends GameScreen {
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
-    private final int X_BUFFER = 64;
+    private final int X_BUFFER = 48;
     //endregion
 
     //region <Construction and Initialization>
@@ -60,13 +62,14 @@ public class DevScreen extends GameScreen {
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, loadingButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
+                        screenManager.addScreen(new TestGameplayScreen(screenManager));
                         //TODO: Add Loading Screen
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, physicsButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
-                        //TODO: Add Physics Test Screen
+                        this.screenManager.addScreen(new Level(screenManager));
                     }));
 
             buttons.add(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, inventoryButtonIMG, 1,
@@ -81,7 +84,7 @@ public class DevScreen extends GameScreen {
                         this.setScreenState(ScreenState.TransitionOff);
                     }));
 
-            buttons.add(new Button(X_INIT_BUTTON+(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON - 300, vendorButtonIMG, 1,
+            buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160, vendorButtonIMG, 1,
                     (screenManager) ->{
                         Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
                         screenManager.addScreen(new VendorScreen(screenManager));

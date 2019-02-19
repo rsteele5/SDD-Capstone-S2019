@@ -7,15 +7,17 @@ import utilities.Debug;
 import utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TitleScreen extends view.screens.GameScreen {
     //region <Variables>
     private ScreenState previousState = null; //TODO: Remove after testing
     //endregion
-
+    private boolean musicStart = false;
     //region <Construction and Initialization>
     public TitleScreen(ScreenManager screenManager) {
         super(screenManager);
@@ -45,6 +47,10 @@ public class TitleScreen extends view.screens.GameScreen {
                     .getResource("/assets/backgrounds/BG-Title.png")));
             renderableLayers.get(0).add(new ImageContainer(350,75, title, 2));
 
+            BufferedImage skipImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/text/TXT-SkipMsg.png")));
+            ImageContainer skipMsg = new ImageContainer(575,660, skipImg, 0);
+            renderableLayers.get(0).add(skipMsg);
+
             Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Loaded Success");
         } catch(IOException e)  {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
@@ -55,6 +61,25 @@ public class TitleScreen extends view.screens.GameScreen {
     //region <Update>
     @Override
     public void updateTransitionOn() {
+        if(!musicStart) {
+            musicStart = true;
+            try {
+                // Open an audio input stream.
+                URL url = this.getClass().getClassLoader().getResource("assets/music/title.wav");
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                // Get a sound clip resource.
+                Clip clip = AudioSystem.getClip();
+                // Open audio clip and load samples from the audio input stream.
+                clip.open(audioIn);
+                clip.start();
+            } catch (UnsupportedAudioFileException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
+            }
+        }
         if(renderableLayers.get(0).get(1).getY() < -240)
             renderableLayers.get(0).get(1).setY(renderableLayers.get(0).get(1).getY() + 2);
         else
