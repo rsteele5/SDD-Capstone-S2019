@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 //Project Imports
+import gameobjects.renderables.RenderableObject;
 import gamescreens.ScreenManager;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -64,8 +65,9 @@ public class RenderEngine extends JPanel {
         }
     }
 
+    //TODO: fix later
     private void createRenderBuffer(Graphics2D graphics) {
-        screenManager.drawScreens(graphics);
+        screenManager.draw(graphics);
     }
 
     private void renderBufferToScreen() {
@@ -83,16 +85,5 @@ public class RenderEngine extends JPanel {
             System.out.println("Graphics error: " + e);
         }
 
-    }
-
-    public static BufferedImage convertToARGB(BufferedImage image)
-    {
-        BufferedImage newImage = new BufferedImage(
-                image.getWidth(), image.getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = newImage.createGraphics();
-        g.drawImage(image, 0, 0, null);
-        g.dispose();
-        return newImage;
     }
 }

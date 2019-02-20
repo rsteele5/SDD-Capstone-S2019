@@ -1,0 +1,75 @@
+[Success] -> Logging activated successfully
+[Success] -> LoadingScreen-Loading Content
+
+[Success] -> TeamSplashScreen-Loading Content
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+[Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Debug] -> TeamSplashScreen-CurrentState: Active
+
+[Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+[Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Debug] -> TitleScreen-CurrentState: Active
+
+[Debug] -> TitleScreen-CurrentState: TransitionOff
+
+[Success] -> Constructing MainMenuScreen
+
+[Success] -> MainMenuScreen-Loading Content
+
+[Debug] -> TitleScreen-CurrentState: Hidden
+
+[Debug] -> TitleScreen-CurrentState: Hidden
+
+[Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+[Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+[Debug] -> TitleScreen-CurrentState: Hidden
+
+[Debug] -> MainMenuScreen-CurrentState: Active
+
+[Debug] -> Handle Click at x: 166, y: 638
+
+[Success] -> Clicked Test Button
+
+[Success] -> TestGameplayScreen-Loading Content
+
+[Debug] -> LoadingScreen-CurrentState: TransitionOn
+
+[Debug] -> MainMenuScreen-CurrentState: Hidden
+
+[Debug] -> LoadingScreen-CurrentState: Active
+
+[Debug] -> MainMenuScreen-CurrentState: TransitionOff
+
+[Success] -> TestGameplayScreen-Loaded Success
+
+[Debug] -> TestGameplayScreen-CurrentState: TransitionOn
+
+[Debug] -> LoadingScreen-CurrentState: TransitionOff
+
+[Debug] -> TestGameplayScreen-CurrentState: Active
+
+[Debug] -> Handle Click at x: 251, y: 659
+
+[Debug] -> Handle Click at x: 299, y: 396
+
+[Debug] -> Handle Click at x: 587, y: 417
+
+[Debug] -> Handle Click at x: 887, y: 417
+
+[Warning] -> Log refresh
+

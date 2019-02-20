@@ -1,0 +1,79 @@
+[Success] -> Logging activated successfully
+[Success] -> TeamSplashScreen-Loading Content
+
+[Success] -> LoadingScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 38
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+  [Debug] -> TeamSplashScreen-CurrentState: Active
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 10
+
+  [Debug] -> TitleScreen-CurrentState: Active
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOff
+
+[Success] -> Constructing MainMenuScreen
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 204, y: 620
+
+[Success] -> Clicked Button - New Game
+
+[Success] -> PlayerCountScreen-Loading Content
+
+[Success] -> PlayerCountScreen-Loaded Success
+
+  [Debug] -> PlayerCountScreen-CurrentState: TransitionOn
+
+  [Debug] -> PlayerCountScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1100, y: 631
+
+[Success] -> Clicked Button - Back
+
+  [Debug] -> PlayerCountScreen-CurrentState: TransitionOff
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+[Warning] -> FPS below 60! - current FPS: 37
+

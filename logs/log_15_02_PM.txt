@@ -1,0 +1,263 @@
+[Success] -> Logging activated successfully
+[Success] -> LoadingScreen-Loading Content
+
+[Success] -> TeamSplashScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 14
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 33
+
+  [Debug] -> Handle Click at x: 690, y: 564
+
+  [Debug] -> Clicked the splash screen
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 4
+
+  [Debug] -> Handle Click at x: 679, y: 567
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 169, y: 627
+
+[Success] -> Clicked Button - New Game
+
+[Success] -> PlayerCountScreen-Loading Content
+
+[Success] -> PlayerCountScreen-Loaded Success
+
+  [Debug] -> PlayerCountScreen-CurrentState: TransitionOn
+
+  [Debug] -> PlayerCountScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 193, y: 620
+
+[Success] -> Clicked Button - Solo
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 771, y: 441
+
+[Success] -> Clicked Button - No
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 813, y: 631
+
+[Success] -> Clicked Button - Coop
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 785, y: 438
+
+[Success] -> Clicked Button - No
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 757, y: 636
+
+[Success] -> Clicked Button - Coop
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 778, y: 450
+
+[Success] -> Clicked Button - No
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 746, y: 608
+
+[Success] -> Clicked Button - Coop
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 512, y: 450
+
+[Success] -> Clicked Button - Yes
+
+[Success] -> TempCoopScreen-Loading Content
+
+[Success] -> TempCoopScreen-Loaded Success
+
+  [Debug] -> TempCoopScreen-CurrentState: TransitionOn
+
+  [Debug] -> TempCoopScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 631, y: 327
+
+  [Debug] -> Handle Click at x: 659, y: 327
+
+  [Debug] -> Handle Click at x: 1072, y: 628
+
+[Success] -> Clicked Button - Back
+
+  [Debug] -> TempCoopScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 792, y: 457
+
+[Success] -> Clicked Button - No
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 218, y: 621
+
+[Success] -> Clicked Button - Solo
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 487, y: 447
+
+[Success] -> Clicked Button - Yes
+
+[Success] -> TempSoloScreen-Loading Content
+
+[Success] -> TempSoloScreen-Loaded Success
+
+  [Debug] -> TempSoloScreen-CurrentState: TransitionOn
+
+  [Debug] -> TempSoloScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1076, y: 636
+
+[Success] -> Clicked Button - Back
+
+  [Debug] -> TempSoloScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 767, y: 454
+
+[Success] -> Clicked Button - No
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 222, y: 632
+
+[Success] -> Clicked Button - Solo
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 508, y: 450
+
+[Success] -> Clicked Button - Yes
+
+[Success] -> TempSoloScreen-Loading Content
+
+[Success] -> TempSoloScreen-Loaded Success
+
+  [Debug] -> TempSoloScreen-CurrentState: TransitionOn
+
+  [Debug] -> TempSoloScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1139, y: 653
+
+[Success] -> Clicked Button - Back
+
+  [Debug] -> TempSoloScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 750, y: 457
+
+[Success] -> Clicked Button - No
+
+  [Debug] -> ConfirmationPopupMod-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 1132, y: 632
+
+[Success] -> Clicked Button - Back
+
+  [Debug] -> PlayerCountScreen-CurrentState: TransitionOff
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> Handle Click at x: 831, y: 629
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 235, y: 461
+
+[Success] -> Clicked Button - Vendor
+
+[Success] -> VendorScreenLoading content
+
+[Success] -> VendorScreenLoaded Success
+
+  [Debug] -> VendorScreen-CurrentState: TransitionOn
+
+  [Debug] -> VendorScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 225, y: 122
+
+[Success] -> Clicked Button - Exit Vendor
+
+  [Debug] -> VendorScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 1118, y: 643
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+

@@ -1,18 +1,12 @@
 package gamescreens.screens;
 
-import gameengine.rendering.RenderEngine;
+import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.RenderableObject;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TeamSplashScreen extends GameScreen {
 
@@ -23,40 +17,29 @@ public class TeamSplashScreen extends GameScreen {
     //endregion
 
     //region <Construction and Initialization>
-    public TeamSplashScreen(ScreenManager screenManager) {
-        super(screenManager);
-        name = "TeamSplashScreen";
+    public TeamSplashScreen(ScreenManager screenManager, String name) {
+        super(screenManager, name);
     }
 
+    /**
+     * Initializes all of the stuff you want on your screen
+     */
     @Override
-    protected void initializeLayers() {
-        renderableLayers.add(new CopyOnWriteArrayList<>());
+    protected void initializeScreen() {
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initializing Content");
+
+        logo = new ImageContainer(0,0, "/assets/backgrounds/BG-TeamLogo.png", DrawLayer.Background);
+        screenData.add(logo);
+        cover = new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background);
+        cover.setAlpha(1f);
+        screenData.add(cover);
+        skipMsg = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background);
+        screenData.add(skipMsg);
+
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initialized Success");
     }
 
-    @Override
-    public void loadContent(){
-        try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
 
-            BufferedImage logoImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-TeamLogo.png")));
-            logo = new ImageContainer(0,0, logoImg, 0);
-            renderableLayers.get(0).add(logo);
-
-            BufferedImage coverImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-BlackCover.png")));
-            cover = new ImageContainer(0,0, coverImg, 0);
-            cover.setAlpha(1f);
-            renderableLayers.get(0).add(cover);
-
-            BufferedImage skipImg = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/text/TXT-SkipMsg.png")));
-            skipMsg = new ImageContainer(575,660, skipImg, 0);
-            renderableLayers.get(0).add(skipMsg);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
-        } catch(IOException e)  {
-            System.out.println(e.getMessage());
-            Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
-        }
-    }
     //endregion
 
     //region <Update>
@@ -78,7 +61,7 @@ public class TeamSplashScreen extends GameScreen {
             cover.setAlpha(alpha + 0.008f);
         } else {
             exiting = true;
-            screenManager.addScreen(new TitleScreen(screenManager));
+            screenManager.addScreen(new TitleScreen(screenManager, "TitleScreen"));  //TODO: Add title screen
         }
     }
 
@@ -94,30 +77,12 @@ public class TeamSplashScreen extends GameScreen {
     }
     //endregion
 
-    //region <Render>
-    @Override
-    public void draw(Graphics2D graphics) {
-        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
-            for (RenderableObject gameObject : layer) {
-                gameObject.draw(graphics);
-            }
-        }
-    }
-    //endregion
-
-    //region <Getters and Setters>
-    @Override
-    public boolean isActive(){
-        return true;
-    }
-    //endregion
-
     //region <Support Functions>
     @Override
     public void handleClickEvent(int x, int y) {
         Debug.log(DebugEnabler.GAME_SCREEN_LOG, "Clicked the splash screen");
         exiting = true;
-        screenManager.addScreen(new TitleScreen(screenManager));
+        screenManager.addScreen(new TitleScreen(screenManager,"TitleScreen"));
     }
     //endregion
 }

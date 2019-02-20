@@ -1,0 +1,151 @@
+[Success] -> Logging activated successfully
+[Success] -> LoadingScreen-Loading Content
+
+[Success] -> TeamSplashScreen-Loading Content
+
+[Warning] -> TeamSplashScreen-State: TransitionOn, index: 0
+
+[Warning] -> FPS below 60! - current FPS: 27
+
+[Warning] -> FPS below 60! - current FPS: 38
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+  [Debug] -> Handle Click at x: 806, y: 433
+
+  [Debug] -> Clicked the splash screen
+
+[Warning] -> TitleScreen-State: TransitionOn, index: 0
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+  [Debug] -> Handle Click at x: 806, y: 433
+
+[Warning] -> MainMenuScreen-State: TransitionOn, index: 0
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 494, y: 633
+
+[Success] -> Clicked Button - Options
+
+[Warning] -> OptionScreen-State: TransitionOn, index: 0
+
+[Success] -> OptionScreen-Loading Content
+
+[Success] -> OptionScreen-Loaded Success
+
+  [Debug] -> OptionScreen-CurrentState: TransitionOn
+
+  [Debug] -> OptionScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 784, y: 643
+
+[Success] -> Clicked Button - Controls
+
+[Warning] -> ControlScreen-State: TransitionOn, index: 0
+
+[Success] -> ControlScreen-Loading Content
+
+[Success] -> ControlScreen-Loaded Success
+
+  [Debug] -> ControlScreen-CurrentState: TransitionOn
+
+  [Debug] -> ControlScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1149, y: 339
+
+[Warning] -> ControlScreen-State: Active, index: 0
+
+  [Debug] -> Handle Click at x: 270, y: 261
+
+[Warning] -> ControlScreen-State: Active, index: 0
+
+  [Debug] -> Handle Click at x: 1075, y: 303
+
+[Warning] -> ControlScreen-State: Active, index: 0
+
+  [Debug] -> Handle Click at x: 1103, y: 640
+
+[Warning] -> ControlScreen-State: Active, index: 0
+
+[Success] -> Clicked Button - Back
+
+[Warning] -> ConfirmationPopup-State: TransitionOn, index: 0
+
+[Warning] -> ControlScreen-State: TransitionOff, index: 1
+
+  [Debug] -> ConfirmationPopup-CurrentState: TransitionOn
+
+  [Debug] -> ConfirmationPopup-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 491, y: 440
+
+[Success] -> Clicked Button - Yes
+
+[Warning] -> ConfirmationPopup-State: TransitionOff, index: 0
+
+[Warning] -> ControlScreen-State: TransitionOff, index: 1
+
+[Warning] -> OptionScreen-State: Hidden, index: 2
+
+[Warning] -> MainMenuScreen-State: Hidden, index: 3
+
+  [Debug] -> ConfirmationPopup-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 1071, y: 363
+
+[Warning] -> ControlScreen-State: Active, index: 0
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+[Warning] -> FPS below 60! - current FPS: 47
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+[Warning] -> FPS below 60! - current FPS: 9
+
+[Warning] -> FPS below 60! - current FPS: 30
+
+[Warning] -> FPS below 60! - current FPS: 27
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+[Warning] -> FPS below 60! - current FPS: 47
+

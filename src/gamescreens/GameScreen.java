@@ -16,7 +16,7 @@ public abstract class GameScreen {
 
     public String name;
 
-    private ScreenData screenData;
+    protected ScreenData screenData;
 
     //TODO: Used for testing, remove after screen management is working. If it so tickles your pickles
     protected ScreenState previousState;
@@ -29,21 +29,21 @@ public abstract class GameScreen {
      *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
      *  An exclusive popup screen prevents updates on screens below it in the list.
      */
-    private boolean isExclusive = false;
+    protected boolean isExclusive = false;
 
     /**
      *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
      *  An exclusive popup screen prevents updates on screens below it in the list.
      */
-    public boolean isLoading = false;
+    private boolean isLoading;
 
     /**
      *  The variable overlay describes if a screen is covering another screen in it's entirety, but
      *  does not prevent updates or rendering on screens below it in the list.
      */
-    public boolean isOverlay = false;
+    protected boolean isOverlay = false;
 
-    private boolean exiting = false;
+    protected boolean exiting = false;
 
 
     /**
@@ -66,9 +66,61 @@ public abstract class GameScreen {
     protected ScreenState currentState;
     //endregion
 
+    //region<Construction and Initialization>
+    public GameScreen(ScreenManager screenManager, String name) {
+        this.screenManager = screenManager;
+        previousState = null;
+        screenData = new ScreenData();
+        this.name = name;
+        initializeScreen();
+        currentState = ScreenState.TransitionOn;
+        isLoading = true;
+        loadContent();
+    }
+
+    /* Only for non root screen */
+    public GameScreen(ScreenManager screenManager, String name, GameScreen parentScreen, boolean isExclusive) {
+        this(screenManager, name);
+        this.parentScreen = parentScreen;
+        this.isExclusive = isExclusive;
+        this.isOverlay = !isExclusive;
+    }
+
+
+    /**
+     *  Initializes all of the stuff you want on your screen
+     */
+    protected abstract void initializeScreen();
+
+    /**
+     *  Loads the contents of this main.Game Screen.
+     */
+    private void loadContent() {
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        executorService.execute(() -> {
+            screenData.load();
+            screenManager.addScreenData(screenData, isExclusive, isOverlay);
+            isLoading = false;
+        });
+        executorService.shutdown();
+    }
+    //endregion
+
     //region <Getters and Setters>
     public boolean isLoadingScreenRequired(){
         return loadingScreenRequired;
+    }
+
+    public boolean isExclusive(){
+        return isExclusive;
+    }
+
+    public boolean isOverlay(){
+        return isOverlay;
+    }
+
+    public boolean isLoading(){
+        return isLoading;
     }
 
     /**
@@ -80,7 +132,7 @@ public abstract class GameScreen {
 
     public boolean isHidden(){return currentState == ScreenState.Hidden;}
 
-    public boolean isExiting(){return currentState == ScreenState.Hidden;}
+    public boolean isExiting(){return exiting;}
 
     public ScreenState getScreenState() {
         return currentState;
@@ -89,46 +141,8 @@ public abstract class GameScreen {
     public void setScreenState(ScreenState state) {
         currentState = state;
     }
-    //endregion
 
-
-    //region<Construction and Initialization>
-    public GameScreen(ScreenManager screenManager) {
-        this.screenManager = screenManager;
-        initializeScreen();
-        currentState = ScreenState.TransitionOn;
-        isLoading = true;
-    }
-
-    /* Only for non root screen */
-    public GameScreen(ScreenManager screenManager, GameScreen parentScreen, boolean isExclusive) {
-        this(screenManager);
-        this.parentScreen = parentScreen;
-        this.isExclusive = isExclusive;
-        this.isOverlay = !isExclusive;
-    }
-
-
-    /**
-     *  Initializes the renderableLayers array with an arbitrary amount of layers.
-     */
-    private void initializeScreen() {
-        previousState = null;
-        screenData = new ScreenData();
-    }
-
-    /**
-     *  Loads the contents of this main.Game Screen.
-     */
-    protected void loadContent() {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        executorService.execute(() -> {
-            screenData.load();
-            screenManager.addScreenData(screenData);
-            isLoading = false;
-        });
-        executorService.shutdown();
-    }
+    public ScreenData getScreenData(){return screenData;}
     //endregion
 
     //region <Update>
@@ -158,19 +172,6 @@ public abstract class GameScreen {
             case Active: activeUpdate(); break;
             case Hidden: hiddenUpdate(); break;
             default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
-        }
-    }
-    //endregion
-
-    //region <Render>
-    /**
-     *  Draws the screen to the monitor
-     */
-    public void draw(Graphics2D graphics) {
-        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
-            for (RenderableObject gameObject : layer) {
-                gameObject.draw(graphics);
-            }
         }
     }
     //endregion

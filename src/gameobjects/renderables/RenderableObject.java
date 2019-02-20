@@ -1,51 +1,56 @@
 package gameobjects.renderables;
 
 import gameobjects.GameObject;
-import main.utilities.Debug;
-import main.utilities.DebugEnabler;
+import gamescreens.DrawLayer;
+import main.utilities.AssetLoader;
+import main.utilities.Loadable;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.ArrayList;
 
-public abstract class RenderableObject extends GameObject {
+public abstract class RenderableObject extends GameObject implements Loadable {
 
     //region <Variables>
-    protected BufferedImage currentImage = null;
-    protected int drawLayer = 0;
+    protected DrawLayer drawLayer;
     protected float alpha = 1f;
     protected int width;
     protected int height;
-    private ArrayList<String> imagePaths;
-    private ArrayList<BufferedImage> images;
+    protected String imagePath;
+    protected BufferedImage image;
     //endregion
 
     //region <Construction and Initialization>
     public RenderableObject() {
         super();
-        currentImage = null;
+        image = null;
+        imagePath = "";
         width = 0;
         height = 0;
-        drawLayer = 0;
+        drawLayer = DrawLayer.Background;
     }
 
     public RenderableObject(int x, int y) {
         super(x,y);
-        currentImage = null;
+        image = null;
+        imagePath = "";
         width = 0;
         height = 0;
-        drawLayer = 0;
+        drawLayer = DrawLayer.Background;
     }
 
-    public RenderableObject(int x, int y, BufferedImage image, int drawLayer) {
+    public RenderableObject(int x, int y, BufferedImage image, DrawLayer layer) {
         super(x,y);
-        currentImage = image;
-        width = currentImage.getWidth();
-        height = currentImage.getHeight();
-        this.drawLayer = drawLayer;
+        this.image = image;
+        width = image.getWidth();
+        height = image.getHeight();
+        drawLayer = layer;
+    }
+
+    public RenderableObject(int x, int y, String imagePath, DrawLayer layer) {
+        super(x,y);
+        this.imagePath = imagePath;
+        drawLayer = layer;
     }
     //endregion
 
@@ -58,21 +63,21 @@ public abstract class RenderableObject extends GameObject {
     }
 
     public void setCurrentImage(BufferedImage currentImage) {
-        this.currentImage = currentImage;
+        this.image = currentImage;
         width = currentImage.getWidth();
         height = currentImage.getHeight();
     }
 
-    public int getDrawLayer() {
+    public DrawLayer getDrawLayer() {
         return drawLayer;
     }
 
-    public void setDrawLayer(int drawLayer) {
+    public void setDrawLayer(DrawLayer drawLayer) {
         this.drawLayer = drawLayer;
     }
 
     public BufferedImage getCurrentImage() {
-        return currentImage;
+        return image;
     }
 
     public Rectangle2D getBoundingBox() {
@@ -96,19 +101,12 @@ public abstract class RenderableObject extends GameObject {
     public void draw(Graphics2D graphics) {
         AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
         graphics.setComposite(alphaComposite);
-        graphics.drawImage(currentImage, x, y, width, height, null);
+        graphics.drawImage(image, x, y, width, height, null);
     }
 
-    public void loadImages() {
-        try{
-            for(String path: imagePaths){
-                images.add(ImageIO.read(getClass().getResource(path)));
-            }
-        } catch (IOException exception) {
-            Debug.error(DebugEnabler.RENDERABLE_LOG,"Unable to load images");
-        }
-
-        currentImage = images.get(0);
+    public void load() {
+        image = AssetLoader.load(imagePath);
+        setSize(image.getWidth(), image.getHeight());
     }
 
     public abstract void update();

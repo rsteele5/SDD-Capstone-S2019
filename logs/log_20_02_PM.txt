@@ -1,0 +1,133 @@
+[Success] -> Logging activated successfully
+[Success] -> TeamSplashScreen-Loading Content
+
+[Success] -> LoadingScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 43
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+  [Debug] -> TeamSplashScreen-CurrentState: Active
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+  [Debug] -> Handle Click at x: 957, y: 274
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 204, y: 631
+
+[Success] -> Clicked Button - New Game
+
+[Success] -> TestGameplayScreen-Loading Content
+
+  [Debug] -> LoadingScreen-CurrentState: TransitionOn
+
+  [Debug] -> MainMenuScreen-CurrentState: Hidden
+
+[Warning] -> FPS below 60! - current FPS: 50
+
+  [Debug] -> LoadingScreen-CurrentState: Active
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOff
+
+[Success] -> TestGameplayScreen-Loaded Success
+
+  [Debug] -> TestGameplayScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+  [Debug] -> LoadingScreen-CurrentState: TransitionOff
+
+  [Debug] -> TestGameplayScreen-CurrentState: Active
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+

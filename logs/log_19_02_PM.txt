@@ -1,0 +1,133 @@
+[Success] -> Logging activated successfully
+[Success] -> LoadingScreen-Loading Content
+
+[Success] -> TeamSplashScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+  [Debug] -> Handle Click at x: 585, y: 603
+
+  [Debug] -> Clicked the splash screen
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+  [Debug] -> Handle Click at x: 585, y: 603
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 753, y: 634
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 242, y: 617
+
+[Success] -> Clicked Button - Loading
+
+[Success] -> TestGameplayScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> LoadingScreen-CurrentState: TransitionOn
+
+  [Debug] -> LoadingScreen-CurrentState: Active
+
+[Success] -> TestGameplayScreen-Loaded Success
+
+  [Debug] -> TestGameplayScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+  [Debug] -> LoadingScreen-CurrentState: TransitionOff
+
+  [Debug] -> TestGameplayScreen-CurrentState: Active
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+  [Debug] -> Handle Click at x: 169, y: 638
+
+[Success] -> Clicked Button - Main Menu
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+  [Debug] -> TestGameplayScreen-CurrentState: TransitionOff
+
+[Warning] -> FPS below 60! - current FPS: 1
+
+  [Debug] -> Handle Click at x: 190, y: 466
+
+[Success] -> Clicked Button - Vendor
+
+[Success] -> VendorScreenLoading content
+
+[Success] -> VendorScreenLoaded Success
+
+  [Debug] -> VendorScreen-CurrentState: TransitionOn
+
+  [Debug] -> VendorScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 204, y: 245
+
+[Success] -> Clicked Button - Bear Item
+
+  [Debug] -> Handle Click at x: 211, y: 239
+
+[Success] -> Clicked Button - Bear Item
+
+  [Debug] -> Handle Click at x: 477, y: 575
+
+[Success] -> Clicked Button - Sell to Vendor
+
+[Warning] -> FPS below 60! - current FPS: 32
+
+  [Debug] -> Handle Click at x: 260, y: 123
+
+[Success] -> Clicked Button - Exit Vendor
+
+  [Debug] -> VendorScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 242, y: 627
+
+[Success] -> Clicked Button - Loading
+
+[Success] -> TestGameplayScreen-Loading Content
+
+  [Debug] -> LoadingScreen-CurrentState: TransitionOn
+
+  [Debug] -> LoadingScreen-CurrentState: Active
+

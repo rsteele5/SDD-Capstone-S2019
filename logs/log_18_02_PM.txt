@@ -1,0 +1,129 @@
+[Success] -> Logging activated successfully
+[Success] -> LoadingScreen-Loading Content
+
+[Success] -> TeamSplashScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 26
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+  [Debug] -> TeamSplashScreen-CurrentState: Active
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 726, y: 393
+
+  [Debug] -> Clicked the splash screen
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+  [Debug] -> Handle Click at x: 737, y: 365
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 831, y: 624
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1084, y: 627
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 478, y: 630
+
+[Success] -> Clicked Button - Options
+
+[Success] -> OptionScreen-Loading Content
+
+[Success] -> OptionScreen-Loaded Success
+
+  [Debug] -> OptionScreen-CurrentState: TransitionOn
+
+  [Debug] -> OptionScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 485, y: 641
+
+[Success] -> Clicked Button - Sound
+
+  [Debug] -> Handle Click at x: 198, y: 634
+
+[Success] -> Clicked Button - Graphics
+
+  [Debug] -> Handle Click at x: 789, y: 624
+
+[Success] -> Clicked Button - Controls
+
+  [Debug] -> Handle Click at x: 534, y: 627
+
+[Success] -> Clicked Button - Sound
+
+  [Debug] -> Handle Click at x: 153, y: 623
+
+[Success] -> Clicked Button - Graphics
+
+  [Debug] -> Handle Click at x: 1073, y: 645
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> OptionScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 825, y: 627
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1087, y: 617
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+[Warning] -> FPS below 60! - current FPS: 27
+
+[Warning] -> FPS below 60! - current FPS: 40
+

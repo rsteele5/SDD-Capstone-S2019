@@ -1,5 +1,6 @@
 package gameobjects.renderables.buttons;
 
+import gamescreens.DrawLayer;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.RenderableObject;
 import java.awt.image.BufferedImage;
@@ -11,7 +12,7 @@ public class Button extends RenderableObject {
         super(x, y);
     }
 
-    public Button(int x, int y, BufferedImage image, int drawLayer, Consumer<ScreenManager> handleOnClick) {
+    public Button(int x, int y, BufferedImage image, DrawLayer drawLayer, Consumer<ScreenManager> handleOnClick) {
         super(x, y, image, drawLayer);
         onClick = handleOnClick;
     }

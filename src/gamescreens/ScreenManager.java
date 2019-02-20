@@ -1,9 +1,7 @@
 package gamescreens;
 
-import gamescreens.screens.Level;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-import gamescreens.screens.LoadingScreen;
 import gamescreens.screens.TeamSplashScreen;
 
 import java.awt.*;
@@ -17,7 +15,7 @@ public class ScreenManager {
 
     private ScreenData screenData;
 
-    private LoadingScreen loadingScreen;
+    //private LoadingScreen loadingScreen;
     //endregion
 
     //region <Getters and Setters>
@@ -31,72 +29,96 @@ public class ScreenManager {
         screenData = null;
         rootScreen = null;
         //
-        loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
+        //loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
-        addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
-    }
-
-    public void addScreenData(ScreenData data){
-        screenData.addScreenData(data);
-    }
-
-    public void drawScreens(Graphics2D graphics){
-        for (int i = gameScreens.size()-1; i >= 0; i--) {
-            if (!gameScreens.get(i).isLoading()) {
-                gameScreens.get(i).draw(graphics);
-            }
-        }
+        addScreen(new TeamSplashScreen(this, "TeamSplashScreen"));
     }
 
     public void update() {
         boolean exclusiveAbove = false;
 
         for(GameScreen screen: gameScreens) {
-            screen.update();
             if (!screen.isLoading()) {
                 if (screen.isExiting()) {
                     removeScreen(screen);
                 } else if (!exclusiveAbove) {
                     screen.update();
-                    exclusiveAbove = screen.isExclusivePopup();
+                    exclusiveAbove = screen.isExclusive();
                 }
             }else if (!exclusiveAbove){
-                exclusiveAbove = screen.isExclusivePopup();
+                exclusiveAbove = screen.isExclusive();
             }
         }
     }
 
     //region <Support Functions>
     public void addScreen(GameScreen screen) {
+        if(gameScreens.isEmpty() || (!screen.isExclusive() && !screen.isOverlay()))
+            rootScreen = screen;
+
         if(!screen.isOverlay()){
             for(GameScreen gameScreen: gameScreens){
                 gameScreen.setScreenState(GameScreen.ScreenState.Hidden);
             }
         }
+
         gameScreens.add(0,screen);
+
         if(screen.isLoadingScreenRequired()){
-            gameScreens.add(0,loadingScreen);
+            //gameScreens.add(0,loadingScreen);
         }
+    }
+
+    public ScreenData getScreenData() {
+        return screenData;
+    }
+
+    public void addScreenData(ScreenData data, boolean isExclusive, boolean isOverlay){
+        if(isExclusive){
+            data.addHidden(screenData.getRenderables());
+            screenData = data;
+        }
+        else if(isOverlay){
+            screenData.addOverlay(data);
+        }
+        else
+            screenData = data;
     }
 
     public void removeScreen(GameScreen screen) {
-        if(gameScreens.indexOf(screen) == 0){
-            for(int i = 1; i < gameScreens.size(); i++) {
-                gameScreens.get(i).setScreenState(GameScreen.ScreenState.Active);
-                if(!gameScreens.get(i).isOverlay())
-                    break;
+        Debug.warning(DebugEnabler.GAME_SCREEN_LOG,screen.name+"-does not contian?");
+        if(gameScreens.contains(screen)) {
+            Debug.warning(DebugEnabler.GAME_SCREEN_LOG,screen.name+"-Trying to remove");
+            if (gameScreens.indexOf(screen) == 0) {
+                for (int i = 1; i < gameScreens.size(); i++) {
+                    gameScreens.get(i).setScreenState(GameScreen.ScreenState.Active);
+                    if (!gameScreens.get(i).isOverlay())
+                        break;
+                }
             }
+
+            if (screen.isOverlay())
+                screenData.prune(screen.getScreenData());
+            else if (screen.isExclusive()) {
+                for (int i = gameScreens.indexOf(screen)+1; i < gameScreens.size(); i++){
+                    if(!gameScreens.get(i).isOverlay()) {
+                        screenData = gameScreens.get(i).getScreenData();
+                        break;
+                    }
+                }
+            }
+            gameScreens.remove(screen);
+            screen.reset();
         }
-        gameScreens.remove(screen);
-        screen.reset();
     }
-
+    //TODO: Figure it out later for Loading Screen
     public void initializeLoadingScreen(int amountOfData){
-        loadingScreen.initializeLoadingScreen(amountOfData);
+        //loadingScreen.initializeLoadingScreen(amountOfData);
     }
 
+    //TODO: Figure it out later for Loading Screen
     public void updateLoadingScreen(int dataLoaded){
-        loadingScreen.dataLoaded(dataLoaded);
+        //loadingScreen.dataLoaded(dataLoaded);
     }
 
     public boolean coveredByOverlay(GameScreen screen){
@@ -130,6 +152,10 @@ public class ScreenManager {
                 return;
             }
         }
+    }
+
+    public void draw(Graphics2D graphics) {
+        screenData.draw(graphics);
     }
     //endregion
 }

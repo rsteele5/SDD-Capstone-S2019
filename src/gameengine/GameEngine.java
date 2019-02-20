@@ -55,11 +55,13 @@ public class GameEngine implements Runnable {
              * The game data is the fuel to make the engine run lol
              */
 
-            //Update
-            if(screenManager.getLevelData() != null) physicsEngine.update();
-            //Render
-            screenManager.update();
-            renderEngine.draw();
+            if(screenManager.getScreenData() != null) {
+                //Update
+                //physicsEngine.update();
+                //Render
+                screenManager.update();
+                renderEngine.draw();
+            }
 
             long endTime = System.currentTimeMillis();
             int sleepTime = (int) (1.0 / FRAMES_PER_SECOND * 1000)

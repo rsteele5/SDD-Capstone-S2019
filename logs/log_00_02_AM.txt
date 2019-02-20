@@ -1,0 +1,193 @@
+[Success] -> Logging activated successfully
+[Success] -> LoadingScreen-Loading Content
+
+[Success] -> TeamSplashScreen-Loading Content
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+[Success] -> LoadingScreen-Loading Success
+
+[Success] -> TeamSplashScreen-Loaded Success
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+  [Debug] -> TeamSplashScreen-CurrentState: Active
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenLoading Content
+
+[Success] -> TitleScreenLoaded Success
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Active
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOff
+
+[Success] -> Constructing MainMenuScreen
+
+[Success] -> MainMenuScreen-Loading Content
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: Hidden
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 188, y: 621
+
+[Success] -> Clicked Button - New Game
+
+  [Debug] -> Handle Click at x: 436, y: 631
+
+[Success] -> Clicked Button - Options
+
+  [Debug] -> Handle Click at x: 828, y: 638
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+[Warning] -> FPS below 60! - current FPS: 47
+
+[Warning] -> FPS below 60! - current FPS: 19
+
+[Warning] -> FPS below 60! - current FPS: 32
+
+[Warning] -> FPS below 60! - current FPS: 17
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+[Warning] -> FPS below 60! - current FPS: 47
+
+[Warning] -> FPS below 60! - current FPS: 43
+
+[Warning] -> FPS below 60! - current FPS: 25
+
+[Warning] -> FPS below 60! - current FPS: 47
+
+[Warning] -> FPS below 60! - current FPS: 8
+
+[Warning] -> FPS below 60! - current FPS: 38
+
+[Warning] -> FPS below 60! - current FPS: 45
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+  [Debug] -> Handle Click at x: 1143, y: 641
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 842, y: 637
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1080, y: 634
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 793, y: 631
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1045, y: 658
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 775, y: 627
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1164, y: 623
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 860, y: 634
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1146, y: 620
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+  [Debug] -> Handle Click at x: 790, y: 617
+
+[Success] -> Clicked Button - DevMode
+
+[Success] -> DevScreen-Loading Content
+
+[Success] -> DevScreen-Loaded Success
+
+  [Debug] -> DevScreen-CurrentState: TransitionOn
+
+  [Debug] -> DevScreen-CurrentState: Active
+
+  [Debug] -> Handle Click at x: 1080, y: 627
+
+[Success] -> Clicked Button - Main Menu
+
+  [Debug] -> DevScreen-CurrentState: TransitionOff
+
+[Warning] -> FPS below 60! - current FPS: 55
+

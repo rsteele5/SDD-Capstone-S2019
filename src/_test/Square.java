@@ -3,13 +3,14 @@ package _test;
 import gameengine.physics.Kinematic;
 import gameengine.physics.PhysicsVector;
 import gameobjects.renderables.RenderableObject;
+import gamescreens.DrawLayer;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Square extends RenderableObject implements Kinematic {
     private double accel = 1;
-    public Square(int x, int y, BufferedImage img, int drawLayer){
+    public Square(int x, int y, BufferedImage img, DrawLayer drawLayer){
         super(x,y,img,drawLayer);
     }
     @Override
@@ -34,7 +35,7 @@ public class Square extends RenderableObject implements Kinematic {
 
     @Override
     public Rectangle getHitbox() {
-        return new Rectangle(x, y, currentImage.getWidth(), currentImage.getHeight());
+        return new Rectangle(x, y, image.getWidth(), image.getHeight());
     }
 
     public String description(){
