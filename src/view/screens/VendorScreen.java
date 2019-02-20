@@ -81,15 +81,12 @@ public class VendorScreen extends GameScreen {
                     ImageIO.read(getClass().getResource("/assets/VendorBackground.png")));
             BufferedImage vendorImageIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/Vendor.png")));
-
+            BufferedImage vendorResizeIMG = resize( vendorImageIMG, 150, 150);
 
             /* TODO: Change to reflect current user's bear **/
-            //Shop boi is 7 short of 150 on top and 10 short on the bottom
-            //20 less on the left and 12 less on the right
-            //Bear is 7 short of 200 on the top and 1 short of 100 on the right
             BufferedImage teddyImageIMG = RenderEngine.convertToARGB(
                     ImageIO.read(getClass().getResource("/assets/Teddy.png")));
-            BufferedImage teddyResizeIMG = resize( teddyImageIMG, 100, 136);
+            BufferedImage teddyResizeIMG = resize( teddyImageIMG, 150, 150);
 
             /* Create main buttons and item buttons */
             createButtons();
@@ -97,8 +94,8 @@ public class VendorScreen extends GameScreen {
 
             /* Create all renderables **/
             renderableLayers.get(0).add(new ImageContainer(150, 75, backgroundIMG, 0));
-            renderableLayers.get(0).add(new ImageContainer(765, 410, vendorImageIMG, 0));
-            renderableLayers.get(0).add(new ImageContainer(415, 413, teddyResizeIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(390, 400, teddyResizeIMG, 0));
+            renderableLayers.get(0).add(new ImageContainer(765, 400, vendorResizeIMG, 0));
 
             for (Button button : buttons)
                 renderableLayers.get(button.getDrawLayer()).add(button);

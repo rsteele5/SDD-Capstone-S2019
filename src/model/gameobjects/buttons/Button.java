@@ -16,9 +16,16 @@ public class Button extends RenderableObject {
         super(x, y, image, drawLayer);
         onClick = handleOnClick;
     }
+    public Button(int x, int y, BufferedImage image, int drawLayer) {
+        super(x, y, image, drawLayer);
+    }
 
     @Override
     public void update() { }
 
     public Consumer<ScreenManager> onClick;
+
+    public void setOnClick(Consumer<ScreenManager> onClick) {
+        this.onClick = onClick;
+    }
 }
