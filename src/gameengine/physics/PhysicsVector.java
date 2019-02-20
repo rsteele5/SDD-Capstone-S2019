@@ -1,4 +1,4 @@
-package control.physics;
+package gameengine.physics;
 
 public class PhysicsVector{
     double x, y;

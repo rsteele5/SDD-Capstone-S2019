@@ -1,13 +1,16 @@
-package model.levels;
+package gamescreens.screens;
 
-import _test.splashscreentest.Square;
-import control.RenderEngine;
-import control.ScreenManager;
-import control.physics.Kinematic;
+import _test.Square;
+import gameengine.rendering.RenderEngine;
+import gameobjects.renderables.ImageContainer;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
+import gameengine.physics.Kinematic;
+import gameobjects.GameObject;
+import gameobjects.renderables.RenderableObject;
 import model.gameobjects.*;
-import utilities.Debug;
-import utilities.DebugEnabler;
-import view.screens.GameScreen;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -19,7 +22,6 @@ public class Level extends GameScreen {
     private CopyOnWriteArrayList<GameObject> onScreen;
     private CopyOnWriteArrayList<Kinematic> kinematicObjects;
    // private CopyOnWriteArrayList<CopyOnWriteArrayList<RenderableObject>> renderableLayers;
-    private CopyOnWriteArrayList<StaticObject> staticObjects;
 
     public Level(ScreenManager screenManager) {
         super(screenManager);

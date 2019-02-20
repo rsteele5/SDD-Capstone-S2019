@@ -1,4 +1,4 @@
-package control.listeners;
+package input.listeners;
 
 import gameengine.rendering.RenderEngine;
 

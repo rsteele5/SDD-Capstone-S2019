@@ -1,9 +1,7 @@
-package control.physics;
+package gameengine.physics;
 
-import _test.splashscreentest.Square;
-import control.ScreenManager;
-import model.gameobjects.GameObject;
-import utilities.Debug;
+import gamescreens.ScreenManager;
+import gameobjects.GameObject;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;

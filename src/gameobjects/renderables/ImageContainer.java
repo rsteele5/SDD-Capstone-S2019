@@ -1,4 +1,6 @@
-package model.gameobjects;
+package gameobjects.renderables;
+
+import gameobjects.renderables.RenderableObject;
 
 import java.awt.image.BufferedImage;
 

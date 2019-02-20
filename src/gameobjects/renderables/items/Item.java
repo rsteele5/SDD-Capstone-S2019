@@ -1,8 +1,7 @@
-package model.gameobjects;
+package gameobjects.renderables.items;
 
-import model.gameobjects.buttons.Button;
-
-import java.util.ArrayList;
+import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.buttons.Button;
 
 public abstract class Item extends RenderableObject {
     protected String imagePath;

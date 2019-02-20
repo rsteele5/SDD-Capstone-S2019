@@ -1,7 +1,7 @@
-import control.GameEngine;
-import utilities.Debug;
-import utilities.DebugEnabler;
-import view.window.GameWindow;
+package main;
+
+import gameengine.GameEngine;
+import main.utilities.Debug;
 
 import javax.swing.JFrame;
 import java.awt.*;

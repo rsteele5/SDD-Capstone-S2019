@@ -1,4 +1,4 @@
-package model.gameobjects;
+package gameobjects.renderables.items;
 
 public class Potion extends Item {
 

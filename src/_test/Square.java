@@ -1,4 +1,4 @@
-package _test.splashscreentest;
+package _test;
 
 import gameengine.physics.Kinematic;
 import gameengine.physics.PhysicsVector;

@@ -1,4 +1,4 @@
-package utilities;
+package main.utilities;
 
 public class DebugEnabler {
     public static final boolean LOGGING_ACTIVE =        true;

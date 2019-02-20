@@ -1,13 +1,14 @@
-package view.screens;
+package gamescreens.screens;
 
-import control.RenderEngine;
-import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
-import model.gameobjects.buttons.Button;
-import model.gameobjects.labels.Label;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gameengine.rendering.RenderEngine;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
+import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.buttons.Button;
+import gameobjects.renderables.labels.Label;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class MainMenuScreen extends view.screens.GameScreen {
+public class MainMenuScreen extends GameScreen {
 
     //region <Variables>
     protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
@@ -58,7 +59,7 @@ public class MainMenuScreen extends view.screens.GameScreen {
             createMenuLabels();
             //Create buttons
             buttons.add(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, newGameButtonIMG, 1, (screenManager) ->{
-                Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
+                Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New main.Game");
                 screenManager.addScreen(new PlayerCountScreen(screenManager));
             }));
 

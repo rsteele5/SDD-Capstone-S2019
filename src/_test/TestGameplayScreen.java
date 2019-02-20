@@ -1,8 +1,8 @@
-package _test.splashscreentest;
+package _test;
 
 import gameengine.rendering.RenderEngine;
 import gamescreens.ScreenManager;
-import gamescreens.screens.GameScreen;
+import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import main.utilities.Debug;

@@ -1,7 +1,8 @@
-package model.gameobjects;
+package gameobjects.renderables;
 
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gameobjects.GameObject;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class RenderableObject extends GameObject{
+public abstract class RenderableObject extends GameObject {
 
     //region <Variables>
     protected BufferedImage currentImage = null;

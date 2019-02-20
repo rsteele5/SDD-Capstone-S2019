@@ -1,8 +1,7 @@
-package model.gameobjects.buttons;
+package gameobjects.renderables.buttons;
 
-import control.ScreenManager;
-import model.gameobjects.RenderableObject;
-
+import gamescreens.ScreenManager;
+import gameobjects.renderables.RenderableObject;
 import java.awt.image.BufferedImage;
 import java.util.function.Consumer;
 

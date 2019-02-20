@@ -1,13 +1,14 @@
-package view.screens;
+package gamescreens.screens;
 
-import control.RenderEngine;
-import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.RenderableObject;
-import model.gameobjects.buttons.Button;
-import model.gameobjects.labels.Label;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gameengine.rendering.RenderEngine;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
+import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.buttons.Button;
+import gameobjects.renderables.labels.Label;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

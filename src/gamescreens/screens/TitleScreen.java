@@ -1,10 +1,11 @@
-package view.screens;
+package gamescreens.screens;
 
-import control.RenderEngine;
-import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gameengine.rendering.RenderEngine;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
+import gameobjects.renderables.ImageContainer;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class TitleScreen extends view.screens.GameScreen {
+public class TitleScreen extends GameScreen {
     //region <Variables>
     private ScreenState previousState = null; //TODO: Remove after testing
     //endregion

@@ -1,4 +1,4 @@
-package control;
+package gameengine.rendering;
 
 //TODO: Add javadoc comments
 
@@ -14,8 +14,9 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 //Project Imports
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gamescreens.ScreenManager;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 
 public class RenderEngine extends JPanel {

@@ -1,11 +1,10 @@
-package control;
+package gamescreens;
 
-import model.levels.Level;
-import utilities.Debug;
-import utilities.DebugEnabler;
-import view.screens.GameScreen;
-import view.screens.LoadingScreen;
-import view.screens.TeamSplashScreen;
+import gamescreens.screens.Level;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
+import gamescreens.screens.LoadingScreen;
+import gamescreens.screens.TeamSplashScreen;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;

@@ -1,4 +1,4 @@
-package gamescreens.screens;
+package gamescreens;
 
 import gamescreens.ScreenManager;
 import gameobjects.GameObject;
@@ -15,36 +15,28 @@ public abstract class GameScreen {
 
     //region <Variables>
     public String name;
-    protected ScreenState previousState = null;
+
+    private ScreenData screenData;
+
+    protected ScreenState previousState;
+
     protected ScreenManager screenManager;
+
     protected boolean loadingScreenRequired = false;
-    private volatile boolean loading;
-    //TODO: Maybe consider making one of these a default behavior then set the variable when we want the other behavior
-    /**
-     *  The variable popup describes if a screen is covering a portion of another screen.
-     *  A popup screen allows updates on screens below it in the list.
-     */
-    protected boolean popup = false;
 
     /**
      *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
      *  An exclusive popup screen prevents updates on screens below it in the list.
      */
-    protected boolean exclusivePopup = false;
+    public boolean isExclusive = false;
 
     /**
      *  The variable overlay describes if a screen is covering another screen in it's entirety, but
      *  does not prevent updates or rendering on screens below it in the list.
      */
-    protected boolean overlay = false;
+    public boolean isOverlay = false;
 
-    protected CopyOnWriteArrayList<GameObject> gameObjects = new CopyOnWriteArrayList<>();
-    /**
-     * RederableLayers hold a list of layers that can be rendered.
-     * Each index value represents a layer to be rendered to the screen. Layers with
-     * higher index values will rendered on top of layers with lower index values.
-     */
-    protected CopyOnWriteArrayList<CopyOnWriteArrayList<RenderableObject>> renderableLayers = new CopyOnWriteArrayList<>();
+    public boolean exiting = false;
 
 
     /**
@@ -55,6 +47,7 @@ public abstract class GameScreen {
      *  <p><b>Hidden</b> - The screen is currently covered by another screen</p>
      */
     public enum ScreenState{
+        Loading,
         TransitionOn,
         Active,
         TransitionOff,
@@ -65,18 +58,18 @@ public abstract class GameScreen {
      *  Current state describes what state the screen is currently in.
      */
     protected ScreenState currentState = ScreenState.TransitionOn;
-    protected boolean exiting = false;
+
 
     public static final int WIDTH_BUTTON = 256;
     public static final int HEIGHT_BUTTON = 96;
     //endregion
 
     //region <Getters and Setters>
-    public boolean isLoading() { return loading; }
-
     public boolean isLoadingScreenRequired(){
         return loadingScreenRequired;
     }
+
+    public boolean isLoading() { return currentState == ScreenState.Loading; }
 
     /**
      *  Returns true if a screen is active and can accept input or updates
@@ -87,8 +80,6 @@ public abstract class GameScreen {
 
     public boolean isHidden(){return currentState == ScreenState.Hidden;}
 
-    public boolean isExiting(){return exiting;}
-
     public ScreenState getScreenState() {
         return currentState;
     }
@@ -97,33 +88,15 @@ public abstract class GameScreen {
         currentState = state;
     }
 
-    /**
-     *  Returns true if a screen is a popup. A popup screen
-     *  allows updates on screens below it in the list
-     */
-    public boolean isPopup() {return popup;}
-
-    /**
-     *  Returns true if a screen is an exclusive popup. An exclusive popup screen
-     *  prevents updates on screens below it in the list
-     */
-    public boolean isExclusivePopup() {return exclusivePopup;}
-
-    /**
-     *  Returns true if a screen is an overlay. An overlay screen
-     *  does not prevent updates on screens below it in the list.
-     */
-    public boolean isOverlay() {return overlay;}
-
     //endregion
 
     //region<Construction and Initialization>
     public GameScreen(ScreenManager screenManager) {
         this.screenManager = screenManager;
-        initializeLayers();
+        initializeScreen();
 
         //Load contents of the screen in a thread
-        loading = true;
+        currentState = ScreenState.Loading;
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
             loadContent();
@@ -135,12 +108,16 @@ public abstract class GameScreen {
     /**
      *  Initializes the renderableLayers array with an arbitrary amount of layers.
      */
-    protected abstract void initializeLayers();
+    private void initializeScreen() {
+        previousState = null;
+    }
 
     /**
      *  Loads the contents of this main.Game Screen.
      */
-    protected abstract void loadContent();
+    protected void loadContent() {
+        for(RenderableObject renderable: screenData.gameObjects)
+    }
 
     public CopyOnWriteArrayList<RenderableObject> getRenderables() {
         CopyOnWriteArrayList<RenderableObject> renderableObjects = new CopyOnWriteArrayList<>();

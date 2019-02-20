@@ -1,10 +1,11 @@
-package view.screens;
+package gamescreens.screens;
 
-import control.RenderEngine;
-import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gameengine.rendering.RenderEngine;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
+import gameobjects.renderables.ImageContainer;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class LoadingScreen extends view.screens.GameScreen {
+public class LoadingScreen extends GameScreen {
 
     //region <Variables>
     private int totalDataToLoad = 0;

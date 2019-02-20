@@ -1,6 +1,6 @@
-package model.gameobjects.labels;
+package gameobjects.renderables.labels;
 
-import model.gameobjects.RenderableObject;
+import gameobjects.renderables.RenderableObject;
 import java.awt.image.BufferedImage;
 
 public class Label extends RenderableObject {

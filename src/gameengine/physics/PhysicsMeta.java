@@ -1,4 +1,4 @@
-package control.physics;
+package gameengine.physics;
 
 public enum PhysicsMeta {;
     public static double Gravity = .015;

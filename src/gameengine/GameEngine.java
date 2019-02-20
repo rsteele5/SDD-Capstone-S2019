@@ -1,19 +1,16 @@
-package control;
+package gameengine;
 
 
-import control.listeners.MouseController;
-import control.physics.PhysicsEngine;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import input.listeners.MouseController;
+import gameengine.physics.PhysicsEngine;
+import gameengine.rendering.RenderEngine;
+import gamescreens.ScreenManager;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
-
-import java.io.*;
-import java.net.URL;
-import javax.sound.sampled.*;
-import javax.swing.*;
 
 public class GameEngine implements Runnable {
 
@@ -23,17 +20,11 @@ public class GameEngine implements Runnable {
     private ScreenManager screenManager;
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
-    private HouseGenerator houseGenerator;
-    private CharacterGenerator characterGenerator;
 
-    private InputManager inputManager;
 
     public GameEngine(){
-        houseGenerator = new HouseGenerator();
-        characterGenerator = new CharacterGenerator();
         screenManager = new ScreenManager();
 
-        inputManager = new InputManager();
         renderEngine = new RenderEngine(screenManager);
         physicsEngine = new PhysicsEngine(screenManager);
         renderEngine.addMouseListener(new MouseController());
@@ -52,6 +43,17 @@ public class GameEngine implements Runnable {
         while(true){
             frameCounter++;
             long startTime = System.currentTimeMillis();
+
+            //TODO: Proposed changes
+            /* Game engine gets the data from the screen manager then sends it to the
+             * physics engine. After its run its course then we send it to the renderEngine
+             * So the call would look like:
+             * Data data = screenManager.getData();
+             * physicsEngine.update(data);
+             * renderEngine.draw(data);
+             * We just decoupled the screenManager from both the phys engine and the renderer
+             * The game data is the fuel to make the engine run lol
+             */
 
             //Update
             if(screenManager.getLevelData() != null) physicsEngine.update();
