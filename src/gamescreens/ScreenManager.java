@@ -13,6 +13,10 @@ public class ScreenManager {
     //region <Variables>
     private CopyOnWriteArrayList<GameScreen> gameScreens;
 
+    private GameScreen rootScreen;
+
+    private ScreenData screenData;
+
     private LoadingScreen loadingScreen;
     //endregion
 
@@ -24,18 +28,16 @@ public class ScreenManager {
 
     public ScreenManager() {
         gameScreens = new CopyOnWriteArrayList<>();
+        screenData = null;
+        rootScreen = null;
         //
         loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
         addScreen(new TeamSplashScreen(this)); //TODO: Change to TeamSplashScreen after Test complete.
     }
 
-    public Level getLevelData(){
-        for(GameScreen screen : gameScreens){
-            if(screen instanceof  Level)
-                return (Level)screen;
-        }
-        return null;
+    public void addScreenData(ScreenData data){
+        screenData.addScreenData(data);
     }
 
     public void drawScreens(Graphics2D graphics){
@@ -50,6 +52,7 @@ public class ScreenManager {
         boolean exclusiveAbove = false;
 
         for(GameScreen screen: gameScreens) {
+            screen.update();
             if (!screen.isLoading()) {
                 if (screen.isExiting()) {
                     removeScreen(screen);

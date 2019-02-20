@@ -65,12 +65,12 @@ public class LoadingScreen extends GameScreen {
 
     //region <Update>
     @Override
-    public void updateTransitionOn() {
+    public void transitionOn() {
         currentState = ScreenState.Active;
     }
 
     @Override
-    public void updateTransitionOff() {
+    public void transitionOff() {
         exiting = true;
     }
 

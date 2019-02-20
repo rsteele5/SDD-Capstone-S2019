@@ -91,7 +91,7 @@ public class ConfirmationPopupMod extends GameScreen {
     }
 
     @Override
-    protected void updateTransitionOn() {
+    protected void transitionOn() {
         float alpha = renderableLayers.get(0).get(0).getAlpha();
         if(alpha < 0.9f){
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
@@ -106,7 +106,7 @@ public class ConfirmationPopupMod extends GameScreen {
     }
 
     @Override
-    protected void updateTransitionOff() {
+    protected void transitionOff() {
         float alpha = renderableLayers.get(0).get(0).getAlpha();
         if(alpha > 0.055f){
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)

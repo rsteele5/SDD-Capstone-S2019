@@ -129,7 +129,7 @@ public class GraphicsScreen extends GameScreen {
     //endregion
 
     @Override
-    protected void updateTransitionOn() {
+    protected void transitionOn() {
         float alpha = renderableLayers.get(0).get(0).getAlpha();
         if(alpha < 0.9f){
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
@@ -144,7 +144,7 @@ public class GraphicsScreen extends GameScreen {
     }
 
     @Override
-    protected void updateTransitionOff() {
+    protected void transitionOff() {
         float alpha = renderableLayers.get(0).get(0).getAlpha();
         if(alpha > 0.055f){
             for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
@@ -153,14 +153,6 @@ public class GraphicsScreen extends GameScreen {
         } else {
             exiting = true;
         }
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-        if(!screenManager.coveredByOverlay(this))
-            currentState = ScreenState.TransitionOff;
-        else
-            activeUpdate();
     }
 
     @Override

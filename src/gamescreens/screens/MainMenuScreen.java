@@ -96,12 +96,12 @@ public class MainMenuScreen extends GameScreen {
 
     //region <Update>
     @Override
-    protected void updateTransitionOn() {
+    protected void transitionOn() {
         currentState = ScreenState.Active;
     }
 
     @Override
-    protected void updateTransitionOff() {
+    protected void transitionOff() {
         exiting = true;
     }
 

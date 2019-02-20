@@ -1,7 +1,5 @@
 package gamescreens;
 
-import gamescreens.ScreenManager;
-import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -14,10 +12,13 @@ import java.util.concurrent.Executors;
 public abstract class GameScreen {
 
     //region <Variables>
+    public GameScreen parentScreen;
+
     public String name;
 
     private ScreenData screenData;
 
+    //TODO: Used for testing, remove after screen management is working. If it so tickles your pickles
     protected ScreenState previousState;
 
     protected ScreenManager screenManager;
@@ -28,7 +29,13 @@ public abstract class GameScreen {
      *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
      *  An exclusive popup screen prevents updates on screens below it in the list.
      */
-    public boolean isExclusive = false;
+    private boolean isExclusive = false;
+
+    /**
+     *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
+     *  An exclusive popup screen prevents updates on screens below it in the list.
+     */
+    public boolean isLoading = false;
 
     /**
      *  The variable overlay describes if a screen is covering another screen in it's entirety, but
@@ -36,7 +43,7 @@ public abstract class GameScreen {
      */
     public boolean isOverlay = false;
 
-    public boolean exiting = false;
+    private boolean exiting = false;
 
 
     /**
@@ -47,7 +54,6 @@ public abstract class GameScreen {
      *  <p><b>Hidden</b> - The screen is currently covered by another screen</p>
      */
     public enum ScreenState{
-        Loading,
         TransitionOn,
         Active,
         TransitionOff,
@@ -57,19 +63,13 @@ public abstract class GameScreen {
     /**
      *  Current state describes what state the screen is currently in.
      */
-    protected ScreenState currentState = ScreenState.TransitionOn;
-
-
-    public static final int WIDTH_BUTTON = 256;
-    public static final int HEIGHT_BUTTON = 96;
+    protected ScreenState currentState;
     //endregion
 
     //region <Getters and Setters>
     public boolean isLoadingScreenRequired(){
         return loadingScreenRequired;
     }
-
-    public boolean isLoading() { return currentState == ScreenState.Loading; }
 
     /**
      *  Returns true if a screen is active and can accept input or updates
@@ -80,6 +80,8 @@ public abstract class GameScreen {
 
     public boolean isHidden(){return currentState == ScreenState.Hidden;}
 
+    public boolean isExiting(){return currentState == ScreenState.Hidden;}
+
     public ScreenState getScreenState() {
         return currentState;
     }
@@ -87,51 +89,59 @@ public abstract class GameScreen {
     public void setScreenState(ScreenState state) {
         currentState = state;
     }
-
     //endregion
+
 
     //region<Construction and Initialization>
     public GameScreen(ScreenManager screenManager) {
         this.screenManager = screenManager;
         initializeScreen();
-
-        //Load contents of the screen in a thread
-        currentState = ScreenState.Loading;
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        executorService.execute(() -> {
-            loadContent();
-            loading = false;
-        });
-        executorService.shutdown();
+        currentState = ScreenState.TransitionOn;
+        isLoading = true;
     }
+
+    /* Only for non root screen */
+    public GameScreen(ScreenManager screenManager, GameScreen parentScreen, boolean isExclusive) {
+        this(screenManager);
+        this.parentScreen = parentScreen;
+        this.isExclusive = isExclusive;
+        this.isOverlay = !isExclusive;
+    }
+
 
     /**
      *  Initializes the renderableLayers array with an arbitrary amount of layers.
      */
     private void initializeScreen() {
         previousState = null;
+        screenData = new ScreenData();
     }
 
     /**
      *  Loads the contents of this main.Game Screen.
      */
     protected void loadContent() {
-        for(RenderableObject renderable: screenData.gameObjects)
-    }
-
-    public CopyOnWriteArrayList<RenderableObject> getRenderables() {
-        CopyOnWriteArrayList<RenderableObject> renderableObjects = new CopyOnWriteArrayList<>();
-        for (CopyOnWriteArrayList<RenderableObject> layer : renderableLayers) {
-            renderableObjects.addAll(layer);
-        }
-        return renderableObjects;
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        executorService.execute(() -> {
+            screenData.load();
+            screenManager.addScreenData(screenData);
+            isLoading = false;
+        });
+        executorService.shutdown();
     }
     //endregion
 
     //region <Update>
-    protected abstract void updateTransitionOn();
-    protected abstract void updateTransitionOff();
-    protected abstract void hiddenUpdate();
+    protected void transitionOn() {
+        currentState = ScreenState.Active;
+    }
+    protected void transitionOff(){
+        exiting = true;
+    }
+
+    //Override if you know what ur doing
+    protected void hiddenUpdate() {}
+
     protected abstract void activeUpdate();
 
     /**
@@ -142,10 +152,9 @@ public abstract class GameScreen {
             previousState = currentState;
             Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
         }
-
         switch(currentState) {
-            case TransitionOn: updateTransitionOn(); break;
-            case TransitionOff: updateTransitionOff(); break;
+            case TransitionOn: transitionOn(); break;
+            case TransitionOff: transitionOff(); break;
             case Active: activeUpdate(); break;
             case Hidden: hiddenUpdate(); break;
             default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");

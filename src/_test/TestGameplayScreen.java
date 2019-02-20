@@ -92,12 +92,12 @@ public class TestGameplayScreen extends GameScreen {
     //endregion
 
     @Override
-    public void updateTransitionOn() {
+    public void transitionOn() {
         currentState = ScreenState.Active;
     }
 
     @Override
-    public void updateTransitionOff() {
+    public void transitionOff() {
         exiting = true;
     }
 

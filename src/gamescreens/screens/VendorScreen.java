@@ -100,12 +100,12 @@ public class VendorScreen extends GameScreen {
     }
 
     @Override
-    protected void updateTransitionOn() {
+    protected void transitionOn() {
         currentState = ScreenState.Active;
     }
 
     @Override
-    protected void updateTransitionOff() {
+    protected void transitionOff() {
         exiting = true;
     }
 

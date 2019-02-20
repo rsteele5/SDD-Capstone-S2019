@@ -61,7 +61,7 @@ public class TeamSplashScreen extends GameScreen {
 
     //region <Update>
     @Override
-    public void updateTransitionOn() {
+    public void transitionOn() {
         float alpha = cover.getAlpha();
         if(alpha > 0.008f) {
             cover.setAlpha(alpha - 0.008f);
@@ -72,7 +72,7 @@ public class TeamSplashScreen extends GameScreen {
     }
 
     @Override
-    public void updateTransitionOff() {
+    public void transitionOff() {
         float alpha = cover.getAlpha();
         if(alpha < 1f){
             cover.setAlpha(alpha + 0.008f);

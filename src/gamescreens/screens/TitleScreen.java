@@ -61,7 +61,7 @@ public class TitleScreen extends GameScreen {
 
     //region <Update>
     @Override
-    public void updateTransitionOn() {
+    public void transitionOn() {
         if(!musicStart) {
             musicStart = true;
             try {
@@ -88,7 +88,7 @@ public class TitleScreen extends GameScreen {
     }
 
     @Override
-    public void updateTransitionOff() {
+    public void transitionOff() {
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,"Constructing MainMenuScreen");
         screenManager.addScreen(new MainMenuScreen(screenManager));
     }
