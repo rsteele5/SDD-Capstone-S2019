@@ -1,10 +1,10 @@
-package view.screens;
+package gamescreens.screens;
 
-import control.ScreenManager;
-import model.gameobjects.GameObject;
-import model.gameobjects.RenderableObject;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gamescreens.ScreenManager;
+import gameobjects.GameObject;
+import gameobjects.renderables.RenderableObject;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -138,7 +138,7 @@ public abstract class GameScreen {
     protected abstract void initializeLayers();
 
     /**
-     *  Loads the contents of this Game Screen.
+     *  Loads the contents of this main.Game Screen.
      */
     protected abstract void loadContent();
 

@@ -1,4 +1,4 @@
-package model.gameobjects;
+package gameobjects;
 
 
 public abstract class GameObject {

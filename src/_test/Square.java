@@ -1,9 +1,8 @@
 package _test.splashscreentest;
 
-import control.physics.Kinematic;
-import control.physics.PhysicsMeta;
-import control.physics.PhysicsVector;
-import model.gameobjects.RenderableObject;
+import gameengine.physics.Kinematic;
+import gameengine.physics.PhysicsVector;
+import gameobjects.renderables.RenderableObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

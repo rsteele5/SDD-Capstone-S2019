@@ -1,18 +1,19 @@
 package _test.splashscreentest;
 
-import control.RenderEngine;
-import control.ScreenManager;
-import model.gameobjects.ImageContainer;
-import model.gameobjects.buttons.Button;
-import utilities.Debug;
-import utilities.DebugEnabler;
+import gameengine.rendering.RenderEngine;
+import gamescreens.ScreenManager;
+import gamescreens.screens.GameScreen;
+import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.buttons.Button;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class TestGameplayScreen extends view.screens.GameScreen {
+public class TestGameplayScreen extends GameScreen {
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;

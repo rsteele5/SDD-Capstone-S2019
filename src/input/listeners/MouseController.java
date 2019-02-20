@@ -1,6 +1,6 @@
 package control.listeners;
 
-import control.RenderEngine;
+import gameengine.rendering.RenderEngine;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
