@@ -1,6 +1,7 @@
-package gamescreens.needsworkscreens;
+package gamescreens.screens;
 
 import gameengine.rendering.RenderEngine;
+import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
@@ -28,39 +29,24 @@ public class LoadingScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public LoadingScreen(ScreenManager screenManager) {
-        super(screenManager);
-        name = "LoadingScreen";
+        super(screenManager, "LoadingScreen");
+        isExclusive = true;
     }
 
     @Override
-    protected void initializeLayers() {
-        renderableLayers.add(new CopyOnWriteArrayList<>());
-        renderableLayers.add(new CopyOnWriteArrayList<>());
+    protected void initializeScreen() {
+        //Background
+        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-Loading.png", DrawLayer.Background));
+
+        //Foreground
+        ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X -5, START_POINT_Y - 5, "/assets/LoadingBarBackground.png", DrawLayer.Entity);
+        loadingBarBackground.setSize(MAX_WIDTH+10, MAX_HEIGHT + 10);
+        addObject(loadingBarBackground);
+
+        loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, "/assets/LoadingBar.png", DrawLayer.Entity);
+        addObject(loadingBar);
     }
 
-    @Override
-    public void loadContent(){
-        try {
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Content");
-            //Background
-            BufferedImage background = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/backgrounds/BG-Loading.png")));
-            renderableLayers.get(0).add(new ImageContainer(0,0, background, 0));
-
-            //Foreground
-            BufferedImage loadingBarBackgroundImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/LoadingBarBackground.png")));
-            ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X, START_POINT_Y, loadingBarBackgroundImage, 1);
-            loadingBarBackground.setSize(MAX_WIDTH-3, MAX_HEIGHT);
-            renderableLayers.get(1).add(loadingBarBackground);
-
-            BufferedImage loadingBarImage = RenderEngine.convertToARGB(ImageIO.read(getClass().getResource("/assets/LoadingBar.png")));
-            loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, loadingBarImage, 1);
-            renderableLayers.get(1).add(loadingBar);
-
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name+"-Loading Success");
-        } catch(IOException e)  {
-            Debug.error(DebugEnabler.GAME_SCREEN_LOG,"Error: " + e.getMessage());
-        }
-    }
     //endregion
 
     //region <Update>
@@ -90,7 +76,6 @@ public class LoadingScreen extends GameScreen {
     //region <Render>
     @Override
     public void draw(Graphics2D graphics){
-        super.draw(graphics);
         graphics.setColor(Color.WHITE);
         graphics.drawString("Loading: " + (int)(loadedData) + "/" + totalDataToLoad, 500, 500);
     }

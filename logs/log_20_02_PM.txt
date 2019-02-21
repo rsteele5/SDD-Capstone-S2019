@@ -1,133 +1,2669 @@
 [Success] -> Logging activated successfully
-[Success] -> TeamSplashScreen-Loading Content
+[Success] -> TeamSplashScreen-Initializing Content
 
-[Success] -> LoadingScreen-Loading Content
+[Success] -> TeamSplashScreen-Initialized Success
 
-[Warning] -> FPS below 60! - current FPS: 43
-
-[Success] -> LoadingScreen-Loading Success
-
-[Success] -> TeamSplashScreen-Loaded Success
+  [Debug] -> ScreenManager-update root: 
 
   [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> TeamSplashScreen-CurrentState: Active
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+[Warning] -> FPS below 60! - current FPS: 26
 
-[Success] -> TitleScreenLoading Content
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> TitleScreenLoaded Success
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 43
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 250
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> Clicked the splash screen
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screenTitleScreen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
 
   [Debug] -> TitleScreen-CurrentState: TransitionOn
 
-  [Debug] -> Handle Click at x: 957, y: 274
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> FPS below 60! - current FPS: 10
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 125
 
 [Success] -> MainMenuScreen-Loading Content
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
 [Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> ScreenManager-add screenMainMenuScreen
+
+  [Debug] -> ScreenManager-update root: 
 
   [Debug] -> MainMenuScreen-CurrentState: TransitionOn
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOff
+
+  [Debug] -> TitleScreen-CurrentState: TransitionOff
+
+[Success] -> Constructing MainMenuScreen
+
+[Success] -> MainMenuScreen-Loading Content
+
+[Success] -> MainMenuScreen-Loaded Success
+
+  [Debug] -> ScreenManager-add screenMainMenuScreen
+
+[Warning] -> Current FPS: 250
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 250
+
+  [Debug] -> ScreenManager-update root: 
 
   [Debug] -> MainMenuScreen-CurrentState: Active
 
-  [Debug] -> Handle Click at x: 204, y: 631
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Success] -> Clicked Button - New Game
+[Warning] -> Current FPS: 333
 
-[Success] -> TestGameplayScreen-Loading Content
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> LoadingScreen-CurrentState: TransitionOn
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-  [Debug] -> MainMenuScreen-CurrentState: Hidden
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 50
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> LoadingScreen-CurrentState: Active
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-  [Debug] -> MainMenuScreen-CurrentState: TransitionOff
+[Warning] -> Current FPS: 142
 
-[Success] -> TestGameplayScreen-Loaded Success
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> TestGameplayScreen-CurrentState: TransitionOn
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-  [Debug] -> LoadingScreen-CurrentState: TransitionOff
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> TestGameplayScreen-CurrentState: Active
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 142
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 142
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 142
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 142
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> MainMenuScreen-CurrentState: Active
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 142
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 200
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> MainMenuScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 166
 

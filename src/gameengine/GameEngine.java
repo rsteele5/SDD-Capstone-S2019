@@ -56,7 +56,7 @@ public class GameEngine implements Runnable {
              */
 
                 //Update
-                //physicsEngine.update();
+                physicsEngine.update();
                 //Render
                 screenManager.update();
                 renderEngine.draw();
@@ -68,8 +68,8 @@ public class GameEngine implements Runnable {
 
             if (sleepTime >= 0) {
                 try {
-                    if(endTime-startTime > 0)
-                    Debug.warning(DebugEnabler.FPS,"Current FPS: " + 1000 / (endTime - startTime) );
+                    if(endTime-startTime > 0 && frameCounter % 60 == 0)
+                    Debug.success(DebugEnabler.FPS,"Current FPS: " + 1000 / (endTime - startTime) );
                     TimeUnit.MILLISECONDS.sleep(sleepTime);
                 } catch (InterruptedException e) {
 

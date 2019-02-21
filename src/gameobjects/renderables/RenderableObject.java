@@ -39,6 +39,12 @@ public abstract class RenderableObject extends GameObject implements Loadable {
         drawLayer = DrawLayer.Background;
     }
 
+    public RenderableObject(int x, int y, DrawLayer layer) {
+        super(x,y);
+        this.imagePath = imagePath;
+        drawLayer = layer;
+    }
+
     public RenderableObject(int x, int y, BufferedImage image, DrawLayer layer) {
         super(x,y);
         this.image = image;
@@ -51,6 +57,13 @@ public abstract class RenderableObject extends GameObject implements Loadable {
         super(x,y);
         this.imagePath = imagePath;
         drawLayer = layer;
+    }
+
+    public RenderableObject(int x, int y, String imagePath, DrawLayer layer, float alpha) {
+        super(x,y);
+        this.imagePath = imagePath;
+        this.drawLayer = layer;
+        this.alpha = alpha;
     }
     //endregion
 
@@ -106,7 +119,11 @@ public abstract class RenderableObject extends GameObject implements Loadable {
 
     public void load() {
         image = AssetLoader.load(imagePath);
-        setSize(image.getWidth(), image.getHeight());
+        if(width != 0 && height != 0) {
+            setSize(width, height);
+        } else {
+            setSize(image.getWidth(), image.getHeight());
+        }
     }
 
     public abstract void update();

@@ -8,6 +8,7 @@ import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
 import javax.sound.sampled.*;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
@@ -61,16 +62,17 @@ public class TitleScreen extends GameScreen {
                 e.printStackTrace();
             }
         }
-        if(screenData.getBackgroudLayer().get(1).getY() < -240)
-            screenData.getBackgroudLayer().get(1).setY(screenData.getBackgroudLayer().get(1).getY() + 2);
+        if(backgroundLayer.get(1).getY() < -240)
+            backgroundLayer.get(1).setY(backgroundLayer.get(1).getY() + 2);
         else
             currentState = ScreenState.Active;
     }
 
     @Override
     public void transitionOff() {
-        //Debug.success(DebugEnabler.GAME_SCREEN_LOG,"Constructing MainMenuScreen");
-        //screenManager.addScreen(new MainMenuScreen(screenManager));
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG,"Constructing MainMenuScreen");
+        screenManager.addScreen(new MainMenuScreen(screenManager));
+        exiting = true;
     }
 
     @Override
@@ -83,12 +85,13 @@ public class TitleScreen extends GameScreen {
     protected void activeUpdate() {
         currentState = ScreenState.TransitionOff;
     }
+
     //endregion
 
     //region <Support Functions>
     @Override
     public void handleClickEvent(int x, int y) {
-        //screenManager.addScreen(new MainMenuScreen(screenManager));
+        screenManager.addScreen(new MainMenuScreen(screenManager));
     }
     //endregion
 }

@@ -13,8 +13,8 @@ public class Label extends RenderableObject {
         super(x, y);
     }
 
-    public Label(int x, int y, BufferedImage image, DrawLayer drawLayer, boolean isActive) {
-        super(x, y, image, drawLayer);
+    public Label(int x, int y, String imagePath, DrawLayer drawLayer, boolean isActive) {
+        super(x, y, imagePath, drawLayer);
         this.isActive = isActive;
     }
 

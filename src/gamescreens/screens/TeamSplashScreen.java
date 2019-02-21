@@ -7,6 +7,8 @@ import gameobjects.renderables.ImageContainer;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
+import java.awt.*;
+
 
 public class TeamSplashScreen extends GameScreen {
 
@@ -75,6 +77,7 @@ public class TeamSplashScreen extends GameScreen {
     protected void activeUpdate() {
         currentState = ScreenState.TransitionOff;
     }
+
     //endregion
 
     //region <Support Functions>

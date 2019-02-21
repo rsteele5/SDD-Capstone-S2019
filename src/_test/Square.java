@@ -10,8 +10,8 @@ import java.awt.image.BufferedImage;
 
 public class Square extends RenderableObject implements Kinematic {
     private double accel = 1;
-    public Square(int x, int y, BufferedImage img, DrawLayer drawLayer){
-        super(x,y,img,drawLayer);
+    public Square(int x, int y, String path, DrawLayer drawLayer){
+        super(x,y,path,drawLayer);
     }
     @Override
     public void update() {

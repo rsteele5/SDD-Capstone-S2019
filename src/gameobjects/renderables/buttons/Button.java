@@ -12,8 +12,23 @@ public class Button extends RenderableObject {
         super(x, y);
     }
 
-    public Button(int x, int y, BufferedImage image, DrawLayer drawLayer, Consumer<ScreenManager> handleOnClick) {
-        super(x, y, image, drawLayer);
+    public Button(int x, int y, String imagePath, DrawLayer drawLayer) {
+        super(x, y, drawLayer);
+        this.imagePath = imagePath;
+    }
+
+    public Button(int x, int y, DrawLayer drawLayer, Consumer<ScreenManager> handleOnClick) {
+        super(x, y, drawLayer);
+        onClick = handleOnClick;
+    }
+
+    public Button(int x, int y, String imagePath, DrawLayer drawLayer, Consumer<ScreenManager> handleOnClick) {
+        super(x, y, imagePath, drawLayer);
+        onClick = handleOnClick;
+    }
+
+    public Button(int x, int y, String imagePath, DrawLayer drawLayer, float alpha, Consumer<ScreenManager> handleOnClick) {
+        super(x, y, imagePath, drawLayer);
         onClick = handleOnClick;
     }
 

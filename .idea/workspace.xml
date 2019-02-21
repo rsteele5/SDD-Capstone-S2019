@@ -3,13 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="ad553cdc-66af-492a-adc8-3ac3ec999d56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log_18_02_PM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_18_02_PM.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log_19_02_PM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_19_02_PM.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log_00_02_AM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_00_02_AM.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log_20_02_PM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_20_02_PM.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log_21_02_PM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_21_02_PM.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log_23_02_PM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_23_02_PM.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_test/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_test/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameengine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameengine/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobjects/renderables/items/Helmet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobjects/renderables/items/Helmet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobjects/renderables/items/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobjects/renderables/items/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobjects/renderables/items/Sword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobjects/renderables/items/Sword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobjects/renderables/labels/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobjects/renderables/labels/Label.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamescreens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamescreens/ScreenData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/ScreenData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamescreens/ScreenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/ScreenManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescreens/needsworkscreens/DevScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/DevScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescreens/needsworkscreens/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescreens/needsworkscreens/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/LoadingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescreens/needsworkscreens/MainMenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/MainMenuScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescreens/needsworkscreens/TestGameplayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/TestGameplayScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescreens/needsworkscreens/VendorScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/VendorScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamescreens/screens/TeamSplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/TeamSplashScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamescreens/screens/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescreens/screens/TitleScreen.java" afterDir="false" />
     </list>
@@ -19,22 +33,94 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Nightbears$Game__1_.ic" NAME="Game (1) Coverage Results" MODIFIED="1550732352632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.*</FILTER>
+    </SUITE>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameengine/GameEngine.java">
+        <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/VendorScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="243">
+              <caret line="89" column="43" selection-start-line="89" selection-start-column="43" selection-end-line="89" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gamescreens/DrawLayer.java">
+        <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/MainMenuScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/DevScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+              <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/utilities/AssetLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="e#945#946#0" expanded="true" />
+                <element signature="e#977#978#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Sword.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="120" column="42" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Helmet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -42,102 +128,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gamescreens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="164" column="64" selection-start-line="164" selection-start-column="64" selection-end-line="164" selection-end-column="64" />
-              <folding>
-                <element signature="docComment;method#initializeScreen#0;class#GameScreen#0" expanded="true" />
-                <element signature="e#4090#4091#0" expanded="true" />
-                <element signature="e#4134#4135#0" expanded="true" />
-                <element signature="e#4169#4170#0" expanded="true" />
-                <element signature="e#4203#4204#0" expanded="true" />
-                <element signature="e#4236#4237#0" expanded="true" />
-                <element signature="e#4268#4269#0" expanded="true" />
-                <element signature="e#4391#4392#0" expanded="true" />
-                <element signature="e#4448#4449#0" expanded="true" />
-                <element signature="e#6288#6289#0" expanded="true" />
-                <element signature="e#6377#6378#0" expanded="true" />
-                <element signature="e#6560#6561#0" expanded="true" />
-                <element signature="e#4958#4959#0" expanded="true" />
-                <element signature="e#4988#4989#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="459">
+              <caret line="187" selection-start-line="187" selection-end-line="187" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TitleScreen.java">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="-68">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;method#initializeScreen#0;class#TitleScreen#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TeamSplashScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#initializeScreen#0;class#TeamSplashScreen#0" expanded="true" />
-                <element signature="e#2028#2029#0" expanded="true" />
-                <element signature="e#2062#2063#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gamescreens/ScreenManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="27" column="77" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1053#1054#0" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1481#1482#0" expanded="true" />
-                <element signature="e#1529#1530#0" expanded="true" />
-                <element signature="e#4912#4913#0" expanded="true" />
-                <element signature="e#4953#4954#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gamescreens/ScreenData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="105" column="60" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2520#2521#0" expanded="true" />
-                <element signature="e#2555#2556#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -173,6 +177,9 @@
       <find>isActive</find>
       <find>load()</find>
       <find>getScre</find>
+      <find>Width_Button</find>
+      <find>screenData</find>
+      <find>draw</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,14 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/renderengine/RenderEngine.java" />
-        <option value="$PROJECT_DIR$/src/view/renderengine/GameScreen.java" />
-        <option value="$PROJECT_DIR$/src/_test/splashscreentest/TestTitleScreen.java" />
-        <option value="$PROJECT_DIR$/src/_test/splashscreentest/TestTeamSplashScreen.java" />
-        <option value="$PROJECT_DIR$/src/view/renderengine/screens/TeamSplashScreen.java" />
-        <option value="$PROJECT_DIR$/src/control/GameScreen.java" />
-        <option value="$PROJECT_DIR$/src/_test/splashscreentest/TestButton.java" />
-        <option value="$PROJECT_DIR$/src/model/gameobjects/Renderable.java" />
         <option value="$PROJECT_DIR$/src/model/gameobjects/ImageContainer.java" />
         <option value="$PROJECT_DIR$/src/control/listeners/Clickable.java" />
         <option value="$PROJECT_DIR$/src/control/GameEngine.java" />
@@ -217,21 +216,29 @@
         <option value="$PROJECT_DIR$/src/view/screens/LoadingScreen.java" />
         <option value="$PROJECT_DIR$/src/main/utilities/Loadable.java" />
         <option value="$PROJECT_DIR$/src/main/utilities/AssetLoader.java" />
-        <option value="$PROJECT_DIR$/src/gamescreens/screens/Level.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java" />
         <option value="$PROJECT_DIR$/src/gamescreens/DrawLayer.java" />
-        <option value="$PROJECT_DIR$/src/_test/Square.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/renderables/ImageContainer.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/renderables/labels/Label.java" />
         <option value="$PROJECT_DIR$/src/gameengine/rendering/RenderEngine.java" />
         <option value="$PROJECT_DIR$/src/gamescreens/ScreenData.java" />
-        <option value="$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java" />
-        <option value="$PROJECT_DIR$/src/gamescreens/ScreenManager.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/renderables/labels/Label.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/screens/TestGameplayScreen.java" />
+        <option value="$PROJECT_DIR$/src/_test/Square.java" />
         <option value="$PROJECT_DIR$/src/gameengine/GameEngine.java" />
+        <option value="$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java" />
         <option value="$PROJECT_DIR$/src/gamescreens/screens/TitleScreen.java" />
-        <option value="$PROJECT_DIR$/src/gamescreens/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/gamescreens/screens/TeamSplashScreen.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/screens/MainMenuScreen.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/screens/LoadingScreen.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/screens/Level.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/GameScreen.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/ScreenManager.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/renderables/items/Helmet.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/renderables/items/Potion.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/renderables/items/Sword.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/screens/VendorScreen.java" />
+        <option value="$PROJECT_DIR$/src/gamescreens/screens/DevScreen.java" />
       </list>
     </option>
   </component>
@@ -270,7 +277,27 @@
               <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="Items" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gameengine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gameengine" type="462c0819:PsiDirectoryNode" />
+              <item name="physics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
@@ -282,6 +309,29 @@
               <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gameobjects" type="462c0819:PsiDirectoryNode" />
+              <item name="renderables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gameobjects" type="462c0819:PsiDirectoryNode" />
+              <item name="renderables" type="462c0819:PsiDirectoryNode" />
+              <item name="buttons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gameobjects" type="462c0819:PsiDirectoryNode" />
+              <item name="renderables" type="462c0819:PsiDirectoryNode" />
+              <item name="items" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gamescreens" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,7 +339,27 @@
               <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gamescreens" type="462c0819:PsiDirectoryNode" />
+              <item name="needsworkscreens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gamescreens" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDD-Capstone-S2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
+              <item name="listeners" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Nightbears" type="b2602c69:ProjectViewProjectNode" />
@@ -305,7 +375,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550714166346" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550737093552" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -313,15 +383,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="view.screens" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="U:\SchoolStuff\Capstone\SDD-Capstone-S2019\src\gamescreens\screens" />
       <recent name="N:\Everything else\CollegeStuff\CMSC\_SDD\Code\SDD-Capstone-S2019\src\gamescreens\screens" />
       <recent name="N:\Everything else\CollegeStuff\CMSC\_SDD\Code\SDD-Capstone-S2019\src\gamescreens\needsworkscreens" />
       <recent name="N:\Everything else\CollegeStuff\CMSC\_SDD\Code\SDD-Capstone-S2019\src\assets\backgrounds" />
       <recent name="N:\Everything else\CollegeStuff\CMSC\_SDD\Code\SDD-Capstone-S2019\src\assets\Buttons" />
-      <recent name="N:\Everything else\CollegeStuff\CMSC\_SDD\Code\SDD-Capstone-S2019\src\assets\testAssets" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="view.screens" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -393,19 +463,20 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15511727" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.15511727" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3290461" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.34083602" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.3997833" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3290461" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.34083602" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39871383" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.32936078" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.3290461" />
+      <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="0" />
       <window_info anchor="right" id="Maven" order="1" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -478,21 +549,19 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gamescreens/GameScreen.java</url>
+          <line>187</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/assets/backgrounds/BG-Loading.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/backgrounds/BG-TitleScreenCover.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/GameEngine.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/gameobjects/buttons/Button.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/gameobjects/RenderableObject.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/levels/LevelData.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/gameobjects/ImageContainer.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/screens/ConfirmationPopup.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/gameobjects/labels/Label.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/screens/DevScreen.java" />
     <entry file="file://$PROJECT_DIR$/src/_test/splashscreentest/TestGameplayScreen.java" />
     <entry file="file://$PROJECT_DIR$/src/view/screens/LoadingScreen.java" />
     <entry file="file://$PROJECT_DIR$/src/view/screens/GraphicsScreen.java" />
@@ -503,27 +572,10 @@
     <entry file="file://$PROJECT_DIR$/src/view/screens/GameScreen.java" />
     <entry file="file://$PROJECT_DIR$/src/view/screens/MainMenuScreen.java" />
     <entry file="file://$PROJECT_DIR$/src/control/ScreenManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/utilities/AssetLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/utilities/Loadable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/ConfirmationPopup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -544,42 +596,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/DevScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/GraphicsScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#initializeScreen#0;class#Level#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/LoadingScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/MainMenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -611,58 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/VendorScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/TestGameplayScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_test/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/labels/Label.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/ImageContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="71" lean-forward="true" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameengine/rendering/RenderEngine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -688,31 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameengine/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TitleScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#initializeScreen#0;class#TitleScreen#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gamescreens/ScreenData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -725,55 +668,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/ScreenManager.java">
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="27" column="77" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
+        <state relative-caret-position="81">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/labels/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1053#1054#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#4912#4913#0" expanded="true" />
-            <element signature="e#4953#4954#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/backgrounds/BG-DevMenu.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/needsworkscreens/ConfirmationPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/input/listeners/MouseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/LoadingBarBackground.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/ImageContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameengine/physics/Kinematic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameengine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameengine/physics/PhysicsEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_test/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="12" column="55" lean-forward="true" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TitleScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#initializeScreen#0;class#TitleScreen#0" expanded="true" />
+            <element signature="e#3168#3169#0" expanded="true" />
+            <element signature="e#3242#3243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TestGameplayScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TeamSplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#initializeScreen#0;class#TeamSplashScreen#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/LoadingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#initializeScreen#0;class#Level#0" expanded="true" />
+            <element signature="e#3184#3185#0" expanded="true" />
+            <element signature="e#3234#3235#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="833" selection-start-line="833" selection-end-line="833" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/ScreenManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Potion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Sword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/RenderableObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="120" column="42" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/items/Helmet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/utilities/AssetLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gamescreens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="164" column="64" selection-start-line="164" selection-start-column="64" selection-end-line="164" selection-end-column="64" />
+        <state relative-caret-position="459">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/renderables/buttons/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="docComment;method#initializeScreen#0;class#GameScreen#0" expanded="true" />
-            <element signature="e#4090#4091#0" expanded="true" />
-            <element signature="e#4134#4135#0" expanded="true" />
-            <element signature="e#4169#4170#0" expanded="true" />
-            <element signature="e#4203#4204#0" expanded="true" />
-            <element signature="e#4236#4237#0" expanded="true" />
-            <element signature="e#4268#4269#0" expanded="true" />
-            <element signature="e#4391#4392#0" expanded="true" />
-            <element signature="e#4448#4449#0" expanded="true" />
-            <element signature="e#6288#6289#0" expanded="true" />
-            <element signature="e#6377#6378#0" expanded="true" />
-            <element signature="e#6560#6561#0" expanded="true" />
-            <element signature="e#4958#4959#0" expanded="true" />
-            <element signature="e#4988#4989#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/TeamSplashScreen.java">
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/VendorScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        <state relative-caret-position="243">
+          <caret line="89" column="43" selection-start-line="89" selection-start-column="43" selection-end-line="89" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/MainMenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#initializeScreen#0;class#TeamSplashScreen#0" expanded="true" />
-            <element signature="e#2028#2029#0" expanded="true" />
-            <element signature="e#2062#2063#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gamescreens/screens/DevScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
         </state>
       </provider>
     </entry>

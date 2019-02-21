@@ -3,12 +3,16 @@ package gamescreens;
 import gameengine.physics.Kinematic;
 import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.buttons.Button;
+import gamescreens.screens.LoadingScreen;
+import main.Game;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import main.utilities.Loadable;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,6 +20,8 @@ public abstract class GameScreen {
 
     //region <Variables>
     private GameScreen childScreen;
+    private GameScreen overlayScreen;
+    public LoadingScreen loadingScreen;
 
     public String name;
 
@@ -49,6 +55,7 @@ public abstract class GameScreen {
     protected boolean exiting = false;
 
     protected ArrayList<GameObject> gameObjects;
+    protected ArrayList<Button> buttons;
     protected ArrayList<Kinematic> kinematics;
     protected ArrayList<Loadable> loadables;
     protected ArrayList<RenderableObject> backgroundLayer;
@@ -56,18 +63,25 @@ public abstract class GameScreen {
     protected ArrayList<RenderableObject> entityLayer;
     protected ArrayList<RenderableObject> effectsLayer;
 
-    public void cover(GameScreen gameScreen) {
+    public void coverWith(GameScreen gameScreen) {
         if(gameScreen.isRoot) {
             gameScreen.childScreen = this;
             currentState = ScreenState.TransitionOff;
-        } else if(childScreen == null) {
-            childScreen = gameScreen;
+            return;
+        }
+
+        if(gameScreen.isExclusive) {
+            if (childScreen == null) {
+                childScreen = gameScreen;
+            } else {
+                childScreen.coverWith(gameScreen);
+            }
         } else {
-            childScreen.cover(gameScreen);
+            childScreen.overlayScreen = this;
         }
     }
 
-    public void uncover(GameScreen gameScreen) {
+    public void uncoveredBy(GameScreen gameScreen) {
         if(childScreen == gameScreen) {
             if(childScreen.childScreen != null) {
                 childScreen = childScreen.childScreen;
@@ -77,14 +91,6 @@ public abstract class GameScreen {
         }
     }
 
-    public void draw(Graphics2D graphics) {
-        if(!isLoading) {
-            drawLayers(graphics);
-            if(childScreen != null) {
-                childScreen.draw(graphics);
-            }
-        }
-    }
 
     private void drawLayers(Graphics2D graphics) {
         for(RenderableObject bg : backgroundLayer)
@@ -95,6 +101,18 @@ public abstract class GameScreen {
             entity.draw(graphics);
         for(RenderableObject effect : effectsLayer)
             effect.draw(graphics);
+    }
+
+    public ArrayList<Kinematic> getPhysicsObjects() {
+        if(!isLoading){
+            if(childScreen != null) {
+                return childScreen.getPhysicsObjects();
+            } else {
+                return kinematics;
+            }
+        } else {
+            return null;
+        }
     }
 
 
@@ -123,6 +141,7 @@ public abstract class GameScreen {
         this.screenManager = screenManager;
         previousState = null;
         gameObjects = new ArrayList<>();
+        buttons = new ArrayList<>();
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
         backgroundLayer = new ArrayList<>();
@@ -154,6 +173,18 @@ public abstract class GameScreen {
     private void loadContent() {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
+            if(loadingScreenRequired) {
+                loadingScreen = screenManager.getLoadingScreen();
+                loadingScreen.initializeLoadingScreen(loadables.size());
+                coverWith(loadingScreen);
+                for (int i = 0; i < loadables.size(); i++){
+                    loadables.get(i).load();
+                    loadingScreen.dataLoaded(i);
+                }
+                isLoading = false;
+                childScreen = null;
+                loadingScreen.reset();
+            }
             for (Loadable loadable : loadables) loadable.load();
             isLoading = false;
         });
@@ -209,30 +240,81 @@ public abstract class GameScreen {
 
     protected abstract void activeUpdate();
 
+
+    public final void drawScreen(Graphics2D graphics) {
+        if(!isLoading) {
+            drawLayers(graphics);
+            if(childScreen != null) {
+                childScreen.drawScreen(graphics);
+                childScreen.draw(graphics);
+            }
+        } else {
+            if(childScreen != null) {
+                childScreen.drawScreen(graphics);
+                childScreen.draw(graphics);
+            }
+        }
+
+        if(overlayScreen != null) {
+            overlayScreen.drawScreen(graphics);
+            overlayScreen.draw(graphics);
+        }
+    }
+
+    public void draw(Graphics2D graphics) {
+
+    }
+
     /**
      *  Updates the state of the screen
      */
     public void update(){
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
-        if(currentState != previousState){
-            previousState = currentState;
-            Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
-        }
-        switch(currentState) {
-            case TransitionOn: transitionOn(); break;
-            case TransitionOff: transitionOff(); break;
-            case Active: activeUpdate(); break;
-            case Hidden: hiddenUpdate(); break;
-            default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
-        }
+
+
         if(childScreen != null) {
-            childScreen.update();
+            if(childScreen.isExiting()){
+                if(!isLoading){
+                    childScreen = null;
+                }
+            } else {
+                childScreen.update();
+            }
+        } else {
+            switch(currentState) {
+                case TransitionOn: transitionOn(); break;
+                case TransitionOff: transitionOff(); break;
+                case Active: activeUpdate(); break;
+                case Hidden: hiddenUpdate(); break;
+                default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
+            }
+            if(currentState != previousState){
+                previousState = currentState;
+                Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
+            }
         }
     }
     //endregion
 
     //region <Support Functions>
-    public abstract void handleClickEvent(int x, int y);
+    public void handleClickEvent(int x, int y) {
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-screen handle click ");
+        if(childScreen != null) {
+            childScreen.handleClickEvent(x,y);
+            Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-handle click on child: ");
+        } else {
+            for(Button butt: buttons) {
+                if(butt.getBoundingBox().contains(x,y)) {
+                    butt.onClick.accept(screenManager);
+                    return;
+                }
+            }
+            Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-handle click: ");
+            if(overlayScreen != null){
+                overlayScreen.handleClickEvent(x,y);
+            }
+        }
+    }
+
     public void reset(){
         previousState = null;
         exiting = false;
@@ -249,6 +331,8 @@ public abstract class GameScreen {
         gameObjects.add(renderable);
         if(renderable instanceof Kinematic)
             kinematics.add((Kinematic) renderable);
+        if(renderable instanceof Button)
+            buttons.add((Button) renderable);
     }
     //endregion
 }
