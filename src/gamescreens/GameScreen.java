@@ -69,7 +69,6 @@ public abstract class GameScreen {
             currentState = ScreenState.TransitionOff;
             return;
         }
-
         if(gameScreen.isExclusive) {
             if (childScreen == null) {
                 childScreen = gameScreen;

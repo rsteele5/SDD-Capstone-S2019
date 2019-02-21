@@ -2,10 +2,18 @@ package input.listeners;
 
 import gameengine.rendering.RenderEngine;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseController implements MouseListener {
+
+    private RenderEngine renderEngine;
+
+    public void addListener(MouseListener button){
+        renderEngine.addMouseListener(button);
+    }
+
 
     @Override
     public void mouseClicked(MouseEvent e) {

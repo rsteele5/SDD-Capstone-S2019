@@ -1,127 +1,143 @@
 [Success] -> Logging activated successfully
-[Success] -> LoadingScreen-Loading Content
+[Success] -> TeamSplashScreen-Initializing Content
 
-[Success] -> TeamSplashScreen-Loading Content
-
-[Warning] -> FPS below 60! - current FPS: 8
-
-[Warning] -> FPS below 60! - current FPS: 37
-
-[Success] -> LoadingScreen-Loading Success
-
-[Success] -> TeamSplashScreen-Loaded Success
+[Success] -> TeamSplashScreen-Initialized Success
 
   [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Warning] -> FPS below 60! - current FPS: 28
+[Warning] -> FPS below 60! - current FPS: 29
 
-  [Debug] -> Handle Click at x: 985, y: 363
+[Warning] -> FPS below 60! - current FPS: 38
+
+[Warning] -> FPS below 60! - current FPS: 50
+
+[Warning] -> FPS below 60! - current FPS: 45
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> -handle click: 
 
   [Debug] -> Clicked the splash screen
 
-[Success] -> TitleScreenLoading Content
+[Success] -> TitleScreenInitializing Content
 
-[Success] -> TitleScreenLoaded Success
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screenTitleScreen
 
   [Debug] -> TitleScreen-CurrentState: TransitionOn
 
-  [Debug] -> Handle Click at x: 985, y: 363
+[Warning] -> FPS below 60! - current FPS: 11
+
+[Success] -> Current FPS: 111
+
+  [Debug] -> -handle click: 
 
 [Success] -> MainMenuScreen-Loading Content
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
+[Success] -> MainMenuScreen-Loaded Success
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
+  [Debug] -> ScreenManager-add screenMainMenuScreen
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
+[Success] -> Constructing MainMenuScreen
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
+[Success] -> MainMenuScreen-Loading Content
 
 [Success] -> MainMenuScreen-Loaded Success
 
-  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
+  [Debug] -> ScreenManager-add screenMainMenuScreen
 
-  [Debug] -> TitleScreen-CurrentState: Hidden
+  [Debug] -> TitleScreen-CurrentState: TransitionOff
+
+  [Debug] -> MainMenuScreen-CurrentState: TransitionOff
 
   [Debug] -> MainMenuScreen-CurrentState: Active
 
-  [Debug] -> Handle Click at x: 754, y: 625
+[Success] -> Current FPS: 142
 
-[Success] -> Clicked Button - DevMode
+  [Debug] -> -handle click: 
 
-[Success] -> DevScreen-Loading Content
-
-[Success] -> DevScreen-Loaded Success
-
-  [Debug] -> DevScreen-CurrentState: TransitionOn
-
-  [Debug] -> DevScreen-CurrentState: Active
-
-  [Debug] -> Handle Click at x: 1096, y: 629
-
-[Success] -> Clicked Button - Main Menu
-
-  [Debug] -> DevScreen-CurrentState: TransitionOff
-
-  [Debug] -> Handle Click at x: 466, y: 629
+  [Debug] -> MainMenuScreen-screen handle click 
 
 [Success] -> Clicked Button - Options
 
-[Success] -> OptionScreen-Loading Content
+  [Debug] -> ScreenManager-add screenOptions Menu
 
-[Success] -> OptionScreen-Loaded Success
+  [Debug] -> Options Menu-CurrentState: TransitionOn
 
-  [Debug] -> OptionScreen-CurrentState: TransitionOn
+  [Debug] -> Options Menu-CurrentState: Active
 
-  [Debug] -> OptionScreen-CurrentState: Active
+[Success] -> Current FPS: 142
 
-  [Debug] -> Handle Click at x: 767, y: 619
+  [Debug] -> -handle click: 
 
-[Success] -> Clicked Button - Controls
+  [Debug] -> MainMenuScreen-screen handle click 
 
-[Success] -> OptionScreen-Loading Content
+  [Debug] -> Options Menu-screen handle click 
 
-[Success] -> OptionScreen-Loaded Success
+[Success] -> Clicked Button - Graphics
 
-  [Debug] -> OptionScreen-CurrentState: TransitionOn
+  [Debug] -> ScreenManager-add screenControlsScreen
 
-  [Debug] -> OptionScreen-CurrentState: Active
+  [Debug] -> MainMenuScreen-handle click on child: 
 
-  [Debug] -> Handle Click at x: 383, y: 605
+  [Debug] -> ControlsScreen-CurrentState: TransitionOn
+
+  [Debug] -> ControlsScreen-CurrentState: Active
+
+[Success] -> Current FPS: 111
+
+  [Debug] -> -handle click: 
+
+  [Debug] -> MainMenuScreen-screen handle click 
+
+  [Debug] -> Options Menu-screen handle click 
+
+  [Debug] -> ControlsScreen-screen handle click 
 
 [Success] -> Clicked Button - Right Arrow
 
-  [Debug] -> Handle Click at x: 92, y: 618
+  [Debug] -> Options Menu-handle click on child: 
 
-[Success] -> Clicked Button - Left Arrow
+  [Debug] -> MainMenuScreen-handle click on child: 
 
-  [Debug] -> Handle Click at x: 372, y: 598
+[Success] -> Current FPS: 125
+
+[Success] -> Current FPS: 111
+
+[Success] -> Current FPS: 125
+
+  [Debug] -> -handle click: 
+
+  [Debug] -> MainMenuScreen-screen handle click 
+
+  [Debug] -> Options Menu-screen handle click 
+
+  [Debug] -> ControlsScreen-screen handle click 
 
 [Success] -> Clicked Button - Right Arrow
 
-  [Debug] -> Handle Click at x: 379, y: 598
+  [Debug] -> Options Menu-handle click on child: 
+
+  [Debug] -> MainMenuScreen-handle click on child: 
+
+  [Debug] -> -handle click: 
+
+  [Debug] -> MainMenuScreen-screen handle click 
+
+  [Debug] -> Options Menu-screen handle click 
+
+  [Debug] -> ControlsScreen-screen handle click 
 
 [Success] -> Clicked Button - Right Arrow
 
-  [Debug] -> Handle Click at x: 764, y: 622
+  [Debug] -> Options Menu-handle click on child: 
 
-[Success] -> Clicked Button - Confirm
+  [Debug] -> MainMenuScreen-handle click on child: 
 
-  [Debug] -> OptionScreen-CurrentState: TransitionOff
+[Success] -> Current FPS: 111
 
-[Warning] -> FPS below 60! - current FPS: 55
+[Success] -> Current FPS: 125
+
+[Success] -> Current FPS: 125
 

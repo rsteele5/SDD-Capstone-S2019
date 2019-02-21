@@ -51,7 +51,7 @@ public class MainMenuScreen extends GameScreen {
                 DrawLayer.Entity,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
-                    //screenManager.addScreen(new OptionScreen(screenManager, savedLabels));
+                    screenManager.addScreen(new OptionScreen(screenManager, savedLabels));
         }));
 
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,

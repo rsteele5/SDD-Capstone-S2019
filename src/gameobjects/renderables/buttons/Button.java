@@ -3,10 +3,17 @@ package gameobjects.renderables.buttons;
 import gamescreens.DrawLayer;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.RenderableObject;
-import java.awt.image.BufferedImage;
+import main.utilities.Debug;
+
+import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.function.Consumer;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
+
 public class Button extends RenderableObject {
+
 
     public Button(int x, int y) {
         super(x, y);
