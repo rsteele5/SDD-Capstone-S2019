@@ -13,7 +13,7 @@ import static gamescreens.DrawLayer.*;
 
 public class ScreenData {
 
-    protected CopyOnWriteArrayList<GameObject> gameObjects;
+    protected ArrayList<GameObject> gameObjects;
     protected ArrayList<Kinematic> kinematics;
     protected ArrayList<Loadable> loadables;
     private ArrayList<RenderableObject> hiddenScreens;
@@ -24,7 +24,7 @@ public class ScreenData {
     private ArrayList<RenderableObject> overlayScreens;
 
     public ScreenData(){
-        gameObjects = new CopyOnWriteArrayList<>();
+        gameObjects = new ArrayList<>();
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
         hiddenScreens = new ArrayList<>();
@@ -58,7 +58,7 @@ public class ScreenData {
 
         return renderables;
     }
-    public CopyOnWriteArrayList<GameObject> getGameObjects() {
+    public ArrayList<GameObject> getGameObjects() {
         return gameObjects;
     }
 

@@ -1,18 +1,21 @@
 package gamescreens;
 
+import gameengine.physics.Kinematic;
+import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
+import main.utilities.Loadable;
 
 import java.awt.*;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public abstract class GameScreen {
 
     //region <Variables>
-    public GameScreen parentScreen;
+    private GameScreen childScreen;
 
     public String name;
 
@@ -41,9 +44,58 @@ public abstract class GameScreen {
      *  The variable overlay describes if a screen is covering another screen in it's entirety, but
      *  does not prevent updates or rendering on screens below it in the list.
      */
-    protected boolean isOverlay = false;
+    protected boolean isRoot = false;
 
     protected boolean exiting = false;
+
+    protected ArrayList<GameObject> gameObjects;
+    protected ArrayList<Kinematic> kinematics;
+    protected ArrayList<Loadable> loadables;
+    protected ArrayList<RenderableObject> backgroundLayer;
+    protected ArrayList<RenderableObject> sceneryLayer;
+    protected ArrayList<RenderableObject> entityLayer;
+    protected ArrayList<RenderableObject> effectsLayer;
+
+    public void cover(GameScreen gameScreen) {
+        if(gameScreen.isRoot) {
+            gameScreen.childScreen = this;
+            currentState = ScreenState.TransitionOff;
+        } else if(childScreen == null) {
+            childScreen = gameScreen;
+        } else {
+            childScreen.cover(gameScreen);
+        }
+    }
+
+    public void uncover(GameScreen gameScreen) {
+        if(childScreen == gameScreen) {
+            if(childScreen.childScreen != null) {
+                childScreen = childScreen.childScreen;
+            } else {
+                childScreen = null;
+            }
+        }
+    }
+
+    public void draw(Graphics2D graphics) {
+        if(!isLoading) {
+            drawLayers(graphics);
+            if(childScreen != null) {
+                childScreen.draw(graphics);
+            }
+        }
+    }
+
+    private void drawLayers(Graphics2D graphics) {
+        for(RenderableObject bg : backgroundLayer)
+            bg.draw(graphics);
+        for(RenderableObject scenery : sceneryLayer)
+            scenery.draw(graphics);
+        for(RenderableObject entity : entityLayer)
+            entity.draw(graphics);
+        for(RenderableObject effect : effectsLayer)
+            effect.draw(graphics);
+    }
 
 
     /**
@@ -70,7 +122,13 @@ public abstract class GameScreen {
     public GameScreen(ScreenManager screenManager, String name) {
         this.screenManager = screenManager;
         previousState = null;
-        screenData = new ScreenData();
+        gameObjects = new ArrayList<>();
+        kinematics = new ArrayList<>();
+        loadables = new ArrayList<>();
+        backgroundLayer = new ArrayList<>();
+        sceneryLayer = new ArrayList<>();
+        entityLayer = new ArrayList<>();
+        effectsLayer = new ArrayList<>();
         this.name = name;
         initializeScreen();
         currentState = ScreenState.TransitionOn;
@@ -79,13 +137,11 @@ public abstract class GameScreen {
     }
 
     /* Only for non root screen */
-    public GameScreen(ScreenManager screenManager, String name, GameScreen parentScreen, boolean isExclusive) {
+    public GameScreen(ScreenManager screenManager, String name, boolean isExclusive) {
         this(screenManager, name);
-        this.parentScreen = parentScreen;
         this.isExclusive = isExclusive;
-        this.isOverlay = !isExclusive;
+        this.isRoot = !isExclusive;
     }
-
 
     /**
      *  Initializes all of the stuff you want on your screen
@@ -98,8 +154,7 @@ public abstract class GameScreen {
     private void loadContent() {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
-            screenData.load();
-            screenManager.addScreenData(screenData, isExclusive, isOverlay);
+            for (Loadable loadable : loadables) loadable.load();
             isLoading = false;
         });
         executorService.shutdown();
@@ -113,10 +168,6 @@ public abstract class GameScreen {
 
     public boolean isExclusive(){
         return isExclusive;
-    }
-
-    public boolean isOverlay(){
-        return isOverlay;
     }
 
     public boolean isLoading(){
@@ -162,6 +213,7 @@ public abstract class GameScreen {
      *  Updates the state of the screen
      */
     public void update(){
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
         if(currentState != previousState){
             previousState = currentState;
             Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
@@ -173,6 +225,9 @@ public abstract class GameScreen {
             case Hidden: hiddenUpdate(); break;
             default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
         }
+        if(childScreen != null) {
+            childScreen.update();
+        }
     }
     //endregion
 
@@ -181,6 +236,19 @@ public abstract class GameScreen {
     public void reset(){
         previousState = null;
         exiting = false;
+    }
+
+    public void addObject(RenderableObject renderable) {
+        switch (renderable.getDrawLayer()){
+            case Background: backgroundLayer.add(renderable);break;
+            case Scenery: sceneryLayer.add(renderable);break;
+            case Entity: entityLayer.add(renderable);break;
+            case Effects: effectsLayer.add(renderable);break;
+        }
+        loadables.add(renderable);
+        gameObjects.add(renderable);
+        if(renderable instanceof Kinematic)
+            kinematics.add((Kinematic) renderable);
     }
     //endregion
 }

@@ -1,6 +1,5 @@
 package gamescreens.screens;
 
-import gameengine.rendering.RenderEngine;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -20,7 +19,7 @@ public class TitleScreen extends GameScreen {
     //region <Construction and Initialization>
     public TitleScreen(ScreenManager screenManager, String name) {
         super(screenManager,name);
-        isOverlay = true;
+        isRoot = true;
     }
 
     /**
@@ -30,10 +29,10 @@ public class TitleScreen extends GameScreen {
     protected void initializeScreen() {
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Initializing Content");
 
-        screenData.add(new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background));
-        screenData.add(new ImageContainer(0,-720, "/assets/backgrounds/BG-TitleScreenCover.png", DrawLayer.Background));
-        screenData.add(new ImageContainer(350,75, "/assets/backgrounds/BG-Title.png", DrawLayer.Background));
-        screenData.add( new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background));
+        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background));
+        addObject(new ImageContainer(0,-720, "/assets/backgrounds/BG-TitleScreenCover.png", DrawLayer.Background));
+        addObject(new ImageContainer(350,75, "/assets/backgrounds/BG-Title.png", DrawLayer.Background));
+        addObject( new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background));
 
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Initialized Success");
     }
@@ -77,7 +76,6 @@ public class TitleScreen extends GameScreen {
     @Override
     public void hiddenUpdate() {
         Debug.log(DebugEnabler.GAME_SCREEN_LOG,name+"-CurrentState: Hidden"); //TODO: handle hidden state
-        if(!screenManager.coveredByLoading(this))
             exiting = true;
     }
 

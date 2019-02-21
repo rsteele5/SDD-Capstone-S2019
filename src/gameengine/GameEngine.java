@@ -55,13 +55,12 @@ public class GameEngine implements Runnable {
              * The game data is the fuel to make the engine run lol
              */
 
-            if(screenManager.getScreenData() != null) {
                 //Update
                 //physicsEngine.update();
                 //Render
                 screenManager.update();
                 renderEngine.draw();
-            }
+
 
             long endTime = System.currentTimeMillis();
             int sleepTime = (int) (1.0 / FRAMES_PER_SECOND * 1000)
@@ -69,6 +68,8 @@ public class GameEngine implements Runnable {
 
             if (sleepTime >= 0) {
                 try {
+                    if(endTime-startTime > 0)
+                    Debug.warning(DebugEnabler.FPS,"Current FPS: " + 1000 / (endTime - startTime) );
                     TimeUnit.MILLISECONDS.sleep(sleepTime);
                 } catch (InterruptedException e) {
 

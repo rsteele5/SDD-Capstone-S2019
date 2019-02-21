@@ -1,133 +1,6175 @@
 [Success] -> Logging activated successfully
-[Success] -> LoadingScreen-Loading Content
+[Success] -> TeamSplashScreen-Initializing Content
 
-[Success] -> TeamSplashScreen-Loading Content
+[Success] -> TeamSplashScreen-Initialized Success
 
-[Warning] -> FPS below 60! - current FPS: 52
+  [Debug] -> ScreenManager-add screen
 
-[Success] -> LoadingScreen-Loading Success
-
-[Success] -> TeamSplashScreen-Loaded Success
+  [Debug] -> ScreenManager-update root: 
 
   [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> Handle Click at x: 585, y: 603
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> Clicked the splash screen
+[Warning] -> FPS below 60! - current FPS: 26
 
-[Success] -> TitleScreenLoading Content
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> TitleScreenLoaded Success
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> TitleScreen-CurrentState: TransitionOn
+[Warning] -> FPS below 60! - current FPS: 47
 
-  [Debug] -> Handle Click at x: 585, y: 603
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> MainMenuScreen-Loading Content
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-[Success] -> MainMenuScreen-Loaded Success
-
-  [Debug] -> MainMenuScreen-CurrentState: TransitionOn
-
-  [Debug] -> TitleScreen-CurrentState: Hidden
-
-  [Debug] -> MainMenuScreen-CurrentState: Active
-
-  [Debug] -> Handle Click at x: 753, y: 634
-
-[Success] -> Clicked Button - DevMode
-
-[Success] -> DevScreen-Loading Content
-
-[Success] -> DevScreen-Loaded Success
-
-  [Debug] -> DevScreen-CurrentState: TransitionOn
-
-  [Debug] -> DevScreen-CurrentState: Active
-
-  [Debug] -> Handle Click at x: 242, y: 617
-
-[Success] -> Clicked Button - Loading
-
-[Success] -> TestGameplayScreen-Loading Content
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
 [Warning] -> FPS below 60! - current FPS: 55
 
-  [Debug] -> LoadingScreen-CurrentState: TransitionOn
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> LoadingScreen-CurrentState: Active
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Success] -> TestGameplayScreen-Loaded Success
+[Warning] -> FPS below 60! - current FPS: 50
 
-  [Debug] -> TestGameplayScreen-CurrentState: TransitionOn
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> LoadingScreen-CurrentState: TransitionOff
+[Warning] -> Current FPS: 142
 
-  [Debug] -> TestGameplayScreen-CurrentState: Active
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 250
 
-  [Debug] -> Handle Click at x: 169, y: 638
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> Clicked Button - Main Menu
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Warning] -> FPS below 60! - current FPS: 1
+[Warning] -> Current FPS: 250
 
-  [Debug] -> TestGameplayScreen-CurrentState: TransitionOff
+  [Debug] -> ScreenManager-update root: 
 
-[Warning] -> FPS below 60! - current FPS: 1
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> Handle Click at x: 190, y: 466
+[Warning] -> Current FPS: 62
 
-[Success] -> Clicked Button - Vendor
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> VendorScreenLoading content
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Success] -> VendorScreenLoaded Success
+[Warning] -> Current FPS: 71
 
-  [Debug] -> VendorScreen-CurrentState: TransitionOn
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> VendorScreen-CurrentState: Active
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> Handle Click at x: 204, y: 245
+[Warning] -> Current FPS: 83
 
-[Success] -> Clicked Button - Bear Item
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> Handle Click at x: 211, y: 239
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Success] -> Clicked Button - Bear Item
+[Warning] -> Current FPS: 90
 
-  [Debug] -> Handle Click at x: 477, y: 575
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> Clicked Button - Sell to Vendor
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Warning] -> FPS below 60! - current FPS: 32
+[Warning] -> Current FPS: 90
 
-  [Debug] -> Handle Click at x: 260, y: 123
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> Clicked Button - Exit Vendor
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-  [Debug] -> VendorScreen-CurrentState: TransitionOff
+[Warning] -> Current FPS: 90
 
-  [Debug] -> Handle Click at x: 242, y: 627
+  [Debug] -> ScreenManager-update root: 
 
-[Success] -> Clicked Button - Loading
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
 
-[Success] -> TestGameplayScreen-Loading Content
+[Warning] -> Current FPS: 83
 
-  [Debug] -> LoadingScreen-CurrentState: TransitionOn
+  [Debug] -> ScreenManager-update root: 
 
-  [Debug] -> LoadingScreen-CurrentState: Active
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOn
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: Active
+
+  [Debug] -> TeamSplashScreen-CurrentState: Active
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 47
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 47
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 50
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 50
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 58
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 55
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 125
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 66
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 83
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 76
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 111
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 90
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 62
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> FPS below 60! - current FPS: 52
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 100
+
+  [Debug] -> ScreenManager-update root: 
+
+  [Debug] -> TeamSplashScreen-CurrentState: TransitionOff
+
+[Success] -> TitleScreenInitializing Content
+
+[Success] -> TitleScreenInitialized Success
+
+  [Debug] -> ScreenManager-add screen
+
+[Warning] -> Current FPS: 71
 

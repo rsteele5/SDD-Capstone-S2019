@@ -29,12 +29,12 @@ public class TeamSplashScreen extends GameScreen {
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initializing Content");
 
         logo = new ImageContainer(0,0, "/assets/backgrounds/BG-TeamLogo.png", DrawLayer.Background);
-        screenData.add(logo);
+        addObject(logo);
         cover = new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background);
         cover.setAlpha(1f);
-        screenData.add(cover);
+        addObject(cover);
         skipMsg = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background);
-        screenData.add(skipMsg);
+        addObject(skipMsg);
 
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initialized Success");
     }
@@ -45,6 +45,7 @@ public class TeamSplashScreen extends GameScreen {
     //region <Update>
     @Override
     public void transitionOn() {
+
         float alpha = cover.getAlpha();
         if(alpha > 0.008f) {
             cover.setAlpha(alpha - 0.008f);
@@ -67,8 +68,7 @@ public class TeamSplashScreen extends GameScreen {
 
     @Override
     public void hiddenUpdate() {
-        if(!screenManager.coveredByLoading(this))
-            exiting = true;
+        exiting = true;
     }
 
     @Override

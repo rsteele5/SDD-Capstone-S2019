@@ -16,7 +16,7 @@ public class PhysicsEngine {
     }
 
     public void update(){
-        CopyOnWriteArrayList<GameObject> objects = screenManager.getScreenData().getGameObjects();
+        CopyOnWriteArrayList<GameObject> objects = null;
         int indices = objects.size();
         for(int i1 = 0; i1 < indices; i1++){
             if(objects.get(i1) instanceof Kinematic) {
