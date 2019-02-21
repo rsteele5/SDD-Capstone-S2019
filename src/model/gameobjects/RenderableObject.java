@@ -109,6 +109,25 @@ public abstract class RenderableObject extends GameObject{
 
         currentImage = images.get(0);
     }
+    /**
+     * This resize method is used to resize a BufferedImage
+     * to a new width and heigth.
+     * show the usage of various javadoc Tags.
+     * It will resize the image associated with the RenderableObject
+     * @param newW  This parameter is new width of the image
+     * @param newH  This parameter is new heigth of the image
+     * @void BufferedImage The resized image takes the place of the original
+     */
+    /*public void resize(int newW, int newH) {
+        Image tmp = currentImage.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        currentImage = dimg;
+    }*/
 
     public abstract void update();
 }

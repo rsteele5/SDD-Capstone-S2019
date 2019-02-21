@@ -60,8 +60,7 @@ public class InventoryScreen extends GameScreen {
     private BufferedImage selectedIMG;
     private BufferedImage deselectedIMG;
     private BufferedImage buttonSpaceIMG;
-    private ImageContainer itemContainer;
-
+    private BufferedImage currentItemImg;
 
     private Button cBtn = null;
     private Item currentItem = null;
@@ -93,12 +92,13 @@ public class InventoryScreen extends GameScreen {
      * This resize method is used to resize a BufferedImage
      * to a new width and heigth.
      * show the usage of various javadoc Tags.
-     * @param img This parameter is the BufferedImage to resize
+     * It will resize the image associated with the RenderableObject
      * @param newW  This parameter is new width of the image
      * @param newH  This parameter is new heigth of the image
-     * @return BufferedImage This returns the resized image as a new BufferedImage
+     * @void BufferedImage The resized image takes the place of the original
+     * @return Resized Image
      */
-    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
+    public BufferedImage resize(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
@@ -186,9 +186,8 @@ public class InventoryScreen extends GameScreen {
             renderableLayers.get(0).add(new ImageContainer(xValItemsStart + ((3*numSQHorz)/2)*(itemsSpacing) - (equippedLabelIMG.getWidth()/2) ,  (yValBG + (5*yDistToSQ)/8), equippedLabelIMG, 0));
             renderableLayers.get(0).add(new ImageContainer(xValItemsStart + ((11*numSQHorz)/4)*(itemsSpacing) - (selectedItemLabelIMG.getWidth()/2),  (yValBG + (5*yDistToSQ)/8), selectedItemLabelIMG, 0));
             x_position = xValItemsStart + ((11*numSQHorz)/4)*(itemsSpacing)- (selectedItemLabelIMG.getWidth()/2) +10;
-            itemContainer = new ImageContainer(x_position+((3*selectedItemLabelIMG.getWidth())/16),  y_position + 7*35, slotResizeIMG, 0);
-            renderableLayers.get(0).add(itemContainer);
 
+            renderableLayers.get(0).add(new ImageContainer(x_position+((3*selectedItemLabelIMG.getWidth())/16),  y_position + 7*35, slotResizeIMG, 0));
 
             for (Button button : buttons)
                 renderableLayers.get(button.getDrawLayer()).add(button);
@@ -239,33 +238,37 @@ public class InventoryScreen extends GameScreen {
             graphics.drawString("Immunity:   " + currentItem.getImmunity()  + "\n " , x_position, y_position + 4*35);
             graphics.drawString("CritChance: " + currentItem.getCritChance() + "%"  + "\n ", x_position, y_position + 5*35);
             graphics.drawString("Value:     $" + currentItem.getValue()  + "\n ", x_position, y_position + 6*35);
-            //layerInventoryButton(resize(itemContainer.getCurrentImage(),100,100), resize(buttonSpaceIMG,100,100)));
-            //int index = renderableLayers.get(0).size()-1;
-            //renderableLayers.get(0).add(new ImageContainer(x_position,  y_position , currentItem.getCurrentImage(), 0));
-            //renderableLayers.get(0).get(index-1).setCurrentImage(currentItem.getCurrentImage());//layerInventoryButton((resize(itemContainer.getCurrentImage(), 100, 100)), resize((currentItem.getCurrentImage()),100,100)));
 
-            //x_position+((3*selectedItemLabelIMG.getWidth())/16),  y_position + 7*35
-            graphics.setColor(Color.BLACK);
+             graphics.setColor(Color.BLACK);
         }
+        if(currentItemImg !=null) {
+            int index = renderableLayers.get(0).size() - 1;
+            renderableLayers.get(0).get(index).setCurrentImage(layerInventoryButton(resize(buttonSpaceIMG, 100, 100), resize(currentItemImg, 100, 100)));
+        }
+
     }
 
     private void createItemButtons(){
         try {
             int itemCount = bearInventory.size();
             int k = 0;
+            BufferedImage slot;
             /* Render item images (buttons) into bear's inventory */
             for (int y = yValItemsStart; y < yValItemsEnd+1; y+= itemsSpacing) {
                 for (int x = xValItemsStart; x < xValItemsEnd+1; x+= itemsSpacing) {
                     if (k < numSQHorz*numSQVert) {
-                        BufferedImage slot;
                         final Item myItem;
+                        final BufferedImage itemimage;
                         if(k  < itemCount) {
                             myItem = bearInventory.get(k);
-                            slot = layerInventoryButton(buttonSpaceIMG, resize(RenderEngine.convertToARGB(
-                                    ImageIO.read(getClass().getResource(myItem.getImagePath()))), 40, 40));
+                            itemimage = RenderEngine.convertToARGB(
+                                    ImageIO.read(getClass().getResource(myItem.getImagePath())));
+                            slot = layerInventoryButton(buttonSpaceIMG, resize(itemimage,40,40));
                         }else {
                             slot = buttonSpaceIMG;
+                           //currentItemImg = buttonSpaceIMG;
                             myItem = null;
+                            itemimage = buttonSpaceIMG;
                         }
                         Button nBtn = new Button(x, y, slot, 1);
                         nBtn.setOnClick(screenManager -> {
@@ -275,6 +278,7 @@ public class InventoryScreen extends GameScreen {
                             nBtn.setCurrentImage(layerInventoryButton(nBtn.getCurrentImage(), selectedIMG));
                             cBtn = nBtn;
                             currentItem = myItem;
+                            currentItemImg = itemimage;
                         });
                         buttons.add(nBtn);
                         k++;
@@ -292,13 +296,16 @@ public class InventoryScreen extends GameScreen {
             BufferedImage slot;
             for(int k =0; k < bearEquipped.length; ++k) {
                 final Item myItem;
+                final BufferedImage itemimage;
                 if (bearEquipped[k] != null) {
                     myItem = bearEquipped[k];
-                    slot = layerInventoryButton(buttonSpaceIMG, resize(RenderEngine.convertToARGB(
-                            ImageIO.read(getClass().getResource(myItem.getImagePath()))), 40, 40));
+                    itemimage = RenderEngine.convertToARGB(
+                            ImageIO.read(getClass().getResource(myItem.getImagePath())));
+                    slot = layerInventoryButton(buttonSpaceIMG, resize(itemimage,40,40));
                 } else {
                     slot = buttonSpaceIMG;
                     myItem = null;
+                    itemimage = buttonSpaceIMG;
                 }
                 Button nBtn = new Button(equipXPos[k], equipYPos[k], slot, 1);
                 nBtn.setOnClick(screenManager -> {
@@ -308,6 +315,7 @@ public class InventoryScreen extends GameScreen {
                     nBtn.setCurrentImage(layerInventoryButton(nBtn.getCurrentImage(), selectedIMG));
                     cBtn = nBtn;
                     currentItem = myItem;
+                    currentItemImg = itemimage;
                 });
                 buttons.add(nBtn);
             }
