@@ -77,8 +77,6 @@ public class GameEngine implements Runnable {
             } else {
                 Debug.warning(DebugEnabler.FPS,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
             }
-
-            Debug.flush();
         }
     }
 }
