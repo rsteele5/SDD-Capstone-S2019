@@ -333,5 +333,47 @@ public abstract class GameScreen {
         if(renderable instanceof Button)
             buttons.add((Button) renderable);
     }
+
+    public void defaultTransitionOn() {
+        float alpha = backgroundLayer.get(0).getAlpha();
+        if(alpha < 0.9f){
+            alpha += 0.05f;
+            for(RenderableObject renderable : backgroundLayer)
+                renderable.setAlpha(alpha);
+            for(RenderableObject renderable : sceneryLayer)
+                renderable.setAlpha(alpha);
+            for(RenderableObject renderable : effectsLayer)
+                renderable.setAlpha(alpha);
+            for(RenderableObject renderable : entityLayer)
+                renderable.setAlpha(alpha);
+        } else {
+            for(RenderableObject renderable : backgroundLayer)
+                renderable.setAlpha(1.0f);
+            for(RenderableObject renderable : sceneryLayer)
+                renderable.setAlpha(1.0f);
+            for(RenderableObject renderable : effectsLayer)
+                renderable.setAlpha(1.0f);
+            for(RenderableObject renderable : entityLayer)
+                renderable.setAlpha(1.0f);
+            currentState = ScreenState.Active;
+        }
+    }
+
+    public void defaultTransitionOff() {
+        float alpha = backgroundLayer.get(0).getAlpha();
+        if(alpha > 0.055f){
+            alpha -= 0.05f;
+            for(RenderableObject renderable : backgroundLayer)
+                renderable.setAlpha(alpha);
+            for(RenderableObject renderable : sceneryLayer)
+                renderable.setAlpha(alpha);
+            for(RenderableObject renderable : effectsLayer)
+                renderable.setAlpha(alpha);
+            for(RenderableObject renderable : entityLayer)
+                renderable.setAlpha(alpha);
+        } else {
+            exiting = true;
+        }
+    }
     //endregion
 }

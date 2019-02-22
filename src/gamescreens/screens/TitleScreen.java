@@ -4,11 +4,11 @@ import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
+import gamescreens.screens.menus.MainMenuScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
 import javax.sound.sampled.*;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 

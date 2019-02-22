@@ -1,6 +1,5 @@
 package gamescreens.screens;
 
-import gameengine.rendering.RenderEngine;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -10,73 +9,97 @@ import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.labels.Label;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class OptionScreen extends GameScreen {
+public class ControlsScreen extends GameScreen {
+
+    private static String setting = "keyboard";
+    private String exitSetting = "keyboard";
+    private ImageContainer keyboardImg;
+    private ImageContainer gamePadImg;
+
     //region <Variables>
-    private HashMap<String, CopyOnWriteArrayList<Label>> savedLabels;
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
-    private float alphaTransition = 0.0f;
     private final int X_BUFFER = 48;
+    private float alphaTransition = 0.0f;
     //endregion
 
     //region <Construction and Initialization>
-    public OptionScreen(ScreenManager screenManager, HashMap savedLabels) {
-        super(screenManager, "Options Menu");
-        this.savedLabels = savedLabels;
+    public ControlsScreen(ScreenManager screenManager) {
+        super(screenManager, "ControlsScreen");
         isExclusive = true;
     }
+
     @Override
     protected void initializeScreen() {
 
+        keyboardImg = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-Keyboard.png", DrawLayer.Entity);
+        gamePadImg = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-Gamepad.png", DrawLayer.Entity);
+
+        Debug.warning(true, setting);
+        if(setting.equals("keyboard")){
+            addObject(keyboardImg);
+            loadables.add(gamePadImg);
+        } else {
+            addObject(gamePadImg);
+            loadables.add(keyboardImg);
+        }
         //Create buttons
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
-                "/assets/buttons/Button-Graphics.png",
-                DrawLayer.Entity,
+        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
                 (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
-                    if(savedLabels.get("Graphics") == null)
-                        Debug.error(DebugEnabler.BUTTON_LOG,"labels are null");
-                    screenManager.addScreen(new GraphicsScreen(screenManager, savedLabels.get("Graphics")));
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
+                    if(setting.equals("keyboard")){
+                        exitSetting = "gamePad";
+                        entityLayer.remove(keyboardImg);
+                        entityLayer.add(gamePadImg);
+                    } else {
+                        exitSetting = "keyboard";
+                        entityLayer.remove(gamePadImg);
+                        entityLayer.add(keyboardImg);
+                    }
                 }));
 
-        addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
-                "/assets/buttons/Button-Sound.png",
-                DrawLayer.Entity,
+        addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
                 (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
-                    //TODO: Add Sound Menu
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
+                    if(setting.equals("keyboard")){
+                        exitSetting = "gamePad";
+                        entityLayer.remove(keyboardImg);
+                        entityLayer.add(gamePadImg);
+                    } else {
+                        exitSetting = "keyboard";
+                        entityLayer.remove(gamePadImg);
+                        entityLayer.add(keyboardImg);
+                    }
                 }));
 
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
-                "/assets/buttons/Button-Controls.png",
+                "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
                 (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
-                    //screenManager.addScreen(new ControlsScreen(screenManager, savedLabels.get("Controls")));
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
+                    this.setScreenState(ScreenState.TransitionOff);
+                    setting = exitSetting;
                 }));
 
-        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
-                "/assets/buttons/Button-MainMenu.png",
+        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
                 (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
-                    this.setScreenState(ScreenState.TransitionOff);
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
+                    if(!exitSetting.equals(setting)){
+                        screenManager.addScreen(new ConfirmationPopup(screenManager, this));
+                    } else {
+                        setScreenState(ScreenState.TransitionOff);
+                    }
                 }));
 
         //Create Background on layer 0
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-OptionMenu.png", DrawLayer.Background));
+        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-ControlsMenu.png", DrawLayer.Background));
     }
-
     //endregion
 
     @Override
@@ -133,5 +156,9 @@ public class OptionScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
+//        //Set all labels alpha equal to one, even if they aren't being rendered at the time
+//        for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
+//            for(RenderableObject renderable : layer)
+//                renderable.setAlpha(1.0f);
     }
 }

@@ -1,4 +1,4 @@
-package gamescreens.screens;
+package gamescreens.screens.menus;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -6,10 +6,12 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.labels.Label;
+import gamescreens.screens.menus.dev.DevScreen;
+import gamescreens.screens.menus.dev.options.OptionScreen;
+import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -43,7 +45,7 @@ public class MainMenuScreen extends GameScreen {
                 DrawLayer.Entity,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
-                    //screenManager.addScreen(new PlayerCountScreen(screenManager));
+                    screenManager.addScreen(new PlayerCountScreen(screenManager));
         }));
 
         addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
@@ -51,7 +53,7 @@ public class MainMenuScreen extends GameScreen {
                 DrawLayer.Entity,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
-                    screenManager.addScreen(new OptionScreen(screenManager, savedLabels));
+                    screenManager.addScreen(new OptionScreen(screenManager));
         }));
 
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
