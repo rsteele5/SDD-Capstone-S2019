@@ -15,15 +15,6 @@ public abstract class Item extends RenderableObject {
     protected String description1;
     protected String description2;
 
-    public void setButton(Button button) {
-        this.button = button;
-    }
-
-    public Button getButton() {
-        return button;
-    }
-
-    protected Button button;
 
     public Item(){
         super();
