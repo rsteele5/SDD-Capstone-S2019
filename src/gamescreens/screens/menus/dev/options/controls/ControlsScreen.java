@@ -1,4 +1,4 @@
-package gamescreens.screens;
+package gamescreens.screens.menus.dev.options.controls;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -6,10 +6,8 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
-import gameobjects.renderables.labels.Label;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class ControlsScreen extends GameScreen {
@@ -91,7 +89,7 @@ public class ControlsScreen extends GameScreen {
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     if(!exitSetting.equals(setting)){
-                        screenManager.addScreen(new ConfirmationPopup(screenManager, this));
+                        screenManager.addScreen(new ConfirmControlsPopup(screenManager, this));
                     } else {
                         setScreenState(ScreenState.TransitionOff);
                     }

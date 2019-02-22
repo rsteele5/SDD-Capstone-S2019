@@ -1,27 +1,18 @@
-package gamescreens.screens;
+package gamescreens.screens.menus.dev.options;
 
-import gameengine.rendering.RenderEngine;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
-import gameobjects.renderables.labels.Label;
+import gamescreens.screens.menus.dev.options.controls.ControlsScreen;
+import gamescreens.screens.menus.dev.options.graphics.GraphicsScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class OptionScreen extends GameScreen {
     //region <Variables>
-    private HashMap<String, CopyOnWriteArrayList<Label>> savedLabels;
-
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
@@ -32,7 +23,6 @@ public class OptionScreen extends GameScreen {
     //region <Construction and Initialization>
     public OptionScreen(ScreenManager screenManager) {
         super(screenManager, "Options Menu");
-        this.savedLabels = savedLabels;
         isExclusive = true;
     }
     @Override
@@ -79,46 +69,12 @@ public class OptionScreen extends GameScreen {
 
     @Override
     protected void transitionOn() {
-        float alpha = alphaTransition;
-        if(alpha < 0.9f){
-            alphaTransition += 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(1.0f);
-            currentState = ScreenState.Active;
-        }
+        defaultTransitionOn();
     }
 
     @Override
     protected void transitionOff() {
-        float alpha = alphaTransition;
-        if(alpha > 0.055f){
-            alphaTransition -= 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            exiting = true;
-        }
+        defaultTransitionOff();
     }
 
     @Override

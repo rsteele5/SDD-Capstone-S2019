@@ -1,20 +1,13 @@
-package gamescreens.screens;
+package gamescreens.screens.menus.dev.options.graphics;
 
-import gameengine.rendering.RenderEngine;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
-import gameobjects.renderables.labels.Label;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class GraphicsScreen extends GameScreen {
@@ -121,7 +114,7 @@ public class GraphicsScreen extends GameScreen {
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     if(!exitSetting.equals(setting)){
-                        screenManager.addScreen(new ConfirmationPopup(screenManager, this));
+                        screenManager.addScreen(new ConfirmGraphicsPopup(screenManager, this));
                     } else {
                         this.setScreenState(ScreenState.TransitionOff);
                     }

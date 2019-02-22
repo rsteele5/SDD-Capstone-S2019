@@ -1,6 +1,5 @@
-package gamescreens.screens.options.controls;
+package gamescreens.screens.menus.dev.options.controls;
 
-import gameengine.rendering.RenderEngine;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -9,11 +8,6 @@ import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ConfirmControlsPopup extends GameScreen {
 

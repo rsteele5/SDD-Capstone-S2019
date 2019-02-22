@@ -1,21 +1,15 @@
-package gamescreens.screens.options.controls;
+package gamescreens.screens.menus.dev.options.graphics;
 
-import gameengine.rendering.RenderEngine;
-import gamescreens.DrawLayer;
-import gamescreens.GameScreen;
-import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.DrawLayer;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-public class ConfirmControlsPopup extends GameScreen {
+public class ConfirmGraphicsPopup extends GameScreen {
 
     private final int X_INIT_BUTTON = 427;
     private final int Y_INIT_BUTTON = 400;
@@ -25,7 +19,7 @@ public class ConfirmControlsPopup extends GameScreen {
     private GameScreen covering;
     private boolean goBack = false;
 
-    public ConfirmControlsPopup(ScreenManager screenManager, GameScreen covering) {
+    public ConfirmGraphicsPopup(ScreenManager screenManager, GameScreen covering) {
         super(screenManager, "ConfirmControlsPopup");
         isExclusive = true;
         this.covering = covering;

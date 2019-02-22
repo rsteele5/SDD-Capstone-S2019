@@ -1,11 +1,13 @@
-package gamescreens.screens;
+package gamescreens.screens.menus.dev;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.screens.Level;
+import gamescreens.screens.TestGameplayScreen;
+import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -82,51 +84,12 @@ public class DevScreen extends GameScreen {
 
     @Override
     protected void transitionOn() {
-        float alpha = alphaTransition;
-        if(alpha < 0.9f){
-            alphaTransition += 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(1.0f);
-            currentState = ScreenState.Active;
-        }
-//        float alpha = renderableLayers.get(0).get(1).getAlpha();
-//        if(alpha > 0.055f){
-//            renderableLayers.get(0).get(1).setAlpha(alpha - 0.05f);
-//        }else
-//            currentState = ScreenState.Active;
+        defaultTransitionOn();
     }
 
     @Override
     protected void transitionOff() {
-        float alpha = alphaTransition;
-        if(alpha > 0.055f){
-            alphaTransition -= 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            exiting = true;
-        }
+        defaultTransitionOff();
     }
 
     @Override
