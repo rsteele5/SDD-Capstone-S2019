@@ -1,10 +1,11 @@
-
-\.idea/workspace\.xml
+.idea/workspace.xml
 
 out/
 
-\.idea/misc\.xml
+.idea/misc.xml
 
-logs/*\.txt
+logs/*.txt
 
-log\.txt
+log.txt
+
+SDD-Capstone-S2019.iml
