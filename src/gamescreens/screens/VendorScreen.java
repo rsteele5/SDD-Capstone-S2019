@@ -1,38 +1,27 @@
 package gamescreens.screens;
 
-import gameengine.rendering.RenderEngine;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.items.Weapon;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import gameobjects.renderables.items.Helmet;
+import gameobjects.renderables.items.Armor;
 import gameobjects.renderables.items.Item;
-import gameobjects.renderables.items.Potion;
-import gameobjects.renderables.items.Sword;
-import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.items.Consumable;
 import gameobjects.renderables.buttons.Button;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-import javax.imageio.ImageIO;
+
+import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class VendorScreen extends GameScreen {
-    /* Array of x values for bear item box locations **/
-    private int [] xValBearItems = {191, 239, 287, 335};
-
-    /* Array of x values for vendor item box locations **/
-    private int [] xValVendorItems = {927, 975, 1023, 1071};
-
-    /* Array of y values for bear AND vendor item box locations **/
-    private int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
 
     /* x and y positions for text */
     private int x_position = 765;
-    private int y_position = 220;
+    private int y_position = 200;
 
     private Item currentItem = null;
     private Button currentButton = null;
@@ -56,8 +45,8 @@ public class VendorScreen extends GameScreen {
         vendorInventory = new CopyOnWriteArrayList<>();
         /* Create all renderables **/
         addObject(new ImageContainer(150, 75, "/assets/VendorBackground.png", DrawLayer.Background));
-        addObject(new ImageContainer(765, 410, "/assets/Vendor.png", DrawLayer.Entity));
-        addObject(new ImageContainer(400, 380, "/assets/Teddy.png", DrawLayer.Entity));
+        addObject(new ImageContainer(720, 410, "/assets/Vendor.png", DrawLayer.Entity));
+        addObject(new ImageContainer(445, 400, "/assets/VendorTeddy.png", DrawLayer.Entity));
 
         /* Create buttons **/
         addObject(new Button(175, 100,
@@ -67,7 +56,7 @@ public class VendorScreen extends GameScreen {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Exit Vendor");
                     this.setScreenState(ScreenState.TransitionOff);
                 })));
-        addObject(new Button(775, 560,
+        addObject(new Button(735, 560,
                 "/assets/buttons/Button-Vendor-Buy.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
@@ -79,7 +68,7 @@ public class VendorScreen extends GameScreen {
                     }
                 })));
 
-        addObject(new Button(400, 560,
+        addObject(new Button(455, 560,
                 "/assets/buttons/Button-Vendor-Sell.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
@@ -91,11 +80,11 @@ public class VendorScreen extends GameScreen {
                     }
                 })));
 
-        bearInventory.add(new Sword());
-        vendorInventory.add(new Potion());
-        vendorInventory.add(new Potion());
-        vendorInventory.add(new Sword());
-        vendorInventory.add(new Helmet());
+        bearInventory.add(new Weapon("/assets/Items/swordSmall.png", "Sword", "Weapon", "It's a sword"));
+        vendorInventory.add(new Consumable("/assets/Items/redPotionSmall.png", "Fire Potion", "Potion", "It's a potion"));
+        vendorInventory.add(new Consumable("/assets/Items/redPotionSmall.png", "Fire Potion", "Potion", "It's a potion"));
+        vendorInventory.add(new Weapon("/assets/Items/swordSmall.png", "Sword", "Weapon", "It's a sword"));
+        vendorInventory.add(new Armor("/assets/Items/helmetSmall.png", "Helmet", "Armor", "It's a helmet"));
         createItemButtons();
     }
 
@@ -132,36 +121,33 @@ public class VendorScreen extends GameScreen {
     @Override
     public void draw(Graphics2D graphics) {
         // Call this method to draw a string to the screen
-        if (currentItem != null){
-            graphics.setColor(Color.BLACK);
-            graphics.drawString(currentItem.getItemName(), x_position, y_position);
-            graphics.drawString("Type: " + currentItem.getType(), x_position, y_position += 20);
-            graphics.drawString("Damage: " + currentItem.getDamage(), x_position, y_position += 20);
-            graphics.drawString("Immunity: " + currentItem.getImmunity(), x_position, y_position += 20);
-            graphics.drawString("CritChance: " + currentItem.getCritChance() + "%", x_position, y_position += 20);
-            graphics.drawString("Value: $" + currentItem.getValue(), x_position, y_position += 20);
-            graphics.drawString(currentItem.getDescription1(), x_position, y_position += 30);
-            if (currentItem.getDescription2() != null) {
-                graphics.drawString(currentItem.getDescription2(), x_position, y_position += 20);
-            }
+        if (currentItem != null) {
+            currentItem.drawMe(graphics, x_position, y_position, false, 28);
         }
+
         // reset y_position for next item description
-        y_position = 220;
+        y_position = 200;
     }
 
     private void createItemButtons(){
-        int [] xValBearItems = {191, 239, 287, 335};
-        int [] xValVendorItems = {927, 975, 1023, 1071};
-        int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
+        int xValBearItems = 191;
+        int xb = xValBearItems;
+        int xValVendorItems = 902;
+        int xv = xValVendorItems;
+        int yValItems = 219;
+        int y = yValItems;
 
         /* Render item images (buttons) into bear's inventory **/
         int itemCount = bearInventory.size();
         int k = 0;
-        for (int yValItem1 : yValItems) {
-            for (int xValBearItem : xValBearItems) {
+        int rows = 8;
+        int columns = 5;
+        int space = 48;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 if (k < itemCount) {
                     Item myItem = bearInventory.get(k);
-                    Button itemButton = new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity);
+                    Button itemButton = new Button(xb, y, myItem.getImagePath(), DrawLayer.Entity);
                     itemButton.onClick = (screenManager -> {
                         Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
                         currentItem = myItem;
@@ -170,44 +156,38 @@ public class VendorScreen extends GameScreen {
                         x_position = 400;
                     });
                     addObject(itemButton);
-//                    addObject(new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity,
-//                            (screenManager -> {
-//                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-//                                currentItem = myItem;
-//                                // Adjust where text is rendered
-//                                x_position = 400;
-//                            })));
+                    xb += space;
                     k++;
                 }
             }
+            xb = xValBearItems;
+            y += space;
         }
+        y = yValItems;
+
         /* Render item images (buttons) into vendor's inventory **/
         itemCount = vendorInventory.size();
         k = 0;
-        for (int yValItem : yValItems) {
-            for (int xValVendorItem : xValVendorItems) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 if (k < itemCount) {
                     Item myItem = vendorInventory.get(k);
-                    Debug.log(true, myItem.getImagePath());
-                    Button itemButton = new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity);
+                    Button itemButton = new Button(xv, y, myItem.getImagePath(), DrawLayer.Entity);
                     itemButton.onClick = (screenManager -> {
-                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
+                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
                         currentItem = myItem;
                         currentButton = itemButton;
                         // Adjust where text is rendered
-                        x_position = 400;
+                        x_position = 765;
                     });
                     addObject(itemButton);
-//                    addObject(new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity,
-//                            (screenManager -> {
-//                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
-//                                currentItem = myItem;
-//                                // Adjust where text is rendered
-//                                x_position = 765;
-//                            })));
+                    xv += space;
                     k++;
                 }
             }
+            xv = xValVendorItems;
+            y += space;
         }
+        y = yValItems;
     }
 }

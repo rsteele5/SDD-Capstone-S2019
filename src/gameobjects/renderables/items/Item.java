@@ -1,40 +1,39 @@
 package gameobjects.renderables.items;
 
 import gameobjects.renderables.RenderableObject;
-import gameobjects.renderables.buttons.Button;
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import static java.lang.Math.round;
 
 public abstract class Item extends RenderableObject {
-    protected String imagePath;
-    protected String itemName;
-    protected String type;
-    protected int damage;
-    protected int immunity;
-    protected int critChance;
-    protected int value;
-    protected String description1;
-    protected String description2;
+    String imagePath;
+    String itemName;
+    String itemType;
+    String itemDescription;
+    int value;
 
-    public void setButton(Button button) {
-        this.button = button;
-    }
-
-    public Button getButton() {
-        return button;
-    }
-
-    protected Button button;
+    int maxAttributeValue = 4;
+    int increaseAttributeValue = 1;
 
     public Item(){
         super();
         imagePath = "";
         itemName = "";
-        type = "";
-        immunity = 0;
-        critChance = 0;
+        itemType = "";
         value = 0;
-        // No text wrap yet. Max of 28 characters per line
-        description1 = "";
+        itemDescription = "";
     }
+
+    /*public Item(String imgPath, String name, String type, String description){
+        imagePath = imgPath;
+        itemName = name;
+        itemType = type;
+        itemDescription = description;
+        setAttributes();
+    }*/
 
 
     /* Getters */
@@ -46,31 +45,45 @@ public abstract class Item extends RenderableObject {
         return itemName;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public int getDamage() { return damage;}
-
-    public int getImmunity() {
-        return immunity;
-    }
-
-    public int getCritChance() {
-        return critChance;
+    /*public String getType() {
+        return itemType;
     }
 
     public int getValue() {
         return value;
     }
 
-    public String getDescription1() { return description1; }
+    public String getItemDescription() { return itemDescription; }*/
 
-    public String getDescription2() { return description2; }
+    /** Item attributes initializer **/
+    public abstract void setAttributes();
 
+    //desc is yes no on whether to draw the description
+    public void drawMe(Graphics2D graphics, int x, int y, boolean desc, int fontsize)
+    {
+        graphics.setColor(Color.WHITE);
+        Font font = new Font("NoScary", Font.BOLD, fontsize);
+        graphics.setFont(font);
+        graphics.drawString(itemName, x, y+ fontsize-1);
 
-    @Override
-    public void update() {
+        graphics.drawString("  Type: " + itemType + "\n ", x, y + 2*(fontsize-1));
+        graphics.drawString(" Value: $" + value  + "\n ", x, y + 3*(fontsize-1));
+        if (desc) {
+            graphics.drawString(itemDescription, x, y + 4 * (fontsize-1));
+        }
 
     }
+
+    /** Called upon completion of a level to increase new items' attributes **/
+    public void increaseMaxAttributeValue(int n) {
+        increaseAttributeValue += n;
+        maxAttributeValue += increaseAttributeValue;
+    }
+
+    /** Called when item is purchased from vendor **/
+    public int depreciateItem(){
+        return round((float)(value * (0.9)));
+    }
+
+
 }
