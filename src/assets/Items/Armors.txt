@@ -1,0 +1,3 @@
+Bronze Cap,Helmet,15,Protect thine noggin,,2,/assets/Items/helmet1.png
+Iron Cap,Helmet,40,One hard hat,,6,/assets/Items/helmet2.png
+King Cap,Helmet,100,Lead on King Bear,,12,/assets/Items/helmet3.png
