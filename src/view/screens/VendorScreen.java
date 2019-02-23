@@ -47,11 +47,11 @@ public class VendorScreen extends GameScreen {
         /* Remove after testing. Populates inventories with red potion **/
         bearInventory = new CopyOnWriteArrayList<>();
         vendorInventory = new CopyOnWriteArrayList<>();
-        bearInventory.add(new Sword());
-        vendorInventory.add(new Potion());
-        vendorInventory.add(new Potion());
-        vendorInventory.add(new Sword());
-        vendorInventory.add(new Helmet());
+        bearInventory.add(new Weapon());
+        vendorInventory.add(new Consumable());
+        vendorInventory.add(new Consumable());
+        vendorInventory.add(new Weapon());
+        vendorInventory.add(new Armor());
      }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
@@ -165,7 +165,7 @@ public class VendorScreen extends GameScreen {
         }
 
         // Call this method to draw a string to the screen
-        if (currentItem != null){
+       /* if (currentItem != null){
             graphics.setColor(Color.BLACK);
             graphics.drawString(currentItem.getItemName(), x_position, y_position);
             graphics.drawString("Type: " + currentItem.getType(), x_position, y_position += 20);
@@ -173,18 +173,18 @@ public class VendorScreen extends GameScreen {
             graphics.drawString("Immunity: " + currentItem.getImmunity(), x_position, y_position += 20);
             graphics.drawString("CritChance: " + currentItem.getCritChance() + "%", x_position, y_position += 20);
             graphics.drawString("Value: $" + currentItem.getValue(), x_position, y_position += 20);
-            graphics.drawString(currentItem.getDescription1(), x_position, y_position += 30);
-            if (currentItem.getDescription2() != null) {
-                graphics.drawString(currentItem.getDescription2(), x_position, y_position += 20);
+            graphics.drawString(currentItem.getDescPart1(), x_position, y_position += 30);
+            if (currentItem.getDescPart2() != null) {
+                graphics.drawString(currentItem.getDescPart2(), x_position, y_position += 20);
             }
-        }
+        }*/
         // reset y_position for next item description
         y_position = 220;
     }
 
     private void createItemButtons(){
-        try {
-            /* Render item images (buttons) into bear's inventory **/
+        /*try {
+            /* Render item images (buttons) into bear's inventory *
             int itemCount = bearInventory.size();
             int k = 0;
             for (int yValItem1 : yValItems) {
@@ -204,7 +204,7 @@ public class VendorScreen extends GameScreen {
                     }
                 }
             }
-            /* Render item images (buttons) into vendor's inventory **/
+            /* Render item images (buttons) into vendor's inventory *
             itemCount = vendorInventory.size();
             k = 0;
             for (int yValItem : yValItems) {
@@ -227,7 +227,7 @@ public class VendorScreen extends GameScreen {
 
         }catch (IOException e) {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Error: " + e.getMessage());
-        }
+        }*/
     }
 
     private void createButtons(){
