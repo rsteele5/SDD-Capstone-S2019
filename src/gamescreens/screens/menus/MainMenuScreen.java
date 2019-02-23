@@ -67,21 +67,6 @@ public class MainMenuScreen extends GameScreen {
         //Create Background on layer 0
         addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-MainMenu.png", DrawLayer.Background));
 
-        //Create labels
-        CopyOnWriteArrayList<Label> controlLabels = new CopyOnWriteArrayList<>();
-        CopyOnWriteArrayList<Label> graphicsLabels = new CopyOnWriteArrayList<>();
-
-            //Add Control Menu labels
-            controlLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, "/assets/labels/Label-Keyboard.png", DrawLayer.Entity, true));
-            controlLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, "/assets/labels/Label-Gamepad.png", DrawLayer.Entity, false));
-            //Add Graphics Menu labels
-            graphicsLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, "/assets/labels/Label-Low.png", DrawLayer.Entity, false));
-            graphicsLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, "/assets/labels/Label-Medium.png", DrawLayer.Entity, true));
-            graphicsLabels.add(new Label(X_INIT_LABEL, Y_INIT_BUTTON, "/assets/labels/Label-High.png", DrawLayer.Entity, false));
-            //Add dynamic arrays to map
-            savedLabels.put("Controls", controlLabels);
-            savedLabels.put("Graphics", graphicsLabels);
-
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
     }
     //endregion

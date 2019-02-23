@@ -114,6 +114,7 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     public void draw(Graphics2D graphics) {
         AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
         graphics.setComposite(alphaComposite);
+        //graphics.drawImage(image, x, y, width /2, height /2, null);
         graphics.drawImage(image, x, y, width, height, null);
     }
 
