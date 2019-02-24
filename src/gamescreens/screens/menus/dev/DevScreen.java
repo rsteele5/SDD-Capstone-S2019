@@ -2,9 +2,9 @@ package gamescreens.screens.menus.dev;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
-import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.ScreenManager;
 import gamescreens.screens.InventoryScreen;
 import gamescreens.screens.Level;
 import gamescreens.screens.TestGameplayScreen;
@@ -22,7 +22,6 @@ public class DevScreen extends GameScreen {
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
-    private float alphaTransition = 0.0f;
     //endregion
 
     //region <Construction and Initialization>
@@ -36,7 +35,6 @@ public class DevScreen extends GameScreen {
         //Create buttons
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-Loading.png",
                 DrawLayer.Entity,
-                0,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
                     screenManager.addScreen(new TestGameplayScreen(screenManager));
@@ -46,16 +44,14 @@ public class DevScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Physics.png",
                 DrawLayer.Entity,
-                0,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
-                    this.screenManager.addScreen(new Level(screenManager));
+                    screenManager.addScreen(new Level(screenManager));
                 }));
 
-        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Inventory.png",
                 DrawLayer.Entity,
-                0,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
                     //TODO: Add Inventory Screen
@@ -65,16 +61,14 @@ public class DevScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
-                0,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
-                    this.setScreenState(ScreenState.TransitionOff);
+                    setScreenState(ScreenState.TransitionOff);
                 }));
 
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160,
                 "/assets/buttons/Button-Vendor.png",
                 DrawLayer.Entity,
-                0,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
                     screenManager.addScreen(new VendorScreen(screenManager));

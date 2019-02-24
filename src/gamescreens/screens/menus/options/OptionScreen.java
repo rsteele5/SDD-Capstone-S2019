@@ -60,29 +60,11 @@ public class OptionScreen extends GameScreen {
                     this.setScreenState(ScreenState.TransitionOff);
                 }));
 
-        //Create Background on layer 0
+        //Create Background
         addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-OptionMenu.png", DrawLayer.Background));
     }
 
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        defaultTransitionOff();
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
 
     @Override
     protected void activeUpdate() {

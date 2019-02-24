@@ -1,93 +1,93 @@
 package gamescreens.screens.menus.options.controls;
 
+import static gameengine.GameSettings.*;
+import static gameengine.GameSettings.InputMethod.*;
+
+import gameobjects.renderables.TextBox;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
+import java.awt.*;
+
 
 public class ControlsScreen extends GameScreen {
 
-    private static String setting = "keyboard";
-    private String exitSetting = "keyboard";
-    private ImageContainer keyboardImg;
-    private ImageContainer gamePadImg;
+    private static InputMethod inputSetting;
+    private InputMethod exitSetting;
+    private TextBox controlsText;
 
     //region <Variables>
-
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
-    private float alphaTransition = 0.0f;
     //endregion
 
     //region <Construction and Initialization>
     public ControlsScreen(ScreenManager screenManager) {
         super(screenManager, "ControlsScreen", true);
+        inputSetting = screenManager.getGameSettings().getInputMethod();
+        exitSetting = inputSetting;
     }
 
     @Override
     protected void initializeScreen() {
 
-        keyboardImg = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-Keyboard.png", DrawLayer.Entity);
-        gamePadImg = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-Gamepad.png", DrawLayer.Entity);
+        controlsText = new TextBox(X_INIT_BUTTON+X_BUFFER, Y_INIT_BUTTON,
+                300,
+                150,
+                screenManager.getGameSettings().getInputMethod().name(),
+                new Font("NoScary", Font.PLAIN, 60),
+                Color.WHITE);
+        addObject(controlsText);
 
-        Debug.warning(true, setting);
-        if(setting.equals("keyboard")){
-            addObject(keyboardImg);
-            loadables.add(gamePadImg);
-        } else {
-            addObject(gamePadImg);
-            loadables.add(keyboardImg);
-        }
         //Create buttons
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
-                (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow");
-                    if(setting.equals("keyboard")){
-                        exitSetting = "gamePad";
-                        entityLayer.remove(keyboardImg);
-                        entityLayer.add(gamePadImg);
+        addObject(new Button(X_INIT_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
+                (screenManager) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Left Arrow");
+                    if (exitSetting == KeyBoard) {
+                        exitSetting = GamePad;
+                        controlsText.setText(exitSetting.name());
                     } else {
-                        exitSetting = "keyboard";
-                        entityLayer.remove(gamePadImg);
-                        entityLayer.add(keyboardImg);
+                        exitSetting = KeyBoard;
+                        controlsText.setText(exitSetting.name());
                     }
                 }));
 
-        addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
-                (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
-                    if(setting.equals("keyboard")){
-                        exitSetting = "gamePad";
-                        entityLayer.remove(keyboardImg);
-                        entityLayer.add(gamePadImg);
+        addObject(new Button(X_INIT_BUTTON + X_BUFFER + WIDTH_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
+                (screenManager) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Right Arrow");
+                    if (exitSetting == KeyBoard) {
+                        exitSetting = GamePad;
+                        controlsText.setText(exitSetting.name());
                     } else {
-                        exitSetting = "keyboard";
-                        entityLayer.remove(gamePadImg);
-                        entityLayer.add(keyboardImg);
+                        exitSetting = KeyBoard;
+                        controlsText.setText(exitSetting.name());
                     }
                 }));
 
-        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        addObject(new Button(X_INIT_BUTTON + 2 * (X_BUFFER + WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
+                (screenManager) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Confirm");
                     this.setScreenState(ScreenState.TransitionOff);
-                    setting = exitSetting;
+                    inputSetting = exitSetting;
+                    screenManager.getGameSettings().setIputMethod(inputSetting);
                 }));
 
-        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON, "/assets/buttons/Button-Back.png",
+        addObject(new Button(X_INIT_BUTTON + 3 * (X_BUFFER + WIDTH_BUTTON),
+                Y_INIT_BUTTON,
+                "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
-                    if(!exitSetting.equals(setting)){
+                (screenManager) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
+                    if (!exitSetting.equals(inputSetting)) {
                         screenManager.addScreen(new ConfirmControlsPopup(screenManager, this));
                     } else {
                         setScreenState(ScreenState.TransitionOff);
@@ -95,52 +95,18 @@ public class ControlsScreen extends GameScreen {
                 }));
 
         //Create Background on layer 0
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-ControlsMenu.png", DrawLayer.Background));
+        addObject(new ImageContainer(0, 0, "/assets/backgrounds/BG-ControlsMenu.png", DrawLayer.Background));
     }
     //endregion
 
     @Override
     protected void transitionOn() {
-        float alpha = alphaTransition;
-        if(alpha < 0.9f){
-            alphaTransition += 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(1.0f);
-            currentState = ScreenState.Active;
-        }
+        defaultTransitionOn();
     }
 
     @Override
     protected void transitionOff() {
-        float alpha = alphaTransition;
-        if(alpha > 0.055f){
-            alphaTransition -= 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            exiting = true;
-        }
+        defaultTransitionOff();
     }
 
     @Override
@@ -153,9 +119,6 @@ public class ControlsScreen extends GameScreen {
 
     @Override
     protected void activeUpdate() {
-//        //Set all labels alpha equal to one, even if they aren't being rendered at the time
-//        for(CopyOnWriteArrayList<RenderableObject> layer : renderableLayers)
-//            for(RenderableObject renderable : layer)
-//                renderable.setAlpha(1.0f);
+
     }
 }
