@@ -199,7 +199,6 @@ public abstract class GameScreen {
                 loadingScreen.reset();
             }
             for (Loadable loadable : loadables) loadable.load();
-            loadables.removeAll(loadables);
             isLoading = false;
         });
         executorService.shutdown();
@@ -208,12 +207,6 @@ public abstract class GameScreen {
 
     //region <Getters and Setters>
     public int getX(){return x;}
-    public int getY(){return y;}
-
-    public void setPosition(int xPos, int yPos){
-        x = xPos;
-        y = yPos;
-    }
 
     public boolean isLoadingScreenRequired(){
         return loadingScreenRequired;

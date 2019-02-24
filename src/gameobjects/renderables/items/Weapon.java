@@ -50,16 +50,6 @@ public class Weapon extends RenderableObject implements Item {
     }
 
     @Override
-    public ItemCategory getCategory() {
-        return ItemCategory.Weapon;
-    }
-
-    @Override
-    public int getType() {
-        return type.ordinal();
-    }
-
-    @Override
     public int getValue() {
         return 0;
     }
