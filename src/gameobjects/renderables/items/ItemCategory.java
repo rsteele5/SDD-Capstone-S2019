@@ -1,6 +1,6 @@
 package gameobjects.renderables.items;
 
-public enum ItemType {
+public enum ItemCategory {
     Weapon,
     Armor,
     Consumable,
