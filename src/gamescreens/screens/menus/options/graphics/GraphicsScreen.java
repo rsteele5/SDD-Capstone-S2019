@@ -61,7 +61,7 @@ public class GraphicsScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-LeftArrow.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow" + setting);
                     if(exitSetting.equals("high")){
                         exitSetting = "medium";
@@ -81,7 +81,7 @@ public class GraphicsScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-RightArrow.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
                     if(exitSetting.equals("low")){
                         exitSetting = "medium";
@@ -101,7 +101,7 @@ public class GraphicsScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
                     setScreenState(ScreenState.TransitionOff);
                     setting = exitSetting;
@@ -110,7 +110,7 @@ public class GraphicsScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     if(!exitSetting.equals(setting)){
                         screenManager.addScreen(new ConfirmGraphicsPopup(screenManager, this));

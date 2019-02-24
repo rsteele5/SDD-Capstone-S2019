@@ -36,7 +36,7 @@ public class ConfirmCoopPopup extends GameScreen {
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Yes.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Yes");
                     //Yes is continue to new screen.
                     //TODO: Make this not shit
@@ -47,7 +47,7 @@ public class ConfirmCoopPopup extends GameScreen {
         addObject(new Button(X_INIT_BUTTON + WIDTH_BUTTON + X_BUFFER,Y_INIT_BUTTON,
                 "/assets/buttons/Button-No.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - No");
                     //No is stay here.
                     //TODO: Make this not shit

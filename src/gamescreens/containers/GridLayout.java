@@ -7,7 +7,7 @@ import main.Game;
 
 import java.util.ArrayList;
 
-public class GridLayout<T> extends GameScreen {
+public class GridLayout extends GameScreen {
 
     protected int rows;
     protected int cols;

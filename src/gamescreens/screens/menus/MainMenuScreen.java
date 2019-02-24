@@ -42,7 +42,7 @@ public class MainMenuScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-NewGame.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
                     screenManager.addScreen(new PlayerCountScreen(screenManager));
         }));
@@ -50,7 +50,7 @@ public class MainMenuScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Options.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
                     screenManager.addScreen(new OptionScreen(screenManager));
         }));
@@ -58,7 +58,7 @@ public class MainMenuScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Dev.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - DevMode");
                     screenManager.addScreen(new DevScreen(screenManager));
         }));

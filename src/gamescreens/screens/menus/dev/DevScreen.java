@@ -36,7 +36,7 @@ public class DevScreen extends GameScreen {
         //Create buttons
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-Loading.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
                     screenManager.addScreen(new TestGameplayScreen(screenManager));
                     //TODO: Add Loading Screen
@@ -45,7 +45,7 @@ public class DevScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Physics.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
                     screenManager.addScreen(new Level(screenManager));
                 }));
@@ -53,7 +53,7 @@ public class DevScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Inventory.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
                     //TODO: Add Inventory Screen
                     screenManager.addScreen(new InventoryScreen(screenManager));
@@ -62,7 +62,7 @@ public class DevScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     setScreenState(ScreenState.TransitionOff);
                 }));
@@ -70,7 +70,7 @@ public class DevScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160,
                 "/assets/buttons/Button-Vendor.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
                     screenManager.addScreen(new VendorScreen(screenManager));
                 }));

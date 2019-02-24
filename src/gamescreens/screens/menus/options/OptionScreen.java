@@ -31,7 +31,7 @@ public class OptionScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Graphics.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Graphics");
                     screenManager.addScreen(new GraphicsScreen(screenManager));
                 }));
@@ -39,7 +39,7 @@ public class OptionScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Sound.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Sound");
                     //TODO: Add Sound Menu
                 }));
@@ -47,7 +47,7 @@ public class OptionScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Controls.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Controls");
                     screenManager.addScreen(new ControlsScreen(screenManager));
                 }));
@@ -55,7 +55,7 @@ public class OptionScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     this.setScreenState(ScreenState.TransitionOff);
                 }));
