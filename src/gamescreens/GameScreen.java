@@ -148,17 +148,31 @@ public abstract class GameScreen {
 
     /* Only for non root screen */
     public GameScreen(ScreenManager screenManager, String name, boolean isExclusive) {
-        this(screenManager, name);
-        this.isRoot = false;
-        this.isExclusive = isExclusive;
-        this.isOverlay = !isExclusive;
-
+        this(screenManager, name, isExclusive, 0,0);
     }
 
     public GameScreen(ScreenManager screenManager, String name, boolean isExclusive, int xPos, int yPos) {
-        this(screenManager, name, isExclusive);
+        this.screenManager = screenManager;
+        previousState = null;
+        gameObjects = new ArrayList<>();
+        clickables = new ArrayList<>();
+        kinematics = new ArrayList<>();
+        loadables = new ArrayList<>();
+        backgroundLayer = new ArrayList<>();
+        sceneryLayer = new ArrayList<>();
+        entityLayer = new ArrayList<>();
+        effectsLayer = new ArrayList<>();
+        this.name = name;
+        this.isRoot = false;
         x = xPos;
         y = yPos;
+        this.isExclusive = isExclusive;
+        this.isOverlay = !isExclusive;
+        initializeScreen();
+        currentState = ScreenState.TransitionOn;
+        isLoading = true;
+        loadContent();
+
     }
 
     /**
@@ -258,13 +272,13 @@ public abstract class GameScreen {
 
     private void drawLayers(Graphics2D graphics) {
         for(RenderableObject bg : backgroundLayer)
-            bg.draw(graphics, x, y);
+            bg.draw(graphics);
         for(RenderableObject scenery : sceneryLayer)
-            scenery.draw(graphics, x, y);
+            scenery.draw(graphics);
         for(RenderableObject entity : entityLayer)
-            entity.draw(graphics, x, y);
+            entity.draw(graphics);
         for(RenderableObject effect : effectsLayer)
-            effect.draw(graphics, x, y);
+            effect.draw(graphics);
     }
 
     /**
@@ -322,6 +336,8 @@ public abstract class GameScreen {
     }
 
     public void addObject(RenderableObject renderable) {
+        renderable.setX(x + renderable.getX());
+        renderable.setY(y + renderable.getY());
         if(renderable instanceof Kinematic)
             kinematics.add((Kinematic) renderable);
         if(renderable instanceof Clickable)

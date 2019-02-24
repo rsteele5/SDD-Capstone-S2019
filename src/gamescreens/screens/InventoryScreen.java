@@ -1,14 +1,20 @@
 package gamescreens.screens;
 
 
+import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.buttons.ItemButton;
+import gameobjects.renderables.items.Item;
 import gameobjects.renderables.items.Weapon;
 import gameobjects.renderables.items.WeaponBuilder;
 import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
+import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.AssetLoader;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,7 +25,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class InventoryScreen extends GameScreen {
     /* Initialize variables *****************/
-    protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
+    //protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
 
     //renderablearray size
     private int rendArSize;
@@ -43,23 +49,23 @@ public class InventoryScreen extends GameScreen {
     // x value spacing of inventory boxes.
     private int itemsSpacing = invSQSize + invSQDist;
     // Last inventory square's x value
-    private int xValItemsEnd = xValItemsStart + (numSQHorz-1)* itemsSpacing;
+    private int xValItemsEnd = xValItemsStart + (numSQHorz - 1) * itemsSpacing;
     // Starting x value of inventory items.
     private int yValItemsStart = yValBG + yDistToSQ + invPadding;
     // Last inventory square's y value
-    private int yValItemsEnd = yValItemsStart + (numSQVert-1)* itemsSpacing;
+    private int yValItemsEnd = yValItemsStart + (numSQVert - 1) * itemsSpacing;
     // Number of squares right of first
     // Number of squares below first
     /* x and y positions for text */
     private int x_position;
     private int y_position = yValItemsStart;
     private int mainMenuX;
-    private int mainMenuY = yValBG + (yDistToSQ/4);
-    private int[] equipXPos = {(xValItemsEnd + ((5 * itemsSpacing)/2)),(xValItemsEnd + ((3 * itemsSpacing)/2)),
-                                (xValItemsEnd + ((5 * itemsSpacing)/2)),(xValItemsEnd + (7 * (itemsSpacing)/2)),
-                                (xValItemsEnd + ((5 * itemsSpacing)/2)),(xValItemsEnd + ((5 * itemsSpacing)/2))};
-    private int[] equipYPos = {yValItemsStart, (yValItemsStart+ itemsSpacing),(yValItemsStart+ itemsSpacing),
-                                (yValItemsStart+ itemsSpacing), (yValItemsStart+(2* itemsSpacing)),(yValItemsStart+(3* itemsSpacing))};
+    private int mainMenuY = yValBG + (yDistToSQ / 4);
+    private int[] equipXPos = {(xValItemsEnd + ((5 * itemsSpacing) / 2)), (xValItemsEnd + ((3 * itemsSpacing) / 2)),
+            (xValItemsEnd + ((5 * itemsSpacing) / 2)), (xValItemsEnd + (7 * (itemsSpacing) / 2)),
+            (xValItemsEnd + ((5 * itemsSpacing) / 2)), (xValItemsEnd + ((5 * itemsSpacing) / 2))};
+    private int[] equipYPos = {yValItemsStart, (yValItemsStart + itemsSpacing), (yValItemsStart + itemsSpacing),
+            (yValItemsStart + itemsSpacing), (yValItemsStart + (2 * itemsSpacing)), (yValItemsStart + (3 * itemsSpacing))};
     private BufferedImage selectedIMG;
     private BufferedImage deselectedIMG;
     private BufferedImage buttonSpaceIMG;
@@ -95,15 +101,17 @@ public class InventoryScreen extends GameScreen {
 //        bearEquipped[0] = inv.getArmor(0);
 //        bearEquipped[3] = inv.getWeapon(2);
     }
+
     /**
      * This resize method is used to resize a BufferedImage
      * to a new width and heigth.
      * show the usage of various javadoc Tags.
      * It will resize the image associated with the RenderableObject
-     * @param newW  This parameter is new width of the image
-     * @param newH  This parameter is new height of the image
-     * @void BufferedImage The resized image takes the place of the original
+     *
+     * @param newW This parameter is new width of the image
+     * @param newH This parameter is new height of the image
      * @return Resized Image
+     * @void BufferedImage The resized image takes the place of the original
      */
     public BufferedImage resize(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -115,10 +123,12 @@ public class InventoryScreen extends GameScreen {
 
         return dimg;
     }
+
     /**
      * This layerInventoryButton method is specifically used to layer an item
      * on top of an inventory square and return it as one BufferedImage.
      * show the usage of various javadoc Tags.
+     *
      * @param img1 This parameter is the BufferedImage to be on bottom.
      * @param img2 This parameter is the BufferedImage to be on top.
      * @return BufferedImage This returns the layered image as a new BufferedImage
@@ -126,18 +136,18 @@ public class InventoryScreen extends GameScreen {
     public static BufferedImage layerInventoryButton(BufferedImage img1, BufferedImage img2) {
 
         //Get the width/height of the larger image
-        int wid = Math.max(img1.getWidth(),img2.getWidth());
-        int height = Math.max(img1.getHeight(),img2.getHeight());
+        int wid = Math.max(img1.getWidth(), img2.getWidth());
+        int height = Math.max(img1.getHeight(), img2.getHeight());
         //create a new buffer and draw two image into the new image
-        BufferedImage newImage = new BufferedImage(wid,height, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage newImage = new BufferedImage(wid, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = newImage.createGraphics();
         Color oldColor = g2.getColor();
         //draw image
         g2.setColor(oldColor);
         g2.drawImage(img1, null, 0, 0);
         //If the img2 is an item
-        if(img2.getHeight() == 40 || img2.getHeight() == 96) g2.drawImage(img2, null, 2, 2);
-        //If its the box and item for selection purposes
+        if (img2.getHeight() == 40 || img2.getHeight() == 96) g2.drawImage(img2, null, 2, 2);
+            //If its the box and item for selection purposes
         else g2.drawImage(img2, null, 0, 0);
         g2.dispose();
         return newImage;
@@ -148,20 +158,26 @@ public class InventoryScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        addObject(new ImageContainer(0,0,"/assets/backgrounds/BG-Inventory.png", DrawLayer.Background));
-        addObject(new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity));
+        addObject(new ImageContainer(0, 0, "/assets/backgrounds/BG-Inventory.png", DrawLayer.Background));
+        addObject(new ImageContainer(30, 30, "/assets/Teddy.png", DrawLayer.Entity));
         Weapon myWeap = new WeaponBuilder()
-                .position(100,100)
+                .position(100, 100)
                 .imagePath("/assets/Items/sword1.png")
                 .name("My Fwirst Sword!")
                 .type(WeaponType.Sword)
                 .value(15)
                 .buildWeapon();
         addObject(myWeap);
-        BufferedImage weapIconScale = AssetLoader.scaleImage(AssetLoader.load(myWeap.getImagePath()),.5);
-        BufferedImage weapIconResize = AssetLoader.resizeImage(AssetLoader.load(myWeap.getImagePath()),50, 50);
-        addObject(new ImageContainer(200,100,weapIconScale, DrawLayer.Entity));
-        addObject(new ImageContainer(300,100,weapIconResize, DrawLayer.Entity));
+        BufferedImage weapIconScale = AssetLoader.scaleImage(AssetLoader.load(myWeap.getImagePath()), .5);
+        BufferedImage weapIconResize = AssetLoader.resizeImage(AssetLoader.load(myWeap.getImagePath()), 50, 50);
+        addObject(new ImageContainer(200, 100, weapIconScale, DrawLayer.Entity));
+        addObject(new ImageContainer(300, 100, weapIconResize, DrawLayer.Entity));
+
+        ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
+        button.setOnClick(screenManager -> button.setSelectedImage());
+        addObject(button);
+    }
+
 
 //        GridLayout items = new GridLayout(screenManager, this, row 3, col 3);
 //        items.add(new Button());
@@ -171,7 +187,6 @@ public class InventoryScreen extends GameScreen {
 //        overlays.add(items)
 
 
-    }
 
     @Override
     protected void activeUpdate() {

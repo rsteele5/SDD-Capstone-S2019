@@ -38,7 +38,7 @@ public class TextBox extends RenderableObject {
     }
 
     @Override
-    public void draw(Graphics2D graphics, int xOffset, int yOffset) {
+    public void draw(Graphics2D graphics) {
         Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
         graphics.setFont(font);
         graphics.setColor(color);
@@ -60,7 +60,7 @@ public class TextBox extends RenderableObject {
         int row = 0;
         for (String line: displayText.split("\n")) {
             if(row < height){
-                graphics.drawString(line, x + xOffset, y + row + fontAscent + yOffset);
+                graphics.drawString(line, x, y + row + fontAscent);
                 row += fontHeight;
             }
         }
