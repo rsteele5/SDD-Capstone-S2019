@@ -12,6 +12,7 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridLayout;
 import main.utilities.AssetLoader;
+import main.utilities.Debug;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -193,17 +194,20 @@ public class InventoryScreen extends GameScreen {
                 return;
             }
         }
-        itemDisplay.setText("");
-        currentItem.deSelect();
-        currentItem = null;
+        if(currentItem != null){
+            itemDisplay.setText("");
+            currentItem.deSelect();
+            currentItem = null;
+        }
+
     }
 
-        GridLayout items = new GridLayout(screenManager, this, 3, 3);
-        items.add(new Button());
-        items.add(new Button(), 1,2);
-        items.add(new Button());
-        items.add(new Button());
-        overlays.add(items);
+//        GridLayout items = new GridLayout(screenManager, this, 3, 3);
+//        items.add(new Button());
+//        items.add(new Button(), 1,2);
+//        items.add(new Button());
+//        items.add(new Button());
+//        overlays.add(items);
 
 
 
