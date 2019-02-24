@@ -28,7 +28,7 @@ public class Weapon extends RenderableObject implements Item {
 
     @Override
     public BufferedImage getIcon() {
-        return null;
+        return icon;
     }
 
     @Override
@@ -41,8 +41,12 @@ public class Weapon extends RenderableObject implements Item {
         //Name: My name
         //Damage: 23-25
         return  "Name: " + name + "\n" +
-                "Type: " + type.name(); //+ "\n" +
-                //"Damage: " + maxDmg + "-" + minDmg;
+                "Type: " + type.name()+ "\n" +
+                "Damage: " + 12 + "-" + 13 + "\n" +
+                "Description: \nThis sword is pretty dope. I found it in a dumpster" + "\n" +
+                "It can damage things by swiping at them and stuff." + "\n" +
+                "It can also stab things"  + "\n" +
+                "Keep it well my friend";
     }
 
     @Override

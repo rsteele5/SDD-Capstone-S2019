@@ -16,6 +16,7 @@ public class ItemButton extends Button implements Clickable {
     private Item item;
     private static String notSelectedImagePath = "/assets/buttons/Button-Inventory-Square.png";
     private static String selectedImagePath = "/assets/buttons/Button-Inventory-Selected.png";
+    private BufferedImage notSelectedImage;
     private BufferedImage selectedImage;
 
 
@@ -35,9 +36,14 @@ public class ItemButton extends Button implements Clickable {
         this.item = item;
     }
 
-    public void setSelectedImage(){
-        Debug.log(true, "Set image");
+    public void select(){
+        Debug.log(true, "Selected");
         setCurrentImage(selectedImage);
+    }
+
+    public void deSelect(){
+        Debug.log(true, "Deselected");
+        setCurrentImage(notSelectedImage);
     }
 
     @Override
@@ -48,7 +54,6 @@ public class ItemButton extends Button implements Clickable {
     @Override
     public void draw(Graphics2D graphics) {
         super.draw(graphics);
-        Debug.drawRect(true, graphics, getBoundingBox());
         if(item != null)
             graphics.drawImage(item.getIcon(), x, y, width, height, null);
     }
@@ -57,6 +62,7 @@ public class ItemButton extends Button implements Clickable {
     public void load() {
         if(image == null){
             image = AssetLoader.load(imagePath);
+            notSelectedImage = image;
             selectedImage = AssetLoader.load(selectedImagePath);
             if(width != 0 && height != 0) {
                 setSize(width, height);

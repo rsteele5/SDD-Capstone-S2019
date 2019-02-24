@@ -1,8 +1,8 @@
 package gamescreens.screens;
 
-
 import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.TextBox;
 import gameobjects.renderables.buttons.ItemButton;
 import gameobjects.renderables.items.Item;
 import gameobjects.renderables.items.Weapon;
@@ -11,16 +11,12 @@ import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.AssetLoader;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class InventoryScreen extends GameScreen {
@@ -71,7 +67,8 @@ public class InventoryScreen extends GameScreen {
     private BufferedImage buttonSpaceIMG;
 
     private Button cBtn = null;
-//    private Item currentItem = null;
+    private ItemButton currentItem = null;
+    private TextBox itemDisplay;
 //
 //    public static Inventory inv;
     /* ****************************************/
@@ -170,19 +167,38 @@ public class InventoryScreen extends GameScreen {
                 .type(WeaponType.Sword)
                 .value(15)
                 .buildWeapon();
-        addObject(myWeap);
+        loadables.add(myWeap);
 
-        BufferedImage weapIconScale = AssetLoader.scaleImage(AssetLoader.load(myWeap.getImagePath()),.5);
-        BufferedImage weapIconResize = AssetLoader.resizeImage(AssetLoader.load(myWeap.getImagePath()),50, 50);
+        itemDisplay = new TextBox(300,75, 300, 400, "" ,
+                new Font("NoScary", Font.PLAIN, 30), Color.BLACK);
 
-        addObject(new ImageContainer(200,100,weapIconScale, DrawLayer.Entity));
-        addObject(new ImageContainer(300,100,weapIconResize, DrawLayer.Entity));
+        addObject(itemDisplay);
 
         ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
-        button.setOnClick(screenManager -> button.setSelectedImage());
+        button.setOnClick(screenManager -> {
+                    button.select();
+                    currentItem = button;
+                    itemDisplay.setText(button.getItem().getDescription());
+                });
         addObject(button);
+
+
+
+        button.setItem(myWeap);
     }
 
+    public void handleClickEvent(int x, int y) {
+        Debug.log(true, name + "- Handle click");
+        for(Clickable thing: clickables) {
+            if(thing.contains(x,y)) {
+                thing.onClick(screenManager);
+                return;
+            }
+        }
+        itemDisplay.setText("");
+        currentItem.deSelect();
+        currentItem = null;
+    }
 
 //        GridLayout items = new GridLayout(screenManager, this, row 3, col 3);
 //        items.add(new Button());

@@ -11,7 +11,7 @@ import java.awt.geom.Rectangle2D;
 public class TextBox extends RenderableObject {
 
     private String text;
-    private String displayText = "";
+    private String displayText;
     private Font font;
     private Color color;
     private Graphics graphics;
@@ -24,6 +24,7 @@ public class TextBox extends RenderableObject {
         this.drawLayer = DrawLayer.Effects;
         font = new Font("arial", Font.PLAIN, 12);
         color = Color.WHITE;
+        displayText = "";
     }
 
     public TextBox(int x, int y, int width, int height, String text, Font font, Color color) {
@@ -42,29 +43,39 @@ public class TextBox extends RenderableObject {
         Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
         graphics.setFont(font);
         graphics.setColor(color);
-        String subString = "";
-        displayText = "";
-        for (String line : text.split(" ")){
-            if(graphics.getFontMetrics().stringWidth(subString + line) < width)
-                subString = subString.concat(line + " ");
-            else {
-                displayText = displayText.concat(subString +  "\n");
-                subString = line + " ";
+        String newLine = "";
+        String displayText = "";
+        if(text != "") {
+            for (String line : text.split("\n")) {
+                Debug.error(true, "Line is -> " + line);
+                for (String word : line.split(" ")) {
+                    Debug.warning(true, "Word is -> " + word);
+                    if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
+                        newLine = newLine.concat(word + " ");
+                    } else {
+                        //newLine = newLine.concat("\n" + word);
+                        displayText = displayText.concat(newLine + "\n" + word);
+                        newLine = "";
+                        //Debug.warning(true, "New line is -> " + line);
+                    }
+                }
+                displayText = displayText.concat(newLine + "\n");
+                newLine = "";
             }
-
         }
-        displayText = displayText.concat(subString);
+
+        Debug.success(true, "Text to display -> " + displayText);
 
         int fontHeight = graphics.getFontMetrics().getHeight();
         int fontAscent = graphics.getFontMetrics().getAscent();
         int row = 0;
-        for (String line: displayText.split("\n")) {
+        String text = displayText;
+        for (String line: text.split("\n")) {
             if(row < height){
                 graphics.drawString(line, x, y + row + fontAscent);
                 row += fontHeight;
             }
         }
-
     }
 
     public void setText(String text) {

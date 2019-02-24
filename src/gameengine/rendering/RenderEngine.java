@@ -16,6 +16,7 @@ import java.awt.image.BufferedImage;
 //Project Imports
 import gameobjects.renderables.RenderableObject;
 import gamescreens.ScreenManager;
+import main.utilities.AssetLoader;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 

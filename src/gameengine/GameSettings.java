@@ -14,7 +14,7 @@ public class GameSettings {
     private static PlayerOption playerOptions;
 
     public GameSettings(GameEngine gameEngine) {
-        this.gameEngine = gameEngine;
+        GameSettings.gameEngine = gameEngine;
         inputMethod = KeyBoard;
         graphicsOption = High;
         playerOptions = Solo;
