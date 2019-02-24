@@ -4,6 +4,7 @@ import gameobjects.Clickable;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.items.Item;
 import gamescreens.DrawLayer;
+import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.screens.InventoryScreen;
 import main.utilities.AssetLoader;
@@ -13,7 +14,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.function.Consumer;
 
-public class ItemButton extends RenderableObject implements Clickable<ItemButton> {
+public class ItemButton extends Button{
 
     private Item item;
     private static String notSelectedImagePath = "/assets/buttons/Button-Inventory-Square.png";
@@ -21,15 +22,12 @@ public class ItemButton extends RenderableObject implements Clickable<ItemButton
     private BufferedImage notSelectedImage;
     private BufferedImage selectedImage;
 
-    public Consumer<ItemButton> onClick;
-
     public ItemButton(int x, int y, DrawLayer drawLayer) {
         super(x, y, notSelectedImagePath, drawLayer);
     }
 
-    public ItemButton(int x, int y, DrawLayer drawLayer, Consumer<ItemButton> handleOnClick) {
-        super(x, y, notSelectedImagePath, drawLayer);
-        this.onClick = handleOnClick;
+    public ItemButton(int x, int y, DrawLayer drawLayer, Consumer<GameScreen> handleOnClick) {
+        super(x, y, notSelectedImagePath, drawLayer, handleOnClick);
     }
 
     public Item getItem() {
@@ -51,18 +49,9 @@ public class ItemButton extends RenderableObject implements Clickable<ItemButton
     }
 
     @Override
-    public void setOnClick(Consumer<ItemButton> onClick) {
-        this.onClick = onClick;
-    }
-
-    @Override
-    public boolean contains(int x, int y) {
-        return getBoundingBox().contains(x,y);
-    }
-
-    @Override
-    public void onClick(ItemButton itemButton) {
-        onClick.accept(itemButton);
+    public void onClick(GameScreen thing) {
+        select();
+        onClick.accept(thing);
     }
 
     @Override
@@ -84,10 +73,5 @@ public class ItemButton extends RenderableObject implements Clickable<ItemButton
                 setSize(image.getWidth(), image.getHeight());
             }
         }
-    }
-
-    @Override
-    public void update() {
-
     }
 }

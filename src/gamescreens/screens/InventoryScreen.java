@@ -172,11 +172,11 @@ public class InventoryScreen extends GameScreen {
         addObject(itemDetails);
 
         ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
-        button.setOnClick(ItemButton -> {
-                    button.select();
+        button.setOnClick(GameScreen -> {
                     currentItemButton = button;
                     itemDetails.setText(button.getItem().getDescription());
                 });
+
         addObject(button);
 
         button.setItem(myWeap);
@@ -186,7 +186,7 @@ public class InventoryScreen extends GameScreen {
         Debug.log(true, name + "- Handle click");
         for(Clickable thing: clickables) {
             if(thing.contains(x,y)) {
-                thing.onClick(screenManager);
+                thing.onClick(this);
                 return;
             }
         }

@@ -37,7 +37,7 @@ public class PlayerCountScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+0*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Solo.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
                     screenManager.addScreen(new ConfirmSoloPopup(screenManager,this));
                 }));
@@ -45,14 +45,14 @@ public class PlayerCountScreen extends GameScreen {
         addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Coop.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Coop");
                     screenManager.addScreen(new ConfirmCoopPopup(screenManager,this));
                 }));
         addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     this.setScreenState(ScreenState.TransitionOff);
                 }));

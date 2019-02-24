@@ -329,7 +329,7 @@ public abstract class GameScreen {
             for(Clickable thing: clickables) {
                 if(thing.contains(x,y)) {
                     //TODO: Need To Do type check for button or item button
-                    thing.onClick(screenManager);
+                    thing.onClick(this);
                     return;
                 }
             }

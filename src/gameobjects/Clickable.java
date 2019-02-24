@@ -1,11 +1,11 @@
 package gameobjects;
 
-import gamescreens.ScreenManager;
+import gamescreens.GameScreen;
 
 import java.util.function.Consumer;
 
-public interface Clickable<T> {
-    void onClick(T thing);
-    void setOnClick(Consumer<T> onClick);
+public interface Clickable {
+    void onClick(GameScreen gameScreen);
+    void setOnClick(Consumer<GameScreen> onClick);
     boolean contains(int x, int y);
 }

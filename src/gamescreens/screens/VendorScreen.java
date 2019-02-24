@@ -115,7 +115,7 @@ public class VendorScreen extends GameScreen {
     public void handleClickEvent(int x, int y) {
         for(Clickable butt: clickables) {
             if(butt.contains(x,y)) {
-                butt.onClick(screenManager);
+                butt.onClick(this);
                 return;
             }
         }
