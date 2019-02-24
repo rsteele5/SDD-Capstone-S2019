@@ -4,8 +4,8 @@ import gamescreens.ScreenManager;
 
 import java.util.function.Consumer;
 
-public interface Clickable {
-    void onClick(ScreenManager screenManager);
-    void setOnClick(Consumer<ScreenManager> onClick);
+public interface Clickable<T> {
+    void onClick(T thing);
+    void setOnClick(Consumer<T> onClick);
     boolean contains(int x, int y);
 }

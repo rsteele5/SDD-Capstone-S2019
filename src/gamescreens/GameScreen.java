@@ -328,6 +328,7 @@ public abstract class GameScreen {
             Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-screen handle click ");
             for(Clickable thing: clickables) {
                 if(thing.contains(x,y)) {
+                    //TODO: Need To Do type check for button or item button
                     thing.onClick(screenManager);
                     return;
                 }

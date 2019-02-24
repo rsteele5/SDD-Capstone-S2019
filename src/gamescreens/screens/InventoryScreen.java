@@ -10,8 +10,6 @@ import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import gamescreens.containers.GridLayout;
-import main.utilities.AssetLoader;
 import main.utilities.Debug;
 
 import java.awt.*;
@@ -66,8 +64,8 @@ public class InventoryScreen extends GameScreen {
     private BufferedImage buttonSpaceIMG;
 
     private Button cBtn = null;
-    private ItemButton currentItem = null;
-    private TextBox itemDisplay;
+    private ItemButton currentItemButton = null;
+    private TextBox itemDetails;
 //
 //    public static Inventory inv;
     /* ****************************************/
@@ -168,20 +166,18 @@ public class InventoryScreen extends GameScreen {
                 .buildWeapon();
         loadables.add(myWeap);
 
-        itemDisplay = new TextBox(300,75, 300, 400, "" ,
-                new Font("NoScary", Font.PLAIN, 30), Color.BLACK);
+        itemDetails = new TextBox(300,75, 300, 400, "" ,
+                new Font("NoScary", Font.PLAIN, 60), Color.BLACK);
 
-        addObject(itemDisplay);
+        addObject(itemDetails);
 
         ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
-        button.setOnClick(screenManager -> {
+        button.setOnClick(ItemButton -> {
                     button.select();
-                    currentItem = button;
-                    itemDisplay.setText(button.getItem().getDescription());
+                    currentItemButton = button;
+                    itemDetails.setText(button.getItem().getDescription());
                 });
         addObject(button);
-
-
 
         button.setItem(myWeap);
     }
@@ -194,12 +190,11 @@ public class InventoryScreen extends GameScreen {
                 return;
             }
         }
-        if(currentItem != null){
-            itemDisplay.setText("");
-            currentItem.deSelect();
-            currentItem = null;
+        if(currentItemButton != null){
+            itemDetails.setText("");
+            currentItemButton.deSelect();
+            currentItemButton = null;
         }
-
     }
 
 //        GridLayout items = new GridLayout(screenManager, this, 3, 3);
@@ -281,13 +276,13 @@ public class InventoryScreen extends GameScreen {
 //        }
 //        //Drawing the Item Info
 //
-//        if (currentItem != null){
-//            currentItem.drawMe(graphics, x_position, y_position, false);
+//        if (currentItemButton != null){
+//            currentItemButton.drawMe(graphics, x_position, y_position, false);
 //        }
 //        int index = renderableLayers.get(0).size() - 1;
 //        //Drawing the Image
 //
-//        renderableLayers.get(0).get(index).setCurrentImage(layerInventoryButton(resize(buttonSpaceIMG, 100, 100), resize((currentItem ==null ? buttonSpaceIMG :currentItem.getCurrentImage()), 96, 96)));
+//        renderableLayers.get(0).get(index).setCurrentImage(layerInventoryButton(resize(buttonSpaceIMG, 100, 100), resize((currentItemButton ==null ? buttonSpaceIMG :currentItemButton.getCurrentImage()), 96, 96)));
 //    }
 
     private void createItemButtons() {
@@ -312,7 +307,7 @@ public class InventoryScreen extends GameScreen {
 //                                cBtn.setCurrentImage(layerInventoryButton(cBtn.getCurrentImage(), deselectedIMG));
 //                            nBtn.setCurrentImage(layerInventoryButton(nBtn.getCurrentImage(), selectedIMG));
 //                            cBtn = nBtn;
-//                            currentItem = myItem;
+//                            currentItemButton = myItem;
 //                        });
 //                        buttons.add(nBtn);
 //                        k++;
@@ -339,7 +334,7 @@ public class InventoryScreen extends GameScreen {
 //                        cBtn.setCurrentImage(layerInventoryButton(cBtn.getCurrentImage(), deselectedIMG));
 //                    nBtn.setCurrentImage(layerInventoryButton(nBtn.getCurrentImage(), selectedIMG));
 //                    cBtn = nBtn;
-//                    currentItem = myItem;
+//                    currentItemButton = myItem;
 //                });
 //                buttons.add(nBtn);
 //            }

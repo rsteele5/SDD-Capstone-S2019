@@ -40,31 +40,25 @@ public class TextBox extends RenderableObject {
 
     @Override
     public void draw(Graphics2D graphics) {
-        Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
+        //Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
         graphics.setFont(font);
         graphics.setColor(color);
         String newLine = "";
         String displayText = "";
         if(text != "") {
             for (String line : text.split("\n")) {
-                Debug.error(true, "Line is -> " + line);
                 for (String word : line.split(" ")) {
-                    Debug.warning(true, "Word is -> " + word);
                     if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
                         newLine = newLine.concat(word + " ");
                     } else {
-                        //newLine = newLine.concat("\n" + word);
                         displayText = displayText.concat(newLine + "\n" + word);
                         newLine = "";
-                        //Debug.warning(true, "New line is -> " + line);
                     }
                 }
                 displayText = displayText.concat(newLine + "\n");
                 newLine = "";
             }
         }
-
-        Debug.success(true, "Text to display -> " + displayText);
 
         int fontHeight = graphics.getFontMetrics().getHeight();
         int fontAscent = graphics.getFontMetrics().getAscent();

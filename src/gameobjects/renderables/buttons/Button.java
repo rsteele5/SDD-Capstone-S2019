@@ -8,7 +8,7 @@ import main.utilities.Debug;
 
 import java.util.function.Consumer;
 
-public class Button extends RenderableObject implements Clickable {
+public class Button extends RenderableObject implements Clickable<ScreenManager> {
 
     public Button(int x, int y, String imagePath, DrawLayer drawLayer) {
         super(x, y, imagePath, drawLayer);
