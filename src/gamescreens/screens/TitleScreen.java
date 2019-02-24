@@ -20,7 +20,6 @@ public class TitleScreen extends GameScreen {
     //region <Construction and Initialization>
     public TitleScreen(ScreenManager screenManager, String name) {
         super(screenManager,name);
-        isRoot = true;
     }
 
     /**

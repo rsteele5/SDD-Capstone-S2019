@@ -1,12 +1,12 @@
-package gamescreens.screens.menus.dev.options;
+package gamescreens.screens.menus.options;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
-import gamescreens.screens.menus.dev.options.controls.ControlsScreen;
-import gamescreens.screens.menus.dev.options.graphics.GraphicsScreen;
+import gamescreens.screens.menus.options.controls.ControlsScreen;
+import gamescreens.screens.menus.options.graphics.GraphicsScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -22,8 +22,7 @@ public class OptionScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public OptionScreen(ScreenManager screenManager) {
-        super(screenManager, "Options Menu");
-        isExclusive = true;
+        super(screenManager, "Options Menu", true);
     }
     @Override
     protected void initializeScreen() {

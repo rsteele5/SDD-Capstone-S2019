@@ -1,4 +1,4 @@
-package gamescreens.screens.menus.dev.options.controls;
+package gamescreens.screens.menus.options.controls;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -28,8 +28,7 @@ public class ControlsScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public ControlsScreen(ScreenManager screenManager) {
-        super(screenManager, "ControlsScreen");
-        isExclusive = true;
+        super(screenManager, "ControlsScreen", true);
     }
 
     @Override

@@ -1,15 +1,15 @@
-package gamescreens.screens.menus.dev.options.controls;
+package gamescreens.screens.menus.options.graphics;
 
-import gamescreens.DrawLayer;
-import gamescreens.GameScreen;
-import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.DrawLayer;
+import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-public class ConfirmControlsPopup extends GameScreen {
+public class ConfirmGraphicsPopup extends GameScreen {
 
     private final int X_INIT_BUTTON = 427;
     private final int Y_INIT_BUTTON = 400;
@@ -19,9 +19,8 @@ public class ConfirmControlsPopup extends GameScreen {
     private GameScreen covering;
     private boolean goBack = false;
 
-    public ConfirmControlsPopup(ScreenManager screenManager, GameScreen covering) {
-        super(screenManager, "ConfirmControlsPopup");
-        isExclusive = true;
+    public ConfirmGraphicsPopup(ScreenManager screenManager, GameScreen covering) {
+        super(screenManager, "ConfirmControlsPopup", true);
         this.covering = covering;
     }
 

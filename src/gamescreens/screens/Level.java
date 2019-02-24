@@ -24,8 +24,7 @@ public class Level extends GameScreen {
     private CopyOnWriteArrayList<Kinematic> kinematicObjects;
 
     public Level(ScreenManager screenManager) {
-        super(screenManager, "Level");
-        isExclusive = true;
+        super(screenManager, "Level", true);
     }
 
     /**

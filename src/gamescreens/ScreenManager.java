@@ -1,5 +1,6 @@
 package gamescreens;
 
+import gameengine.GameSettings;
 import gameengine.physics.Kinematic;
 import gamescreens.screens.LoadingScreen;
 import gamescreens.screens.TeamSplashScreen;
@@ -14,13 +15,17 @@ public class ScreenManager {
     private GameScreen rootScreen;
 
     private LoadingScreen loadingScreen;
+    private GameSettings gameSettings;
     //endregion
 
     //region <Getters and Setters>
-
+    public GameSettings getGameSettings() {
+        return gameSettings;
+    }
     //endregion
 
-    public ScreenManager() {
+    public ScreenManager(GameSettings gameSettings) {
+        this.gameSettings = gameSettings;
         rootScreen = null;
         loadingScreen = new LoadingScreen(this); //TODO: Change to LoadingScreen after Test complete.
         //add Splash screen to the
@@ -56,8 +61,6 @@ public class ScreenManager {
     }
 
     public void clickEventAtLocation(int x, int y) {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG, "-handle click: ");
-        if(rootScreen == null) Debug.log(DebugEnabler.GAME_SCREEN_LOG, "root is null ");
         rootScreen.handleClickEvent(x,y);
     }
 

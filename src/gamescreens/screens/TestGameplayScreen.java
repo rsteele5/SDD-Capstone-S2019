@@ -22,10 +22,8 @@ public class TestGameplayScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public TestGameplayScreen(ScreenManager screenManager) {
-        super(screenManager, "TestGamePlayScreen");
-        name = "TestGameplayScreen";
+        super(screenManager, "TestGamePlayScreen", true);
         loadingScreenRequired = true;
-        isExclusive = true;
     }
 
     @Override

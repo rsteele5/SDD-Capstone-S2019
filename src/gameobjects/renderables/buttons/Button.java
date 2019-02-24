@@ -3,38 +3,13 @@ package gameobjects.renderables.buttons;
 import gamescreens.DrawLayer;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.RenderableObject;
-import main.utilities.Debug;
+import gameobjects.Clickable;
 
-import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.function.Consumer;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-
-public class Button extends RenderableObject {
-
-
-    public Button(int x, int y) {
-        super(x, y);
-    }
-
-    public Button(int x, int y, String imagePath, DrawLayer drawLayer) {
-        super(x, y, drawLayer);
-        this.imagePath = imagePath;
-    }
-
-    public Button(int x, int y, DrawLayer drawLayer, Consumer<ScreenManager> handleOnClick) {
-        super(x, y, drawLayer);
-        onClick = handleOnClick;
-    }
+public class Button extends RenderableObject implements Clickable {
 
     public Button(int x, int y, String imagePath, DrawLayer drawLayer, Consumer<ScreenManager> handleOnClick) {
-        super(x, y, imagePath, drawLayer);
-        onClick = handleOnClick;
-    }
-
-    public Button(int x, int y, String imagePath, DrawLayer drawLayer, float alpha, Consumer<ScreenManager> handleOnClick) {
         super(x, y, imagePath, drawLayer);
         onClick = handleOnClick;
     }
@@ -43,4 +18,19 @@ public class Button extends RenderableObject {
     public void update() { }
 
     public Consumer<ScreenManager> onClick;
+
+    @Override
+    public void onClick(ScreenManager screenManager) {
+        onClick.accept(screenManager);
+    }
+
+    @Override
+    public void setOnClick(Consumer<ScreenManager> onClick) {
+        this.onClick = onClick;
+    }
+
+    @Override
+    public boolean contains(int x, int y) {
+        return getBoundingBox().contains(x,y);
+    }
 }

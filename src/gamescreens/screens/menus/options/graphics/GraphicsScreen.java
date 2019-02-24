@@ -1,4 +1,4 @@
-package gamescreens.screens.menus.dev.options.graphics;
+package gamescreens.screens.menus.options.graphics;
 
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -31,8 +31,7 @@ public class GraphicsScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public GraphicsScreen(ScreenManager screenManager) {
-        super(screenManager, "ControlsScreen");
-        isExclusive = true;
+        super(screenManager, "ControlsScreen", true);
     }
     @Override
     protected void initializeScreen() {

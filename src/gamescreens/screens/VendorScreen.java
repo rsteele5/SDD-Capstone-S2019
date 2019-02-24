@@ -1,22 +1,15 @@
 package gamescreens.screens;
 
-import gameengine.rendering.RenderEngine;
+import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import gameobjects.renderables.items.Helmet;
 import gameobjects.renderables.items.Item;
-import gameobjects.renderables.items.Potion;
-import gameobjects.renderables.items.Sword;
-import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
@@ -44,8 +37,7 @@ public class VendorScreen extends GameScreen {
 
 
     public VendorScreen(ScreenManager screenManager) {
-        super(screenManager, "VendorScreen");
-        isExclusive = true;
+        super(screenManager, "VendorScreen", true);
 
         /* Remove after testing. Populates inventories with red potion **/
      }
@@ -91,11 +83,11 @@ public class VendorScreen extends GameScreen {
                     }
                 })));
 
-        bearInventory.add(new Sword());
-        vendorInventory.add(new Potion());
-        vendorInventory.add(new Potion());
-        vendorInventory.add(new Sword());
-        vendorInventory.add(new Helmet());
+//        bearInventory.add(new Weapon());
+//        vendorInventory.add(new Potion());
+//        vendorInventory.add(new Potion());
+//        vendorInventory.add(new Weapon());
+//        vendorInventory.add(new Helmet());
         createItemButtons();
     }
 
@@ -121,93 +113,93 @@ public class VendorScreen extends GameScreen {
 
     @Override
     public void handleClickEvent(int x, int y) {
-        for(Button butt: buttons) {
-            if(butt.getBoundingBox().contains(x,y)) {
-                butt.onClick.accept(screenManager);
+        for(Clickable butt: clickables) {
+            if(butt.contains(x,y)) {
+                butt.onClick(screenManager);
                 return;
             }
         }
     }
 
-    @Override
-    public void draw(Graphics2D graphics) {
-        // Call this method to draw a string to the screen
-        if (currentItem != null){
-            graphics.setColor(Color.BLACK);
-            graphics.drawString(currentItem.getItemName(), x_position, y_position);
-            graphics.drawString("Type: " + currentItem.getType(), x_position, y_position += 20);
-            graphics.drawString("Damage: " + currentItem.getDamage(), x_position, y_position += 20);
-            graphics.drawString("Immunity: " + currentItem.getImmunity(), x_position, y_position += 20);
-            graphics.drawString("CritChance: " + currentItem.getCritChance() + "%", x_position, y_position += 20);
-            graphics.drawString("Value: $" + currentItem.getValue(), x_position, y_position += 20);
-            graphics.drawString(currentItem.getDescription1(), x_position, y_position += 30);
-            if (currentItem.getDescription2() != null) {
-                graphics.drawString(currentItem.getDescription2(), x_position, y_position += 20);
-            }
-        }
-        // reset y_position for next item description
-        y_position = 220;
-    }
+//    @Override
+//    public void draw(Graphics2D graphics) {
+//        // Call this method to draw a string to the screen
+//        if (currentItem != null){
+//            graphics.setColor(Color.BLACK);
+//            graphics.drawString(currentItem.getItemName(), x_position, y_position);
+//            graphics.drawString("Type: " + currentItem.getType(), x_position, y_position += 20);
+//            graphics.drawString("Damage: " + currentItem.getDamage(), x_position, y_position += 20);
+//            graphics.drawString("Immunity: " + currentItem.getImmunity(), x_position, y_position += 20);
+//            graphics.drawString("CritChance: " + currentItem.getCritChance() + "%", x_position, y_position += 20);
+//            graphics.drawString("Value: $" + currentItem.getValue(), x_position, y_position += 20);
+//            graphics.drawString(currentItem.getDescription1(), x_position, y_position += 30);
+//            if (currentItem.getDescription2() != null) {
+//                graphics.drawString(currentItem.getDescription2(), x_position, y_position += 20);
+//            }
+//        }
+//        // reset y_position for next item description
+//        y_position = 220;
+//    }
 
     private void createItemButtons(){
-        int [] xValBearItems = {191, 239, 287, 335};
-        int [] xValVendorItems = {927, 975, 1023, 1071};
-        int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
-
-        /* Render item images (buttons) into bear's inventory **/
-        int itemCount = bearInventory.size();
-        int k = 0;
-        for (int yValItem1 : yValItems) {
-            for (int xValBearItem : xValBearItems) {
-                if (k < itemCount) {
-                    Item myItem = bearInventory.get(k);
-                    Button itemButton = new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity);
-                    itemButton.onClick = (screenManager -> {
-                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-                        currentItem = myItem;
-                        currentButton = itemButton;
-                        // Adjust where text is rendered
-                        x_position = 400;
-                    });
-                    addObject(itemButton);
-//                    addObject(new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity,
-//                            (screenManager -> {
-//                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-//                                currentItem = myItem;
-//                                // Adjust where text is rendered
-//                                x_position = 400;
-//                            })));
-                    k++;
-                }
-            }
-        }
-        /* Render item images (buttons) into vendor's inventory **/
-        itemCount = vendorInventory.size();
-        k = 0;
-        for (int yValItem : yValItems) {
-            for (int xValVendorItem : xValVendorItems) {
-                if (k < itemCount) {
-                    Item myItem = vendorInventory.get(k);
-                    Debug.log(true, myItem.getImagePath());
-                    Button itemButton = new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity);
-                    itemButton.onClick = (screenManager -> {
-                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-                        currentItem = myItem;
-                        currentButton = itemButton;
-                        // Adjust where text is rendered
-                        x_position = 400;
-                    });
-                    addObject(itemButton);
-//                    addObject(new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity,
-//                            (screenManager -> {
-//                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
-//                                currentItem = myItem;
-//                                // Adjust where text is rendered
-//                                x_position = 765;
-//                            })));
-                    k++;
-                }
-            }
-        }
+//        int [] xValBearItems = {191, 239, 287, 335};
+//        int [] xValVendorItems = {927, 975, 1023, 1071};
+//        int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
+//
+//        /* Render item images (buttons) into bear's inventory **/
+//        int itemCount = bearInventory.size();
+//        int k = 0;
+//        for (int yValItem1 : yValItems) {
+//            for (int xValBearItem : xValBearItems) {
+//                if (k < itemCount) {
+//                    Item myItem = bearInventory.get(k);
+//                    Button itemButton = new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity);
+//                    itemButton.onClick = (screenManager -> {
+//                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
+//                        currentItem = myItem;
+//                        currentButton = itemButton;
+//                        // Adjust where text is rendered
+//                        x_position = 400;
+//                    });
+//                    addObject(itemButton);
+////                    addObject(new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity,
+////                            (screenManager -> {
+////                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
+////                                currentItem = myItem;
+////                                // Adjust where text is rendered
+////                                x_position = 400;
+////                            })));
+//                    k++;
+//                }
+//            }
+//        }
+//        /* Render item images (buttons) into vendor's inventory **/
+//        itemCount = vendorInventory.size();
+//        k = 0;
+//        for (int yValItem : yValItems) {
+//            for (int xValVendorItem : xValVendorItems) {
+//                if (k < itemCount) {
+//                    Item myItem = vendorInventory.get(k);
+//                    Debug.log(true, myItem.getImagePath());
+//                    Button itemButton = new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity);
+//                    itemButton.onClick = (screenManager -> {
+//                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
+//                        currentItem = myItem;
+//                        currentButton = itemButton;
+//                        // Adjust where text is rendered
+//                        x_position = 400;
+//                    });
+//                    addObject(itemButton);
+////                    addObject(new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity,
+////                            (screenManager -> {
+////                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
+////                                currentItem = myItem;
+////                                // Adjust where text is rendered
+////                                x_position = 765;
+////                            })));
+//                    k++;
+////                }
+//            }
+//        }
     }
 }

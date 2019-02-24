@@ -29,8 +29,7 @@ public class LoadingScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public LoadingScreen(ScreenManager screenManager) {
-        super(screenManager, "LoadingScreen");
-        isExclusive = true;
+        super(screenManager, "LoadingScreen", true);
     }
 
     @Override
@@ -74,11 +73,11 @@ public class LoadingScreen extends GameScreen {
     //endregion
 
     //region <Render>
-    @Override
-    public void draw(Graphics2D graphics){
-        graphics.setColor(Color.WHITE);
-        graphics.drawString("Loading: " + (int)(loadedData) + "/" + totalDataToLoad, 500, 500);
-    }
+//    @Override
+//    public void draw(Graphics2D graphics){
+//        graphics.setColor(Color.WHITE);
+//        graphics.drawString("Loading: " + (int)(loadedData) + "/" + totalDataToLoad, 500, 500);
+//    }
     //endregion
 
     //region <Support Functions>

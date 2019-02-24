@@ -1,15 +1,15 @@
 package gameengine;
 
-
+import static gameengine.GameSettings.*;
 import input.listeners.MouseController;
 import gameengine.physics.PhysicsEngine;
 import gameengine.rendering.RenderEngine;
 import gamescreens.ScreenManager;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Graphics;
+import java.awt.Container;
 import java.util.concurrent.TimeUnit;
 
 public class GameEngine implements Runnable {
@@ -17,18 +17,25 @@ public class GameEngine implements Runnable {
     private final int FRAMES_PER_SECOND = 60;
     private int frameCounter = 0;
 
+
+
+    private GameSettings gameSettings;
+
     private ScreenManager screenManager;
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
 
 
     public GameEngine(){
-        screenManager = new ScreenManager();
-
+        gameSettings = new GameSettings(this);
+        screenManager = new ScreenManager(gameSettings);
         renderEngine = new RenderEngine(screenManager);
         physicsEngine = new PhysicsEngine(screenManager);
         renderEngine.addMouseListener(new MouseController());
+    }
 
+    public Graphics getGraphics(){
+        return renderEngine.getGraphics();
     }
 
     public void initializeWindow(JFrame gameWindow){
@@ -78,5 +85,13 @@ public class GameEngine implements Runnable {
                 Debug.warning(DebugEnabler.FPS,"FPS below 60! - current FPS: " + 1000 / (endTime - startTime) );
             }
         }
+    }
+
+    public void changeInputMethod(InputMethod controller) {
+        //TODO: Implement changing controllers and stuff here
+    }
+
+    public void changeGraphicsOption(GraphicsOption graphicsOption) {
+        //TODO: Implement changing graphics and stuff
     }
 }

@@ -5,6 +5,7 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.screens.InventoryScreen;
 import gamescreens.screens.Level;
 import gamescreens.screens.TestGameplayScreen;
 import gamescreens.screens.VendorScreen;
@@ -26,8 +27,7 @@ public class DevScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public DevScreen(ScreenManager screenManager) {
-        super(screenManager, "DevScreen");
-        isExclusive = true;
+        super(screenManager, "DevScreen", true);
     }
 
     @Override
@@ -59,6 +59,7 @@ public class DevScreen extends GameScreen {
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
                     //TODO: Add Inventory Screen
+                    screenManager.addScreen(new InventoryScreen(screenManager));
                 }));
 
         addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,

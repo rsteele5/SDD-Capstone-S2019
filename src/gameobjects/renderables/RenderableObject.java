@@ -89,6 +89,10 @@ public abstract class RenderableObject extends GameObject implements Loadable {
         this.drawLayer = drawLayer;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
     public BufferedImage getCurrentImage() {
         return image;
     }
@@ -111,18 +115,20 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     }
     //endregion
 
-    public void draw(Graphics2D graphics) {
+    public void draw(Graphics2D graphics, int xOffset, int yOffset) {
         AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
         graphics.setComposite(alphaComposite);
-        graphics.drawImage(image, x, y, width, height, null);
+        graphics.drawImage(image, x + xOffset, y + yOffset, width, height, null);
     }
 
     public void load() {
-        image = AssetLoader.load(imagePath);
-        if(width != 0 && height != 0) {
-            setSize(width, height);
-        } else {
-            setSize(image.getWidth(), image.getHeight());
+        if(image == null){
+            image = AssetLoader.load(imagePath);
+            if(width != 0 && height != 0) {
+                setSize(width, height);
+            } else {
+                setSize(image.getWidth(), image.getHeight());
+            }
         }
     }
 

@@ -1,0 +1,9 @@
+Toy Sword,Sword,10,It's a toy sword,,2,6,5,/assets/Items/sword1.png
+Iron Sword,Sword,50,A real sword tho,,10,15,5,/assets/Items/sword2.png
+Serated Sword,Sword,100,Not as strong as iron,but crits more often,8,12,25,/assets/Items/sword3.png
+Wood Poker,Spear,12,It's a stabby stick,,1,4,15,/assets/Items/spear1.png
+Iron Poker,Spear,60,A stronger poker,,8,12,15,/assets/Items/spear2.png
+Tri Poker,Spear,130,The three pronged style,pokey boi,15,20,15,/assets/Items/spear3.png
+Marsh Whacker,Club,8,Marshmallow on a stick,It is hard though,4,10,0,/assets/Items/club1.png
+Match Stick,Club,40,A fire creation kit,Propbably applies burning,6,18,0,/assets/Items/club2.png
+King Loli,Club,200,The King Arrives,,24,36,0,/assets/Items/club3.png

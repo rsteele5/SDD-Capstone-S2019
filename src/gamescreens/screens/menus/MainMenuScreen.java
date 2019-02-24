@@ -7,7 +7,7 @@ import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.labels.Label;
 import gamescreens.screens.menus.dev.DevScreen;
-import gamescreens.screens.menus.dev.options.OptionScreen;
+import gamescreens.screens.menus.options.OptionScreen;
 import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -32,7 +32,6 @@ public class MainMenuScreen extends GameScreen {
     //region <Construction and Initialization>
     public MainMenuScreen(ScreenManager screenManager) {
         super(screenManager, "MainMenuScreen");
-        isRoot = true;
     }
 
     @Override
