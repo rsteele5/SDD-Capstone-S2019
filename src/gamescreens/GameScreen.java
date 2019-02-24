@@ -206,6 +206,9 @@ public abstract class GameScreen {
     //endregion
 
     //region <Getters and Setters>
+    public int getX(){return x;}
+    public int
+
     public boolean isLoadingScreenRequired(){
         return loadingScreenRequired;
     }

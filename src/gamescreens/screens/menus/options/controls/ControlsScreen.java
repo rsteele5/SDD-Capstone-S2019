@@ -44,6 +44,7 @@ public class ControlsScreen extends GameScreen {
                 screenManager.getGameSettings().getInputMethod().name(),
                 new Font("NoScary", Font.PLAIN, 60),
                 Color.WHITE);
+
         addObject(controlsText);
 
         //Create buttons

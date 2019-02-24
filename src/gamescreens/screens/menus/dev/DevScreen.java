@@ -31,6 +31,7 @@ public class DevScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
+        //Background image
         addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", DrawLayer.Background));
         //Create buttons
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-Loading.png",
@@ -76,24 +77,6 @@ public class DevScreen extends GameScreen {
     }
 
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        defaultTransitionOff();
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
 
     @Override
     protected void activeUpdate() {

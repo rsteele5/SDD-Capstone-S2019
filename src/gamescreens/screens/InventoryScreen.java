@@ -158,8 +158,11 @@ public class InventoryScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        addObject(new ImageContainer(0, 0, "/assets/backgrounds/BG-Inventory.png", DrawLayer.Background));
-        addObject(new ImageContainer(30, 30, "/assets/Teddy.png", DrawLayer.Entity));
+
+        addObject(new ImageContainer(0,0,"/assets/backgrounds/BG-Inventory.png", DrawLayer.Background));
+
+        addObject(new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity));
+
         Weapon myWeap = new WeaponBuilder()
                 .position(100, 100)
                 .imagePath("/assets/Items/sword1.png")
@@ -168,10 +171,12 @@ public class InventoryScreen extends GameScreen {
                 .value(15)
                 .buildWeapon();
         addObject(myWeap);
-        BufferedImage weapIconScale = AssetLoader.scaleImage(AssetLoader.load(myWeap.getImagePath()), .5);
-        BufferedImage weapIconResize = AssetLoader.resizeImage(AssetLoader.load(myWeap.getImagePath()), 50, 50);
-        addObject(new ImageContainer(200, 100, weapIconScale, DrawLayer.Entity));
-        addObject(new ImageContainer(300, 100, weapIconResize, DrawLayer.Entity));
+
+        BufferedImage weapIconScale = AssetLoader.scaleImage(AssetLoader.load(myWeap.getImagePath()),.5);
+        BufferedImage weapIconResize = AssetLoader.resizeImage(AssetLoader.load(myWeap.getImagePath()),50, 50);
+
+        addObject(new ImageContainer(200,100,weapIconScale, DrawLayer.Entity));
+        addObject(new ImageContainer(300,100,weapIconResize, DrawLayer.Entity));
 
         ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
         button.setOnClick(screenManager -> button.setSelectedImage());
@@ -181,10 +186,10 @@ public class InventoryScreen extends GameScreen {
 
 //        GridLayout items = new GridLayout(screenManager, this, row 3, col 3);
 //        items.add(new Button());
+//        items.add(new Button(), 1,2);
 //        items.add(new Button());
 //        items.add(new Button());
-//        items.add(new Button());
-//        overlays.add(items)
+//        overlays.add(items);
 
 
 
