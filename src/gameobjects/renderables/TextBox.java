@@ -2,10 +2,8 @@ package gameobjects.renderables;
 
 import gamescreens.DrawLayer;
 import main.utilities.AssetLoader;
-import main.utilities.Debug;
 
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 
 
 public class TextBox extends RenderableObject {

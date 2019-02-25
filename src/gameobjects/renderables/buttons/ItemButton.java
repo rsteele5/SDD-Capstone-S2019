@@ -1,12 +1,8 @@
 package gameobjects.renderables.buttons;
 
-import gameobjects.Clickable;
-import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.items.Item;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
-import gamescreens.ScreenManager;
-import gamescreens.screens.InventoryScreen;
 import main.utilities.AssetLoader;
 import main.utilities.Debug;
 

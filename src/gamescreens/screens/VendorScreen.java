@@ -47,19 +47,31 @@ public class VendorScreen extends GameScreen {
         bearInventory = new CopyOnWriteArrayList<>();
         vendorInventory = new CopyOnWriteArrayList<>();
         /* Create all renderables **/
-        addObject(new ImageContainer(150, 75, "/assets/VendorBackground.png", DrawLayer.Background));
-        addObject(new ImageContainer(765, 410, "/assets/Vendor.png", DrawLayer.Entity));
-        addObject(new ImageContainer(400, 380, "/assets/Teddy.png", DrawLayer.Entity));
+        ImageContainer imageContainer;
+
+        imageContainer = new ImageContainer(150, 75, "/assets/VendorBackground.png", DrawLayer.Background);
+        imageContainer.addToScreen(this, true);
+
+        imageContainer = new ImageContainer(765, 410, "/assets/Vendor.png", DrawLayer.Entity);
+        imageContainer.addToScreen(this, true);
+
+        imageContainer = new ImageContainer(400, 380, "/assets/Teddy.png", DrawLayer.Entity);
+        imageContainer.addToScreen(this, true);
+
 
         /* Create buttons **/
-        addObject(new Button(175, 100,
+        Button button;
+
+        button = new Button(175, 100,
                 "/assets/buttons/Button-Vendor-Exit.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Exit Vendor");
                     this.setScreenState(ScreenState.TransitionOff);
-                })));
-        addObject(new Button(775, 560,
+                }));
+        button.addToScreen(this, true);
+
+        button = new Button(775, 560,
                 "/assets/buttons/Button-Vendor-Buy.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
@@ -69,9 +81,10 @@ public class VendorScreen extends GameScreen {
                         bearInventory.add(currentItem);
                         currentItem = null;
                     }
-                })));
+                }));
+        button.addToScreen(this, true);
 
-        addObject(new Button(400, 560,
+        button = new Button(400, 560,
                 "/assets/buttons/Button-Vendor-Sell.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
@@ -81,7 +94,9 @@ public class VendorScreen extends GameScreen {
                         vendorInventory.add(currentItem);
                         currentItem = null;
                     }
-                })));
+                }));
+        button.addToScreen(this, true);
+
 
 //        bearInventory.add(new Weapon());
 //        vendorInventory.add(new Potion());

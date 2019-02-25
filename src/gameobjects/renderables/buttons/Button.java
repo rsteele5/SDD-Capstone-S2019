@@ -43,4 +43,32 @@ public class Button extends RenderableObject implements Clickable{
     public boolean contains(int x, int y) {
         return getBoundingBox().contains(x,y);
     }
+
+
+    @Override
+    public boolean setActive(GameScreen screen){
+        if(super.setActive(screen)){
+            screen.clickables.add(this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean setInactive(GameScreen screen){
+        if(super.setInactive(screen)){
+            screen.clickables.remove(this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void addToScreen(GameScreen screen, boolean isActive){
+        super.addToScreen(screen, isActive);
+
+        if(isActive) {
+            screen.clickables.add(this);
+        }
+    }
 }

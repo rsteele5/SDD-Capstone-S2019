@@ -26,8 +26,13 @@ public class ConfirmControlsPopup extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-ConfirmationPopup.png", DrawLayer.Background));
+        //Create Background on layer 0
+        ImageContainer imageContainer;
 
+        imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-ConfirmationPopup.png", DrawLayer.Background);
+        imageContainer.addToScreen(this, true);
+
+        //Buttons
         addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Yes.png",
                 DrawLayer.Entity,

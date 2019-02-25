@@ -2,6 +2,7 @@ package gameobjects.renderables;
 
 import gameobjects.GameObject;
 import gamescreens.DrawLayer;
+import gamescreens.GameScreen;
 import main.utilities.AssetLoader;
 import main.utilities.Loadable;
 
@@ -130,6 +131,47 @@ public abstract class RenderableObject extends GameObject implements Loadable {
                 setSize(image.getWidth(), image.getHeight());
             }
         }
+    }
+
+    @Override
+    public boolean setActive(GameScreen screen){
+        if(super.setActive(screen)){
+            int i = 0;
+            for(RenderableObject renderable : screen.renderables){
+                if(renderable.getDrawLayer().ordinal() < drawLayer.ordinal()){
+                    i++;
+                } else break;
+            }
+            screen.renderables.add(i, this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean setInactive(GameScreen screen){
+        if(super.setInactive(screen)){
+            screen.renderables.remove(this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void addToScreen(GameScreen screen, boolean isActive){
+        super.addToScreen(screen, isActive);
+
+        if(isActive) {
+            int i = 0;
+            for(RenderableObject renderable : screen.renderables){
+                if(renderable.getDrawLayer().ordinal() < drawLayer.ordinal()){
+                    i++;
+                } else break;
+            }
+            screen.renderables.add(i, this);
+        }
+
+        screen.loadables.add(this);
     }
 
     public abstract void update();

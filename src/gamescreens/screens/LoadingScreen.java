@@ -34,16 +34,16 @@ public class LoadingScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        //Background
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-Loading.png", DrawLayer.Background));
-
-        //Foreground
-        ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X -5, START_POINT_Y - 5, "/assets/LoadingBarBackground.png", DrawLayer.Entity);
-        loadingBarBackground.setSize(MAX_WIDTH+10, MAX_HEIGHT + 10);
-        addObject(loadingBarBackground);
-
-        loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, "/assets/LoadingBar.png", DrawLayer.Entity);
-        addObject(loadingBar);
+//        //Background
+//        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-Loading.png", DrawLayer.Background));
+//
+//        //Foreground
+//        ImageContainer loadingBarBackground = new ImageContainer(START_POINT_X -5, START_POINT_Y - 5, "/assets/LoadingBarBackground.png", DrawLayer.Entity);
+//        loadingBarBackground.setSize(MAX_WIDTH+10, MAX_HEIGHT + 10);
+//        addObject(loadingBarBackground);
+//
+//        loadingBar = new ImageContainer(START_POINT_X, START_POINT_Y, "/assets/LoadingBar.png", DrawLayer.Entity);
+//        addObject(loadingBar);
     }
 
     //endregion

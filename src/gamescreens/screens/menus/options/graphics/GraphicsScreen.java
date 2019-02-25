@@ -1,31 +1,33 @@
 package gamescreens.screens.menus.options.graphics;
 
+import gameengine.GameSettings;
+import gameobjects.renderables.TextBox;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
+
+import java.awt.*;
+
+import static gameengine.GameSettings.GraphicsOption.*;
 
 
 public class GraphicsScreen extends GameScreen {
 
     //region <Variables>
+    private static GameSettings.GraphicsOption graphicsSetting;
+    private GameSettings.GraphicsOption exitSetting;
+    private TextBox graphicsText;
 
-    private static String setting = "high";
-    private static String exitSetting = "high";
 
-    private ImageContainer high;
-    private ImageContainer medium;
-    private ImageContainer low;
 
 
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
-    private float alphaTransition = 0.0f;
     private final int X_BUFFER = 48;
     //endregion
 
@@ -33,145 +35,81 @@ public class GraphicsScreen extends GameScreen {
     public GraphicsScreen(ScreenManager screenManager) {
         super(screenManager, "ControlsScreen", true);
     }
+
     @Override
     protected void initializeScreen() {
 
-        //Create Background on layer 0
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-GraphicsMenu.png", DrawLayer.Background));
+        //Create Background
+        ImageContainer imageContainer;
 
-        high = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-High.png", DrawLayer.Entity);
-        medium = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-Medium.png", DrawLayer.Entity);
-        low = new ImageContainer(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/labels/Label-Low.png", DrawLayer.Entity);
+        imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-GraphicsMenu.png", DrawLayer.Background);
+        imageContainer.addToScreen(this, true);
 
-        if(setting.equals("low")){
-            addObject(low);
-            loadables.add(high);
-            loadables.add(medium);
-        } else if (setting.equals("medium")){
-            addObject(medium);
-            loadables.add(low);
-            loadables.add(high);
-        } else {
-            addObject(high);
-            loadables.add(medium);
-            loadables.add(low);
-        }
+        //Create Text Box
+        graphicsText = new TextBox(X_INIT_BUTTON+X_BUFFER, Y_INIT_BUTTON,
+                300,
+                150,
+                screenManager.getGameSettings().getInputMethod().name(),
+                new Font("NoScary", Font.PLAIN, 60),
+                Color.WHITE);
+
+        graphicsText.addToScreen(this, true);
 
         //Create buttons
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
-                "/assets/buttons/Button-LeftArrow.png",
-                DrawLayer.Entity,
-                (GameScreen) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Left Arrow" + setting);
-                    if(exitSetting.equals("high")){
-                        exitSetting = "medium";
-                        entityLayer.remove(high);
-                        entityLayer.add(medium);
-                    } else if (exitSetting.equals("medium")){
-                        exitSetting = "low";
-                        entityLayer.remove(medium);
-                        entityLayer.add(low);
-                    } else {
-                        exitSetting = "high";
-                        entityLayer.remove(low);
-                        entityLayer.add(high);
+        Button butt;
+        //Left Arrow
+        butt = new Button(X_INIT_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
+                (GameScreen) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Left Arrow");
+                    switch (exitSetting){
+                        case High: exitSetting = Medium; break;
+                        case Medium: exitSetting = Low; break;
+                        case Low: exitSetting = High; break;
                     }
-                }));
+                    graphicsText.setText(exitSetting.name());
+                });
+        butt.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
-                "/assets/buttons/Button-RightArrow.png",
-                DrawLayer.Entity,
-                (GameScreen) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Right Arrow");
-                    if(exitSetting.equals("low")){
-                        exitSetting = "medium";
-                        entityLayer.remove(low);
-                        entityLayer.add(medium);
-                    } else if (exitSetting.equals("medium")){
-                        exitSetting = "high";
-                        entityLayer.remove(medium);
-                        entityLayer.add(high);
-                    } else {
-                        exitSetting = "low";
-                        entityLayer.remove(high);
-                        entityLayer.add(low);
+        //Right Arrow
+        butt = new Button(X_INIT_BUTTON + X_BUFFER + WIDTH_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
+                (GameScreen) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Right Arrow");
+                    switch (exitSetting){
+                        case High: exitSetting = Low; break;
+                        case Medium: exitSetting = High; break;
+                        case Low: exitSetting = Medium; break;
                     }
-                }));
+                    graphicsText.setText(exitSetting.name());
+                });
+        butt.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        //Confirm
+        butt = new Button(X_INIT_BUTTON + 2 * (X_BUFFER + WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Confirm");
-                    setScreenState(ScreenState.TransitionOff);
-                    setting = exitSetting;
-                }));
+                (GameScreen) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Confirm");
+                    this.setScreenState(ScreenState.TransitionOff);
+                    graphicsSetting = exitSetting;
+                    screenManager.getGameSettings().setGraphicsOption(graphicsSetting);
+                });
+        butt.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        //Back
+        butt = new Button(X_INIT_BUTTON + 3 * (X_BUFFER + WIDTH_BUTTON),
+                Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
-                    if(!exitSetting.equals(setting)){
+                (GameScreen) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
+                    if (!exitSetting.equals(graphicsSetting)) {
                         screenManager.addScreen(new ConfirmGraphicsPopup(screenManager, this));
                     } else {
-                        this.setScreenState(ScreenState.TransitionOff);
+                        setScreenState(ScreenState.TransitionOff);
                     }
-                }));
-
-
+                });
+        butt.addToScreen(this, true);
     }
 
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        float alpha = alphaTransition;
-        if(alpha < 0.9f){
-            alphaTransition += 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(1.0f);
-            currentState = ScreenState.Active;
-        }
-    }
-
-    @Override
-    protected void transitionOff() {
-        float alpha = alphaTransition;
-        if(alpha > 0.055f){
-            alphaTransition -= 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alphaTransition);
-            for(RenderableObject renderable : entityLayer)
-                renderable.setAlpha(alphaTransition);
-        } else {
-            exiting = true;
-        }
-    }
-
-    @Override
-    protected void activeUpdate() {
-        //Set all labels alpha equal to one, even if they aren't being rendered at the time
-        for(RenderableObject renderable : entityLayer)
-            renderable.setAlpha(1.0f);
-    }
 }

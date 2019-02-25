@@ -53,16 +53,12 @@ public abstract class GameScreen {
 
     protected boolean exiting = false;
 
-    protected ArrayList<GameObject> gameObjects;
-    protected ArrayList<GameObject> inactiveObjects;
-    protected ArrayList<GameObject> activeObjects;
-    protected ArrayList<Clickable> clickables;
-    protected ArrayList<Kinematic> kinematics;
-    protected ArrayList<Loadable> loadables;
-    protected ArrayList<RenderableObject> backgroundLayer;
-    protected ArrayList<RenderableObject> sceneryLayer;
-    protected ArrayList<RenderableObject> entityLayer;
-    protected ArrayList<RenderableObject> effectsLayer;
+    public ArrayList<GameObject> inactiveObjects;
+    public ArrayList<GameObject> activeObjects;
+    public ArrayList<Clickable> clickables;
+    public ArrayList<Kinematic> kinematics;
+    public ArrayList<Loadable> loadables;
+    public ArrayList<RenderableObject> renderables;
 
     public void coverWith(GameScreen gameScreen) {
         if(gameScreen.isRoot) {
@@ -135,14 +131,10 @@ public abstract class GameScreen {
         y = 0;
         overlayScreens = new ArrayList<>();
         //GameObjects
-        gameObjects = new ArrayList<>();
         clickables = new ArrayList<>();
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
-        backgroundLayer = new ArrayList<>();
-        sceneryLayer = new ArrayList<>();
-        entityLayer = new ArrayList<>();
-        effectsLayer = new ArrayList<>();
+        renderables = new ArrayList<>();
         initializeScreen();
         currentState = ScreenState.TransitionOn;
         isLoading = true;
@@ -166,14 +158,10 @@ public abstract class GameScreen {
         y = yPos;
         overlayScreens = new ArrayList<>();
         //Game Objects
-        gameObjects = new ArrayList<>();
         clickables = new ArrayList<>();
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
-        backgroundLayer = new ArrayList<>();
-        sceneryLayer = new ArrayList<>();
-        entityLayer = new ArrayList<>();
-        effectsLayer = new ArrayList<>();
+        renderables = new ArrayList<>();
         initializeScreen();
         currentState = ScreenState.TransitionOn;
         isLoading = true;
@@ -320,14 +308,8 @@ public abstract class GameScreen {
     }
 
     private void drawLayers(Graphics2D graphics) {
-        for(RenderableObject bg : backgroundLayer)
-            bg.draw(graphics);
-        for(RenderableObject scenery : sceneryLayer)
-            scenery.draw(graphics);
-        for(RenderableObject entity : entityLayer)
-            entity.draw(graphics);
-        for(RenderableObject effect : effectsLayer)
-            effect.draw(graphics);
+        for(RenderableObject renderable : renderables)
+            renderable.draw(graphics);
     }
     //endregion
 
@@ -361,31 +343,6 @@ public abstract class GameScreen {
         exiting = false;
     }
 
-    public void addObject(RenderableObject renderable) {
-        renderable.setX(x + renderable.getX());
-        renderable.setY(y + renderable.getY());
-        if(renderable instanceof Kinematic)
-            kinematics.add((Kinematic) renderable);
-        if(renderable instanceof Clickable)
-            clickables.add((Clickable) renderable);
-
-        switch (renderable.getDrawLayer()){
-            case Background: backgroundLayer.add(renderable);break;
-            case Scenery: sceneryLayer.add(renderable);break;
-            case Entity: entityLayer.add(renderable);break;
-            case Effects: effectsLayer.add(renderable);break;
-        }
-        loadables.add(renderable);
-        //activeObjects.add(renderable);
-        gameObjects.add(renderable);
-    }
-
-    public void addInactiveObject(GameObject object){
-        if(activeObjects.contains(object)){
-            activeObjects.remove(object);
-        }
-        inactiveObjects.add(object);
-    }
 
     public void addOverlay(GameScreen overlay){
         if(!overlay.isOverlay){
@@ -397,41 +354,23 @@ public abstract class GameScreen {
     }
 
     public void defaultTransitionOn() {
-        float alpha = backgroundLayer.get(0).getAlpha();
+        float alpha = renderables.get(0).getAlpha();
         if(alpha < 0.9f){
             alpha += 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alpha);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alpha);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alpha);
-            for(RenderableObject renderable : entityLayer)
+            for(RenderableObject renderable : renderables)
                 renderable.setAlpha(alpha);
         } else {
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(1.0f);
-            for(RenderableObject renderable : entityLayer)
+            for(RenderableObject renderable : renderables)
                 renderable.setAlpha(1.0f);
             currentState = ScreenState.Active;
         }
     }
 
     public void defaultTransitionOff() {
-        float alpha = backgroundLayer.get(0).getAlpha();
+        float alpha = renderables.get(0).getAlpha();
         if(alpha > 0.055f){
             alpha -= 0.05f;
-            for(RenderableObject renderable : backgroundLayer)
-                renderable.setAlpha(alpha);
-            for(RenderableObject renderable : sceneryLayer)
-                renderable.setAlpha(alpha);
-            for(RenderableObject renderable : effectsLayer)
-                renderable.setAlpha(alpha);
-            for(RenderableObject renderable : entityLayer)
+            for(RenderableObject renderable : renderables)
                 renderable.setAlpha(alpha);
         } else {
             exiting = true;

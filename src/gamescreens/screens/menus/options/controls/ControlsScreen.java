@@ -38,6 +38,13 @@ public class ControlsScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
 
+        //Create Background on layer 0
+        ImageContainer imageContainer;
+
+        imageContainer = new ImageContainer(0, 0, "/assets/backgrounds/BG-ControlsMenu.png", DrawLayer.Background);
+        imageContainer.addToScreen(this, true);
+
+        //Create Text Box
         controlsText = new TextBox(X_INIT_BUTTON+X_BUFFER, Y_INIT_BUTTON,
                 300,
                 150,
@@ -45,10 +52,12 @@ public class ControlsScreen extends GameScreen {
                 new Font("NoScary", Font.PLAIN, 60),
                 Color.WHITE);
 
-        addObject(controlsText);
+        controlsText.addToScreen(this, true);
 
         //Create buttons
-        addObject(new Button(X_INIT_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
+        Button butt;
+
+        butt = new Button(X_INIT_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
                 (GameScreen) -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Left Arrow");
                     if (exitSetting == KeyBoard) {
@@ -58,9 +67,10 @@ public class ControlsScreen extends GameScreen {
                         exitSetting = KeyBoard;
                         controlsText.setText(exitSetting.name());
                     }
-                }));
+                });
+        butt.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON + X_BUFFER + WIDTH_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
+        butt = new Button(X_INIT_BUTTON + X_BUFFER + WIDTH_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
                 (GameScreen) -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Right Arrow");
                     if (exitSetting == KeyBoard) {
@@ -70,9 +80,10 @@ public class ControlsScreen extends GameScreen {
                         exitSetting = KeyBoard;
                         controlsText.setText(exitSetting.name());
                     }
-                }));
+                });
+        butt.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON + 2 * (X_BUFFER + WIDTH_BUTTON), Y_INIT_BUTTON,
+        butt = new Button(X_INIT_BUTTON + 2 * (X_BUFFER + WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
                 (GameScreen) -> {
@@ -80,9 +91,10 @@ public class ControlsScreen extends GameScreen {
                     this.setScreenState(ScreenState.TransitionOff);
                     inputSetting = exitSetting;
                     screenManager.getGameSettings().setIputMethod(inputSetting);
-                }));
+                });
+        butt.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON + 3 * (X_BUFFER + WIDTH_BUTTON),
+        butt = new Button(X_INIT_BUTTON + 3 * (X_BUFFER + WIDTH_BUTTON),
                 Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
@@ -93,33 +105,8 @@ public class ControlsScreen extends GameScreen {
                     } else {
                         setScreenState(ScreenState.TransitionOff);
                     }
-                }));
-
-        //Create Background on layer 0
-        addObject(new ImageContainer(0, 0, "/assets/backgrounds/BG-ControlsMenu.png", DrawLayer.Background));
+                });
+        butt.addToScreen(this, true);
     }
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        defaultTransitionOff();
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate() {
-
-    }
 }

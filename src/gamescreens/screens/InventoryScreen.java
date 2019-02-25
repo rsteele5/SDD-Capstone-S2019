@@ -169,6 +169,8 @@ public class InventoryScreen extends GameScreen {
         //addInactiveObject(myWeap);
         loadables.add(myWeap);
 
+        myWeap.addToScreen(this);
+
         itemDetails = new TextBox(300,75, 300, 400, "" ,
                 new Font("NoScary", Font.PLAIN, 60), Color.BLACK);
 
