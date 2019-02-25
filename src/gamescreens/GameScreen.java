@@ -210,7 +210,7 @@ public abstract class GameScreen {
                 loadingScreen.reset();
             }
             for (Loadable loadable : loadables) loadable.load();
-            loadables.removeAll(loadables);
+            loadables.clear();
             isLoading = false;
         });
         executorService.shutdown();
@@ -271,11 +271,22 @@ public abstract class GameScreen {
 
     //region <Update>
     protected void transitionOn() {
-        defaultTransitionOn();
+        if(screenAlpha < 0.9f){
+            screenAlpha += 0.05f;
+            setScreenAlpha(screenAlpha);
+        } else {
+            setScreenAlpha(1.0f);
+            currentState = ScreenState.Active;
+        }
     }
 
     protected void transitionOff() {
-        defaultTransitionOff();
+        if(screenAlpha > 0.055f){
+            screenAlpha -= 0.05f;
+            setScreenAlpha(screenAlpha);
+        } else {
+            exiting = true;
+        }
     }
 
     //Override if you know what ur doing
@@ -334,7 +345,7 @@ public abstract class GameScreen {
         }
     }
 
-    private void drawLayers(Graphics2D graphics) {
+    protected void drawLayers(Graphics2D graphics) {
         for(RenderableObject renderable : renderables)
             renderable.draw(graphics);
     }
@@ -370,8 +381,7 @@ public abstract class GameScreen {
         exiting = false;
     }
 
-
-    public void addOverlay(GameScreen overlay){
+    private void addOverlay(GameScreen overlay){
         if(!overlay.isOverlay){
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,
                     overlay.name +"- is not an overlay. Will not add to overlays.");
@@ -380,27 +390,7 @@ public abstract class GameScreen {
         }
     }
 
-    public void defaultTransitionOn() {
-
-        if(screenAlpha < 0.9f){
-            screenAlpha += 0.05f;
-            setScreenAlpha(screenAlpha);
-        } else {
-            setScreenAlpha(1.0f);
-            currentState = ScreenState.Active;
-        }
-    }
-
-    public void defaultTransitionOff() {
-        if(screenAlpha > 0.055f){
-            screenAlpha -= 0.05f;
-            setScreenAlpha(screenAlpha);
-        } else {
-            exiting = true;
-        }
-    }
-
-    public void setScreenAlpha(float alpha){
+    protected void setScreenAlpha(float alpha){
         screenAlpha = alpha;
         for(RenderableObject renderable : renderables)
             renderable.setAlpha(screenAlpha);

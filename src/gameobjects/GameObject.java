@@ -36,7 +36,8 @@ public abstract class GameObject {
         this.y = y;
     }
 
-    public void set(int y) {
+    public void setPosition(int x, int y) {
+        this.x = x;
         this.y = y;
     }
 

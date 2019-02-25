@@ -2,6 +2,7 @@
   <dictionary name="Remington Steele">
     <words>
       <w>clickable</w>
+      <w>loadables</w>
       <w>renderable</w>
       <w>renderables</w>
       <w>resized</w>

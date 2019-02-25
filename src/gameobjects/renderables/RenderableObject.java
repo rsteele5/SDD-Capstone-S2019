@@ -105,10 +105,17 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     public void setWidth(int w){
         width = w;
     }
+    public int getWidth() {
+        return width;
+    }
 
     public void setHeight(int h){
         height = h;
     }
+    public int getHeight() {
+        return height;
+    }
+
 
     public void setSize(int w, int h){
         width = w;
