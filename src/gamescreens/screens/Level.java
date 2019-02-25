@@ -35,27 +35,44 @@ public class Level extends GameScreen {
         String bg = "/assets/backgrounds/BG-BlackCover.png";
         String path = "/assets/testAssets/square.png";
 
-        addObject(new ImageContainer(0,0, bg, DrawLayer.Background));
-        addObject(new Square(50,50,path, DrawLayer.Entity));
-        addObject(new Square(50,200,path,DrawLayer.Entity));
-        addObject(new Square(50,400,path,DrawLayer.Entity));
-        addObject(new Square(50,600,path,DrawLayer.Entity));
+        ImageContainer background;
+        background = (new ImageContainer(0,0, bg, DrawLayer.Background));
 
-        addObject(new Square(100,75,path,DrawLayer.Entity));
-        addObject(new Square(100,300,path,DrawLayer.Entity));
-        addObject(new Square(100,450,path,DrawLayer.Entity));
-        addObject(new Square(100,527,path,DrawLayer.Entity));
-        addObject(new Square(100,600,path,DrawLayer.Entity));
-
-        addObject(new Square(200,50,path,DrawLayer.Entity));
-        addObject(new Square(200,150,path,DrawLayer.Entity));
-        addObject(new Square(200,250,path,DrawLayer.Entity));
-        addObject(new Square(200,350,path,DrawLayer.Entity));
-        addObject(new Square(200,450,path,DrawLayer.Entity));
-        addObject(new Square(200,700,path,DrawLayer.Entity));
-
-        addObject(new Square(400,50,path,DrawLayer.Entity));
-        addObject(new Square(400,100,path,DrawLayer.Entity));
+        Square square;
+        square = new Square(50,50,path, DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(50,200,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(50,400,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(50,600,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(100,75,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(100,300,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(100,450,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(100,527,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(100,600,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(200,50,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(200,150,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(200,250,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(200,350,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(200,450,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(200,700,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(400,50,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
+        square = new Square(400,100,path,DrawLayer.Entity);
+        square.addToScreen(this, true);
     }
 
     @Override
@@ -77,10 +94,4 @@ public class Level extends GameScreen {
     protected void activeUpdate() {
 
     }
-
-    public ArrayList<GameObject> levelObjects(){
-        return gameObjects;
-    }
-
-
 }

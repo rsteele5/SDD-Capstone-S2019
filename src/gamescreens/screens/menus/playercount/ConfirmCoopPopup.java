@@ -31,9 +31,12 @@ public class ConfirmCoopPopup extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-ConfirmCoopPopup.png", DrawLayer.Background));
+        ImageContainer imageContainer;
+        imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-ConfirmCoopPopup.png", DrawLayer.Background);
+        imageContainer.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
+        Button button;
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Yes.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
@@ -43,8 +46,10 @@ public class ConfirmCoopPopup extends GameScreen {
                     //Solo Mode
                     screenManager.addScreen(new TempCoopScreen(screenManager, this));
                     setScreenState(ScreenState.TransitionOff);
-                }));
-        addObject(new Button(X_INIT_BUTTON + WIDTH_BUTTON + X_BUFFER,Y_INIT_BUTTON,
+                });
+        button.addToScreen(this, true);
+
+        button = new Button(X_INIT_BUTTON + WIDTH_BUTTON + X_BUFFER,Y_INIT_BUTTON,
                 "/assets/buttons/Button-No.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
@@ -53,7 +58,8 @@ public class ConfirmCoopPopup extends GameScreen {
                     //TODO: Make this not shit
                     goBack = false;
                     this.setScreenState(ScreenState.TransitionOff);
-                }));
+                });
+        button.addToScreen(this, true);
     }
 
     @Override

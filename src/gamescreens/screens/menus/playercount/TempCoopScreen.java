@@ -35,16 +35,18 @@ public class TempCoopScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        Button button;
+        button = new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     this.setScreenState(ScreenState.TransitionOff);
-                }));
-
+                });
+        button.addToScreen(this,true);
         //Create Background on layer 0
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-TempCoop.png", DrawLayer.Background));
+        ImageContainer image = new ImageContainer(0,0, "/assets/backgrounds/BG-TempCoop.png", DrawLayer.Background);
+        image.addToScreen(this,true);
     }
 
     //endregion

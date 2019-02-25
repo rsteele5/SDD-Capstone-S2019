@@ -15,8 +15,6 @@ import main.utilities.DebugEnabler;
 public class MainMenuScreen extends GameScreen {
 
     //region <Variables>
-
-
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
@@ -30,36 +28,39 @@ public class MainMenuScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loading Content");
+        //Create Background on layer 0
+        ImageContainer image;
+        image = new ImageContainer(0,0, "/assets/backgrounds/BG-MainMenu.png", DrawLayer.Background);
+        image.addToScreen(this,true);
+
         //Create buttons
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
+        Button button;
+        button = (new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-NewGame.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - New Game");
                     screenManager.addScreen(new PlayerCountScreen(screenManager));
         }));
+        button.addToScreen(this,true);
 
-        addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
+        button = (new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Options.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
                     screenManager.addScreen(new OptionScreen(screenManager));
         }));
+        button.addToScreen(this,true);
 
-        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        button = (new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Dev.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - DevMode");
                     screenManager.addScreen(new DevScreen(screenManager));
         }));
-
-        //Create Background on layer 0
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-MainMenu.png", DrawLayer.Background));
-
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Loaded Success");
+        button.addToScreen(this,true);
     }
     //endregion
 

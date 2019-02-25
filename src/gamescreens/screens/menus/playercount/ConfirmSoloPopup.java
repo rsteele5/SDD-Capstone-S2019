@@ -31,7 +31,13 @@ public class ConfirmSoloPopup extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
+
+        //popup background
+        ImageContainer background = (new ImageContainer(0,0, "/assets/backgrounds/BG-ConfirmSoloPopup.png", DrawLayer.Background));
+        background.addToScreen(this, true);
+
+        Button button;
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Yes.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
@@ -41,8 +47,11 @@ public class ConfirmSoloPopup extends GameScreen {
                     //Solo Mode
                     screenManager.addScreen(new TempSoloScreen(screenManager, this));
                     setScreenState(ScreenState.TransitionOff);
-                }));
-        addObject(new Button(X_INIT_BUTTON + WIDTH_BUTTON + X_BUFFER,Y_INIT_BUTTON,
+                });
+        button.addToScreen(this, true);
+
+
+        button = new Button(X_INIT_BUTTON + WIDTH_BUTTON + X_BUFFER,Y_INIT_BUTTON,
                 "/assets/buttons/Button-No.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
@@ -51,9 +60,8 @@ public class ConfirmSoloPopup extends GameScreen {
                     //TODO: Make this not shit
                     goBack = false;
                     this.setScreenState(ScreenState.TransitionOff);
-                }));
-        //popup background
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-ConfirmSoloPopup.png", DrawLayer.Background));
+                });
+        button.addToScreen(this, true);
     }
 
     @Override

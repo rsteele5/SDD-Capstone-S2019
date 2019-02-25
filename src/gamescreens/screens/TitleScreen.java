@@ -27,14 +27,15 @@ public class TitleScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Initializing Content");
-
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background));
-        addObject(new ImageContainer(0,-720, "/assets/backgrounds/BG-TitleScreenCover.png", DrawLayer.Background));
-        addObject(new ImageContainer(350,75, "/assets/backgrounds/BG-Title.png", DrawLayer.Background));
-        addObject( new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background));
-
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"Initialized Success");
+        ImageContainer image;
+        image = new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background);
+        image.addToScreen(this,true);
+        image = new ImageContainer(0,-720, "/assets/backgrounds/BG-TitleScreenCover.png", DrawLayer.Background);
+        image.addToScreen(this,true);
+        image = new ImageContainer(350,75, "/assets/backgrounds/BG-Title.png", DrawLayer.Background);
+        image.addToScreen(this,true);
+        image = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background);
+        image.addToScreen(this,true);
     }
 
     //endregion
@@ -61,8 +62,8 @@ public class TitleScreen extends GameScreen {
                 e.printStackTrace();
             }
         }
-        if(backgroundLayer.get(1).getY() < -240)
-            backgroundLayer.get(1).setY(backgroundLayer.get(1).getY() + 2);
+        if(renderables.get(1).getY() < -240)
+            renderables.get(1).setY(renderables.get(1).getY() + 2);
         else
             currentState = ScreenState.Active;
     }
