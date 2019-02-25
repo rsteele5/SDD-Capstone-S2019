@@ -1,4 +1,4 @@
-package gamescreens.screens.menus.options.controls;
+package gamescreens.screens.menus.options;
 
 import static gameengine.GameSettings.*;
 import static gameengine.GameSettings.InputMethod.*;
@@ -9,6 +9,7 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.screens.ConfirmationPopup;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -38,7 +39,7 @@ public class ControlsScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
 
-        //Create Background on layer 0
+        //Create Background
         ImageContainer imageContainer;
 
         imageContainer = new ImageContainer(0, 0, "/assets/backgrounds/BG-ControlsMenu.png", DrawLayer.Background);
@@ -101,7 +102,8 @@ public class ControlsScreen extends GameScreen {
                 (GameScreen) -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
                     if (!exitSetting.equals(inputSetting)) {
-                        screenManager.addScreen(new ConfirmControlsPopup(screenManager, this));
+                        screenManager.addScreen(new ConfirmationPopup(screenManager, this,
+                                "Return Without Saving?"));
                     } else {
                         setScreenState(ScreenState.TransitionOff);
                     }

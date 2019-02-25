@@ -1,4 +1,4 @@
-package gamescreens.screens.menus.options.graphics;
+package gamescreens.screens.menus.options;
 
 import gameengine.GameSettings;
 import gameobjects.renderables.TextBox;
@@ -7,6 +7,7 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.screens.ConfirmationPopup;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -103,7 +104,8 @@ public class GraphicsScreen extends GameScreen {
                 (GameScreen) -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
                     if (!exitSetting.equals(graphicsSetting)) {
-                        screenManager.addScreen(new ConfirmGraphicsPopup(screenManager, this));
+                        screenManager.addScreen(new ConfirmationPopup(screenManager, this,
+                                "Return Without Saving?"));
                     } else {
                         setScreenState(ScreenState.TransitionOff);
                     }

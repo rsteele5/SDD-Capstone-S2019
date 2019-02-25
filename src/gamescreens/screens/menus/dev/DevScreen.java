@@ -32,54 +32,60 @@ public class DevScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
         //Background image
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", DrawLayer.Background));
+        ImageContainer imageContainer;
+
+        imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", DrawLayer.Background);
+        imageContainer.addToScreen(this, true);
+
         //Create buttons
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-Loading.png",
+        Button button;
+        //Loading
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-Loading.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
                     screenManager.addScreen(new TestGameplayScreen(screenManager));
                     //TODO: Add Loading Screen
-                }));
+                });
+        button.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
+        button = new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Physics.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
                     screenManager.addScreen(new Level(screenManager));
-                }));
+                });
+        button.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON,
+        button = new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Inventory.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
                     //TODO: Add Inventory Screen
                     screenManager.addScreen(new InventoryScreen(screenManager));
-                }));
+                });
+        button.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        button = new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     setScreenState(ScreenState.TransitionOff);
-                }));
+                });
+        button.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160,
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160,
                 "/assets/buttons/Button-Vendor.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
                     screenManager.addScreen(new VendorScreen(screenManager));
-                }));
+                });
+        button.addToScreen(this, true);
     }
 
     //endregion
-
-    @Override
-    protected void activeUpdate() {
-
-    }
 }

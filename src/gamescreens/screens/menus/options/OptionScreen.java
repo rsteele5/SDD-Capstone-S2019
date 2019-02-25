@@ -5,8 +5,6 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
-import gamescreens.screens.menus.options.controls.ControlsScreen;
-import gamescreens.screens.menus.options.graphics.GraphicsScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
