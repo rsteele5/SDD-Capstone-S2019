@@ -36,6 +36,10 @@ public abstract class GameObject {
         this.y = y;
     }
 
+    public void set(int y) {
+        this.y = y;
+    }
+
     public boolean setActive(GameScreen screen){
         if(!isActive){
             screen.inactiveObjects.remove(this);

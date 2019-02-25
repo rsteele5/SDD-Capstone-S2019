@@ -136,13 +136,7 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     @Override
     public boolean setActive(GameScreen screen){
         if(super.setActive(screen)){
-            int i = 0;
-            for(RenderableObject renderable : screen.renderables){
-                if(renderable.getDrawLayer().ordinal() < drawLayer.ordinal()){
-                    i++;
-                } else break;
-            }
-            screen.renderables.add(i, this);
+            addToRenderables(screen);
             return true;
         }
         return false;
@@ -160,19 +154,19 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     @Override
     public void addToScreen(GameScreen screen, boolean isActive){
         super.addToScreen(screen, isActive);
-
-        if(isActive) {
-            int i = 0;
-            for(RenderableObject renderable : screen.renderables){
-                if(renderable.getDrawLayer().ordinal() <= drawLayer.ordinal()){
-                    i++;
-                } else break;
-            }
-            screen.renderables.add(i, this);
-        }
-
+        if(isActive) addToRenderables(screen);
         screen.loadables.add(this);
+    }
+
+    private void addToRenderables(GameScreen screen){
+        int i;
+        final int SIZE = screen.renderables.size();
+        for(i = 0; i < SIZE; i++){
+            if(screen.renderables.get(i).getDrawLayer().ordinal() > drawLayer.ordinal()) break;
+        }
+        screen.renderables.add(i, this);
     }
 
     public abstract void update();
 }
+

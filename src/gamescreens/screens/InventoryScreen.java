@@ -193,8 +193,12 @@ public class InventoryScreen extends GameScreen {
         //TODO: overlay Gridlayout Test
         final int COUNT = 9;
         GridLayoutContainer items = new GridLayoutContainer(screenManager, this, 3, 3);
+
+        ItemButton itemContainerButton;
         for(int i = 0; i < COUNT; i++){
-            items.add(new ItemButton());
+            itemContainerButton = new ItemButton();
+            itemContainerButton.addToScreen(this, false);
+            itemContainerButton.addToScreen(items, true);
         }
 
 
