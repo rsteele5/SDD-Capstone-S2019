@@ -7,7 +7,6 @@ import gameobjects.renderables.buttons.Button;
 import gamescreens.ScreenManager;
 import gamescreens.screens.InventoryScreen;
 import gamescreens.screens.Level;
-import gamescreens.screens.TestGameplayScreen;
 import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -39,13 +38,13 @@ public class DevScreen extends GameScreen {
 
         //Create buttons
         Button button;
-        //Loading
-        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON, "/assets/buttons/Button-Loading.png",
+
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
+                "/assets/buttons/Button-Vendor.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Loading");
-                    screenManager.addScreen(new TestGameplayScreen(screenManager));
-                    //TODO: Add Loading Screen
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
+                    screenManager.addScreen(new VendorScreen(screenManager));
                 });
         button.addToScreen(this, true);
 
@@ -74,15 +73,6 @@ public class DevScreen extends GameScreen {
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     setScreenState(ScreenState.TransitionOff);
-                });
-        button.addToScreen(this, true);
-
-        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 160,
-                "/assets/buttons/Button-Vendor.png",
-                DrawLayer.Entity,
-                (GameScreen) ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
-                    screenManager.addScreen(new VendorScreen(screenManager));
                 });
         button.addToScreen(this, true);
     }

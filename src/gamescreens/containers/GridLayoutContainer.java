@@ -37,11 +37,11 @@ public class GridLayoutContainer extends GameScreen {
     }
 
     public void add(RenderableObject rederable){
-        addObject(rederable);
+
         //TODO: format
     }
     public void addAt(RenderableObject rederable, int row, int col){
-        addObject(rederable);
+       
         //TODO: format to the row and col
     }
 
