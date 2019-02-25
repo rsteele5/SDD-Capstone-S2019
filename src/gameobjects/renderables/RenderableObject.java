@@ -164,7 +164,7 @@ public abstract class RenderableObject extends GameObject implements Loadable {
         if(isActive) {
             int i = 0;
             for(RenderableObject renderable : screen.renderables){
-                if(renderable.getDrawLayer().ordinal() < drawLayer.ordinal()){
+                if(renderable.getDrawLayer().ordinal() <= drawLayer.ordinal()){
                     i++;
                 } else break;
             }

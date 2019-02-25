@@ -32,10 +32,12 @@ public class TeamSplashScreen extends GameScreen {
 
         logo = new ImageContainer(0,0, "/assets/backgrounds/BG-TeamLogo.png", DrawLayer.Background);
         logo.addToScreen(this,true);
+
         cover = new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background);
         cover.setAlpha(1f);
         cover.addToScreen(this, true);
-        skipMsg = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background);
+
+        skipMsg = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Scenery);
         skipMsg.addToScreen(this, true);
 
         Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initialized Success");

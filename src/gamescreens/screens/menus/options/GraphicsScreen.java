@@ -35,6 +35,8 @@ public class GraphicsScreen extends GameScreen {
     //region <Construction and Initialization>
     public GraphicsScreen(ScreenManager screenManager) {
         super(screenManager, "ControlsScreen", true);
+        graphicsSetting = screenManager.getGameSettings().getGraphicsOption();
+        exitSetting = graphicsSetting;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class GraphicsScreen extends GameScreen {
         graphicsText = new TextBox(X_INIT_BUTTON+X_BUFFER, Y_INIT_BUTTON,
                 300,
                 150,
-                screenManager.getGameSettings().getInputMethod().name(),
+                screenManager.getGameSettings().getGraphicsOption().name(),
                 new Font("NoScary", Font.PLAIN, 60),
                 Color.WHITE);
 

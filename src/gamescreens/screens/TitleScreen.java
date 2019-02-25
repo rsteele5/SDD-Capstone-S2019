@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class TitleScreen extends GameScreen {
     //region <Variables>
-    private ScreenState previousState = null; //TODO: Remove after testing
+    ImageContainer cover;
     //endregion
     private boolean musicStart = false;
     //region <Construction and Initialization>
@@ -30,11 +30,14 @@ public class TitleScreen extends GameScreen {
         ImageContainer image;
         image = new ImageContainer(0,0, "/assets/backgrounds/BG-BlackCover.png", DrawLayer.Background);
         image.addToScreen(this,true);
-        image = new ImageContainer(0,-720, "/assets/backgrounds/BG-TitleScreenCover.png", DrawLayer.Background);
+
+        cover = new ImageContainer(0,-720, "/assets/backgrounds/BG-TitleScreenCover.png", DrawLayer.Scenery);
+        cover.addToScreen(this,true);
+
+        image = new ImageContainer(350,75, "/assets/backgrounds/BG-Title.png", DrawLayer.Scenery);
         image.addToScreen(this,true);
-        image = new ImageContainer(350,75, "/assets/backgrounds/BG-Title.png", DrawLayer.Background);
-        image.addToScreen(this,true);
-        image = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Background);
+
+        image = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Scenery);
         image.addToScreen(this,true);
     }
 
@@ -62,8 +65,8 @@ public class TitleScreen extends GameScreen {
                 e.printStackTrace();
             }
         }
-        if(renderables.get(1).getY() < -240)
-            renderables.get(1).setY(renderables.get(1).getY() + 2);
+        if(cover.getY() < -240)
+            cover.setY(cover.getY() + 2);
         else
             currentState = ScreenState.Active;
     }

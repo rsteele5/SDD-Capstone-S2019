@@ -10,13 +10,10 @@ import gamescreens.screens.Level;
 import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class DevScreen extends GameScreen {
     //region <Variables>
-    protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
-
     private final int X_INIT_BUTTON = 64;
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;

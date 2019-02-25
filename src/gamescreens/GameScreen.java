@@ -18,8 +18,9 @@ public abstract class GameScreen {
 
     //region <Variables>
     public String name;
+    protected float screenAlpha;
 
-    protected int x,y;
+    protected int x, y;
 
     private GameScreen childScreen;
     private ArrayList<GameScreen> overlayScreens;
@@ -33,21 +34,21 @@ public abstract class GameScreen {
     protected boolean loadingScreenRequired = false;
 
     /**
-     *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
-     *  An exclusive popup screen prevents updates on screens below it in the list.
+     * The variable exclusivePopup describes if a screen is covering a portion of another screen.
+     * An exclusive popup screen prevents updates on screens below it in the list.
      */
     protected boolean isExclusive = false;
     protected boolean isOverlay = false;
 
     /**
-     *  The variable exclusivePopup describes if a screen is covering a portion of another screen.
-     *  An exclusive popup screen prevents updates on screens below it in the list.
+     * The variable exclusivePopup describes if a screen is covering a portion of another screen.
+     * An exclusive popup screen prevents updates on screens below it in the list.
      */
     private boolean isLoading;
 
     /**
-     *  The variable overlay describes if a screen is covering another screen in it's entirety, but
-     *  does not prevent updates or rendering on screens below it in the list.
+     * The variable overlay describes if a screen is covering another screen in it's entirety, but
+     * does not prevent updates or rendering on screens below it in the list.
      */
     protected boolean isRoot;
 
@@ -61,12 +62,12 @@ public abstract class GameScreen {
     public ArrayList<RenderableObject> renderables;
 
     public void coverWith(GameScreen gameScreen) {
-        if(gameScreen.isRoot) {
+        if (gameScreen.isRoot) {
             gameScreen.childScreen = this;
             currentState = ScreenState.TransitionOff;
             return;
         }
-        if(gameScreen.isExclusive) {
+        if (gameScreen.isExclusive) {
             if (childScreen == null) {
                 childScreen = gameScreen;
             } else {
@@ -78,8 +79,8 @@ public abstract class GameScreen {
     }
 
     public void uncoveredBy(GameScreen gameScreen) {
-        if(childScreen == gameScreen) {
-            if(childScreen.childScreen != null) {
+        if (childScreen == gameScreen) {
+            if (childScreen.childScreen != null) {
                 childScreen = childScreen.childScreen;
             } else {
                 childScreen = null;
@@ -89,8 +90,8 @@ public abstract class GameScreen {
 
 
     public ArrayList<Kinematic> getPhysicsObjects() {
-        if(!isLoading){
-            if(childScreen != null) {
+        if (!isLoading) {
+            if (childScreen != null) {
                 return childScreen.getPhysicsObjects();
             } else {
                 return kinematics;
@@ -102,13 +103,13 @@ public abstract class GameScreen {
 
 
     /**
-     *  <p>Screen state describes all possible states that a screen can be in:</p>
-     *  <p><b>TransitionOn</b> - The screen is currently undergoing transition on effects. ie fade in etc</p>
-     *  <p><b>Active</b> - The screen is currently active and can accept input and update its objects</p>
-     *  <p><b>TransitionOff</b> - The screen is currently undergoing transition off effects. ie fade in etc</p>
-     *  <p><b>Hidden</b> - The screen is currently covered by another screen</p>
+     * <p>Screen state describes all possible states that a screen can be in:</p>
+     * <p><b>TransitionOn</b> - The screen is currently undergoing transition on effects. ie fade in etc</p>
+     * <p><b>Active</b> - The screen is currently active and can accept input and update its objects</p>
+     * <p><b>TransitionOff</b> - The screen is currently undergoing transition off effects. ie fade in etc</p>
+     * <p><b>Hidden</b> - The screen is currently covered by another screen</p>
      */
-    public enum ScreenState{
+    public enum ScreenState {
         TransitionOn,
         Active,
         TransitionOff,
@@ -116,21 +117,24 @@ public abstract class GameScreen {
     }
 
     /**
-     *  Current state describes what state the screen is currently in.
+     * Current state describes what state the screen is currently in.
      */
     protected ScreenState currentState;
     //endregion
 
     //region<Construction and Initialization>
-    public GameScreen(ScreenManager screenManager, String name) {
+    public GameScreen(ScreenManager screenManager, String name, float screenAlpha) {
         this.screenManager = screenManager;
         this.name = name;
         this.isRoot = true;
         previousState = null;
+        this.screenAlpha = screenAlpha;
         x = 0;
         y = 0;
         overlayScreens = new ArrayList<>();
         //GameObjects
+        activeObjects = new ArrayList<>();
+        inactiveObjects = new ArrayList<>();
         clickables = new ArrayList<>();
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
@@ -141,23 +145,36 @@ public abstract class GameScreen {
         loadContent();
     }
 
+    public GameScreen(ScreenManager screenManager, String name) {
+        this(screenManager, name, 0f);
+    }
+
 
     /* Only for non root screen */
     public GameScreen(ScreenManager screenManager, String name, boolean isExclusive) {
-        this(screenManager, name, isExclusive, 0,0);
+        this(screenManager, name, isExclusive, 0, 0, 0f);
+    }
+    public GameScreen(ScreenManager screenManager, String name, boolean isExclusive, float screenAlpha) {
+        this(screenManager, name, isExclusive, 0, 0, screenAlpha);
+    }
+    public GameScreen(ScreenManager screenManager, String name, boolean isExclusive, int xPos, int yPos) {
+        this(screenManager, name, isExclusive, xPos, yPos, 0f);
     }
 
-    public GameScreen(ScreenManager screenManager, String name, boolean isExclusive, int xPos, int yPos) {
+    public GameScreen(ScreenManager screenManager, String name, boolean isExclusive, int xPos, int yPos, float screenAlpha) {
         this.screenManager = screenManager;
         this.name = name;
         this.isRoot = false;
         this.isExclusive = isExclusive;
         this.isOverlay = !isExclusive;
         previousState = null;
+        this.screenAlpha = screenAlpha;
         x = xPos;
         y = yPos;
         overlayScreens = new ArrayList<>();
         //Game Objects
+        activeObjects = new ArrayList<>();
+        inactiveObjects = new ArrayList<>();
         clickables = new ArrayList<>();
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
@@ -166,25 +183,25 @@ public abstract class GameScreen {
         currentState = ScreenState.TransitionOn;
         isLoading = true;
         loadContent();
-
     }
 
+
     /**
-     *  Initializes all of the stuff you want on your screen
+     * Initializes all of the stuff you want on your screen
      */
     protected abstract void initializeScreen();
 
     /**
-     *  Loads the contents of this main.Game Screen.
+     * Loads the contents of this main.Game Screen.
      */
-    private void loadContent() {
+    protected void loadContent() {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
-            if(loadingScreenRequired) {
+            if (loadingScreenRequired) {
                 loadingScreen = screenManager.getLoadingScreen();
                 loadingScreen.initializeLoadingScreen(loadables.size());
                 coverWith(loadingScreen);
-                for (int i = 0; i < loadables.size(); i++){
+                for (int i = 0; i < loadables.size(); i++) {
                     loadables.get(i).load();
                     loadingScreen.dataLoaded(i);
                 }
@@ -193,7 +210,7 @@ public abstract class GameScreen {
                 loadingScreen.reset();
             }
             for (Loadable loadable : loadables) loadable.load();
-                loadables.removeAll(loadables);
+            loadables.removeAll(loadables);
             isLoading = false;
         });
         executorService.shutdown();
@@ -201,36 +218,45 @@ public abstract class GameScreen {
     //endregion
 
     //region <Getters and Setters>
-    public int getX(){return x;}
-    public int getY(){return y;}
+    public int getX() {
+        return x;
+    }
 
-    public void setPosition(int xPos, int yPos){
+    public int getY() {
+        return y;
+    }
+
+    public void setPosition(int xPos, int yPos) {
         x = xPos;
         y = yPos;
     }
 
-    public boolean isLoadingScreenRequired(){
+    public boolean isLoadingScreenRequired() {
         return loadingScreenRequired;
     }
 
-    public boolean isExclusive(){
+    public boolean isExclusive() {
         return isExclusive;
     }
 
-    public boolean isLoading(){
+    public boolean isLoading() {
         return isLoading;
     }
 
     /**
-     *  Returns true if a screen is active and can accept input or updates
+     * Returns true if a screen is active and can accept input or updates
      */
-    public boolean isActive(){
+    public boolean isActive() {
         return currentState == ScreenState.Active;
     }
 
-    public boolean isHidden(){return currentState == ScreenState.Hidden;}
+    public boolean isHidden() {
+        return currentState == ScreenState.Hidden;
+    }
 
-    public boolean isExiting(){return exiting;}
+    public boolean isExiting() {
+        return exiting;
+    }
 
     public ScreenState getScreenState() {
         return currentState;
@@ -245,10 +271,11 @@ public abstract class GameScreen {
 
     //region <Update>
     protected void transitionOn() {
-        currentState = ScreenState.Active;
+        defaultTransitionOn();
     }
-    protected void transitionOff(){
-        exiting = true;
+
+    protected void transitionOff() {
+        defaultTransitionOff();
     }
 
     //Override if you know what ur doing
@@ -354,27 +381,29 @@ public abstract class GameScreen {
     }
 
     public void defaultTransitionOn() {
-        float alpha = renderables.get(0).getAlpha();
-        if(alpha < 0.9f){
-            alpha += 0.05f;
-            for(RenderableObject renderable : renderables)
-                renderable.setAlpha(alpha);
+
+        if(screenAlpha < 0.9f){
+            screenAlpha += 0.05f;
+            setScreenAlpha(screenAlpha);
         } else {
-            for(RenderableObject renderable : renderables)
-                renderable.setAlpha(1.0f);
+            setScreenAlpha(1.0f);
             currentState = ScreenState.Active;
         }
     }
 
     public void defaultTransitionOff() {
-        float alpha = renderables.get(0).getAlpha();
-        if(alpha > 0.055f){
-            alpha -= 0.05f;
-            for(RenderableObject renderable : renderables)
-                renderable.setAlpha(alpha);
+        if(screenAlpha > 0.055f){
+            screenAlpha -= 0.05f;
+            setScreenAlpha(screenAlpha);
         } else {
             exiting = true;
         }
+    }
+
+    public void setScreenAlpha(float alpha){
+        screenAlpha = alpha;
+        for(RenderableObject renderable : renderables)
+            renderable.setAlpha(screenAlpha);
     }
     //endregion
 }

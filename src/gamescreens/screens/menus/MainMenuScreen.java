@@ -23,7 +23,7 @@ public class MainMenuScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public MainMenuScreen(ScreenManager screenManager) {
-        super(screenManager, "MainMenuScreen");
+        super(screenManager, "MainMenuScreen", 1f);
     }
 
     @Override
@@ -63,35 +63,4 @@ public class MainMenuScreen extends GameScreen {
         button.addToScreen(this,true);
     }
     //endregion
-
-    //region <Update>
-    @Override
-    protected void transitionOn() {
-        currentState = ScreenState.Active;
-    }
-
-    @Override
-    protected void transitionOff() {
-        exiting = true;
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate(){
-
-    }
-
-    //endregion
-
-    //region <Support Functions>
-
-    //endregion
-
 }
