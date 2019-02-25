@@ -266,8 +266,10 @@ public abstract class GameScreen {
     //Override if you know what ur doing
     protected void hiddenUpdate() {}
 
-    protected void activeUpdate(){
-        //TODO: Add update of all my fun little objects
+    protected void activeUpdate() {
+        for(GameObject activeObject: activeObjects){
+            activeObject.update();
+        }
     }
 
     /**
