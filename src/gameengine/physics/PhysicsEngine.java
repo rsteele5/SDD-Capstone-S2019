@@ -17,7 +17,7 @@ public class PhysicsEngine {
     }
 
     public void update(){
-        ArrayList<Kinematic> objects = new ArrayList<>();
+        ArrayList<Kinematic> objects;
         objects = screenManager.getPhysicsObjects();
         if(objects == null) {
             return;

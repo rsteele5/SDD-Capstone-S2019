@@ -61,7 +61,8 @@ public class ScreenManager {
     }
 
     public void clickEventAtLocation(int x, int y) {
-        rootScreen.handleClickEvent(x,y);
+        if(rootScreen.handleClickEvent(x,y))
+            Debug.success(DebugEnabler.GAME_SCREEN_LOG, "ScreenManager handled this click");
     }
 
     public void draw(Graphics2D graphics) {

@@ -26,9 +26,15 @@ public class ItemButton extends Button{
         super(x, y, notSelectedImagePath, drawLayer);
     }
 
+    public ItemButton() {
+        this(0, 0, DrawLayer.Entity);
+    }
+
     public ItemButton(int x, int y, DrawLayer drawLayer, Consumer<GameScreen> handleOnClick) {
         super(x, y, notSelectedImagePath, drawLayer, handleOnClick);
     }
+
+
 
     public Item getItem() {
         return item;

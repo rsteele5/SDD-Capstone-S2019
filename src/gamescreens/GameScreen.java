@@ -22,7 +22,7 @@ public abstract class GameScreen {
     protected int x,y;
 
     private GameScreen childScreen;
-    private GameScreen overlayScreen;
+    private ArrayList<GameScreen> overlayScreens;
     public LoadingScreen loadingScreen;
 
     //TODO: Used for testing, remove after screen management is working. If it so tickles your pickles
@@ -54,6 +54,8 @@ public abstract class GameScreen {
     protected boolean exiting = false;
 
     protected ArrayList<GameObject> gameObjects;
+    protected ArrayList<GameObject> inactiveObjects;
+    protected ArrayList<GameObject> activeObjects;
     protected ArrayList<Clickable> clickables;
     protected ArrayList<Kinematic> kinematics;
     protected ArrayList<Loadable> loadables;
@@ -75,7 +77,7 @@ public abstract class GameScreen {
                 childScreen.coverWith(gameScreen);
             }
         } else {
-            childScreen.overlayScreen = this;
+            addOverlay(gameScreen);
         }
     }
 
@@ -126,7 +128,13 @@ public abstract class GameScreen {
     //region<Construction and Initialization>
     public GameScreen(ScreenManager screenManager, String name) {
         this.screenManager = screenManager;
+        this.name = name;
+        this.isRoot = true;
         previousState = null;
+        x = 0;
+        y = 0;
+        overlayScreens = new ArrayList<>();
+        //GameObjects
         gameObjects = new ArrayList<>();
         clickables = new ArrayList<>();
         kinematics = new ArrayList<>();
@@ -135,10 +143,6 @@ public abstract class GameScreen {
         sceneryLayer = new ArrayList<>();
         entityLayer = new ArrayList<>();
         effectsLayer = new ArrayList<>();
-        x = 0;
-        y = 0;
-        this.name = name;
-        this.isRoot = true;
         initializeScreen();
         currentState = ScreenState.TransitionOn;
         isLoading = true;
@@ -153,7 +157,15 @@ public abstract class GameScreen {
 
     public GameScreen(ScreenManager screenManager, String name, boolean isExclusive, int xPos, int yPos) {
         this.screenManager = screenManager;
+        this.name = name;
+        this.isRoot = false;
+        this.isExclusive = isExclusive;
+        this.isOverlay = !isExclusive;
         previousState = null;
+        x = xPos;
+        y = yPos;
+        overlayScreens = new ArrayList<>();
+        //Game Objects
         gameObjects = new ArrayList<>();
         clickables = new ArrayList<>();
         kinematics = new ArrayList<>();
@@ -162,12 +174,6 @@ public abstract class GameScreen {
         sceneryLayer = new ArrayList<>();
         entityLayer = new ArrayList<>();
         effectsLayer = new ArrayList<>();
-        this.name = name;
-        this.isRoot = false;
-        x = xPos;
-        y = yPos;
-        this.isExclusive = isExclusive;
-        this.isOverlay = !isExclusive;
         initializeScreen();
         currentState = ScreenState.TransitionOn;
         isLoading = true;
@@ -199,7 +205,7 @@ public abstract class GameScreen {
                 loadingScreen.reset();
             }
             for (Loadable loadable : loadables) loadable.load();
-            loadables.removeAll(loadables);
+                loadables.removeAll(loadables);
             isLoading = false;
         });
         executorService.shutdown();
@@ -260,8 +266,41 @@ public abstract class GameScreen {
     //Override if you know what ur doing
     protected void hiddenUpdate() {}
 
-    protected abstract void activeUpdate();
+    protected void activeUpdate(){
+        //TODO: Add update of all my fun little objects
+    }
 
+    /**
+     *  Updates the state of the screen
+     */
+    public void update(){
+        // If I have an Exclusive child screen on top on me
+        if(childScreen != null) {
+            if(childScreen.isExiting()){
+                if(!isLoading){
+                    childScreen = null;
+                }
+            } else {
+                childScreen.update();
+            }
+        } else {
+            switch(currentState) {
+                case TransitionOn: transitionOn(); break;
+                case TransitionOff: transitionOff(); break;
+                case Active: activeUpdate(); break;
+                case Hidden: hiddenUpdate(); break;
+                default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
+            }
+
+            for (GameScreen overlay : overlayScreens)
+                overlay.update();
+
+            if(currentState != previousState){
+                previousState = currentState;
+                Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
+            }
+        }
+    }
 
     public final void drawScreen(Graphics2D graphics) {
         if(!isLoading) {
@@ -269,9 +308,8 @@ public abstract class GameScreen {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);
             }
-            if(overlayScreen != null) {
-                overlayScreen.drawScreen(graphics);
-            }
+            for(GameScreen overlay : overlayScreens)
+                overlay.drawScreen(graphics);
         } else {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);
@@ -289,55 +327,31 @@ public abstract class GameScreen {
         for(RenderableObject effect : effectsLayer)
             effect.draw(graphics);
     }
-
-    /**
-     *  Updates the state of the screen
-     */
-    public void update(){
-        if(childScreen != null) {
-            if(childScreen.isExiting()){
-                if(!isLoading){
-                    childScreen = null;
-                }
-            } else {
-                childScreen.update();
-            }
-        } else {
-            switch(currentState) {
-                case TransitionOn: transitionOn(); break;
-                case TransitionOff: transitionOff(); break;
-                case Active: activeUpdate(); break;
-                case Hidden: hiddenUpdate(); break;
-                default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
-            }
-            if(currentState != previousState){
-                previousState = currentState;
-                Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-CurrentState: " + currentState.name());
-            }
-        }
-    }
     //endregion
 
     //region <Support Functions>
-    public void handleClickEvent(int x, int y) {
-
+    public boolean handleClickEvent(int x, int y) {
+        //Handle click on the Exlusive screen covering me
         if(childScreen != null) {
             Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-handle click on child");
             childScreen.handleClickEvent(x,y);
         } else {
+            //Handle click on all overlays
+            for (GameScreen overlay : overlayScreens) {
+                Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-handle click on overlay");
+                if (overlay.handleClickEvent(x, y))
+                    return true;
+            }
+            // If no overlays handled clicks
             Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-screen handle click ");
             for(Clickable thing: clickables) {
                 if(thing.contains(x,y)) {
-                    //TODO: Need To Do type check for button or item button
                     thing.onClick(this);
-                    return;
+                    return true;
                 }
             }
-            if(overlayScreen != null){
-                Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + "-handle click on overlay");
-                overlayScreen.handleClickEvent(x,y);
-            }
         }
+        return false;
     }
 
     public void reset(){
@@ -360,7 +374,24 @@ public abstract class GameScreen {
             case Effects: effectsLayer.add(renderable);break;
         }
         loadables.add(renderable);
+        //activeObjects.add(renderable);
         gameObjects.add(renderable);
+    }
+
+    public void addInactiveObject(GameObject object){
+        if(activeObjects.contains(object)){
+            activeObjects.remove(object);
+        }
+        inactiveObjects.add(object);
+    }
+
+    public void addOverlay(GameScreen overlay){
+        if(!overlay.isOverlay){
+            Debug.error(DebugEnabler.GAME_SCREEN_LOG,
+                    overlay.name +"- is not an overlay. Will not add to overlays.");
+        } else {
+            overlayScreens.add(overlay);
+        }
     }
 
     public void defaultTransitionOn() {

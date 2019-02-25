@@ -111,16 +111,6 @@ public class VendorScreen extends GameScreen {
 
     }
 
-    @Override
-    public void handleClickEvent(int x, int y) {
-        for(Clickable butt: clickables) {
-            if(butt.contains(x,y)) {
-                butt.onClick(this);
-                return;
-            }
-        }
-    }
-
 //    @Override
 //    public void draw(Graphics2D graphics) {
 //        // Call this method to draw a string to the screen

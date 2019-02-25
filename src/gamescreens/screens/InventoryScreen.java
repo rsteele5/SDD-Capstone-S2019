@@ -10,6 +10,7 @@ import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
+import gamescreens.containers.GridLayoutContainer;
 import main.utilities.Debug;
 
 import java.awt.*;
@@ -19,7 +20,7 @@ import java.awt.image.BufferedImage;
 public class InventoryScreen extends GameScreen {
     /* Initialize variables *****************/
     //protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
-
+    //region<Variables>
     //renderablearray size
     private int rendArSize;
     // Squares horizontal
@@ -66,6 +67,7 @@ public class InventoryScreen extends GameScreen {
     private Button cBtn = null;
     private ItemButton currentItemButton = null;
     private TextBox itemDetails;
+    //endregion
 //
 //    public static Inventory inv;
     /* ****************************************/
@@ -107,16 +109,16 @@ public class InventoryScreen extends GameScreen {
      * @return Resized Image
      * @void BufferedImage The resized image takes the place of the original
      */
-    public BufferedImage resize(BufferedImage img, int newW, int newH) {
-        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
-        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
-
-        Graphics2D g2d = dimg.createGraphics();
-        g2d.drawImage(tmp, 0, 0, null);
-        g2d.dispose();
-
-        return dimg;
-    }
+//    public BufferedImage resize(BufferedImage img, int newW, int newH) {
+////        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+////        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+////
+////        Graphics2D g2d = dimg.createGraphics();
+////        g2d.drawImage(tmp, 0, 0, null);
+////        g2d.dispose();
+////
+////        return dimg;
+////    }
 
     /**
      * This layerInventoryButton method is specifically used to layer an item
@@ -127,25 +129,25 @@ public class InventoryScreen extends GameScreen {
      * @param img2 This parameter is the BufferedImage to be on top.
      * @return BufferedImage This returns the layered image as a new BufferedImage
      */
-    public static BufferedImage layerInventoryButton(BufferedImage img1, BufferedImage img2) {
-
-        //Get the width/height of the larger image
-        int wid = Math.max(img1.getWidth(), img2.getWidth());
-        int height = Math.max(img1.getHeight(), img2.getHeight());
-        //create a new buffer and draw two image into the new image
-        BufferedImage newImage = new BufferedImage(wid, height, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = newImage.createGraphics();
-        Color oldColor = g2.getColor();
-        //draw image
-        g2.setColor(oldColor);
-        g2.drawImage(img1, null, 0, 0);
-        //If the img2 is an item
-        if (img2.getHeight() == 40 || img2.getHeight() == 96) g2.drawImage(img2, null, 2, 2);
-            //If its the box and item for selection purposes
-        else g2.drawImage(img2, null, 0, 0);
-        g2.dispose();
-        return newImage;
-    }
+//    public static BufferedImage layerInventoryButton(BufferedImage img1, BufferedImage img2) {
+//
+//        //Get the width/height of the larger image
+//        int wid = Math.max(img1.getWidth(), img2.getWidth());
+//        int height = Math.max(img1.getHeight(), img2.getHeight());
+//        //create a new buffer and draw two image into the new image
+//        BufferedImage newImage = new BufferedImage(wid, height, BufferedImage.TYPE_INT_ARGB);
+//        Graphics2D g2 = newImage.createGraphics();
+//        Color oldColor = g2.getColor();
+//        //draw image
+//        g2.setColor(oldColor);
+//        g2.drawImage(img1, null, 0, 0);
+//        //If the img2 is an item
+//        if (img2.getHeight() == 40 || img2.getHeight() == 96) g2.drawImage(img2, null, 2, 2);
+//            //If its the box and item for selection purposes
+//        else g2.drawImage(img2, null, 0, 0);
+//        g2.dispose();
+//        return newImage;
+//    }
 
     /**
      * Initializes all of the stuff you want on your screen
@@ -164,6 +166,7 @@ public class InventoryScreen extends GameScreen {
                 .type(WeaponType.Sword)
                 .value(15)
                 .buildWeapon();
+        //addInactiveObject(myWeap);
         loadables.add(myWeap);
 
         itemDetails = new TextBox(300,75, 300, 400, "" ,
@@ -180,14 +183,32 @@ public class InventoryScreen extends GameScreen {
         addObject(button);
 
         button.setItem(myWeap);
+
+        //TODO: overlay Gridlayout Test
+        final int COUNT = 9;
+        GridLayoutContainer items = new GridLayoutContainer(screenManager, this, 3, 3);
+        for(int i = 0; i < COUNT; i++){
+            items.add(new ItemButton());
+        }
+
+
+        //TODO: implement items.add(new ItemButton(), 1,2);
+
+//        GameScreen -> {
+//            currentItemButton = getItem();
+//            itemDetails.setText(currentItemButton.getDescription());
+//        });
+
+        addOverlay(items);
+
     }
 
-    public void handleClickEvent(int x, int y) {
+    public boolean handleClickEvent(int x, int y) {
         Debug.log(true, name + "- Handle click");
         for(Clickable thing: clickables) {
             if(thing.contains(x,y)) {
                 thing.onClick(this);
-                return;
+                return true;
             }
         }
         if(currentItemButton != null){
@@ -195,16 +216,8 @@ public class InventoryScreen extends GameScreen {
             currentItemButton.deSelect();
             currentItemButton = null;
         }
+        return false;
     }
-
-//        GridLayout items = new GridLayout(screenManager, this, 3, 3);
-//        items.add(new Button());
-//        items.add(new Button(), 1,2);
-//        items.add(new Button());
-//        items.add(new Button());
-//        overlays.add(items);
-
-
 
     @Override
     protected void activeUpdate() {

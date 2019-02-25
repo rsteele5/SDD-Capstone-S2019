@@ -82,7 +82,7 @@ public class LoadingScreen extends GameScreen {
 
     //region <Support Functions>
     @Override
-    public void handleClickEvent(int x, int y) {}
+    public boolean handleClickEvent(int x, int y) {return false;}
 
     @Override
     public void reset(){

@@ -20,6 +20,10 @@ public class Button extends RenderableObject implements Clickable{
         onClick = handleOnClick;
     }
 
+    public Button(String imagePath, Consumer<GameScreen> handleOnClick) {
+        this(0, 0, imagePath, DrawLayer.Entity, handleOnClick);
+    }
+
     @Override
     public void update() { }
 

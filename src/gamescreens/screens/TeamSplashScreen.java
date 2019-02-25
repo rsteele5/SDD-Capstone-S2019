@@ -82,10 +82,11 @@ public class TeamSplashScreen extends GameScreen {
 
     //region <Support Functions>
     @Override
-    public void handleClickEvent(int x, int y) {
+    public boolean handleClickEvent(int x, int y) {
         Debug.log(DebugEnabler.GAME_SCREEN_LOG, "Clicked the splash screen");
         exiting = true;
         screenManager.addScreen(new TitleScreen(screenManager,"TitleScreen"));
+        return true;
     }
     //endregion
 }

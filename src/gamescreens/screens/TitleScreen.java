@@ -89,8 +89,9 @@ public class TitleScreen extends GameScreen {
 
     //region <Support Functions>
     @Override
-    public void handleClickEvent(int x, int y) {
+    public boolean handleClickEvent(int x, int y) {
         screenManager.addScreen(new MainMenuScreen(screenManager));
+        return true;
     }
     //endregion
 }

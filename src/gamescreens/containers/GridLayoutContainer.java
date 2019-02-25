@@ -3,24 +3,21 @@ package gamescreens.containers;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import main.Game;
 
-import java.util.ArrayList;
-
-public class GridLayout extends GameScreen {
+public class GridLayoutContainer extends GameScreen {
 
     protected int rows;
     protected int cols;
     protected GameScreen parentScreen;
 
-    public GridLayout(ScreenManager screenManager, GameScreen parentScreen, int rows, int cols) {
-        super(screenManager, "GridLayout", false, 0, 0);
+    public GridLayoutContainer(ScreenManager screenManager, GameScreen parentScreen, int rows, int cols) {
+        super(screenManager, "GridLayoutContainer", false, 0, 0);
         this.rows = rows;
         this.cols = cols;
         this.parentScreen = parentScreen;
     }
 
-    public GridLayout(ScreenManager screenManager, GameScreen parentScreen, int rows, int cols, int xPos, int yPos) {
+    public GridLayoutContainer(ScreenManager screenManager, GameScreen parentScreen, int rows, int cols, int xPos, int yPos) {
         this(screenManager,parentScreen, rows, cols);
         this.x = xPos;
         this.y = yPos;
