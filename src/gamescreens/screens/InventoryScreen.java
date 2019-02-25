@@ -155,9 +155,13 @@ public class InventoryScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
 
-        addObject(new ImageContainer(0,0,"/assets/backgrounds/BG-Inventory.png", DrawLayer.Background));
+        ImageContainer background;
+        background = new ImageContainer(0,0,"/assets/backgrounds/BG-Inventory.png", DrawLayer.Background);
+        background.addToScreen(this,true);
 
-        addObject(new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity));
+        ImageContainer teddy = new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity);
+        teddy.addToScreen(this,true);
+
 
         Weapon myWeap = new WeaponBuilder()
                 .position(100, 100)
@@ -169,12 +173,12 @@ public class InventoryScreen extends GameScreen {
         //addInactiveObject(myWeap);
         loadables.add(myWeap);
 
-        myWeap.addToScreen(this);
+        myWeap.addToScreen(this, true);
 
         itemDetails = new TextBox(300,75, 300, 400, "" ,
                 new Font("NoScary", Font.PLAIN, 60), Color.BLACK);
 
-        addObject(itemDetails);
+        itemDetails.addToScreen(this,true);
 
         ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
         button.setOnClick(GameScreen -> {
@@ -182,7 +186,7 @@ public class InventoryScreen extends GameScreen {
                     itemDetails.setText(button.getItem().getDescription());
                 });
 
-        addObject(button);
+        button.addToScreen(this,true);
 
         button.setItem(myWeap);
 

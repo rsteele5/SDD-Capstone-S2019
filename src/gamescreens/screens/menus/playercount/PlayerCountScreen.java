@@ -31,37 +31,47 @@ public class PlayerCountScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        addObject(new ImageContainer(0,0, "/assets/backgrounds/BG-PlayersMenu.png", DrawLayer.Background));
+        ImageContainer background = (new ImageContainer(0,0, "/assets/backgrounds/BG-PlayersMenu.png", DrawLayer.Background));
+        background.addToScreen(this, true);
 
+        ImageContainer image;
+        image = (new ImageContainer(X_INIT_BUTTON + 2*QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH, Y_INIT_BUTTON- TEDDY_HEIGHT, "/assets/Teddy.png", DrawLayer.Entity));
+        image.addToScreen(this,true);
+
+        image = new ImageContainer(X_INIT_BUTTON + QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH +2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON- TEDDY_HEIGHT, "/assets/Teddy.png", DrawLayer.Entity);
+        image.addToScreen(this,true);
+
+        image = new ImageContainer(X_INIT_BUTTON + 3*QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH +2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON- TEDDY_HEIGHT, "/assets/Teddy2.png", DrawLayer.Entity);
+        image.addToScreen(this,true);
+
+        Button button;
         //Create Buttons
-        addObject(new Button(X_INIT_BUTTON+0*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        button = new Button(X_INIT_BUTTON+0*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Solo.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
                     screenManager.addScreen(new ConfirmSoloPopup(screenManager,this));
-                }));
+                });
+        button.addToScreen(this, true);
 
-        addObject(new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        button = new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Coop.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Coop");
                     screenManager.addScreen(new ConfirmCoopPopup(screenManager,this));
-                }));
-        addObject(new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+                });
+        button.addToScreen(this, true);
+
+        button = new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     this.setScreenState(ScreenState.TransitionOff);
-                }));
-
-        /* Create all renderables */
-
-        addObject(new ImageContainer(X_INIT_BUTTON + 2*QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH, Y_INIT_BUTTON- TEDDY_HEIGHT, "/assets/Teddy.png", DrawLayer.Entity));
-        addObject(new ImageContainer(X_INIT_BUTTON + QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH +2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON- TEDDY_HEIGHT, "/assets/Teddy.png", DrawLayer.Entity));
-        addObject(new ImageContainer(X_INIT_BUTTON + 3*QRTR_BUTTON_WIDTH - HALF_TEDDY_WIDTH +2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON- TEDDY_HEIGHT, "/assets/Teddy2.png", DrawLayer.Entity));
+                });
+        button.addToScreen(this, true);
     }
     //endregion
 
