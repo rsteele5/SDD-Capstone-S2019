@@ -28,8 +28,7 @@ public class TempCoopScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public TempCoopScreen(ScreenManager screenManager, GameScreen covering) {
-        super(screenManager, "TempCoopScreen");
-        isExclusive = true;
+        super(screenManager, "TempCoopScreen", true);
         this.covering = covering;
     }
 
@@ -50,26 +49,4 @@ public class TempCoopScreen extends GameScreen {
     }
 
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        exiting = true;
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate() {
-    }
 }

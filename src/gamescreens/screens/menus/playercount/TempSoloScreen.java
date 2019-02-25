@@ -24,8 +24,7 @@ public class TempSoloScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public TempSoloScreen(ScreenManager screenManager, GameScreen covering) {
-        super(screenManager, "TempSoloScreen");
-        isExclusive = true;
+        super(screenManager, "TempSoloScreen", true);
         this.covering = covering;
     }
 
@@ -47,26 +46,4 @@ public class TempSoloScreen extends GameScreen {
     }
 
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        exiting = true;
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate() {
-    }
 }

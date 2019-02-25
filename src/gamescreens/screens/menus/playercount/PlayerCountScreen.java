@@ -25,8 +25,7 @@ public class PlayerCountScreen extends GameScreen {
 
     //region <Construction and Initialization>
     public PlayerCountScreen(ScreenManager screenManager) {
-        super(screenManager, "PlayerCountScreen");
-        isExclusive = true;
+        super(screenManager, "PlayerCountScreen", true);
     }
 
     @Override
@@ -74,27 +73,4 @@ public class PlayerCountScreen extends GameScreen {
         button.addToScreen(this, true);
     }
     //endregion
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        defaultTransitionOff();
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate() {
-
-    }
 }

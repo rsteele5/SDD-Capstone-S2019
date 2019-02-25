@@ -24,8 +24,7 @@ public class ConfirmCoopPopup extends GameScreen {
     private char screen;
 
     public ConfirmCoopPopup(ScreenManager screenManager, GameScreen covering) {
-        super(screenManager, "ConfirmSoloPopup");
-        isExclusive = true;
+        super(screenManager, "ConfirmCoopPopup", true);
         this.covering = covering;
     }
 
@@ -60,28 +59,5 @@ public class ConfirmCoopPopup extends GameScreen {
                     this.setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this, true);
-    }
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        exiting = true;
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate() {
-
     }
 }

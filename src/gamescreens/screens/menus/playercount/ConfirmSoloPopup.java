@@ -24,8 +24,7 @@ public class ConfirmSoloPopup extends GameScreen {
     private char screen;
 
     public ConfirmSoloPopup(ScreenManager screenManager, GameScreen covering) {
-        super(screenManager, "ConfirmSoloPopup");
-        isExclusive = true;
+        super(screenManager, "ConfirmSoloPopup", true);
         this.covering = covering;
     }
 
@@ -62,28 +61,5 @@ public class ConfirmSoloPopup extends GameScreen {
                     this.setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this, true);
-    }
-
-    @Override
-    protected void transitionOn() {
-        defaultTransitionOn();
-    }
-
-    @Override
-    protected void transitionOff() {
-        exiting = true;
-    }
-
-    @Override
-    protected void hiddenUpdate() {
-//        if(!screenManager.coveredByOverlay(this))
-//            currentState = ScreenState.TransitionOff;
-//        else
-//            activeUpdate();
-    }
-
-    @Override
-    protected void activeUpdate() {
-
     }
 }

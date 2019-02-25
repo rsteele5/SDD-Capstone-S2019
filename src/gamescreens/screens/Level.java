@@ -37,6 +37,7 @@ public class Level extends GameScreen {
 
         ImageContainer background;
         background = (new ImageContainer(0,0, bg, DrawLayer.Background));
+        background.addToScreen(this,true);
 
         Square square;
         square = new Square(50,50,path, DrawLayer.Entity);
@@ -92,6 +93,7 @@ public class Level extends GameScreen {
 
     @Override
     protected void activeUpdate() {
-
+        super.activeUpdate();
+        Debug.log(true, "active called");
     }
 }
