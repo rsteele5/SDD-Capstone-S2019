@@ -4,14 +4,18 @@ import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.TextBox;
 import gameobjects.renderables.buttons.ItemButton;
-import gameobjects.renderables.items.Weapon;
-import gameobjects.renderables.items.WeaponBuilder;
-import gameobjects.renderables.items.WeaponType;
+import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import main.utilities.Debug;
+import static gamescreens.DrawLayer.Effects;
+import static gameobjects.renderables.items.ArmorType.Head;
+import static gameobjects.renderables.items.ArmorType.Chest;
+import static gameobjects.renderables.items.ArmorType.Pants;
+import static gameobjects.renderables.items.ArmorType.Feet;
+import static gameobjects.renderables.items.ArmorType.OffHand;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -162,6 +166,15 @@ public class InventoryScreen extends GameScreen {
         ImageContainer teddy = new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity);
         teddy.addToScreen(this,true);
 
+        Armor myArmor = new ArmorBuilder()
+                .position(200,200)
+                .imagePath("/src/assets/Items/helmet1.png")
+                .name("My Fwirst Helmet")
+                .type(Head)
+                .value(20)
+                .buildWeapon();
+        loadables.add(myArmor);
+        //myArmor.addToScreen(this, true);
 
         Weapon myWeap = new WeaponBuilder()
                 .position(100, 100)
@@ -176,7 +189,7 @@ public class InventoryScreen extends GameScreen {
         myWeap.addToScreen(this, true);
 
         itemDetails = new TextBox(300,75, 300, 400, "" ,
-                new Font("NoScary", Font.PLAIN, 60), Color.BLACK);
+                new Font("NoScary", Font.PLAIN, 18), Color.BLACK);
 
         itemDetails.addToScreen(this,true);
 
@@ -188,7 +201,7 @@ public class InventoryScreen extends GameScreen {
 
         button.addToScreen(this,true);
 
-        button.setItem(myWeap);
+        button.setItem(myArmor);
 
         //TODO: overlay Gridlayout Test
         GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);

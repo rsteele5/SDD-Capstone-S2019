@@ -49,8 +49,8 @@ public class TextBox extends RenderableObject {
                     if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
                         newLine = newLine.concat(word + " ");
                     } else {
-                        displayText = displayText.concat(newLine + "\n" + word);
-                        newLine = "";
+                        displayText = displayText.concat(newLine + "\n");
+                        newLine = word + " ";
                     }
                 }
                 displayText = displayText.concat(newLine + "\n");
