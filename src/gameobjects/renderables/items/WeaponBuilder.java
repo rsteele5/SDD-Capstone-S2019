@@ -14,11 +14,14 @@ public class WeaponBuilder {
     private int _value = -1;
     //Weapon requirements
     private WeaponType _type = WeaponType.Misc;
+    private int _maxDamage = 0;
+    private int _minDamage = 0;
+    private int _critChance = 0;
 
     public WeaponBuilder(){ }
 
     public Weapon buildWeapon(){
-        return new Weapon(_x,_y,_imagePath,_layer,_name,_value,_type);
+        return new Weapon(_x,_y,_imagePath,_layer,_name,_value,_type, _minDamage, _maxDamage, _critChance);
     }
 
     public WeaponBuilder position(int x, int y){
@@ -49,6 +52,21 @@ public class WeaponBuilder {
 
     public WeaponBuilder type(WeaponType _type) {
         this._type = _type;
+        return this;
+    }
+
+    public WeaponBuilder maxDamage(int _maxDamage) {
+        this._maxDamage = _maxDamage;
+        return this;
+    }
+
+    public WeaponBuilder minDamage(int _minDamage) {
+        this._minDamage = _minDamage;
+        return this;
+    }
+
+    public WeaponBuilder critChance(int _critChance) {
+        this._critChance = _critChance;
         return this;
     }
 

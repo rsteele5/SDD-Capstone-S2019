@@ -6,30 +6,36 @@ import main.utilities.AssetLoader;
 
 import java.awt.image.BufferedImage;
 
-public class Weapon extends RenderableObject implements Item {
+public class Consumable extends RenderableObject implements Item {
+
     // Item Variables
     protected BufferedImage icon;
     protected String name;
     protected String description;
     protected int value;
 
-    // Weapon Variables
-    protected WeaponType type;
-    protected int maxDamage;
-    protected int minDamage;
-    protected int critChance;
+    // Consumable variables
+    protected AffectType affect;
+    protected ConsumableType type;
+    protected int minAffect;
+    protected int maxAffect;
 
-    protected Weapon(int x, int y, String imagePath, DrawLayer layer,
-                     String name, int value, WeaponType type, int minDamage, int maxDamage, int critChance){
-        super(x,y,imagePath,layer);
+    // TODO: Consume function should accept player as argument. Then does stuff to player depending on the consumable
+
+
+    protected Consumable(int x, int y, String imagePath, DrawLayer layer,
+                         String name, int value, ConsumableType type,
+                         AffectType affect, int maxAffect, int minAffect){
+        super(x, y, imagePath, layer);
         this.name = name;
         this.value = value;
         this.type = type;
-        this.minDamage = minDamage;
-        this.maxDamage = maxDamage;
-        this.critChance = critChance;
+        this.affect = affect;
+        this.maxAffect = maxAffect;
+        this.minAffect = minAffect;
 
-        setDescription("Testing the weapon description field now. aaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaa");
+        setDescription("Testing the consumable description field now. aaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaa");
+
     }
 
     @Override
@@ -44,16 +50,16 @@ public class Weapon extends RenderableObject implements Item {
 
     @Override
     public String getDescription() {
-        return  name +
+        return name +
                 "\nType: " + type.name() +
-                "\nDamage: " + minDamage + "-" + maxDamage +
-                "\nCrit Chance: " + critChance + "%" +
+                "\nAffect: " + affect.name() +
+                "\nEffectiveness: " + minAffect + "-" + maxAffect +
                 description;
     }
 
     @Override
     public ItemCategory getCategory() {
-        return ItemCategory.Weapon;
+        return ItemCategory.Consumable;
     }
 
     @Override
@@ -61,16 +67,18 @@ public class Weapon extends RenderableObject implements Item {
         return type.ordinal();
     }
 
+    public int getAffect() {
+        return affect.ordinal();
+    }
+
     @Override
     public int getValue() {
         return value;
     }
 
-    public int getMinDamage() { return minDamage;}
+    public int getMinAffect() { return minAffect;}
 
-    public int getMaxDamage() { return maxDamage;}
-
-    public int getCritChance() { return critChance;}
+    public int getMaxAffect() { return maxAffect;}
 
     private void setDescription(String myDescription) {
         description = "\n" + myDescription;
@@ -87,5 +95,3 @@ public class Weapon extends RenderableObject implements Item {
         icon = AssetLoader.resizeImage(image, image.getWidth()/2, image.getHeight()/2);
     }
 }
-
-

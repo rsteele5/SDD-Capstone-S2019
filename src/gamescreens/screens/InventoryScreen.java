@@ -176,6 +176,7 @@ public class InventoryScreen extends GameScreen {
         loadables.add(myArmor);
         //myArmor.addToScreen(this, true);
 
+        // Weapon button test
         Weapon myWeap = new WeaponBuilder()
                 .position(100, 100)
                 .imagePath("/assets/Items/sword1.png")
@@ -189,7 +190,7 @@ public class InventoryScreen extends GameScreen {
         myWeap.addToScreen(this, true);
 
         itemDetails = new TextBox(300,75, 300, 400, "" ,
-                new Font("NoScary", Font.PLAIN, 18), Color.BLACK);
+                new Font("NoScary", Font.PLAIN, 40), Color.BLACK);
 
         itemDetails.addToScreen(this,true);
 
@@ -200,8 +201,32 @@ public class InventoryScreen extends GameScreen {
                 });
 
         button.addToScreen(this,true);
+        button.setItem(myWeap);
 
-        button.setItem(myArmor);
+
+        // Consumable button test
+        Consumable myCons = new ConsumableBuilder()
+                .position(800, 100)
+                .imagePath("/assets/Items/bluepotion.png")
+                .name("My Fwirst Potion!")
+                .type(ConsumableType.edible)
+                .value(15)
+                .buildConsumable();
+        //addInactiveObject(myWeap);
+        loadables.add(myCons);
+
+        myCons.addToScreen(this, true);
+
+        ItemButton buttonCons = new ItemButton(500, 200, DrawLayer.Entity);
+        buttonCons.setOnClick(GameScreen -> {
+            currentItemButton = buttonCons;
+            itemDetails.setText(buttonCons.getItem().getDescription());
+        });
+
+        buttonCons.addToScreen(this,true);
+        buttonCons.setItem(myCons);
+
+
 
         //TODO: overlay Gridlayout Test
         GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);
