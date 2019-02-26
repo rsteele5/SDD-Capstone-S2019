@@ -227,8 +227,8 @@ public class InventoryScreen extends GameScreen {
         buttonCons.addToScreen(this,true);
         buttonCons.setItem(myCons);
 
-        DialogBox diagBox = new DialogBox(500,500, 500, 500, "a a a a a a a a a a a a a a a a a a  a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a");
-        diagBox.addToScreen(this, true);
+
+
         //TODO: overlay Gridlayout Test
         GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);
         ItemButton itemContainerButton;

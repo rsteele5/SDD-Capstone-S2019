@@ -37,28 +37,8 @@ public class TextBox extends RenderableObject {
 
     @Override
     public void draw(Graphics2D graphics) {
-        if(displayText == ""){
-            //Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
-            graphics.setFont(font);
-            graphics.setColor(color);
-            String newLine = "";
-            displayText = "";
-            if(text != "") {
-                for (String line : text.split("\n")) {
-                    for (String word : line.split(" ")) {
-                        if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
-                            newLine = newLine.concat(word + " ");
-                        } else {
-                            displayText = displayText.concat(newLine + "\n");
-                            newLine = word + " ";
-                        }
-                    }
-                    displayText = displayText.concat(newLine + "\n");
-                    newLine = "";
-                }
-            }
-        }
-
+        if(displayText.equals("")) parseString(graphics);
+        graphics.setFont(font);
         int fontHeight = graphics.getFontMetrics().getHeight();
         int fontAscent = graphics.getFontMetrics().getAscent();
         int row = 0;
@@ -67,6 +47,27 @@ public class TextBox extends RenderableObject {
             if(row < height){
                 graphics.drawString(line, x, y + row + fontAscent);
                 row += fontHeight;
+            }
+        }
+    }
+
+    private void parseString(Graphics2D graphics) {//Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
+        graphics.setFont(font);
+        graphics.setColor(color);
+        String newLine = "";
+        displayText = "";
+        if(!text.equals("")) {
+            for (String line : text.split("\n")) {
+                for (String word : line.split(" ")) {
+                    if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
+                        newLine = newLine.concat(word + " ");
+                    } else {
+                        displayText = displayText.concat(newLine + "\n");
+                        newLine = word + " ";
+                    }
+                }
+                displayText = displayText.concat(newLine + "\n");
+                newLine = "";
             }
         }
     }
