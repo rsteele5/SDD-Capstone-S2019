@@ -74,6 +74,10 @@ public class TextBox extends RenderableObject {
         this.text = text;
     }
 
+    public String getText() {
+        return this.text;
+    }
+
     @Override
     public void load(){
         if(imagePath != ""){

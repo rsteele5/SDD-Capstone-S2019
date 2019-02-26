@@ -1,7 +1,6 @@
 package gameobjects.renderables;
 
 import gameobjects.renderables.items.Item;
-import gameobjects.renderables.items.Weapon;
 import gameobjects.renderables.items.WeaponBuilder;
 import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
@@ -10,13 +9,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Vendor extends RenderableObject {
     private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
-
+    private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
 
     // Default constructor
     public Vendor(int x, int y){
         super(x, y);
+        this.imagePath = "/assets/Vendor.png";
         this.drawLayer = DrawLayer.Entity;
-
+        initializeItems();
     }
 
     private void initializeItems() {
@@ -50,6 +50,9 @@ public class Vendor extends RenderableObject {
                 .critChance(3)
                 .buildWeapon());
 
+        for (Item item : items){
+            rItems.add((RenderableObject) item);
+        }
 
     }
 
@@ -60,5 +63,9 @@ public class Vendor extends RenderableObject {
 
     public CopyOnWriteArrayList<Item> getItems() {
         return items;
+    }
+
+    public CopyOnWriteArrayList<RenderableObject> getRenderables() {
+        return rItems;
     }
 }

@@ -29,7 +29,7 @@ public class Weapon extends RenderableObject implements Item {
         this.maxDamage = maxDamage;
         this.critChance = critChance;
 
-        setDescription("Testing the weapon description field now. aaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaa");
+        setDescription("Testing the weapon description field now. aa aa aa aa aa aa aa aa aa aa aa aa stop");
     }
 
     @Override
