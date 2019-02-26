@@ -73,8 +73,4 @@ public class DialogBox extends TextBox{
             }
         }
     }
-
-    public void finalize() {
-
-    }
 }
