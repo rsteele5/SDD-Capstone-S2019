@@ -8,11 +8,10 @@ import java.awt.*;
 
 public class TextBox extends RenderableObject {
 
-    private String text;
-    private String displayText;
-    private Font font;
-    private Color color;
-    private Graphics graphics;
+    protected String text;
+    protected String displayText;
+    protected Font font;
+    protected Color color;
 
     public TextBox(int x, int y, int width, int height, String text) {
         super(x,y);
@@ -38,12 +37,26 @@ public class TextBox extends RenderableObject {
 
     @Override
     public void draw(Graphics2D graphics) {
-        //Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
+        if(displayText.equals("")) parseString(graphics);
+        graphics.setFont(font);
+        int fontHeight = graphics.getFontMetrics().getHeight();
+        int fontAscent = graphics.getFontMetrics().getAscent();
+        int row = 0;
+        String text = displayText;
+        for (String line: text.split("\n")) {
+            if(row < height){
+                graphics.drawString(line, x, y + row + fontAscent);
+                row += fontHeight;
+            }
+        }
+    }
+
+    private void parseString(Graphics2D graphics) {//Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
         graphics.setFont(font);
         graphics.setColor(color);
         String newLine = "";
-        String displayText = "";
-        if(text != "") {
+        displayText = "";
+        if(!text.equals("")) {
             for (String line : text.split("\n")) {
                 for (String word : line.split(" ")) {
                     if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
@@ -57,21 +70,11 @@ public class TextBox extends RenderableObject {
                 newLine = "";
             }
         }
-
-        int fontHeight = graphics.getFontMetrics().getHeight();
-        int fontAscent = graphics.getFontMetrics().getAscent();
-        int row = 0;
-        String text = displayText;
-        for (String line: text.split("\n")) {
-            if(row < height){
-                graphics.drawString(line, x, y + row + fontAscent);
-                row += fontHeight;
-            }
-        }
     }
 
     public void setText(String text) {
         this.text = text;
+        displayText = "";
     }
 
     @Override

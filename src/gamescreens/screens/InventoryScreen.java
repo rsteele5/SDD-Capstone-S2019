@@ -1,6 +1,7 @@
 package gamescreens.screens;
 
 import gameobjects.Clickable;
+import gameobjects.renderables.DialogBox;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.TextBox;
 import gameobjects.renderables.buttons.ItemButton;

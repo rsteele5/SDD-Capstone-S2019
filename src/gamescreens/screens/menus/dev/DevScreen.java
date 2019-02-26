@@ -1,5 +1,6 @@
 package gamescreens.screens.menus.dev;
 
+import _test.GameIntroScreen;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
@@ -35,6 +36,15 @@ public class DevScreen extends GameScreen {
 
         //Create buttons
         Button button;
+
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 128,
+                "/assets/buttons/Button-Test.png",
+                DrawLayer.Entity,
+                (GameScreen) ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
+                    screenManager.addScreen(new GameIntroScreen(screenManager));
+                });
+        button.addToScreen(this, true);
 
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Vendor.png",
