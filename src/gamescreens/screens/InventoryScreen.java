@@ -10,7 +10,7 @@ import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import gamescreens.containers.GridLayoutContainer;
+import gamescreens.containers.GridContainer;
 import main.utilities.Debug;
 
 import java.awt.*;
@@ -191,24 +191,30 @@ public class InventoryScreen extends GameScreen {
         button.setItem(myWeap);
 
         //TODO: overlay Gridlayout Test
-        final int COUNT = 9;
-        GridLayoutContainer items = new GridLayoutContainer(screenManager, this, 3, 3, 10, 250);
+        GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);
         ItemButton itemContainerButton;
-        for(int i = 0; i < COUNT; i++){
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
             itemContainerButton = new ItemButton();
-
-            itemContainerButton.addToScreen(this, false);
-            itemContainerButton.addToScreen(items, true);
+            items.addAt(itemContainerButton, i, j);
         }
 
-        final int _COUNT = 5;
-        GridLayoutContainer equipped = new GridLayoutContainer(screenManager, this, 3, 3, 260, 250);
+        GridContainer equipped = new GridContainer(this, 4, 3, 50, 50, 260, 250);
         ItemButton equippedContainerButton;
-        for(int i = 0; i < _COUNT; i++){
-            equippedContainerButton = new ItemButton();
 
-            equippedContainerButton.addToScreen(this, false);
-            equippedContainerButton.addToScreen(equipped, true);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 0, 1);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 1, 0);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 1, 1);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 1, 2);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 2, 1);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 3, 1);
+
         }
 
 
