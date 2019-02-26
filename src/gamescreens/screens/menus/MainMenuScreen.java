@@ -1,5 +1,6 @@
 package gamescreens.screens.menus;
 
+import gameengine.audio.Audio;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -10,6 +11,10 @@ import gamescreens.screens.menus.options.OptionScreen;
 import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
 
 
 public class MainMenuScreen extends GameScreen {
@@ -28,10 +33,12 @@ public class MainMenuScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
+
         //Create Background on layer 0
         ImageContainer image;
         image = new ImageContainer(0,0, "/assets/backgrounds/BG-MainMenu.png", DrawLayer.Background);
         image.addToScreen(this,true);
+
 
         //Create buttons
         Button button;
@@ -61,6 +68,16 @@ public class MainMenuScreen extends GameScreen {
                     screenManager.addScreen(new DevScreen(screenManager));
         }));
         button.addToScreen(this,true);
+
+        button = (new Button( X_INIT_BUTTON+3*(2*X_BUFFER+WIDTH_BUTTON), 0,
+                "/assets/buttons/Button-Sound-On.png",
+                DrawLayer.Entity,
+                (GameScreen) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - SoundOn");
+                    Audio.changeSoundState();
+                    Audio.play(this.getClass().getClassLoader().getResource("assets/music/test2.wav"));
+                }));
+        button.addToScreen(this, true);
     }
     //endregion
 }

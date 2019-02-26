@@ -3,6 +3,7 @@ package gamescreens.screens;
 import _test.Square;
 import gameengine.rendering.RenderEngine;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.buttons.Button;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -22,6 +23,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Level extends GameScreen {
     private CopyOnWriteArrayList<GameObject> onScreen;
     private CopyOnWriteArrayList<Kinematic> kinematicObjects;
+
+    private final int X_INIT_BUTTON = 64;
+    private final int Y_INIT_BUTTON = 576;
+    private final int WIDTH_BUTTON = 256;
+    private final int X_BUFFER = 48;
 
     public Level(ScreenManager screenManager) {
         super(screenManager, "Level", true);
@@ -74,6 +80,17 @@ public class Level extends GameScreen {
         square.addToScreen(this, true);
         square = new Square(400,100,path,DrawLayer.Entity);
         square.addToScreen(this, true);
+
+        Button butt;
+        butt = new Button(X_INIT_BUTTON + 3 * (X_BUFFER + WIDTH_BUTTON),
+                Y_INIT_BUTTON,
+                "/assets/buttons/Button-Back.png",
+                DrawLayer.Entity,
+                (GameScreen) -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
+                    setScreenState(ScreenState.TransitionOff);
+                });
+        butt.addToScreen(this, true);
     }
 
     @Override
