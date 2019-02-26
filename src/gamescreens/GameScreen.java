@@ -3,8 +3,10 @@ package gamescreens;
 import gameengine.physics.Kinematic;
 import gameobjects.Clickable;
 import gameobjects.GameObject;
+import gameobjects.Player;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.screens.LoadingScreen;
+import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import main.utilities.Loadable;
@@ -142,6 +144,7 @@ public abstract class GameScreen {
         initializeScreen();
         currentState = ScreenState.TransitionOn;
         isLoading = true;
+
         loadContent();
     }
 

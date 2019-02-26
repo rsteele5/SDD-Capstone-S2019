@@ -1,6 +1,9 @@
 package gameengine;
 
 import static gameengine.GameSettings.*;
+
+import gameobjects.Player;
+import gamescreens.DrawLayer;
 import input.listeners.MouseController;
 import gameengine.physics.PhysicsEngine;
 import gameengine.rendering.RenderEngine;
@@ -10,6 +13,7 @@ import main.utilities.DebugEnabler;
 import javax.swing.JFrame;
 import java.awt.Graphics;
 import java.awt.Container;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class GameEngine implements Runnable {
@@ -24,14 +28,21 @@ public class GameEngine implements Runnable {
     private ScreenManager screenManager;
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
-
-
+    public static ArrayList<Player> players;
+    private static Player p1,p2;
     public GameEngine(){
+        p1 = new Player(50,50,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        p2 = new Player(50,50,"/assets/testAssets/square2.png", DrawLayer.Entity);
         gameSettings = new GameSettings(this);
         screenManager = new ScreenManager(gameSettings);
         renderEngine = new RenderEngine(screenManager);
         physicsEngine = new PhysicsEngine(screenManager);
         renderEngine.addMouseListener(new MouseController());
+        players = new ArrayList<>(){{
+            add(p1);
+            add(p2);
+        }};
+        Debug.log(true, String.valueOf(players.size()));
     }
 
     public Graphics getGraphics(){
