@@ -45,7 +45,7 @@ public class TitleScreen extends GameScreen {
     public void transitionOn() {
         if(!musicStart) {
             musicStart = true;
-            BackgroundAudio.play(this.getClass().getClassLoader().getResource("assets/music/test.wav"));
+            BackgroundAudio.play(this.getClass().getClassLoader().getResource("assets/music/title.wav"));
         }
         if(cover.getY() < -240)
             cover.setY(cover.getY() + 2);

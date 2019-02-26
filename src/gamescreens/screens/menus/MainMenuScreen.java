@@ -64,15 +64,6 @@ public class MainMenuScreen extends GameScreen {
                     screenManager.addScreen(new DevScreen(screenManager));
         }));
         button.addToScreen(this,true);
-
-        button = (new Button( X_INIT_BUTTON+3*(2*X_BUFFER+WIDTH_BUTTON), 0,
-                "/assets/buttons/Button-Sound-On.png",
-                DrawLayer.Entity,
-                (GameScreen) -> {
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - SoundOn");
-                    BackgroundAudio.changeSoundState();
-                }));
-        button.addToScreen(this, true);
     }
     //endregion
 }
