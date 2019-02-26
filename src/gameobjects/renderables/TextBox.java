@@ -8,11 +8,10 @@ import java.awt.*;
 
 public class TextBox extends RenderableObject {
 
-    private String text;
-    private String displayText;
-    private Font font;
-    private Color color;
-    private Graphics graphics;
+    protected String text;
+    protected String displayText;
+    protected Font font;
+    protected Color color;
 
     public TextBox(int x, int y, int width, int height, String text) {
         super(x,y);
@@ -38,23 +37,25 @@ public class TextBox extends RenderableObject {
 
     @Override
     public void draw(Graphics2D graphics) {
-        //Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
-        graphics.setFont(font);
-        graphics.setColor(color);
-        String newLine = "";
-        String displayText = "";
-        if(text != "") {
-            for (String line : text.split("\n")) {
-                for (String word : line.split(" ")) {
-                    if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
-                        newLine = newLine.concat(word + " ");
-                    } else {
-                        displayText = displayText.concat(newLine + "\n");
-                        newLine = word + " ";
+        if(displayText == ""){
+            //Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
+            graphics.setFont(font);
+            graphics.setColor(color);
+            String newLine = "";
+            displayText = "";
+            if(text != "") {
+                for (String line : text.split("\n")) {
+                    for (String word : line.split(" ")) {
+                        if (graphics.getFontMetrics().stringWidth(newLine + word) < width) {
+                            newLine = newLine.concat(word + " ");
+                        } else {
+                            displayText = displayText.concat(newLine + "\n");
+                            newLine = word + " ";
+                        }
                     }
+                    displayText = displayText.concat(newLine + "\n");
+                    newLine = "";
                 }
-                displayText = displayText.concat(newLine + "\n");
-                newLine = "";
             }
         }
 
@@ -72,6 +73,7 @@ public class TextBox extends RenderableObject {
 
     public void setText(String text) {
         this.text = text;
+        displayText = "";
     }
 
     @Override
