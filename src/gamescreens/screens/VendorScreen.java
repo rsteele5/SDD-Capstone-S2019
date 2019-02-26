@@ -14,21 +14,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class VendorScreen extends GameScreen {
-    /* Array of x values for bear item box locations **/
-    private int [] xValBearItems = {191, 239, 287, 335};
+    /* Variables ******************************/
+    private int x_screen = 100;
+    private int y_screen = 100;
 
-    /* Array of x values for vendor item box locations **/
-    private int [] xValVendorItems = {927, 975, 1023, 1071};
-
-    /* Array of y values for bear AND vendor item box locations **/
-    private int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
 
     /* x and y positions for text */
-    private int x_position = 765;
+    private int x_playerText = 300;
+    private int x_vendorText = 665;
     private int y_position = 220;
 
     private Item currentItem = null;
-    private Button currentButton = null;
     /* ****************************************/
 
     /** Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/

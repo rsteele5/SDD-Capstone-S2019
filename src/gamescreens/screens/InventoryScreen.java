@@ -199,9 +199,9 @@ public class InventoryScreen extends GameScreen {
         //addInactiveObject(myWeap);
         loadables.add(myCons);
 
-        myCons.addToScreen(this, true);
+        //myCons.addToScreen(this, true);
 
-        ItemButton buttonCons = new ItemButton(500, 200, DrawLayer.Entity);
+        ItemButton buttonCons = new ItemButton(200, 250, DrawLayer.Entity);
         buttonCons.setOnClick(GameScreen -> {
             currentItemButton = buttonCons;
             itemDetails.setText(buttonCons.getItem().getDescription());
