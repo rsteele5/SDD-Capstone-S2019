@@ -2,67 +2,67 @@ package gamescreens.screens;
 
 import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.TextBox;
+import gameobjects.renderables.Vendor;
+import gameobjects.renderables.buttons.ItemButton;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.items.Item;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.containers.GridContainer;
+import gamescreens.screens.menus.dev.DevScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
+import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class VendorScreen extends GameScreen {
-    /* Array of x values for bear item box locations **/
-    private int [] xValBearItems = {191, 239, 287, 335};
-
-    /* Array of x values for vendor item box locations **/
-    private int [] xValVendorItems = {927, 975, 1023, 1071};
-
-    /* Array of y values for bear AND vendor item box locations **/
-    private int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
-
-    /* x and y positions for text */
-    private int x_position = 765;
-    private int y_position = 220;
-
+    //region Variables ******************************/
+    private ItemButton currentItemButton = null;
     private Item currentItem = null;
-    private Button currentButton = null;
-    /* ****************************************/
 
-    /** Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
-    private CopyOnWriteArrayList<Item> bearInventory;
+
+    /** Will load player's and vendor's items into arrays **/
+    private CopyOnWriteArrayList<Item> playerInventory;
     private CopyOnWriteArrayList<Item> vendorInventory;
-
+    //endregion ****************************************/
 
     public VendorScreen(ScreenManager screenManager) {
-        super(screenManager, "VendorScreen", true);
-
-        /* Remove after testing. Populates inventories with red potion **/
-     }
+        super(screenManager, "VendorScreen", true, 150, 75);
+    }
 
     @Override
     protected void initializeScreen() {
-        bearInventory = new CopyOnWriteArrayList<>();
-        vendorInventory = new CopyOnWriteArrayList<>();
+        Vendor myVendor = DevScreen.vendor;
+        vendorInventory = myVendor.getItems();
+        playerInventory = myVendor.getItems();
+
+        for (RenderableObject renderable: myVendor.getRenderables()){
+            renderable.addToScreen(this, false);
+        }
+
         /* Create all renderables **/
         ImageContainer imageContainer;
 
-        imageContainer = new ImageContainer(150, 75, "/assets/VendorBackground.png", DrawLayer.Background);
+        imageContainer = new ImageContainer(0, 0, "/assets/VendorBackground.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(765, 410, "/assets/Vendor.png", DrawLayer.Entity);
+        imageContainer = new ImageContainer(myVendor.getX(), myVendor.getY(), myVendor.getImagePath(), myVendor.getDrawLayer());
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(400, 380, "/assets/Teddy.png", DrawLayer.Entity);
+        imageContainer = new ImageContainer(350, 335, "/assets/Teddy.png", DrawLayer.Entity);
+        imageContainer.setSize(90, 140);
         imageContainer.addToScreen(this, true);
 
 
-        /* Create buttons **/
+        //region Create screen buttons **/
         Button button;
 
-        button = new Button(175, 100,
+        button = new Button(25, 25,
                 "/assets/buttons/Button-Vendor-Exit.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
@@ -71,39 +71,113 @@ public class VendorScreen extends GameScreen {
                 }));
         button.addToScreen(this, true);
 
-        button = new Button(775, 560,
+        button = new Button(565, 485,
                 "/assets/buttons/Button-Vendor-Buy.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
                     if (vendorInventory.size() > 0 && currentItem != null) {
                         vendorInventory.remove(currentItem);
-                        bearInventory.add(currentItem);
+                        playerInventory.add(currentItem);
                         currentItem = null;
                     }
                 }));
         button.addToScreen(this, true);
 
-        button = new Button(400, 560,
+        button = new Button(330, 485,
                 "/assets/buttons/Button-Vendor-Sell.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Sell to Vendor");
-                    if (bearInventory.size() > 0 && currentItem != null) {
-                        bearInventory.remove(currentItem);
+                    if (playerInventory.size() > 0 && currentItem != null) {
+                        playerInventory.remove(currentItem);
                         vendorInventory.add(currentItem);
                         currentItem = null;
                     }
                 }));
         button.addToScreen(this, true);
+        //endregion
 
+        // Create text boxes to hold item description
+        /* x and y positions for text */
+        int x_playerText = 275;
+        int y_position = 125;
+        TextBox itemDetailsPlayer = new TextBox(x_playerText, y_position, 210, 200, "",
+                new Font("NoScary", Font.PLAIN, 26), Color.BLACK);
+        itemDetailsPlayer.addToScreen(this,true);
 
-//        bearInventory.add(new Weapon());
-//        vendorInventory.add(new Potion());
-//        vendorInventory.add(new Potion());
-//        vendorInventory.add(new Weapon());
-//        vendorInventory.add(new Helmet());
-        createItemButtons();
+        int x_vendorText = 550;
+        TextBox itemDetailsVendor = new TextBox(x_vendorText, y_position, 210, 200, "",
+                new Font("NoScary", Font.PLAIN, 26), Color.BLACK);
+
+        itemDetailsVendor.addToScreen(this,true);
+
+        // Create Gridlayout for player item buttons
+        int rows = 7;
+        int columns = 4;
+        GridContainer playerItems = new GridContainer(this, rows, columns, 50, 125, 50, 150);
+        ItemButton itemContainerButton;
+
+        int count = playerInventory.size();
+        int k = 0;
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                itemContainerButton = new ItemButton();
+                playerItems.addAt(itemContainerButton, i, j);
+                if (k < count) {
+                    itemContainerButton.setItem(playerInventory.get(k));
+                    ItemButton finalItemContainerButton = itemContainerButton;
+                    itemContainerButton.setOnClick(GameScreen -> {
+                        if (currentItemButton != null) {
+                            currentItemButton.deSelect();
+                            if (itemDetailsPlayer.getText().length() > 0){
+                                itemDetailsPlayer.setText("");
+                            }
+                            if (itemDetailsVendor.getText().length() > 0){
+                                itemDetailsVendor.setText("");
+                            }
+                        }
+                        currentItemButton = finalItemContainerButton;
+                        currentItem = currentItemButton.getItem();
+                        itemDetailsPlayer.setText(currentItem.getDescription());
+                    });
+                    k++;
+                }
+            }
+        }
+
+        // Create Gridlayout for vendor item buttons
+        GridContainer vendorItems = new GridContainer(this, rows, columns, 50, 125, 760, 150);
+
+        count = vendorInventory.size();
+        k = 0;
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                itemContainerButton = new ItemButton();
+                vendorItems.addAt(itemContainerButton, i, j);
+                if (k < count) {
+                    itemContainerButton.setItem(vendorInventory.get(k));
+                    ItemButton finalItemContainerButton = itemContainerButton;
+                    itemContainerButton.setOnClick(GameScreen -> {
+                        if (currentItemButton != null) {
+                            currentItemButton.deSelect();
+                            // Reset previous item's text to ""
+                            if (itemDetailsPlayer.getText().length() > 0){
+                                itemDetailsPlayer.setText("");
+                            }
+                            if (itemDetailsVendor.getText().length() > 0){
+                                itemDetailsVendor.setText("");
+                            }
+                        }
+                        currentItemButton = finalItemContainerButton;
+                        currentItem = currentItemButton.getItem();
+                        itemDetailsVendor.setText(currentItem.getDescription());
+                    });
+                    k++;
+                }
+            }
+        }
+
     }
 
     @Override
@@ -126,25 +200,6 @@ public class VendorScreen extends GameScreen {
 
     }
 
-//    @Override
-//    public void draw(Graphics2D graphics) {
-//        // Call this method to draw a string to the screen
-//        if (currentItem != null){
-//            graphics.setColor(Color.BLACK);
-//            graphics.drawString(currentItem.getItemName(), x_position, y_position);
-//            graphics.drawString("Type: " + currentItem.getType(), x_position, y_position += 20);
-//            graphics.drawString("Damage: " + currentItem.getDamage(), x_position, y_position += 20);
-//            graphics.drawString("Immunity: " + currentItem.getImmunity(), x_position, y_position += 20);
-//            graphics.drawString("CritChance: " + currentItem.getCritChance() + "%", x_position, y_position += 20);
-//            graphics.drawString("Value: $" + currentItem.getValue(), x_position, y_position += 20);
-//            graphics.drawString(currentItem.getDescription1(), x_position, y_position += 30);
-//            if (currentItem.getDescription2() != null) {
-//                graphics.drawString(currentItem.getDescription2(), x_position, y_position += 20);
-//            }
-//        }
-//        // reset y_position for next item description
-//        y_position = 220;
-//    }
 
     private void createItemButtons(){
 //        int [] xValBearItems = {191, 239, 287, 335};

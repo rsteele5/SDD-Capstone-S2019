@@ -29,8 +29,8 @@ public class GridContainer {
 
     public GridContainer(GameScreen parentScreen, int rows, int cols, int itemWidth, int itemHeight) {
         this.parentScreen = parentScreen;
-        x =  parentScreen.getX();
-        y =  parentScreen.getY();
+        x = 0;
+        y = 0;
         this.rows = rows;
         this.cols = cols;
         padding = 5;
@@ -46,13 +46,13 @@ public class GridContainer {
 
     public GridContainer(GameScreen parentScreen, int rows, int cols, int itemWidth , int itemHeight, int xPos, int yPos) {
         this(parentScreen, rows, cols, itemWidth, itemHeight);
-        this.x = parentScreen.getX() + xPos;
-        this.y = parentScreen.getY() + yPos;
+        x = xPos;
+        y = yPos;
     }
 
     public void addAt(RenderableObject renderable, int row, int col){
 
-        if((row >= 0 && col >= 0) && (row < rows && col < cols)) {
+        if((row >= 0 && col >= 0) && (row <= rows && col <= cols)) {
             if(renderable != null) {
                 //Set the position of the renderable
                 renderable.setPosition(x + ((itemWidth + padding) * col)

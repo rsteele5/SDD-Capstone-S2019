@@ -1,6 +1,7 @@
 package gamescreens.screens.menus.dev;
 
 import _test.TestDialogBoxScreen;
+import gameobjects.renderables.Vendor;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
@@ -19,6 +20,8 @@ public class DevScreen extends GameScreen {
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
+    public static Vendor vendor;
+
     //endregion
 
     //region <Construction and Initialization>
@@ -30,6 +33,9 @@ public class DevScreen extends GameScreen {
     protected void initializeScreen() {
         //Background image
         ImageContainer imageContainer;
+
+        //Vendor initialization
+        vendor = new Vendor(550,335);
 
         imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);
@@ -82,6 +88,9 @@ public class DevScreen extends GameScreen {
                     setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this, true);
+
+        // Initialize vendor
+
     }
 
     //endregion
