@@ -1,6 +1,6 @@
 package gamescreens.screens.menus.dev;
 
-import _test.GameIntroScreen;
+import _test.TestDialogBoxScreen;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
@@ -42,7 +42,7 @@ public class DevScreen extends GameScreen {
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
-                    screenManager.addScreen(new GameIntroScreen(screenManager));
+                    screenManager.addScreen(new TestDialogBoxScreen(screenManager));
                 });
         button.addToScreen(this, true);
 

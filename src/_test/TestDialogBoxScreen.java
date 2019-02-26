@@ -8,13 +8,13 @@ import gamescreens.ScreenManager;
 
 import java.awt.*;
 
-public class GameIntroScreen extends GameScreen {
+public class TestDialogBoxScreen extends GameScreen {
 
-    public GameIntroScreen(ScreenManager screenManager) {
+    public TestDialogBoxScreen(ScreenManager screenManager) {
         super(screenManager, "TestScreen", true);
     }
 
-    private final String text = "Arise!...\n\n " +
+    private final String text = "Arise!...\n\n" +
             "Your child needs your help!\n\n" +
             "Once again the nightmarish horrors seek to destroy that which you hold dear!\n" +
             "Destroy them like so many countless times before\n\n" +
