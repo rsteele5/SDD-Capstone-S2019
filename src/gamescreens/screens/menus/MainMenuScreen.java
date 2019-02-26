@@ -1,6 +1,5 @@
 package gamescreens.screens.menus;
 
-import gameengine.audio.BackgroundAudio;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
