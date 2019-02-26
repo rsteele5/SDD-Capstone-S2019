@@ -13,8 +13,10 @@ import java.awt.event.KeyEvent;
 import java.io.Console;
 
 public class Player extends RenderableObject implements Kinematic {
-    private PhysicsVector accel = new PhysicsVector(0,1);
+    private PhysicsVector accel = new PhysicsVector(1,1);
     PhysicsVector movement = new PhysicsVector(0,0);
+    int mov = 0;
+    public boolean grounded;
     public enum State{
         awake,
         asleep
@@ -33,7 +35,14 @@ public class Player extends RenderableObject implements Kinematic {
     }
     @Override
     public PhysicsVector getVelocity() {
-        return movement.add(new PhysicsVector(0,1).mult(accel));
+        //Debug.log(true,"\nVelocity:\nX: " + movement.add(new PhysicsVector(0,1)).mult(accel).x  + "\ny: " +  movement.add(new PhysicsVector(0,1)).mult(accel).y);
+        PhysicsVector pV = movement.add(new PhysicsVector(0,1)).mult(accel);
+        double y = pV.y;
+        y = y < 1 && y > .5 ? 1 : y;
+        y = y < -.5 && y > -1 ? -1 : y;
+
+        return new PhysicsVector(pV.x,y);
+        //return movement.add(new PhysicsVector(0,1)).mult(accel);
     }
 
     @Override
@@ -67,8 +76,16 @@ public class Player extends RenderableObject implements Kinematic {
     }
 
     public void reset(){
-        x = 500;
+        x = 50;
         y = 50;
-        accel=new PhysicsVector(0,1);
+        accel=new PhysicsVector(1,1);
+    }
+
+    public int mov() {
+        return mov;
+    }
+
+    public void setMov(int flags){
+        mov = flags;
     }
 }
