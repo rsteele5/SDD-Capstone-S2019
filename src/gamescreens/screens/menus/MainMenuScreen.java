@@ -28,10 +28,12 @@ public class MainMenuScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
+
         //Create Background on layer 0
         ImageContainer image;
         image = new ImageContainer(0,0, "/assets/backgrounds/BG-MainMenu.png", DrawLayer.Background);
         image.addToScreen(this,true);
+
 
         //Create buttons
         Button button;

@@ -1,5 +1,6 @@
 package gamescreens.screens;
 
+import gameengine.audio.BackgroundAudio;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -7,10 +8,6 @@ import gameobjects.renderables.ImageContainer;
 import gamescreens.screens.menus.MainMenuScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.sound.sampled.*;
-import java.io.IOException;
-import java.net.URL;
 
 public class TitleScreen extends GameScreen {
     //region <Variables>
@@ -48,22 +45,7 @@ public class TitleScreen extends GameScreen {
     public void transitionOn() {
         if(!musicStart) {
             musicStart = true;
-            try {
-                // Open an audio input stream.
-                URL url = this.getClass().getClassLoader().getResource("assets/music/title.wav");
-                AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-                // Get a sound clip resource.
-                Clip clip = AudioSystem.getClip();
-                // Open audio clip and load samples from the audio input stream.
-                clip.open(audioIn);
-                clip.start();
-            } catch (UnsupportedAudioFileException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (LineUnavailableException e) {
-                e.printStackTrace();
-            }
+            BackgroundAudio.play(this.getClass().getClassLoader().getResource("assets/music/title.wav"));
         }
         if(cover.getY() < -240)
             cover.setY(cover.getY() + 2);

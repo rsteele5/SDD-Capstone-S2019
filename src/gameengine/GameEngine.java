@@ -94,4 +94,8 @@ public class GameEngine implements Runnable {
     public void changeGraphicsOption(GraphicsOption graphicsOption) {
         //TODO: Implement changing graphics and stuff
     }
+
+    public void changeSoundOption(SoundOption soundOption) {
+        //TODO: Implement changing sound
+    }
 }

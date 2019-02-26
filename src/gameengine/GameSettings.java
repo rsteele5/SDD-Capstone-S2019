@@ -12,6 +12,7 @@ public class GameSettings {
     private static InputMethod inputMethod;
     private static GraphicsOption graphicsOption;
     private static PlayerOption playerOptions;
+    private static SoundOption soundOption;
 
     public GameSettings(GameEngine gameEngine) {
         GameSettings.gameEngine = gameEngine;
@@ -36,7 +37,10 @@ public class GameSettings {
         Coop
     }
 
-
+    public enum SoundOption {
+        On,
+        Off
+    }
 
     public InputMethod getInputMethod() {
         return inputMethod;
@@ -54,6 +58,15 @@ public class GameSettings {
     public void setGraphicsOption(GraphicsOption graphicsOption) {
         this.graphicsOption = graphicsOption;
         gameEngine.changeGraphicsOption(graphicsOption);
+    }
+
+    public SoundOption getSoundOption() {
+        return soundOption;
+    }
+
+    public void setSoundOption(SoundOption soundOption) {
+        this.soundOption = soundOption;
+        gameEngine.changeSoundOption(soundOption);
     }
 
     public Graphics getGraphics() {
