@@ -4,11 +4,9 @@ import javax.sound.sampled.*;
 import java.io.IOException;
 import java.net.URL;
 
-public class Audio {
+public class BackgroundAudio {
     private static AudioInputStream backgroundAudioIn;
-    private static AudioInputStream soundEffectAudioIn;
     private static Clip backGroundClip;
-    private static Clip soundEffectClip;
 
     public static void play(URL url) {
         try {

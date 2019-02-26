@@ -1,6 +1,6 @@
 package gamescreens.screens.menus;
 
-import gameengine.audio.Audio;
+import gameengine.audio.BackgroundAudio;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -11,10 +11,6 @@ import gamescreens.screens.menus.options.OptionScreen;
 import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
 
 
 public class MainMenuScreen extends GameScreen {
@@ -74,8 +70,7 @@ public class MainMenuScreen extends GameScreen {
                 DrawLayer.Entity,
                 (GameScreen) -> {
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - SoundOn");
-                    Audio.changeSoundState();
-                    Audio.play(this.getClass().getClassLoader().getResource("assets/music/test2.wav"));
+                    BackgroundAudio.changeSoundState();
                 }));
         button.addToScreen(this, true);
     }

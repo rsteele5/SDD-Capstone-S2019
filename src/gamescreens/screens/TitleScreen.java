@@ -1,6 +1,6 @@
 package gamescreens.screens;
 
-import gameengine.audio.Audio;
+import gameengine.audio.BackgroundAudio;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -8,10 +8,6 @@ import gameobjects.renderables.ImageContainer;
 import gamescreens.screens.menus.MainMenuScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import javax.sound.sampled.*;
-import java.io.IOException;
-import java.net.URL;
 
 public class TitleScreen extends GameScreen {
     //region <Variables>
@@ -49,7 +45,7 @@ public class TitleScreen extends GameScreen {
     public void transitionOn() {
         if(!musicStart) {
             musicStart = true;
-            Audio.play(this.getClass().getClassLoader().getResource("assets/music/test.wav"));
+            BackgroundAudio.play(this.getClass().getClassLoader().getResource("assets/music/test.wav"));
         }
         if(cover.getY() < -240)
             cover.setY(cover.getY() + 2);
