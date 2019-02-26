@@ -4,9 +4,7 @@ import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.TextBox;
 import gameobjects.renderables.buttons.ItemButton;
-import gameobjects.renderables.items.Weapon;
-import gameobjects.renderables.items.WeaponBuilder;
-import gameobjects.renderables.items.WeaponType;
+import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -162,7 +160,7 @@ public class InventoryScreen extends GameScreen {
         ImageContainer teddy = new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity);
         teddy.addToScreen(this,true);
 
-
+        // Weapon button test
         Weapon myWeap = new WeaponBuilder()
                 .position(100, 100)
                 .imagePath("/assets/Items/sword1.png")
@@ -176,7 +174,7 @@ public class InventoryScreen extends GameScreen {
         myWeap.addToScreen(this, true);
 
         itemDetails = new TextBox(300,75, 300, 400, "" ,
-                new Font("NoScary", Font.PLAIN, 60), Color.BLACK);
+                new Font("NoScary", Font.PLAIN, 40), Color.BLACK);
 
         itemDetails.addToScreen(this,true);
 
@@ -187,8 +185,32 @@ public class InventoryScreen extends GameScreen {
                 });
 
         button.addToScreen(this,true);
-
         button.setItem(myWeap);
+
+
+        // Consumable button test
+        Consumable myCons = new ConsumableBuilder()
+                .position(800, 100)
+                .imagePath("/assets/Items/bluepotion.png")
+                .name("My Fwirst Potion!")
+                .type(ConsumableType.edible)
+                .value(15)
+                .buildConsumable();
+        //addInactiveObject(myWeap);
+        loadables.add(myCons);
+
+        myCons.addToScreen(this, true);
+
+        ItemButton buttonCons = new ItemButton(500, 200, DrawLayer.Entity);
+        buttonCons.setOnClick(GameScreen -> {
+            currentItemButton = buttonCons;
+            itemDetails.setText(buttonCons.getItem().getDescription());
+        });
+
+        buttonCons.addToScreen(this,true);
+        buttonCons.setItem(myCons);
+
+
 
         //TODO: overlay Gridlayout Test
         final int COUNT = 9;

@@ -50,7 +50,7 @@ public class TextBox extends RenderableObject {
                         newLine = newLine.concat(word + " ");
                     } else {
                         displayText = displayText.concat(newLine + "\n" + word);
-                        newLine = "";
+                        newLine = " ";
                     }
                 }
                 displayText = displayText.concat(newLine + "\n");
