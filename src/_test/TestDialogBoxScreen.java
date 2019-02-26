@@ -2,9 +2,12 @@ package _test;
 
 import gameobjects.renderables.DialogBox;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.buttons.Button;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
+import main.utilities.Debug;
+import main.utilities.DebugEnabler;
 
 import java.awt.*;
 
@@ -30,5 +33,14 @@ public class TestDialogBoxScreen extends GameScreen {
         DialogBox diagBox = new DialogBox(320,180, 640, 360, text,
                 new Font("NoScary", Font.PLAIN, 40), Color.WHITE);
         diagBox.addToScreen(this, true);
+
+        Button button = new Button(10,10,
+                "/assets/buttons/Button-Back.png",
+                DrawLayer.Entity,
+                (GameScreen) ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                    this.setScreenState(ScreenState.TransitionOff);
+                });
+        button.addToScreen(this,true);
     }
 }
