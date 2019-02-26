@@ -53,14 +53,17 @@ public class ItemButton extends Button{
     @Override
     public void onClick(GameScreen thing) {
         select();
-        onClick.accept(thing);
+        if(onClick != null){
+            onClick.accept(thing);
+        }
     }
 
     @Override
     public void draw(Graphics2D graphics) {
         super.draw(graphics);
+        //If the image is not null draw it offset in the center of the button
         if(item != null)
-            graphics.drawImage(item.getIcon(), x, y, width, height, null);
+            graphics.drawImage(item.getIcon(), x +5, y + 5, width -10, height -10, null);
     }
 
     @Override

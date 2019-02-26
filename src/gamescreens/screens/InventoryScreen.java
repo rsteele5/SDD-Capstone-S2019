@@ -8,8 +8,14 @@ import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
-import gamescreens.containers.GridLayoutContainer;
+import gamescreens.containers.GridContainer;
 import main.utilities.Debug;
+import static gamescreens.DrawLayer.Effects;
+import static gameobjects.renderables.items.ArmorType.Head;
+import static gameobjects.renderables.items.ArmorType.Chest;
+import static gameobjects.renderables.items.ArmorType.Pants;
+import static gameobjects.renderables.items.ArmorType.Feet;
+import static gameobjects.renderables.items.ArmorType.OffHand;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -160,6 +166,16 @@ public class InventoryScreen extends GameScreen {
         ImageContainer teddy = new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity);
         teddy.addToScreen(this,true);
 
+        Armor myArmor = new ArmorBuilder()
+                .position(200,200)
+                .imagePath("/src/assets/Items/helmet1.png")
+                .name("My Fwirst Helmet")
+                .type(Head)
+                .value(20)
+                .buildWeapon();
+        loadables.add(myArmor);
+        //myArmor.addToScreen(this, true);
+
         // Weapon button test
         Weapon myWeap = new WeaponBuilder()
                 .position(100, 100)
@@ -213,24 +229,30 @@ public class InventoryScreen extends GameScreen {
 
 
         //TODO: overlay Gridlayout Test
-        final int COUNT = 9;
-        GridLayoutContainer items = new GridLayoutContainer(screenManager, this, 3, 3, 10, 250);
+        GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);
         ItemButton itemContainerButton;
-        for(int i = 0; i < COUNT; i++){
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
             itemContainerButton = new ItemButton();
-
-            itemContainerButton.addToScreen(this, false);
-            itemContainerButton.addToScreen(items, true);
+            items.addAt(itemContainerButton, i, j);
         }
 
-        final int _COUNT = 5;
-        GridLayoutContainer equipped = new GridLayoutContainer(screenManager, this, 3, 3, 260, 250);
+        GridContainer equipped = new GridContainer(this, 4, 3, 50, 50, 260, 250);
         ItemButton equippedContainerButton;
-        for(int i = 0; i < _COUNT; i++){
-            equippedContainerButton = new ItemButton();
 
-            equippedContainerButton.addToScreen(this, false);
-            equippedContainerButton.addToScreen(equipped, true);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 0, 1);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 1, 0);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 1, 1);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 1, 2);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 2, 1);
+        equippedContainerButton = new ItemButton();
+        equipped.addAt(equippedContainerButton, 3, 1);
+
         }
 
 
