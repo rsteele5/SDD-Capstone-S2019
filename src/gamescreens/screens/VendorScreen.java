@@ -2,6 +2,7 @@ package gamescreens.screens;
 
 import gameobjects.Clickable;
 import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.Vendor;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -30,6 +31,7 @@ public class VendorScreen extends GameScreen {
     /** Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
     private CopyOnWriteArrayList<Item> bearInventory;
     private CopyOnWriteArrayList<Item> vendorInventory;
+
 
 
     public VendorScreen(ScreenManager screenManager) {
