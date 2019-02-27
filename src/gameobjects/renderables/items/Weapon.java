@@ -6,6 +6,8 @@ import main.utilities.AssetLoader;
 
 import java.awt.image.BufferedImage;
 
+import static java.lang.Math.round;
+
 public class Weapon extends RenderableObject implements Item {
     // Item Variables
     protected BufferedImage icon;
@@ -65,6 +67,11 @@ public class Weapon extends RenderableObject implements Item {
     @Override
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public void depreciate() {
+        this.value = round((float)(value * (0.9)));
     }
 
     public int getMinDamage() { return minDamage;}

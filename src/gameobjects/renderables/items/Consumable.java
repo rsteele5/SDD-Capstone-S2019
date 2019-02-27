@@ -6,6 +6,8 @@ import main.utilities.AssetLoader;
 
 import java.awt.image.BufferedImage;
 
+import static java.lang.Math.round;
+
 public class Consumable extends RenderableObject implements Item {
 
     // Item Variables
@@ -19,8 +21,6 @@ public class Consumable extends RenderableObject implements Item {
     protected ConsumableType type;
     protected int minAffect;
     protected int maxAffect;
-
-    // TODO: Consume function should accept player as argument. Then does stuff to player depending on the consumable
 
 
     protected Consumable(int x, int y, String imagePath, DrawLayer layer,
@@ -75,6 +75,11 @@ public class Consumable extends RenderableObject implements Item {
     @Override
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public void depreciate() {
+        this.value = round((float)(value * (0.9)));
     }
 
     public int getMinAffect() { return minAffect;}

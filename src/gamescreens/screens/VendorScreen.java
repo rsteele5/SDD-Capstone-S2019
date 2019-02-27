@@ -85,12 +85,14 @@ public class VendorScreen extends GameScreen {
                         if (vendorInventory.indexOf(currentItem) >= 0){
                             // Move item between inventory arrays
                             vendorInventory.remove(currentItem);
+                            currentItem.depreciate();
                             playerInventory.add(currentItem);
                             playerInventory.sort(new SortByType());
                             // Reset button items to the updated inventory arrays
                             resetButtonItems();
                             currentItemButton.deSelect();
                             currentItem = null;
+                            itemDetailsVendor.setText("");
                         }
                     }
                 });
@@ -112,6 +114,7 @@ public class VendorScreen extends GameScreen {
                             resetButtonItems();
                             currentItemButton.deSelect();
                             currentItem = null;
+                            itemDetailsPlayer.setText("");
                         }
                     }
                 });
@@ -146,9 +149,10 @@ public class VendorScreen extends GameScreen {
                 playerGrid.addAt(itemContainerButton, i, j);
                 if (k < count) {
                     itemContainerButton.setItem(playerInventory.get(k));
-                    setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "player" );
+                    //setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "player" );
                     k++;
                 }
+                setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "player" );
                 // Add button to array so it can be accessed again later
                 playerButtons.add(itemContainerButton);
             }
@@ -162,9 +166,10 @@ public class VendorScreen extends GameScreen {
                 vendorGrid.addAt(itemContainerButton, i, j);
                 if (k < count) {
                     itemContainerButton.setItem(vendorInventory.get(k));
-                    setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "vendor");
+                    //setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "vendor");
                     k++;
                 }
+                setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "vendor");
                 // Add assigned button to array so it can be accessed again later
                 vendorButtons.add(itemContainerButton);
             }
@@ -178,19 +183,24 @@ public class VendorScreen extends GameScreen {
             if (currentItemButton != null) {
                 currentItemButton.deSelect();
                 // Reset previous item's text to ""
-                if (itemDetailsPlayer.getText().length() > 0){
+                if (itemDetailsPlayer.getText().length() > 0) {
                     itemDetailsPlayer.setText("");
                 }
-                if (itemDetailsVendor.getText().length() > 0){
+                if (itemDetailsVendor.getText().length() > 0) {
                     itemDetailsVendor.setText("");
                 }
             }
             currentItemButton = itemContainerButton;
             currentItem = currentItemButton.getItem();
-            if (sender.equals("vendor")){
-                itemDetailsVendor.setText(currentItem.getDescription());
-            } else itemDetailsPlayer.setText(currentItem.getDescription());
-
+            if (currentItemButton.getItem() != null) {
+                if (sender.equals("vendor")) {
+                    itemDetailsVendor.setText(currentItem.getDescription());
+                } else itemDetailsPlayer.setText(currentItem.getDescription());
+            } else {
+                currentItem = null;
+                currentItemButton.deSelect();
+                currentItemButton = null;
+            }
         });
     }
 
