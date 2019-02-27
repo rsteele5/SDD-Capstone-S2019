@@ -17,6 +17,10 @@ import java.util.function.Consumer;
 
 public class ConfirmationPopup extends GameScreen {
 
+    private final int X_TEXT = 450;
+    private final int Y_TEXT = 200;
+    private final int W_TEXT = 500;
+    private final int H_TEXT = 150;
     private final int X_INIT_BUTTON = 427;
     private final int Y_INIT_BUTTON = 400;
     private final int X_BUFFER = 142;
@@ -46,9 +50,7 @@ public class ConfirmationPopup extends GameScreen {
         imageContainer.addToScreen(this, true);
 
         //Text Box
-        confirmationTextBox = new TextBox(450, 240, //TODO: change to standard values
-                500,
-                150,
+        confirmationTextBox = new TextBox(X_TEXT, Y_TEXT, W_TEXT, H_TEXT,
                 screenManager.getGameSettings().getInputMethod().name(),
                 new Font("NoScary", Font.PLAIN, 60),
                 Color.WHITE);
