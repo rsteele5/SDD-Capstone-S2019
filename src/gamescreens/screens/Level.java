@@ -85,7 +85,7 @@ public class Level extends GameScreen {
         floor.setHeight(30);
         floor.addToScreen(this, true);
 
-        setCamera(new Camera(this, square));
+        setCamera(new Camera(this, GameEngine.players.get(0)));
     }
 
     @Override
