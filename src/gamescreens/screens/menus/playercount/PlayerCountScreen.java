@@ -45,7 +45,7 @@ public class PlayerCountScreen extends GameScreen {
 
         Button button;
         //Create Buttons
-        button = new Button(X_INIT_BUTTON+0*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
+        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Solo.png",
                 DrawLayer.Entity,
                 (GameScreen) ->{

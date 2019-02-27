@@ -49,7 +49,7 @@ public class DevScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 128,
                 "/assets/buttons/Button-Test.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
                     screenManager.addScreen(new TestDialogBoxScreen(screenManager));
                 });

@@ -1,11 +1,10 @@
 package gameobjects;
 
-import gamescreens.GameScreen;
+import main.utilities.Action;
 
-import java.util.function.Consumer;
 
 public interface Clickable {
-    void onClick(GameScreen gameScreen);
-    void setOnClick(Consumer<GameScreen> onClick);
+    void onClick();
+    void setOnClick(Action onClick);
     boolean contains(int x, int y);
 }

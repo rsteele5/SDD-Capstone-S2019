@@ -7,10 +7,13 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.buttons.Button;
+import main.utilities.Action;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
+import javax.lang.model.type.NullType;
 import java.awt.*;
+import java.util.function.Consumer;
 
 public class ConfirmationPopup extends GameScreen {
 
@@ -21,10 +24,19 @@ public class ConfirmationPopup extends GameScreen {
     private GameScreen covering;
     private TextBox confirmationTextBox;
 
-    public ConfirmationPopup(ScreenManager screenManager, GameScreen covering, String confirmationMessage) {
+    private Action onYesBtn;
+    private Action onNoBtn;
+
+    public ConfirmationPopup(ScreenManager screenManager, GameScreen covering, String confirmationMessage, Action onYes) {
         super(screenManager, "ConfirmationPopup", true);
         this.covering = covering;
         confirmationTextBox.setText(confirmationMessage);
+        onYesBtn = onYes;
+    }
+
+    public ConfirmationPopup(ScreenManager screenManager, GameScreen covering, String confirmationMessage, Action onYes, Action onNo) {
+        this(screenManager, covering, confirmationMessage, onYes);
+        onNoBtn = onNo;
     }
 
     @Override
@@ -52,7 +64,10 @@ public class ConfirmationPopup extends GameScreen {
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Yes");
                     setScreenState(ScreenState.TransitionOff);
-                    covering.setScreenState(ScreenState.TransitionOff);
+                    if(onYesBtn != null){
+                        onYesBtn.doIt();
+                    }
+                    //covering.setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this, true);
 
@@ -62,6 +77,9 @@ public class ConfirmationPopup extends GameScreen {
                 (screenManager) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - No");
                     setScreenState(ScreenState.TransitionOff);
+                    if(onNoBtn != null){
+                        onNoBtn.doIt();
+                    }
                 });
         button.addToScreen(this, true);
     }

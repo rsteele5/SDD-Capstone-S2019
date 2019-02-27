@@ -2,13 +2,12 @@ package gameobjects.renderables.buttons;
 
 import gameobjects.renderables.items.Item;
 import gamescreens.DrawLayer;
-import gamescreens.GameScreen;
+import main.utilities.Action;
 import main.utilities.AssetLoader;
 import main.utilities.Debug;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.function.Consumer;
 
 public class ItemButton extends Button{
 
@@ -26,7 +25,7 @@ public class ItemButton extends Button{
         this(0, 0, DrawLayer.Entity);
     }
 
-    public ItemButton(int x, int y, DrawLayer drawLayer, Consumer<GameScreen> handleOnClick) {
+    public ItemButton(int x, int y, DrawLayer drawLayer, Action handleOnClick) {
         super(x, y, notSelectedImagePath, drawLayer, handleOnClick);
     }
 
@@ -51,10 +50,10 @@ public class ItemButton extends Button{
     }
 
     @Override
-    public void onClick(GameScreen thing) {
+    public void onClick() {
         select();
         if(onClick != null){
-            onClick.accept(thing);
+            onClick.doIt();
         }
     }
 
