@@ -15,6 +15,7 @@ public class ArmorBuilder {
     private String _name = "[Insert Armor Name]";
     private ArmorType _type;
     private int _value = -1;
+    private int _armor = 0;
 
     //TODO check on mass with Austin
     //private int mass;
@@ -22,7 +23,7 @@ public class ArmorBuilder {
     public ArmorBuilder(){ }
 
     public Armor buildWeapon(){
-        return new Armor(_x, _y, _imagePath, _layer, _name, _value, _type);
+        return new Armor(_x, _y, _imagePath, _layer, _name, _value, _type, _armor);
     }
 
     public ArmorBuilder position(int x, int y){

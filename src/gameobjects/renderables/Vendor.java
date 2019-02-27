@@ -76,7 +76,9 @@ public class Vendor extends RenderableObject {
                 .buildConsumable()
         );
 
-        items.sort(new SortByType());
+        if (items.size() > 0) {
+            items.sort(new SortByType());
+        }
 
         for (Item item : items){
             rItems.add((RenderableObject) item);

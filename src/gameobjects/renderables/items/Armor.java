@@ -21,6 +21,7 @@ public class Armor extends RenderableObject implements Item{
     protected String name;
     protected String description;
     protected int value;
+    protected int armor;
 
     // Armor Variables
     protected int armorValue;
@@ -30,13 +31,13 @@ public class Armor extends RenderableObject implements Item{
     protected ArmorType type;
 
     protected Armor(int x, int y, String imagePath, DrawLayer layer,
-                     String name, int value, ArmorType type) {
+                     String name, int value, ArmorType type, int armor) {
         super(x,y,imagePath,layer);
         this.name = name;
         this.value = value;
         this.type = type;
-
-        setDescription();
+        this.armor = armor;
+        setDescription("Testing the armor description field now. aaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaa");
     }
 
     @Override
@@ -52,13 +53,11 @@ public class Armor extends RenderableObject implements Item{
     @Override
     public String getDescription() {
         //TODO make this general for all armor
-        return  "Name: " + name + "\n" +
-                "Type: " + type.name()+ "\n" +
-                "Armor Points: " + 12 + "\n" +
-                "Description: \nThis Armor is pretty not dope. I found it in a dumpster" + "\n" +
-                "It is basically paper." + "\n" +
-                "I'd replace it as soon as possible"  + "\n" +
-                "Keep it well my friend";
+        return name +
+                "\nType: " + type.name() +
+                "\nArmor Points: " + armor +
+                "\nValue: " + value + " gold" +
+                description;
     }
 
     @Override
@@ -73,11 +72,13 @@ public class Armor extends RenderableObject implements Item{
 
     @Override
     public int getValue() {
-        return 0;
+        return value;
     }
 
-    private void setDescription() {
-        //TODO: Parse a String to show up in a text box
+    public int getArmorValue() { return armor; }
+
+    private void setDescription(String myDescription) {
+        description = "\n" + myDescription;
     }
 
     @Override

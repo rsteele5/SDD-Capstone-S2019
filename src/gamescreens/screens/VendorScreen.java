@@ -19,9 +19,6 @@ public class VendorScreen extends GameScreen {
     //region Variables ******************************/
     private ItemButton currentItemButton = null;
     private Item currentItem = null;
-    private GridContainer playerGrid;
-    private GridContainer vendorGrid;
-    private ItemButton itemContainerButton;
     private TextBox itemDetailsVendor;
     private TextBox itemDetailsPlayer;
     private CopyOnWriteArrayList<Item> playerInventory;
@@ -123,29 +120,29 @@ public class VendorScreen extends GameScreen {
 
         //region Create text boxes to hold item description
         /* x and y positions for text */
-        int x_playerText = 275;
+        int x_playerText = 270;
         int y_position = 125;
         int x_vendorText = 550;
         itemDetailsPlayer = new TextBox(x_playerText, y_position, 210, 200, "",
-                new Font("NoScary", Font.PLAIN, 26), Color.BLACK);
+                new Font("NoScary", Font.PLAIN, 24), Color.BLACK);
         itemDetailsPlayer.addToScreen(this,true);
         itemDetailsVendor = new TextBox(x_vendorText, y_position, 210, 200, "",
-                new Font("NoScary", Font.PLAIN, 26), Color.BLACK);
+                new Font("NoScary", Font.PLAIN, 24), Color.BLACK);
         itemDetailsVendor.addToScreen(this,true);
         //endregion
 
         // Create GridContainers for player and vendor item buttons
         int rows = 7;
         int columns = 4;
-        playerGrid = new GridContainer(this, rows, columns, 50, 125, 50, 150);
-        vendorGrid = new GridContainer(this, rows, columns, 50, 125, 760, 150);
+        GridContainer playerGrid = new GridContainer(this, rows, columns, 50, 125, 50, 150);
+        GridContainer vendorGrid = new GridContainer(this, rows, columns, 50, 125, 760, 150);
 
         //region Add buttons to the Grid Containers
         int count = playerInventory.size();
         int k = 0;
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
-                itemContainerButton = new ItemButton();
+                ItemButton itemContainerButton = new ItemButton();
                 playerGrid.addAt(itemContainerButton, i, j);
                 if (k < count) {
                     itemContainerButton.setItem(playerInventory.get(k));
@@ -161,7 +158,7 @@ public class VendorScreen extends GameScreen {
         k = 0;
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
-                itemContainerButton = new ItemButton();
+                ItemButton itemContainerButton = new ItemButton();
                 vendorGrid.addAt(itemContainerButton, i, j);
                 if (k < count) {
                     itemContainerButton.setItem(vendorInventory.get(k));
@@ -177,7 +174,6 @@ public class VendorScreen extends GameScreen {
 
 
     private void setClickEvent(ItemButton itemContainerButton, TextBox itemDetailsPlayer, TextBox itemDetailsVendor, String sender){
-        ItemButton finalItemContainerButton = itemContainerButton;
         itemContainerButton.setOnClick(GameScreen -> {
             if (currentItemButton != null) {
                 currentItemButton.deSelect();
@@ -189,9 +185,9 @@ public class VendorScreen extends GameScreen {
                     itemDetailsVendor.setText("");
                 }
             }
-            currentItemButton = finalItemContainerButton;
+            currentItemButton = itemContainerButton;
             currentItem = currentItemButton.getItem();
-            if (sender == "vendor"){
+            if (sender.equals("vendor")){
                 itemDetailsVendor.setText(currentItem.getDescription());
             } else itemDetailsPlayer.setText(currentItem.getDescription());
 
