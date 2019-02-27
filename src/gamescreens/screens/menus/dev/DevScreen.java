@@ -1,5 +1,6 @@
 package gamescreens.screens.menus.dev;
 
+import gameobjects.renderables.TempPlayerClass;
 import gameobjects.renderables.Vendor;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -20,6 +21,7 @@ public class DevScreen extends GameScreen {
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
     public static Vendor vendor;
+    public static TempPlayerClass player;
 
     //endregion
 
@@ -33,8 +35,9 @@ public class DevScreen extends GameScreen {
         //Background image
         ImageContainer imageContainer;
 
-        //Vendor initialization
-        vendor = new Vendor(550,335);
+        //Vendor and Player initialization
+        vendor = new Vendor(570,335);
+        player = new TempPlayerClass(330, 335);
 
         imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);

@@ -30,8 +30,6 @@ public class ItemButton extends Button{
         super(x, y, notSelectedImagePath, drawLayer, handleOnClick);
     }
 
-
-
     public Item getItem() {
         return item;
     }
@@ -39,6 +37,8 @@ public class ItemButton extends Button{
     public void setItem(Item item) {
         this.item = item;
     }
+
+    public void resetItem() {this.item = null;}
 
     public void select(){
         Debug.log(true, "Selected");

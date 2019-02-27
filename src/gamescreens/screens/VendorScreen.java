@@ -1,10 +1,6 @@
 package gamescreens.screens;
 
-import gameobjects.Clickable;
-import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.RenderableObject;
-import gameobjects.renderables.TextBox;
-import gameobjects.renderables.Vendor;
+import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.ItemButton;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -15,7 +11,6 @@ import gamescreens.containers.GridContainer;
 import gamescreens.screens.menus.dev.DevScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -24,11 +19,15 @@ public class VendorScreen extends GameScreen {
     //region Variables ******************************/
     private ItemButton currentItemButton = null;
     private Item currentItem = null;
-
-
-    /** Will load player's and vendor's items into arrays **/
+    private GridContainer playerGrid;
+    private GridContainer vendorGrid;
+    private ItemButton itemContainerButton;
+    private TextBox itemDetailsVendor;
+    private TextBox itemDetailsPlayer;
     private CopyOnWriteArrayList<Item> playerInventory;
     private CopyOnWriteArrayList<Item> vendorInventory;
+    private CopyOnWriteArrayList<ItemButton> playerButtons;
+    private CopyOnWriteArrayList<ItemButton> vendorButtons;
     //endregion ****************************************/
 
     public VendorScreen(ScreenManager screenManager) {
@@ -37,27 +36,35 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        Vendor myVendor = DevScreen.vendor;
-        vendorInventory = myVendor.getItems();
-        playerInventory = myVendor.getItems();
+        //region Initialize variables
+        Vendor vendor = DevScreen.vendor;
+        TempPlayerClass player = DevScreen.player;
+        vendorInventory = vendor.getItems();
+        playerInventory = player.getItems();
+        playerButtons = new CopyOnWriteArrayList<>();
+        vendorButtons = new CopyOnWriteArrayList<>();
+        //endregion
 
-        for (RenderableObject renderable: myVendor.getRenderables()){
+        //region Create all renderables
+        for (RenderableObject renderable: DevScreen.vendor.getRenderables()){
+            renderable.addToScreen(this, false);
+        }
+        for (RenderableObject renderable: DevScreen.player.getRenderables()){
             renderable.addToScreen(this, false);
         }
 
-        /* Create all renderables **/
         ImageContainer imageContainer;
 
         imageContainer = new ImageContainer(0, 0, "/assets/VendorBackground.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(myVendor.getX(), myVendor.getY(), myVendor.getImagePath(), myVendor.getDrawLayer());
+        imageContainer = new ImageContainer(vendor.getX(), vendor.getY(), vendor.getImagePath(), vendor.getDrawLayer());
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(350, 335, "/assets/Teddy.png", DrawLayer.Entity);
+        imageContainer = new ImageContainer(player.getX(), player.getY(), player.getImagePath(), player.getDrawLayer());
         imageContainer.setSize(90, 140);
         imageContainer.addToScreen(this, true);
-
+        //endregion
 
         //region Create screen buttons **/
         Button button;
@@ -71,113 +78,150 @@ public class VendorScreen extends GameScreen {
                 }));
         button.addToScreen(this, true);
 
-        button = new Button(565, 485,
+        button = new Button(585, 485,
                 "/assets/buttons/Button-Vendor-Buy.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
                     if (vendorInventory.size() > 0 && currentItem != null) {
-                        vendorInventory.remove(currentItem);
-                        playerInventory.add(currentItem);
-                        currentItem = null;
+                        // Item must be in vendor's inventory
+                        if (vendorInventory.indexOf(currentItem) >= 0){
+                            // Move item between inventory arrays
+                            vendorInventory.remove(currentItem);
+                            playerInventory.add(currentItem);
+                            playerInventory.sort(new SortByType());
+                            // Reset button items to the updated inventory arrays
+                            resetButtonItems();
+                            currentItemButton.deSelect();
+                            currentItem = null;
+                        }
                     }
                 }));
         button.addToScreen(this, true);
 
-        button = new Button(330, 485,
+        button = new Button(310, 485,
                 "/assets/buttons/Button-Vendor-Sell.png",
                 DrawLayer.Entity,
                 (screenManager1 -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Sell to Vendor");
                     if (playerInventory.size() > 0 && currentItem != null) {
-                        playerInventory.remove(currentItem);
-                        vendorInventory.add(currentItem);
-                        currentItem = null;
+                        // Item must be in player's inventory
+                        if (playerInventory.indexOf(currentItem) >= 0){
+                            // Move item between inventory arrays
+                            playerInventory.remove(currentItem);
+                            vendorInventory.add(currentItem);
+                            vendorInventory.sort(new SortByType());
+                            // Reset button items to the updated inventory arrays
+                            resetButtonItems();
+                            currentItemButton.deSelect();
+                            currentItem = null;
+                        }
                     }
                 }));
         button.addToScreen(this, true);
         //endregion
 
-        // Create text boxes to hold item description
+        //region Create text boxes to hold item description
         /* x and y positions for text */
         int x_playerText = 275;
         int y_position = 125;
-        TextBox itemDetailsPlayer = new TextBox(x_playerText, y_position, 210, 200, "",
+        int x_vendorText = 550;
+        itemDetailsPlayer = new TextBox(x_playerText, y_position, 210, 200, "",
                 new Font("NoScary", Font.PLAIN, 26), Color.BLACK);
         itemDetailsPlayer.addToScreen(this,true);
-
-        int x_vendorText = 550;
-        TextBox itemDetailsVendor = new TextBox(x_vendorText, y_position, 210, 200, "",
+        itemDetailsVendor = new TextBox(x_vendorText, y_position, 210, 200, "",
                 new Font("NoScary", Font.PLAIN, 26), Color.BLACK);
-
         itemDetailsVendor.addToScreen(this,true);
+        //endregion
 
-        // Create Gridlayout for player item buttons
+        // Create GridContainers for player and vendor item buttons
         int rows = 7;
         int columns = 4;
-        GridContainer playerItems = new GridContainer(this, rows, columns, 50, 125, 50, 150);
-        ItemButton itemContainerButton;
+        playerGrid = new GridContainer(this, rows, columns, 50, 125, 50, 150);
+        vendorGrid = new GridContainer(this, rows, columns, 50, 125, 760, 150);
 
+        //region Add buttons to the Grid Containers
         int count = playerInventory.size();
         int k = 0;
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
                 itemContainerButton = new ItemButton();
-                playerItems.addAt(itemContainerButton, i, j);
+                playerGrid.addAt(itemContainerButton, i, j);
                 if (k < count) {
                     itemContainerButton.setItem(playerInventory.get(k));
-                    ItemButton finalItemContainerButton = itemContainerButton;
-                    itemContainerButton.setOnClick(GameScreen -> {
-                        if (currentItemButton != null) {
-                            currentItemButton.deSelect();
-                            if (itemDetailsPlayer.getText().length() > 0){
-                                itemDetailsPlayer.setText("");
-                            }
-                            if (itemDetailsVendor.getText().length() > 0){
-                                itemDetailsVendor.setText("");
-                            }
-                        }
-                        currentItemButton = finalItemContainerButton;
-                        currentItem = currentItemButton.getItem();
-                        itemDetailsPlayer.setText(currentItem.getDescription());
-                    });
+                    setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "player" );
                     k++;
                 }
+                // Add button to array so it can be accessed again later
+                playerButtons.add(itemContainerButton);
             }
         }
-
-        // Create Gridlayout for vendor item buttons
-        GridContainer vendorItems = new GridContainer(this, rows, columns, 50, 125, 760, 150);
 
         count = vendorInventory.size();
         k = 0;
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
                 itemContainerButton = new ItemButton();
-                vendorItems.addAt(itemContainerButton, i, j);
+                vendorGrid.addAt(itemContainerButton, i, j);
                 if (k < count) {
                     itemContainerButton.setItem(vendorInventory.get(k));
-                    ItemButton finalItemContainerButton = itemContainerButton;
-                    itemContainerButton.setOnClick(GameScreen -> {
-                        if (currentItemButton != null) {
-                            currentItemButton.deSelect();
-                            // Reset previous item's text to ""
-                            if (itemDetailsPlayer.getText().length() > 0){
-                                itemDetailsPlayer.setText("");
-                            }
-                            if (itemDetailsVendor.getText().length() > 0){
-                                itemDetailsVendor.setText("");
-                            }
-                        }
-                        currentItemButton = finalItemContainerButton;
-                        currentItem = currentItemButton.getItem();
-                        itemDetailsVendor.setText(currentItem.getDescription());
-                    });
+                    setClickEvent(itemContainerButton, itemDetailsPlayer, itemDetailsVendor, "vendor");
                     k++;
                 }
+                // Add assigned button to array so it can be accessed again later
+                vendorButtons.add(itemContainerButton);
+            }
+        }
+        //endregion
+    }
+
+
+    private void setClickEvent(ItemButton itemContainerButton, TextBox itemDetailsPlayer, TextBox itemDetailsVendor, String sender){
+        ItemButton finalItemContainerButton = itemContainerButton;
+        itemContainerButton.setOnClick(GameScreen -> {
+            if (currentItemButton != null) {
+                currentItemButton.deSelect();
+                // Reset previous item's text to ""
+                if (itemDetailsPlayer.getText().length() > 0){
+                    itemDetailsPlayer.setText("");
+                }
+                if (itemDetailsVendor.getText().length() > 0){
+                    itemDetailsVendor.setText("");
+                }
+            }
+            currentItemButton = finalItemContainerButton;
+            currentItem = currentItemButton.getItem();
+            if (sender == "vendor"){
+                itemDetailsVendor.setText(currentItem.getDescription());
+            } else itemDetailsPlayer.setText(currentItem.getDescription());
+
+        });
+    }
+
+    private void resetButtonItems(){
+        // Reset all vendor item buttons to null, set item buttons again, and establish click events
+        int count = vendorInventory.size();
+        int k = 0;
+        for (ItemButton vbutton : vendorButtons) {
+            vbutton.resetItem();
+            if (k < count){
+                vbutton.setItem(vendorInventory.get(k));
+                setClickEvent(vbutton, itemDetailsPlayer, itemDetailsVendor, "vendor" );
+                k++;
             }
         }
 
+        // Reset all player item buttons to null, set item buttons again, and establish click events
+        count = playerInventory.size();
+        k = 0;
+        for (ItemButton pbutton : playerButtons) {
+            pbutton.resetItem();
+            if (k < count){
+                pbutton.setItem(playerInventory.get(k));
+                setClickEvent(pbutton, itemDetailsPlayer, itemDetailsVendor, "player" );
+                k++;
+            }
+        }
     }
 
     @Override
@@ -187,6 +231,13 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void transitionOff() {
+        // Update the original inventory arrays with all the changes that have been made here.
+        if (vendorInventory != null && playerInventory != null) {
+            DevScreen.vendor.replaceList(vendorInventory);
+            DevScreen.player.replaceList(playerInventory);
+        } else {
+            Debug.error(DebugEnabler.GAME_SCREEN_LOG, "VendorScreen: Unable to overwrite inventory list");
+        }
         exiting = true;
     }
 
@@ -200,66 +251,4 @@ public class VendorScreen extends GameScreen {
 
     }
 
-
-    private void createItemButtons(){
-//        int [] xValBearItems = {191, 239, 287, 335};
-//        int [] xValVendorItems = {927, 975, 1023, 1071};
-//        int [] yValItems = {220, 266, 313, 360, 407, 455, 502, 549};
-//
-//        /* Render item images (buttons) into bear's inventory **/
-//        int itemCount = bearInventory.size();
-//        int k = 0;
-//        for (int yValItem1 : yValItems) {
-//            for (int xValBearItem : xValBearItems) {
-//                if (k < itemCount) {
-//                    Item myItem = bearInventory.get(k);
-//                    Button itemButton = new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity);
-//                    itemButton.onClick = (screenManager -> {
-//                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-//                        currentItem = myItem;
-//                        currentButton = itemButton;
-//                        // Adjust where text is rendered
-//                        x_position = 400;
-//                    });
-//                    addObject(itemButton);
-////                    addObject(new Button(xValBearItem, yValItem1, myItem.getImagePath(), DrawLayer.Entity,
-////                            (screenManager -> {
-////                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-////                                currentItem = myItem;
-////                                // Adjust where text is rendered
-////                                x_position = 400;
-////                            })));
-//                    k++;
-//                }
-//            }
-//        }
-//        /* Render item images (buttons) into vendor's inventory **/
-//        itemCount = vendorInventory.size();
-//        k = 0;
-//        for (int yValItem : yValItems) {
-//            for (int xValVendorItem : xValVendorItems) {
-//                if (k < itemCount) {
-//                    Item myItem = vendorInventory.get(k);
-//                    Debug.log(true, myItem.getImagePath());
-//                    Button itemButton = new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity);
-//                    itemButton.onClick = (screenManager -> {
-//                        Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Bear Item");
-//                        currentItem = myItem;
-//                        currentButton = itemButton;
-//                        // Adjust where text is rendered
-//                        x_position = 400;
-//                    });
-//                    addObject(itemButton);
-////                    addObject(new Button(xValVendorItem, yValItem, myItem.getImagePath(), DrawLayer.Entity,
-////                            (screenManager -> {
-////                                Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Vendor Item");
-////                                currentItem = myItem;
-////                                // Adjust where text is rendered
-////                                x_position = 765;
-////                            })));
-//                    k++;
-////                }
-//            }
-//        }
-    }
 }

@@ -2,17 +2,18 @@ package gameobjects.renderables;
 
 import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
-import java.util.Comparator;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Vendor extends RenderableObject {
+public class TempPlayerClass extends RenderableObject{
+
     private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
     private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
 
     // Default constructor
-    public Vendor(int x, int y){
+    public TempPlayerClass(int x, int y){
         super(x, y);
-        this.imagePath = "/assets/Vendor.png";
+        this.imagePath = "/assets/Teddy.png";
         this.drawLayer = DrawLayer.Entity;
         initializeItems();
     }
@@ -116,5 +117,5 @@ public class Vendor extends RenderableObject {
             rItems.add((RenderableObject) item);
         }
     }
-}
 
+}
