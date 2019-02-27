@@ -1,12 +1,13 @@
 package gamescreens;
 
+import gameengine.GameEngine;
 import gameengine.physics.Kinematic;
+import gameengine.rendering.Camera;
 import gameobjects.Clickable;
 import gameobjects.GameObject;
-import gameobjects.Player;
 import gameobjects.renderables.RenderableObject;
+import gamescreens.screens.Level;
 import gamescreens.screens.LoadingScreen;
-import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import main.utilities.Loadable;
@@ -27,6 +28,7 @@ public abstract class GameScreen {
     private GameScreen childScreen;
     private ArrayList<GameScreen> overlayScreens;
     public LoadingScreen loadingScreen;
+    private Camera camera;
 
     //TODO: Used for testing, remove after screen management is working. If it so tickles your pickles
     protected ScreenState previousState;
@@ -61,6 +63,11 @@ public abstract class GameScreen {
     public ArrayList<Clickable> clickables;
     public ArrayList<Kinematic> kinematics;
     public ArrayList<Loadable> loadables;
+
+    public ArrayList<RenderableObject> getRenderables() {
+        return renderables;
+    }
+
     public ArrayList<RenderableObject> renderables;
 
     public void coverWith(GameScreen gameScreen) {
@@ -335,7 +342,11 @@ public abstract class GameScreen {
 
     public final void drawScreen(Graphics2D graphics) {
         if(!isLoading) {
-            drawLayers(graphics);
+            if(camera != null){
+                camera.track(graphics);
+            } else {
+                drawLayers(graphics);
+            }
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);
             }
@@ -397,6 +408,10 @@ public abstract class GameScreen {
         screenAlpha = alpha;
         for(RenderableObject renderable : renderables)
             renderable.setAlpha(screenAlpha);
+    }
+
+    protected void setCamera(Camera camera){
+        this.camera = camera;
     }
     //endregion
 }

@@ -31,8 +31,8 @@ public class GameEngine implements Runnable {
     public static ArrayList<Player> players;
     private static Player p1,p2;
     public GameEngine(){
-        p1 = new Player(50,50,"/assets/testAssets/square2.png", DrawLayer.Entity);
-        p2 = new Player(50,50,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        p1 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        p2 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
         gameSettings = new GameSettings(this);
         screenManager = new ScreenManager(gameSettings);
         renderEngine = new RenderEngine(screenManager);
@@ -87,7 +87,7 @@ public class GameEngine implements Runnable {
             if (sleepTime >= 0) {
                 try {
                     if(endTime-startTime > 0 /*&& frameCounter % 60 == 0*/)
-                    //Debug.success(DebugEnabler.FPS,"Current FPS: " + 1000 / (endTime - startTime) );
+                    Debug.success(DebugEnabler.FPS,"Current FPS: " + 1000 / (endTime - startTime) );
                     TimeUnit.MILLISECONDS.sleep(sleepTime);
                 } catch (InterruptedException e) {
 

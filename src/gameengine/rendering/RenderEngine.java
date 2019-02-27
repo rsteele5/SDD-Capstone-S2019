@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 //Project Imports
+import gameengine.GameEngine;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.ScreenManager;
 import main.utilities.AssetLoader;
@@ -43,6 +44,7 @@ public class RenderEngine extends JPanel {
     }
 
     public void draw() {
+
         // size of the canvas - determined at runtime once rendered
         int width = getSize().width;
         int height = getSize().height;
@@ -68,7 +70,10 @@ public class RenderEngine extends JPanel {
 
     //TODO: fix later
     private void createRenderBuffer(Graphics2D graphics) {
+        //graphics.translate(-640,-360);
+
         screenManager.draw(graphics);
+
     }
 
     private void renderBufferToScreen() {

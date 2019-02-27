@@ -2,8 +2,10 @@ package gamescreens.screens;
 
 import _test.Square;
 import gameengine.GameEngine;
+import gameengine.rendering.Camera;
 import gameengine.rendering.RenderEngine;
 import gameobjects.Player;
+import gameobjects.renderables.Floor;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.DrawLayer;
@@ -33,9 +35,7 @@ public class Level extends GameScreen {
     private final int X_BUFFER = 48;
 
     public Level(ScreenManager screenManager) {
-
-        super(screenManager, "Level", true);
-
+        super(screenManager, "Level");
     }
 
     /**
@@ -79,6 +79,13 @@ public class Level extends GameScreen {
         //Debug.log(true,String.valueOf(GameEngine.players.size()));
        // Debug.log(true,String.valueOf(GameEngine.players.size()));
 
+
+        Floor floor = new Floor(0,720, "/assets/testAssets/WoodTile2.png", DrawLayer.Entity);
+        floor.setWidth(1280);
+        floor.setHeight(30);
+        floor.addToScreen(this, true);
+
+        setCamera(new Camera(this, square));
     }
 
     @Override
@@ -101,4 +108,6 @@ public class Level extends GameScreen {
         //Debug.log(true,"this " + String.valueOf(GameEngine.players.size()));
         //Debug.log(true,"global " + String.valueOf(GameEngine.players.size()));
     }
+
+
 }
