@@ -5,6 +5,7 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.Clickable;
+import main.utilities.Action;
 import main.utilities.Debug;
 
 import java.util.function.Consumer;
@@ -15,27 +16,28 @@ public class Button extends RenderableObject implements Clickable{
         super(x, y, imagePath, drawLayer);
     }
 
-    public Button(int x, int y, String imagePath, DrawLayer drawLayer, Consumer<GameScreen> handleOnClick) {
+    public Button(int x, int y, String imagePath, DrawLayer drawLayer, Action handleOnClick) {
         this(x, y, imagePath, drawLayer);
         onClick = handleOnClick;
     }
 
-    public Button(String imagePath, Consumer<GameScreen> handleOnClick) {
+    public Button(String imagePath, Action handleOnClick) {
         this(0, 0, imagePath, DrawLayer.Entity, handleOnClick);
     }
 
     @Override
     public void update() { }
 
-    public Consumer<GameScreen> onClick;
+    public Action onClick;
 
     @Override
-    public void onClick(GameScreen thing) {
-        onClick.accept(thing);
+    public void onClick() {
+        if(onClick != null)
+            onClick.doIt();
     }
 
     @Override
-    public void setOnClick(Consumer<GameScreen> onClick) {
+    public void setOnClick(Action onClick) {
         this.onClick = onClick;
     }
 

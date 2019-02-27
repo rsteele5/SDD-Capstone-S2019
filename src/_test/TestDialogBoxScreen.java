@@ -37,7 +37,7 @@ public class TestDialogBoxScreen extends GameScreen {
         Button button = new Button(10,10,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     this.setScreenState(ScreenState.TransitionOff);
                 });

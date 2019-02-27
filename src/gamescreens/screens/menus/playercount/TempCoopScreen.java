@@ -38,7 +38,7 @@ public class TempCoopScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     this.setScreenState(ScreenState.TransitionOff);
                 });

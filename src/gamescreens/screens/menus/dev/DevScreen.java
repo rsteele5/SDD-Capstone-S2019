@@ -49,7 +49,7 @@ public class DevScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 128,
                 "/assets/buttons/Button-Test.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
                     screenManager.addScreen(new TestDialogBoxScreen(screenManager));
                 });
@@ -58,7 +58,7 @@ public class DevScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Vendor.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
                     screenManager.addScreen(new VendorScreen(screenManager));
                 });
@@ -67,7 +67,7 @@ public class DevScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON+X_BUFFER+WIDTH_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Physics.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
                     screenManager.addScreen(new Level(screenManager));
                 });
@@ -76,7 +76,7 @@ public class DevScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON+2*(X_BUFFER+WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Inventory.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Inventory");
                     //TODO: Add Inventory Screen
                     screenManager.addScreen(new InventoryScreen(screenManager));
@@ -86,7 +86,7 @@ public class DevScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     setScreenState(ScreenState.TransitionOff);
                 });
