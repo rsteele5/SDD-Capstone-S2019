@@ -5,5 +5,6 @@ public enum AffectType {
     puncture,
     healthBoost,    // immediate increase/decrease
     healthLevel,     // increase/decrease max possible health
+    enchant,
     random
 }

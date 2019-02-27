@@ -54,6 +54,7 @@ public class Consumable extends RenderableObject implements Item {
                 "\nType: " + type.name() +
                 "\nAffect: " + affect.name() +
                 "\nEffectiveness: " + minAffect + "-" + maxAffect +
+                "\nValue: " + value + " gold" +
                 description;
     }
 
