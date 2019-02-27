@@ -11,6 +11,7 @@ import static gameobjects.renderables.items.ArmorType.Feet;
 import static gameobjects.renderables.items.ArmorType.OffHand;
 import static gamescreens.DrawLayer.Background;
 import static gamescreens.DrawLayer.Scenery;
+import static java.lang.Math.round;
 
 import java.awt.image.BufferedImage;
 
@@ -73,6 +74,11 @@ public class Armor extends RenderableObject implements Item{
     @Override
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public void depreciate() {
+        this.value = round((float)(value * (0.9)));
     }
 
     public int getArmorValue() { return armor; }
