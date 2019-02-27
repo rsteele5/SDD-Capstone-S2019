@@ -35,8 +35,9 @@ public class ScreenManager {
 
     //region <Support Functions>
     public void addScreen(GameScreen screen) {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG,  "ScreenManager-add screen" + screen.name);
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG,  "ScreenManager-add screen " + screen.name);
         if(screen.isRoot){
+            Debug.success(DebugEnabler.GAME_SCREEN_LOG, screen.name + " - is a Root");
             rootScreen.coverWith(screen);
             rootScreen = screen;
         } else {
@@ -44,9 +45,6 @@ public class ScreenManager {
         }
     }
 
-    public void removeScreen(GameScreen screen) {
-        rootScreen.uncoveredBy(screen);
-    }
     //TODO: Figure it out later for Loading Screen
     public void initializeLoadingScreen(int amountOfData){
         //loadingScreen.initializeLoadingScreen(amountOfData);

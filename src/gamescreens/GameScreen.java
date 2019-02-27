@@ -66,7 +66,7 @@ public abstract class GameScreen {
     public void coverWith(GameScreen gameScreen) {
         if (gameScreen.isRoot) {
             gameScreen.childScreen = this;
-            currentState = ScreenState.TransitionOff;
+            removeMe(this);
             return;
         }
         if (gameScreen.isExclusive) {
@@ -80,6 +80,19 @@ public abstract class GameScreen {
         }
     }
 
+    //Recursively removes all child screens and overlays
+    private void removeMe(GameScreen gameScreen){
+        if(gameScreen.childScreen != null)
+            removeMe(gameScreen.childScreen);
+
+        if(!overlayScreens.isEmpty()) {
+            for (GameScreen overlay : overlayScreens)
+                removeMe(overlay);
+        }
+        currentState = ScreenState.TransitionOff;
+    }
+
+    //I don't know what this does
     public void uncoveredBy(GameScreen gameScreen) {
         if (childScreen == gameScreen) {
             if (childScreen.childScreen != null) {
