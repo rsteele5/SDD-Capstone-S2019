@@ -5,6 +5,7 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
+import gamescreens.screens.ConfirmationPopup;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -48,9 +49,11 @@ public class PlayerCountScreen extends GameScreen {
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Solo.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
-                    screenManager.addScreen(new ConfirmSoloPopup(screenManager,this));
+                    screenManager.addScreen(new ConfirmationPopup(screenManager,this,
+                            "You selected... \nSOLO\nIs this correct?",
+                            ()-> coverWith(new TempCoopScreen(screenManager, this))));
                 });
         button.addToScreen(this, true);
 
@@ -59,7 +62,9 @@ public class PlayerCountScreen extends GameScreen {
                 DrawLayer.Entity,
                 (GameScreen) ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Coop");
-                    screenManager.addScreen(new ConfirmCoopPopup(screenManager,this));
+                    screenManager.addScreen(new ConfirmationPopup(screenManager,this,
+                            "You selected... \nCO-OP\nIs this correct?",
+                            ()-> coverWith(new TempCoopScreen(screenManager, this))));
                 });
         button.addToScreen(this, true);
 

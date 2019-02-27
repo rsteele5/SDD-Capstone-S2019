@@ -61,7 +61,7 @@ public class ConfirmationPopup extends GameScreen {
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Yes.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Yes");
                     setScreenState(ScreenState.TransitionOff);
                     if(onYesBtn != null){
@@ -74,7 +74,7 @@ public class ConfirmationPopup extends GameScreen {
         button = new Button(X_INIT_BUTTON + WIDTH_BUTTON + X_BUFFER,Y_INIT_BUTTON,
                 "/assets/buttons/Button-No.png",
                 DrawLayer.Entity,
-                (screenManager) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - No");
                     setScreenState(ScreenState.TransitionOff);
                     if(onNoBtn != null){
