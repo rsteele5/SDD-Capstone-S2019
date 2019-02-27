@@ -2,6 +2,8 @@ package gameobjects.renderables.items;
 
 import java.awt.image.BufferedImage;
 
+import static java.lang.Math.round;
+
 public interface Item {
 
     BufferedImage getIcon();
@@ -10,4 +12,5 @@ public interface Item {
     ItemCategory getCategory();
     int getType();  //TODO: find best way of sending subtype
     int getValue();
+    void depreciate();
 }
