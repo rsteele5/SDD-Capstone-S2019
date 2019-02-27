@@ -69,16 +69,16 @@ public class VendorScreen extends GameScreen {
         button = new Button(25, 25,
                 "/assets/buttons/Button-Vendor-Exit.png",
                 DrawLayer.Entity,
-                (screenManager1 -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Exit Vendor");
                     this.setScreenState(ScreenState.TransitionOff);
-                }));
+                });
         button.addToScreen(this, true);
 
         button = new Button(585, 485,
                 "/assets/buttons/Button-Vendor-Buy.png",
                 DrawLayer.Entity,
-                (screenManager1 -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
                     if (vendorInventory.size() > 0 && currentItem != null) {
                         // Item must be in vendor's inventory
@@ -93,13 +93,13 @@ public class VendorScreen extends GameScreen {
                             currentItem = null;
                         }
                     }
-                }));
+                });
         button.addToScreen(this, true);
 
         button = new Button(310, 485,
                 "/assets/buttons/Button-Vendor-Sell.png",
                 DrawLayer.Entity,
-                (screenManager1 -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Sell to Vendor");
                     if (playerInventory.size() > 0 && currentItem != null) {
                         // Item must be in player's inventory
@@ -114,7 +114,7 @@ public class VendorScreen extends GameScreen {
                             currentItem = null;
                         }
                     }
-                }));
+                });
         button.addToScreen(this, true);
         //endregion
 
@@ -174,7 +174,7 @@ public class VendorScreen extends GameScreen {
 
 
     private void setClickEvent(ItemButton itemContainerButton, TextBox itemDetailsPlayer, TextBox itemDetailsVendor, String sender){
-        itemContainerButton.setOnClick(GameScreen -> {
+        itemContainerButton.setOnClick(() -> {
             if (currentItemButton != null) {
                 currentItemButton.deSelect();
                 // Reset previous item's text to ""

@@ -62,7 +62,7 @@ public class GraphicsScreen extends GameScreen {
         Button butt;
         //Left Arrow
         butt = new Button(X_INIT_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Left Arrow");
                     switch (exitSetting){
                         case High: exitSetting = Medium; break;
@@ -75,7 +75,7 @@ public class GraphicsScreen extends GameScreen {
 
         //Right Arrow
         butt = new Button(X_INIT_BUTTON + X_BUFFER + WIDTH_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Right Arrow");
                     switch (exitSetting){
                         case High: exitSetting = Low; break;
@@ -90,7 +90,7 @@ public class GraphicsScreen extends GameScreen {
         butt = new Button(X_INIT_BUTTON + 2 * (X_BUFFER + WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Confirm");
                     this.setScreenState(ScreenState.TransitionOff);
                     graphicsSetting = exitSetting;
@@ -103,7 +103,7 @@ public class GraphicsScreen extends GameScreen {
                 Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
                     if (!exitSetting.equals(graphicsSetting)) {
                         screenManager.addScreen(new ConfirmationPopup(screenManager, this,

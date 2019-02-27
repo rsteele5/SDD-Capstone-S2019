@@ -59,7 +59,7 @@ public class ControlsScreen extends GameScreen {
         Button butt;
 
         butt = new Button(X_INIT_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-LeftArrow.png", DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Left Arrow");
                     if (exitSetting == KeyBoard) {
                         exitSetting = GamePad;
@@ -72,7 +72,7 @@ public class ControlsScreen extends GameScreen {
         butt.addToScreen(this, true);
 
         butt = new Button(X_INIT_BUTTON + X_BUFFER + WIDTH_BUTTON, Y_INIT_BUTTON, "/assets/buttons/Button-RightArrow.png", DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Right Arrow");
                     if (exitSetting == KeyBoard) {
                         exitSetting = GamePad;
@@ -87,7 +87,7 @@ public class ControlsScreen extends GameScreen {
         butt = new Button(X_INIT_BUTTON + 2 * (X_BUFFER + WIDTH_BUTTON), Y_INIT_BUTTON,
                 "/assets/buttons/Button-Confirm.png",
                 DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Confirm");
                     this.setScreenState(ScreenState.TransitionOff);
                     inputSetting = exitSetting;
@@ -99,7 +99,7 @@ public class ControlsScreen extends GameScreen {
                 Y_INIT_BUTTON,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (GameScreen) -> {
+                () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
                     if (!exitSetting.equals(inputSetting)) {
                         screenManager.addScreen(new ConfirmationPopup(screenManager, this,

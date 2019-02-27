@@ -54,7 +54,7 @@ public class Level extends GameScreen {
         Button b = (new Button(1000,100,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                (GameScreen) ->{
+                () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
 
                     screenManager.addScreen(new MainMenuScreen(screenManager));

@@ -196,7 +196,7 @@ public class InventoryScreen extends GameScreen {
         itemDetails.addToScreen(this,true);
 
         ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
-        button.setOnClick(GameScreen -> {
+        button.setOnClick(() -> {
                     currentItemButton = button;
                     itemDetails.setText(button.getItem().getDescription());
                 });
@@ -219,7 +219,7 @@ public class InventoryScreen extends GameScreen {
         //myCons.addToScreen(this, true);
 
         ItemButton buttonCons = new ItemButton(200, 250, DrawLayer.Entity);
-        buttonCons.setOnClick(GameScreen -> {
+        buttonCons.setOnClick(() -> {
             currentItemButton = buttonCons;
             itemDetails.setText(buttonCons.getItem().getDescription());
         });
@@ -266,7 +266,7 @@ public class InventoryScreen extends GameScreen {
         Debug.log(true, name + "- Handle click");
         for(Clickable thing: clickables) {
             if(thing.contains(x,y)) {
-                thing.onClick(this);
+                thing.onClick();
                 return true;
             }
         }
