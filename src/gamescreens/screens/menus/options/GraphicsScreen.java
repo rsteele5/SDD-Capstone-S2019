@@ -106,7 +106,7 @@ public class GraphicsScreen extends GameScreen {
                 () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
                     if (!exitSetting.equals(graphicsSetting)) {
-                        screenManager.addScreen(new ConfirmationPopup(screenManager, this,
+                        screenManager.addScreen(new ConfirmationPopup(screenManager,
                                 "Return Without Saving?",
                                 ()-> this.setScreenState(ScreenState.TransitionOff)));
                     } else {

@@ -21,21 +21,19 @@ public class ConfirmationPopup extends GameScreen {
     private final int Y_INIT_BUTTON = 400;
     private final int X_BUFFER = 142;
     private final int WIDTH_BUTTON = 142;
-    private GameScreen covering;
     private TextBox confirmationTextBox;
 
     private Action onYesBtn;
     private Action onNoBtn;
 
-    public ConfirmationPopup(ScreenManager screenManager, GameScreen covering, String confirmationMessage, Action onYes) {
+    public ConfirmationPopup(ScreenManager screenManager, String confirmationMessage, Action onYes) {
         super(screenManager, "ConfirmationPopup", true);
-        this.covering = covering;
         confirmationTextBox.setText(confirmationMessage);
         onYesBtn = onYes;
     }
 
-    public ConfirmationPopup(ScreenManager screenManager, GameScreen covering, String confirmationMessage, Action onYes, Action onNo) {
-        this(screenManager, covering, confirmationMessage, onYes);
+    public ConfirmationPopup(ScreenManager screenManager, String confirmationMessage, Action onYes, Action onNo) {
+        this(screenManager, confirmationMessage, onYes);
         onNoBtn = onNo;
     }
 

@@ -49,7 +49,7 @@ public class PlayerCountScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
-                    screenManager.addScreen(new ConfirmationPopup(screenManager,this,
+                    screenManager.addScreen(new ConfirmationPopup(screenManager,
                             "You selected... \nSOLO\nIs this correct?",
                             ()-> coverWith(new TempSoloScreen(screenManager, this))));
                 });
@@ -60,7 +60,7 @@ public class PlayerCountScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Coop");
-                    screenManager.addScreen(new ConfirmationPopup(screenManager,this,
+                    screenManager.addScreen(new ConfirmationPopup(screenManager,
                             "You selected... \nCO-OP\nIs this correct?",
                             ()-> coverWith(new TempCoopScreen(screenManager, this))));
                 });
