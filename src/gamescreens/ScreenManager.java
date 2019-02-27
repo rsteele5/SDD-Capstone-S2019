@@ -13,17 +13,14 @@ import java.util.ArrayList;
 public class ScreenManager {
     //region <Variables>
     private GameScreen rootScreen;
-
     private LoadingScreen loadingScreen;
     private GameSettings gameSettings;
     //endregion
-
     //region <Getters and Setters>
     public GameSettings getGameSettings() {
         return gameSettings;
     }
     //endregion
-
     public ScreenManager(GameSettings gameSettings) {
         this.gameSettings = gameSettings;
         rootScreen = null;

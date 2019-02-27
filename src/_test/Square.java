@@ -10,10 +10,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Square extends RenderableObject implements Kinematic {
-    private double accel = 1;
+    private PhysicsVector accel = new PhysicsVector(0,1);
     public Square(int x, int y, String path, DrawLayer drawLayer){
         super(x,y,path,drawLayer);
     }
+    PhysicsVector movement = new PhysicsVector(0,0);
     @Override
     public void update() {
 
@@ -25,13 +26,18 @@ public class Square extends RenderableObject implements Kinematic {
     }
 
     @Override
-    public double getAcceleration() {
+    public void setVelocity(PhysicsVector pv) {
+        movement = pv;
+    }
+
+    @Override
+    public PhysicsVector getAcceleration() {
         return accel;
     }
 
     @Override
-    public void setAcceleration(double d) {
-        accel = d;
+    public void setAcceleration(PhysicsVector pv) {
+        accel = pv;
     }
 
     @Override

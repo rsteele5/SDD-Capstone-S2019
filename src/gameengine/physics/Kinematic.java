@@ -4,7 +4,8 @@ import java.awt.*;
 
 public interface Kinematic {
    PhysicsVector getVelocity();
-   double getAcceleration();
-   void setAcceleration(double d);
+   void setVelocity(PhysicsVector pv);
+   PhysicsVector getAcceleration();
+   void setAcceleration(PhysicsVector pv);
    Rectangle getHitbox();
 }

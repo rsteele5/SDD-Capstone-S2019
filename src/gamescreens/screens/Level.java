@@ -1,7 +1,9 @@
 package gamescreens.screens;
 
 import _test.Square;
+import gameengine.GameEngine;
 import gameengine.rendering.RenderEngine;
+import gameobjects.Player;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.DrawLayer;
@@ -10,6 +12,7 @@ import gamescreens.ScreenManager;
 import gameengine.physics.Kinematic;
 import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
+import gamescreens.screens.menus.MainMenuScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -30,7 +33,9 @@ public class Level extends GameScreen {
     private final int X_BUFFER = 48;
 
     public Level(ScreenManager screenManager) {
+
         super(screenManager, "Level", true);
+
     }
 
     /**
@@ -40,77 +45,60 @@ public class Level extends GameScreen {
     protected void initializeScreen() {
         String bg = "/assets/backgrounds/BG-BlackCover.png";
         String path = "/assets/testAssets/square.png";
-
+        GameEngine.players.get(0).reset();
         ImageContainer background;
         background = (new ImageContainer(0,0, bg, DrawLayer.Background));
         background.addToScreen(this,true);
-
+        GameEngine.players.get(0).addToScreen(this,true);
         Square square;
-        square = new Square(50,50,path, DrawLayer.Entity);
+        Button b = (new Button(1000,100,
+                "/assets/buttons/Button-Back.png",
+                DrawLayer.Entity,
+                (GameScreen) ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
+
+                    screenManager.addScreen(new MainMenuScreen(screenManager));
+                    setScreenState(ScreenState.TransitionOff);
+
+        }));
+        b.addToScreen(this,true);
+        square = new Square(100,200,path,DrawLayer.Entity);
         square.addToScreen(this, true);
-        square = new Square(50,200,path,DrawLayer.Entity);
+        square = new Square(200,200,path,DrawLayer.Entity);
         square.addToScreen(this, true);
-        square = new Square(50,400,path,DrawLayer.Entity);
+        square = new Square(200,300,path,DrawLayer.Entity);
         square.addToScreen(this, true);
-        square = new Square(50,600,path,DrawLayer.Entity);
+        square = new Square(300,200,path,DrawLayer.Entity);
         square.addToScreen(this, true);
-        square = new Square(100,75,path,DrawLayer.Entity);
+        square = new Square(300,300,path,DrawLayer.Entity);
         square.addToScreen(this, true);
-        square = new Square(100,300,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(100,450,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(100,527,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(100,600,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,50,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,150,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,250,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,350,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,450,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,700,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(400,50,path,DrawLayer.Entity);
+        square = new Square(300,400,path,DrawLayer.Entity);;
         square.addToScreen(this, true);
         square = new Square(400,100,path,DrawLayer.Entity);
         square.addToScreen(this, true);
+        //Debug.log(true,String.valueOf(GameEngine.players.size()));
+       // Debug.log(true,String.valueOf(GameEngine.players.size()));
 
-        Button butt;
-        butt = new Button(X_INIT_BUTTON + 3 * (X_BUFFER + WIDTH_BUTTON),
-                Y_INIT_BUTTON,
-                "/assets/buttons/Button-Back.png",
-                DrawLayer.Entity,
-                (GameScreen) -> {
-                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Back");
-                    setScreenState(ScreenState.TransitionOff);
-                });
-        butt.addToScreen(this, true);
     }
 
     @Override
     protected void transitionOn() {
         setScreenState(ScreenState.Active);
     }
-
-    @Override
-    protected void transitionOff() {
-        exiting = true;
-    }
-
     @Override
     protected void hiddenUpdate() {
 
     }
 
     @Override
+    protected void transitionOff(){
+        exiting = true;
+    }
+
+    @Override
     protected void activeUpdate() {
         super.activeUpdate();
-        Debug.log(true, "active called");
+        //Debug.log(true,"this " + String.valueOf(GameEngine.players.size()));
+        //Debug.log(true,"global " + String.valueOf(GameEngine.players.size()));
     }
 }

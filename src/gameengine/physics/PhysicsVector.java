@@ -1,7 +1,7 @@
 package gameengine.physics;
 
 public class PhysicsVector{
-    double x, y;
+    public double x, y;
 
     public PhysicsVector(double x, double y) {
         this.x = x;
@@ -27,9 +27,8 @@ public class PhysicsVector{
         }
     }
 
-    public void add(PhysicsVector vector) {
-        x += vector.x;
-        y += vector.y;
+    public PhysicsVector add(PhysicsVector vector) {
+        return new PhysicsVector(x+vector.x,y+vector.y);
     }
 
     public void minus(PhysicsVector vector) {
@@ -38,9 +37,11 @@ public class PhysicsVector{
     }
 
     public PhysicsVector mult(double scalar) {
-        x *= scalar;
-        y *= scalar;
         return new PhysicsVector(this.x * scalar, this.y * scalar);
+    }
+
+    public PhysicsVector mult(PhysicsVector pv) {
+        return new PhysicsVector(this.x * pv.x, this.y * pv.y);
     }
 
     public void div(double scalar) {
