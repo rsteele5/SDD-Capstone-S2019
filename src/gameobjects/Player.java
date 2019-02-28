@@ -35,7 +35,8 @@ public class Player extends RenderableObject implements Kinematic {
     @Override
     public PhysicsVector getVelocity() {
         //Debug.log(true,"\nVelocity:\nX: " + movement.add(new PhysicsVector(0,1)).mult(accel).x  + "\ny: " +  movement.add(new PhysicsVector(0,1)).mult(accel).y);
-        PhysicsVector pV = movement.add(new PhysicsVector(0,1)).mult(accel);
+        int overworld = playerState == PlayerState.overWorld ? 0 : 1;
+        PhysicsVector pV = movement.add(new PhysicsVector(0,overworld)).mult(accel);
         double y = pV.y;
         y = y < 1 && y > .5 ? 1 : y;
         y = y < -.5 && y > -1 ? -1 : y;

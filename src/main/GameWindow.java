@@ -3,12 +3,14 @@ package main;
 import gameengine.GameEngine;
 import gameengine.physics.PhysicsVector;
 import gameobjects.Player;
+import main.utilities.Debug;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GameWindow extends JFrame implements KeyListener {
+    int flags,x,y;
     public GameWindow() {
         addKeyListener(this);
     }
@@ -23,7 +25,7 @@ public class GameWindow extends JFrame implements KeyListener {
         //Player Controller management.
         //TODO: Implement multiple players.
         Player p1 = GameEngine.players.get(0);
-        int flags;
+
         switch (p1.playerState){
             case asleep:
                 break;
@@ -41,7 +43,7 @@ public class GameWindow extends JFrame implements KeyListener {
                     p1.grounded = false;
                 }
                 p1.setMov(flags);
-                int x = 0b1 & flags;
+                x = 0b1 & flags;
                 x +=  (((0b10 & flags) / 0b10) * -1);
                 p1.setVelocity(new PhysicsVector(x,0));
                 break;
@@ -53,38 +55,60 @@ public class GameWindow extends JFrame implements KeyListener {
                 0b100     =   up
                 0b1000    =   down
                 */
-            //    flags = p1.mov();
-           //     flags += e.getKeyCode() == 68 && ((flags & 0b1) == 0)   ? 0b1   : 0; /*d right*/
-            //    flags += e.getKeyCode() == 65 && ((flags & 0b10) == 0)  ? 0b10  : 0; /*a left*/
-             //   flags += e.getKeyCode() == 68 && ((flags & 0b100) == 0)   ? 0b100   : 0; /*s down*/
-              //  flags += e.getKeyCode() == 65 && ((flags & 0b1000) == 0)  ? 0b1000  : 0; /*w up*/
-
+                flags = p1.mov();
+                flags += e.getKeyCode() == 68 && ((flags & 0b1) == 0)   ? 0b1   : 0; /*d right*/
+                flags += e.getKeyCode() == 65 && ((flags & 0b10) == 0)  ? 0b10  : 0; /*a left*/
+                flags += e.getKeyCode() == 83 && ((flags & 0b100) == 0)   ? 0b100   : 0; /*s down*/
+                flags += e.getKeyCode() == 87 && ((flags & 0b1000) == 0)  ? 0b1000  : 0; /*w up*/
+                p1.setMov(flags);
+                x = 0b1 & flags;
+                x +=  (((0b10 & flags) / 0b10) * -1);
+                y = ((0b100 & flags) / 0b100);
+                y += (((0b1000 & flags) / 0b1000) * -1);
+                Debug.log(true,"" + flags);
+                p1.setVelocity(new PhysicsVector(x,y));
                 break;
-        }
-        if(p1.playerState == Player.PlayerState.sideScroll) {
-
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e){
+
         Player p1 = GameEngine.players.get(0);
+
         switch (p1.playerState){
             case asleep:
                 break;
 
             case sideScroll:
-                int flags = p1.mov();
+                flags = p1.mov();
                 flags -= e.getKeyCode() == 68 && ((flags & 0b1) == 0b1) ? 0b1 : 0;
                 flags -= e.getKeyCode() == 65 && ((flags & 0b10) == 0b10) ? 0b10 : 0;
                 p1.setMov(flags);
-                int x = 0b1 & flags;
+                x = 0b1 & flags;
                 x += (((0b10 & flags) / 0b10) * -1);
                 p1.setVelocity(new PhysicsVector(x,/*((0b100 & flags)/ 0b100)*-1*/0));
 
                 break;
 
             case overWorld:
+                Debug.log(true, String.valueOf(p1.getState()));
+                flags = p1.mov();
+                Debug.log(true, String.valueOf(flags));
+                Debug.log(true, String.valueOf(e.getKeyCode()));
+                flags -= e.getKeyCode() == 68 && ((flags & 0b1) == 0b1)   ? 0b1   : 0; /*d right*/
+                flags -= e.getKeyCode() == 65 && ((flags & 0b10) == 0b10)  ? 0b10  : 0; /*a left*/
+                flags -= e.getKeyCode() == 83 && ((flags & 0b100) == 0b100)   ? 0b100   : 0; /*s down*/
+                flags -= e.getKeyCode() == 87 && ((flags & 0b1000) == 0b1000)  ? 0b1000  : 0; /*w up*/
+                Debug.log(true, String.valueOf(flags));
+                p1.setMov(flags);
+                x = 0b1 & flags;
+                x += (((0b10 & flags) / 0b10) * -1);
+                y = (((0b1000 & flags) / 0b1000) * -1) ;
+                y += ((0b100 & flags) / 0b100);
+
+
+                p1.setVelocity(new PhysicsVector(x,y));
                 break;
         }
     }
