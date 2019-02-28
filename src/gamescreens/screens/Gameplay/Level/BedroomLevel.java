@@ -29,12 +29,11 @@ public class BedroomLevel implements LevelBuilder {
             floorTile = new FloorTile(0,0,"/assets/levelObjects/WoodTile1.png");
             floorTileContainer.addAt(floorTile, 0, i);
         }
-
     }
 
     @Override
-    public void buildPlayer() {
-
+    public void buildPlayer(GameScreen gameScreen) {
+        GameEngine.players.get(0).addToScreen(gameScreen, true);
     }
 
     @Override
