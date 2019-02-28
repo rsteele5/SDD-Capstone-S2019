@@ -1,16 +1,15 @@
 package gameobjects.renderables.house;
 
-import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.ImageContainer;
 import gamescreens.DrawLayer;
 
-public class HouseTile extends RenderableObject {
 
-    private static String testPath = "/assets/testAssets/square.png";
-    private static final int SIZE = 500;
+public class HouseTile extends ImageContainer {
 
+    public static final int SIZE = 500;
 
-    public HouseTile(int x, int y) {
-        super(x, y, testPath, DrawLayer.Scenery);
+    public HouseTile(int x, int y, String path) {
+        super(x, y, path, DrawLayer.Scenery);
         width = SIZE;
         height = SIZE;
     }

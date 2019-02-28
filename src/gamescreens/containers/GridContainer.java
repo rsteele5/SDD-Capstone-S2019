@@ -50,6 +50,11 @@ public class GridContainer {
         y = yPos;
     }
 
+    public GridContainer(GameScreen parentScreen, int rows, int cols, int itemWidth , int itemHeight, int xPos, int yPos, int padding) {
+        this(parentScreen, rows, cols, itemWidth, itemHeight,xPos, yPos);
+        this.padding = padding;
+    }
+
     public void addAt(RenderableObject renderable, int row, int col){
 
         if((row >= 0 && col >= 0) && (row <= rows && col <= cols)) {

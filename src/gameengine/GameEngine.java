@@ -87,7 +87,7 @@ public class GameEngine implements Runnable {
             if (sleepTime >= 0) {
                 try {
                     if(endTime-startTime > 0 /*&& frameCounter % 60 == 0*/)
-                    //Debug.success(DebugEnabler.FPS,"Current FPS: " + 1000 / (endTime - startTime) );
+                    Debug.success(DebugEnabler.FPS_CURRENT,"Current FPS: " + 1000 / (endTime - startTime) );
                     TimeUnit.MILLISECONDS.sleep(sleepTime);
                 } catch (InterruptedException e) {
 

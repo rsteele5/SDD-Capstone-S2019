@@ -65,7 +65,6 @@ public abstract class GameScreen {
 
     public void coverWith(GameScreen gameScreen) {
         if (gameScreen.isRoot) {
-            gameScreen.childScreen = this;
             removeMe(this);
             return;
         }

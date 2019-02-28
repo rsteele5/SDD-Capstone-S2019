@@ -52,7 +52,10 @@ public class PlayerCountScreen extends GameScreen {
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
                     screenManager.addScreen(new ConfirmationPopup(screenManager,
                             "You selected... \nSOLO\nIs this correct?",
-                            ()-> screenManager.addScreen(new OverworldScreen(screenManager))));
+                            ()->{
+                                this.exiting = true;
+                                screenManager.addScreen(new OverworldScreen(screenManager));
+                            }));
                 });
         button.addToScreen(this, true);
 
