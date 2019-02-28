@@ -2,8 +2,10 @@ package gameobjects.renderables;
 
 import gamescreens.DrawLayer;
 import main.utilities.AssetLoader;
+import main.utilities.Debug;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 
 public class TextBox extends RenderableObject {
@@ -52,7 +54,8 @@ public class TextBox extends RenderableObject {
         }
     }
 
-    private void parseString(Graphics2D graphics) {//Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
+    private void parseString(Graphics2D graphics) {
+        Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
         graphics.setFont(font);
         graphics.setColor(color);
         String newLine = "";

@@ -1,9 +1,7 @@
 package gamescreens.screens;
 
 import gameobjects.Clickable;
-import gameobjects.renderables.DialogBox;
-import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.TextBox;
+import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.buttons.ItemButton;
 import gameobjects.renderables.items.*;
@@ -12,6 +10,8 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import gamescreens.screens.menus.MainMenuScreen;
+import gamescreens.screens.menus.dev.DevScreen;
+import gamescreens.screens.menus.options.OptionScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -25,70 +25,24 @@ import static gamescreens.DrawLayer.Scenery;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class InventoryScreen extends GameScreen {
     /* Initialize variables *****************/
-    //protected CopyOnWriteArrayList<Button> buttons = new CopyOnWriteArrayList<>();
-    //region<Variables>
-    //renderablearray size
-    private int rendArSize;
-    // Squares horizontal
-    private int numSQHorz = 4;
-    // Squares vertical
-    private int numSQVert = 8;
-    // Starting x and y value of Background
-    private final int xValBG = 180;
-    private final int yValBG = 105;
-    // Inventory square Padding
-    private int invPadding = 2;
-    // Inventory square size and distance between them x and y
-    private int invSQSize = 44;
-    private int invSQDist = 5;
-    // X & Y Distance from image sides to first inv sq
-    private int xDistToSQ = 10;
-    private int yDistToSQ = 115;
-    // Starting x value of inventory items.
-    private int xValItemsStart = xValBG + xDistToSQ + invPadding;
-    // x value spacing of inventory boxes.
-    private int itemsSpacing = invSQSize + invSQDist;
-    // Last inventory square's x value
-    private int xValItemsEnd = xValItemsStart + (numSQHorz - 1) * itemsSpacing;
-    // Starting x value of inventory items.
-    private int yValItemsStart = yValBG + yDistToSQ + invPadding;
-    // Last inventory square's y value
-    private int yValItemsEnd = yValItemsStart + (numSQVert - 1) * itemsSpacing;
-    // Number of squares right of first
-    // Number of squares below first
-    /* x and y positions for text */
-    private int x_position;
-    private int y_position = yValItemsStart;
-    private int mainMenuX;
-    private int mainMenuY = yValBG + (yDistToSQ / 4);
-    private int[] equipXPos = {(xValItemsEnd + ((5 * itemsSpacing) / 2)), (xValItemsEnd + ((3 * itemsSpacing) / 2)),
-            (xValItemsEnd + ((5 * itemsSpacing) / 2)), (xValItemsEnd + (7 * (itemsSpacing) / 2)),
-            (xValItemsEnd + ((5 * itemsSpacing) / 2)), (xValItemsEnd + ((5 * itemsSpacing) / 2))};
-    private int[] equipYPos = {yValItemsStart, (yValItemsStart + itemsSpacing), (yValItemsStart + itemsSpacing),
-            (yValItemsStart + itemsSpacing), (yValItemsStart + (2 * itemsSpacing)), (yValItemsStart + (3 * itemsSpacing))};
-    private BufferedImage selectedIMG;
-    private BufferedImage deselectedIMG;
-    private BufferedImage buttonSpaceIMG;
-
-    private Button cBtn = null;
-    private ItemButton currentItemButton = null;
+    //region<Variable Declarations>
+    private CopyOnWriteArrayList<Item> playerInventory;
+    private CopyOnWriteArrayList<ItemButton> playerButtons;
+    private CopyOnWriteArrayList<ItemButton> equipButtons;
+    ItemButton bigEquipment;
     private TextBox itemDetails;
+    private ItemButton currentItemButton = null;
+    private Item currentItem = null;
+
     //endregion
-//
-//    public static Inventory inv;
-    /* ****************************************/
-
-    /* TODO: Remove after testing. Create arrays for bear's and vendor's items (identified by image name here) **/
-//    private CopyOnWriteArrayList<Item> bearInventory;
-//    private Item[] bearEquipped = new Item[6];
-
 
     public InventoryScreen(ScreenManager screenManager) {
-        super(screenManager, "InventoryScreen", true, 180, 105);
+        super(screenManager, "InventoryScreen", true, 140, 90);
 
 //        /* TODO Remove after testing. Populates inventories with items */
 //        inv = new Inventory();
@@ -164,32 +118,44 @@ public class InventoryScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
+        TempPlayerClass player = DevScreen.player;
+        playerInventory = player.getItems();
+        playerButtons = new CopyOnWriteArrayList<>();
+        equipButtons = new CopyOnWriteArrayList<>();
+
+        //Add all the items in the dev screen player to the screen
+        for (RenderableObject renderable: DevScreen.player.getRenderables()){
+            renderable.addToScreen(this, false);
+        }
 
         ImageContainer background;
         background = new ImageContainer(0,0,"/assets/backgrounds/BG-Inventory.png", DrawLayer.Background);
+        background.setWidth(980);
+        background.setHeight(540);
         background.addToScreen(this,true);
 
         //Add menu Title
-        TextBox menuTitle = new TextBox(10, 10, 400, 100, "Pause Menu",
+        TextBox menuTitle = new TextBox(5, 0, 400, 1, "Pause Menu",
                 new Font("NoScary", Font.PLAIN, 96), Color.WHITE);
         menuTitle.addToScreen(this,true);
 
         //Item label
-        TextBox items = new TextBox(75, 86, 250, 100, "Items",
+        TextBox items = new TextBox(75, 75, 250, 100, "Items",
                 new Font("NoScary", Font.PLAIN, 60), Color.BLUE);
         items.addToScreen(this,true);
 
         //Equipped label
-        TextBox equipped = new TextBox(250, 86, 250, 100, "Equipped",
+        TextBox equipped = new TextBox(260, 75, 250, 100, "Equipped",
                 new Font("NoScary", Font.PLAIN, 60), Color.BLUE);
         equipped.addToScreen(this,true);
 
         //Selected item label
-        TextBox selectedItem = new TextBox(500, 86, 250, 100, "Selected Item",
+        TextBox selectedItem = new TextBox(450, 75, 250, 100, "Selected Item",
                 new Font("NoScary", Font.PLAIN, 60), Color.BLUE);
         selectedItem.addToScreen(this,true);
 
-        Button mainMenu = new gameobjects.renderables.buttons.Button(600,86,
+        //Main Menu Button
+        Button mainMenuButton = new gameobjects.renderables.buttons.Button(765,30,
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
                 () ->{
@@ -198,21 +164,117 @@ public class InventoryScreen extends GameScreen {
                     screenManager.addScreen(new MainMenuScreen(screenManager));
                     this.setScreenState(ScreenState.TransitionOff);
                 });
-        mainMenu.addToScreen(this,true);
+        mainMenuButton.setWidth(192);
+        mainMenuButton.setHeight(72);
+        mainMenuButton.addToScreen(this,true);
 
-//        Button mainMenu = new gameobjects.renderables.buttons.Button(600,86,
-//                "/assets/buttons/Button-MainMenu.png",
-//                DrawLayer.Entity,
-//                () ->{
-//                    //TODO make this go back to the main menu
-//                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
-//
-//                    this.setScreenState(ScreenState.TransitionOff);
-//                });
-//        mainMenu.addToScreen(this,true);
+        //Save Button
+        Button saveButton = new gameobjects.renderables.buttons.Button(765,132,
+                "/assets/buttons/Button-Save.png",
+                DrawLayer.Entity,
+                () ->{
+                    //TODO Save stuff
+                });
+        saveButton.setWidth(192);
+        saveButton.setHeight(72);
+        saveButton.addToScreen(this,true);
 
+        //Save Button
+        Button optionsButton = new gameobjects.renderables.buttons.Button(765,234,
+                "/assets/buttons/Button-Options.png",
+                DrawLayer.Entity,
+                () ->{
+                    screenManager.addScreen(new MainMenuScreen(screenManager));
+                    screenManager.addScreen(new OptionScreen(screenManager));
+                    currentState = ScreenState.TransitionOff;
+                });
+        optionsButton.setWidth(192);
+        optionsButton.setHeight(72);
+        optionsButton.addToScreen(this,true);
 
+        //Back Button
+        Button backButton = new gameobjects.renderables.buttons.Button(765,336,
+                "/assets/buttons/Button-Back.png",
+                DrawLayer.Entity,
+                () -> currentState = ScreenState.TransitionOff
+        );
+        backButton.setWidth(192);
+        backButton.setHeight(72);
+        backButton.addToScreen(this,true);
 
+        //Item details text box
+        itemDetails = new TextBox(460, 130, 210, 260, "",
+                new Font("NoScary", Font.PLAIN, 30), Color.BLACK);
+        itemDetails.addToScreen(this,true);
+
+        //Set up the grid for the player inventory
+        int rows = 7;
+        int columns = 4;
+        GridContainer playerGrid = new GridContainer(this, rows, columns, 50, 125, 15, 140);
+
+        //region Add buttons to the Grid Containers
+        int count = playerInventory.size();
+        int k = 0;
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                ItemButton itemContainerButton = new ItemButton();
+                playerGrid.addAt(itemContainerButton, i, j);
+                if (k < count) {
+                    itemContainerButton.setItem(playerInventory.get(k));
+                    k++;
+                }
+                setClickEvent(itemContainerButton, itemDetails);
+                // Add button to array so it can be accessed again later
+                playerButtons.add(itemContainerButton);
+            }
+        }
+
+        //Create grid for the cross pattern equipment stuff
+        GridContainer equipGrid = new GridContainer(this, 4, 3, 50, 125, 250, 140);
+
+        //Equipment Buttons
+        ItemButton equipHead =  new ItemButton();
+        equipGrid.addAt(equipHead, 0, 1);
+        equipButtons.add(equipHead);
+        setClickEvent(equipHead, itemDetails);
+
+        ItemButton equipOffHand =  new ItemButton();
+        equipGrid.addAt(equipOffHand, 1, 0);
+        equipButtons.add(equipOffHand);
+        setClickEvent(equipOffHand, itemDetails);
+
+        ItemButton equipChest =  new ItemButton();
+        equipGrid.addAt(equipChest, 1, 1);
+        equipButtons.add(equipChest);
+        setClickEvent(equipChest, itemDetails);
+
+        ItemButton equipWeapon =  new ItemButton();
+        equipGrid.addAt(equipWeapon, 1, 2);
+        equipButtons.add(equipWeapon);
+        setClickEvent(equipWeapon, itemDetails);
+
+        ItemButton equipLegs =  new ItemButton();
+        equipGrid.addAt(equipLegs, 2, 1);
+        equipButtons.add(equipLegs);
+        setClickEvent(equipLegs, itemDetails);
+
+        ItemButton equipFeet =  new ItemButton();
+        equipGrid.addAt(equipFeet, 3, 1);
+        equipButtons.add(equipFeet);
+        setClickEvent(equipFeet, itemDetails);
+
+        ImageContainer teddy = new ImageContainer(295,370,"/assets/Teddy.png", DrawLayer.Entity);
+        teddy.setWidth(70);
+        teddy.setHeight(150);
+        teddy.addToScreen(this,true);
+
+        //Setup the big equipment button
+        bigEquipment =  new ItemButton(515,420, DrawLayer.Entity);
+        bigEquipment.setWidth(100);
+        bigEquipment.setHeight(100);
+        //If you click the big view do nothing, can change this later
+        bigEquipment.setOnClick( () -> bigEquipment.deSelect());
+        bigEquipment.addToScreen(this, true);
 
 
 
@@ -314,20 +376,43 @@ public class InventoryScreen extends GameScreen {
 
     }
 
-    public boolean handleClickEvent(int x, int y) {
-        Debug.log(true, name + "- Handle click");
-        for(Clickable thing: clickables) {
-            if(thing.contains(x,y)) {
-                thing.onClick();
-                return true;
+    private void setClickEvent(ItemButton itemContainerButton, TextBox itemDetailsPlayer){
+        itemContainerButton.setOnClick(() -> {
+            if (currentItemButton != null) {
+                currentItemButton.deSelect();
+                // Reset previous item's text to ""
+                if (itemDetailsPlayer.getText().length() > 0) {
+                    itemDetailsPlayer.setText("");
+
+                }
+            }
+            currentItemButton = itemContainerButton;
+            currentItem = currentItemButton.getItem();
+
+            if (currentItemButton.getItem() != null) {
+                itemDetailsPlayer.setText(currentItem.getDescription());
+                bigEquipment.setItem(currentItemButton.getItem());
+            } else {
+                currentItem = null;
+                currentItemButton.deSelect();
+                currentItemButton = null;
+            }
+        });
+    }
+
+    private void resetButtonItems(){
+
+        // Reset all player item buttons to null, set item buttons again, and establish click events
+        int count = playerInventory.size();
+        int k = 0;
+        for (ItemButton pbutton : playerButtons) {
+            pbutton.resetItem();
+            if (k < count){
+                pbutton.setItem(playerInventory.get(k));
+                setClickEvent(pbutton, itemDetails);
+                k++;
             }
         }
-        if(currentItemButton != null){
-            itemDetails.setText("");
-            currentItemButton.deSelect();
-            currentItemButton = null;
-        }
-        return false;
     }
 
     @Override

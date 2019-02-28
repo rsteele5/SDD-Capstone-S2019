@@ -44,6 +44,11 @@ public class ItemButton extends Button{
         setCurrentImage(selectedImage);
     }
 
+    @Override
+    public void setCurrentImage(BufferedImage image) {
+        this.image = image;
+    }
+
     public void deSelect(){
         Debug.log(true, "Deselected");
         setCurrentImage(notSelectedImage);
@@ -62,7 +67,7 @@ public class ItemButton extends Button{
         super.draw(graphics);
         //If the image is not null draw it offset in the center of the button
         if(item != null)
-            graphics.drawImage(item.getIcon(), x +5, y + 5, width -10, height -10, null);
+            graphics.drawImage(item.getIcon(), x +7, y + 7, width -14, height -14, null);
     }
 
     @Override
@@ -71,9 +76,7 @@ public class ItemButton extends Button{
             image = AssetLoader.load(imagePath);
             notSelectedImage = image;
             selectedImage = AssetLoader.load(selectedImagePath);
-            if(width != 0 && height != 0) {
-                setSize(width, height);
-            } else {
+            if(width == 0 && height == 0) {
                 setSize(image.getWidth(), image.getHeight());
             }
         }
