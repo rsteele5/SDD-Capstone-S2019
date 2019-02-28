@@ -2,6 +2,7 @@ package gameobjects;
 
 import gameengine.GameEngine;
 import gameengine.physics.Kinematic;
+import gameengine.physics.PhysicsMeta;
 import gameengine.physics.PhysicsVector;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.DrawLayer;
@@ -62,10 +63,12 @@ public class Player extends RenderableObject implements Kinematic {
         switch (getState()){
             case sideScroll:
                 if(e.getKeyCode() == 32 && grounded ){
-                    setAcceleration(getAcceleration().add(new PhysicsVector(0,-7)));
+                    int sign = PhysicsMeta.AntiGravity ? -1 : 1;
+                    setAcceleration(getAcceleration().add(new PhysicsVector(0,-7 * sign)));
                     grounded = false;
                 }
-                calculateMove(e,ssKeys);
+                if(PhysicsMeta.Gravity == 0) calculateMove(e,owKeys);
+                else calculateMove(e,ssKeys);
                 break;
 
             case overWorld:
@@ -77,7 +80,8 @@ public class Player extends RenderableObject implements Kinematic {
     public void moveRelease(KeyEvent e){
         switch (getState()){
             case sideScroll:
-                calculateRelease(e,ssKeys);
+                if(PhysicsMeta.Gravity == 0) calculateRelease(e,owKeys);
+                else calculateRelease(e,ssKeys);
                 break;
 
             case overWorld:
@@ -88,8 +92,8 @@ public class Player extends RenderableObject implements Kinematic {
 
     @Override
     public PhysicsVector getVelocity() {
-        int overworld = playerState == PlayerState.overWorld ? 0 : 1;
-        PhysicsVector pV = movement.add(new PhysicsVector(0,overworld)).mult(accel);
+        int gravSign = PhysicsMeta.Gravity != 0 && playerState == PlayerState.sideScroll ? 1 : 0;
+        PhysicsVector pV = movement.add(new PhysicsVector(0,gravSign)).mult(accel);
         double y = pV.y;
         y = y < 1 && y > .5 ? 1 : y;
         y = y < -.5 && y > -1 ? -1 : y;

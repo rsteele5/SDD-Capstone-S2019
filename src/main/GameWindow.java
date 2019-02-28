@@ -10,11 +10,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GameWindow extends JFrame implements KeyListener {
-    int flags,x,y;
     public GameWindow() {
         addKeyListener(this);
     }
-
     @Override
     public void keyTyped(KeyEvent e) {
 
