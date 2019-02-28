@@ -32,7 +32,7 @@ public class PhysicsEngine {
                 if ((((Kinematic) obj).getAcceleration().y + PhysicsMeta.Gravity) < PhysicsMeta.terminalVelocity)
                     ((Kinematic) obj).setAcceleration(((Kinematic) obj).getAcceleration().add(new PhysicsVector(0,PhysicsMeta.Gravity)));
 
-//                if(obj instanceof Player && ((((Player) obj).mov() & 0b10) == 0b010 || (((Player) obj).mov() & 0100) == 0b1)){
+//                if(obj instanceof Player && ((((Player) obj).getMvmtFlags() & 0b10) == 0b010 || (((Player) obj).getMvmtFlags() & 0100) == 0b1)){
 //                    ((Player) obj).setAcceleration(((Player) obj).getAcceleration().get);
 //                }
 
@@ -43,7 +43,7 @@ public class PhysicsEngine {
                 //Screen Collision Detection
                 if(PhysicsMeta.boundaries) {
                     if ((obj.getY() + ((Kinematic) obj).getHitbox().height) > winHeight) {
-                        obj.setY(winHeight - ((Kinematic) obj).getHitbox().height);
+                        obj.setY(winHeight - ((Kinematic) obj).getHitbox().height);ww
                         ((Kinematic) obj).setAcceleration(new PhysicsVector(1, 1));
                         if(obj instanceof Player) ((Player) obj).grounded = true;
                     }
