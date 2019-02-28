@@ -1,6 +1,5 @@
 package gameobjects;
 
-import gameengine.GameEngine;
 import gameengine.physics.Kinematic;
 import gameengine.physics.PhysicsVector;
 import gameobjects.renderables.RenderableObject;
@@ -10,18 +9,18 @@ import main.utilities.Debug;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.Console;
 
 public class Player extends RenderableObject implements Kinematic {
     private PhysicsVector accel = new PhysicsVector(1,1);
     PhysicsVector movement = new PhysicsVector(0,0);
     int mov = 0;
     public boolean grounded;
-    public enum State{
-        awake,
-        asleep
+    public enum PlayerState {
+        sideScroll,
+        asleep,
+        overWorld
     }
-    public State playerState;
+    public PlayerState playerState;
     @Override
     public void update() { }
     public void movement(KeyEvent e){
@@ -31,7 +30,7 @@ public class Player extends RenderableObject implements Kinematic {
     String name = "teddy";
     public Player(int x, int y, String path, DrawLayer drawLayer){
         super(x,y,path,drawLayer);
-        playerState = State.asleep;
+        playerState = PlayerState.asleep;
     }
     @Override
     public PhysicsVector getVelocity() {
@@ -69,10 +68,8 @@ public class Player extends RenderableObject implements Kinematic {
     @Override
     public void addToScreen(GameScreen screen, boolean isActive){
         super.addToScreen(screen, isActive);
-        playerState = State.awake;
-        if(isActive) {
-            screen.kinematics.add(this);
-        }
+        playerState = PlayerState.sideScroll;
+        if(isActive) screen.kinematics.add(this);
     }
 
     public void reset(){
@@ -87,5 +84,17 @@ public class Player extends RenderableObject implements Kinematic {
 
     public void setMov(int flags){
         mov = flags;
+    }
+
+    public PlayerState getState(){ return playerState;}
+
+    public boolean setState(PlayerState ps){
+        //TODO: Implement error checking
+       switch (ps){
+           case overWorld: return true;
+           case asleep: return true;
+           case sideScroll: return true;
+       }
+       return false;
     }
 }
