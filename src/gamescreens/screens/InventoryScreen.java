@@ -4,19 +4,24 @@ import gameobjects.Clickable;
 import gameobjects.renderables.DialogBox;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.TextBox;
+import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.buttons.ItemButton;
 import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
+import gamescreens.screens.menus.MainMenuScreen;
 import main.utilities.Debug;
+import main.utilities.DebugEnabler;
+
 import static gamescreens.DrawLayer.Effects;
 import static gameobjects.renderables.items.ArmorType.Head;
 import static gameobjects.renderables.items.ArmorType.Chest;
 import static gameobjects.renderables.items.ArmorType.Pants;
 import static gameobjects.renderables.items.ArmorType.Feet;
 import static gameobjects.renderables.items.ArmorType.OffHand;
+import static gamescreens.DrawLayer.Scenery;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -164,101 +169,148 @@ public class InventoryScreen extends GameScreen {
         background = new ImageContainer(0,0,"/assets/backgrounds/BG-Inventory.png", DrawLayer.Background);
         background.addToScreen(this,true);
 
-        ImageContainer teddy = new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity);
-        teddy.addToScreen(this,true);
+        //Add menu Title
+        TextBox menuTitle = new TextBox(10, 10, 400, 100, "Pause Menu",
+                new Font("NoScary", Font.PLAIN, 96), Color.WHITE);
+        menuTitle.addToScreen(this,true);
 
-        Armor myArmor = new ArmorBuilder()
-                .position(200,200)
-                .imagePath("/src/assets/Items/helmet1.png")
-                .name("My Fwirst Helmet")
-                .type(Head)
-                .value(20)
-                .buildWeapon();
-        loadables.add(myArmor);
-        //myArmor.addToScreen(this, true);
+        //Item label
+        TextBox items = new TextBox(75, 86, 250, 100, "Items",
+                new Font("NoScary", Font.PLAIN, 60), Color.BLUE);
+        items.addToScreen(this,true);
 
-        // Weapon button test
-        Weapon myWeap = new WeaponBuilder()
-                .position(100, 100)
-                .imagePath("/assets/Items/sword1.png")
-                .name("My Fwirst Sword!")
-                .type(WeaponType.Sword)
-                .value(15)
-                .buildWeapon();
-        //addInactiveObject(myWeap);
-        loadables.add(myWeap);
+        //Equipped label
+        TextBox equipped = new TextBox(250, 86, 250, 100, "Equipped",
+                new Font("NoScary", Font.PLAIN, 60), Color.BLUE);
+        equipped.addToScreen(this,true);
 
-        myWeap.addToScreen(this, true);
+        //Selected item label
+        TextBox selectedItem = new TextBox(500, 86, 250, 100, "Selected Item",
+                new Font("NoScary", Font.PLAIN, 60), Color.BLUE);
+        selectedItem.addToScreen(this,true);
 
-        itemDetails = new TextBox(300,75, 300, 400, "" ,
-                new Font("NoScary", Font.PLAIN, 40), Color.BLACK);
-
-        itemDetails.addToScreen(this,true);
-
-        ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
-        button.setOnClick(() -> {
-                    currentItemButton = button;
-                    itemDetails.setText(button.getItem().getDescription());
+        Button mainMenu = new gameobjects.renderables.buttons.Button(600,86,
+                "/assets/buttons/Button-MainMenu.png",
+                DrawLayer.Entity,
+                () ->{
+                    //TODO make this go back to the main menu
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                    screenManager.addScreen(new MainMenuScreen(screenManager));
+                    this.setScreenState(ScreenState.TransitionOff);
                 });
+        mainMenu.addToScreen(this,true);
 
-        button.addToScreen(this,true);
-        button.setItem(myWeap);
-
-
-        // Consumable button test
-        Consumable myCons = new ConsumableBuilder()
-                .position(800, 100)
-                .imagePath("/assets/Items/bluepotion.png")
-                .name("My Fwirst Potion!")
-                .type(ConsumableType.edible)
-                .value(15)
-                .buildConsumable();
-        //addInactiveObject(myWeap);
-        loadables.add(myCons);
-
-        //myCons.addToScreen(this, true);
-
-        ItemButton buttonCons = new ItemButton(200, 250, DrawLayer.Entity);
-        buttonCons.setOnClick(() -> {
-            currentItemButton = buttonCons;
-            itemDetails.setText(buttonCons.getItem().getDescription());
-        });
-
-        buttonCons.addToScreen(this,true);
-        buttonCons.setItem(myCons);
+//        Button mainMenu = new gameobjects.renderables.buttons.Button(600,86,
+//                "/assets/buttons/Button-MainMenu.png",
+//                DrawLayer.Entity,
+//                () ->{
+//                    //TODO make this go back to the main menu
+//                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+//
+//                    this.setScreenState(ScreenState.TransitionOff);
+//                });
+//        mainMenu.addToScreen(this,true);
 
 
 
-        //TODO: overlay Gridlayout Test
-        GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);
-        ItemButton itemContainerButton;
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-            itemContainerButton = new ItemButton();
-            items.addAt(itemContainerButton, i, j);
-        }
-
-        GridContainer equipped = new GridContainer(this, 4, 3, 50, 50, 260, 250);
-        ItemButton equippedContainerButton;
-
-        equippedContainerButton = new ItemButton();
-        equipped.addAt(equippedContainerButton, 0, 1);
-        equippedContainerButton = new ItemButton();
-        equipped.addAt(equippedContainerButton, 1, 0);
-        equippedContainerButton = new ItemButton();
-        equipped.addAt(equippedContainerButton, 1, 1);
-        equippedContainerButton = new ItemButton();
-        equipped.addAt(equippedContainerButton, 1, 2);
-        equippedContainerButton = new ItemButton();
-        equipped.addAt(equippedContainerButton, 2, 1);
-        equippedContainerButton = new ItemButton();
-        equipped.addAt(equippedContainerButton, 3, 1);
-
-        }
 
 
-        //TODO: implement items.add(new ItemButton(), 1,2);
 
+//        ImageContainer teddy = new ImageContainer(30,30,"/assets/Teddy.png", DrawLayer.Entity);
+//        teddy.addToScreen(this,true);
+//
+//        Armor myArmor = new ArmorBuilder()
+//                .position(200,200)
+//                .imagePath("/src/assets/Items/helmet1.png")
+//                .name("My Fwirst Helmet")
+//                .type(Head)
+//                .value(20)
+//                .buildWeapon();
+//        loadables.add(myArmor);
+//        //myArmor.addToScreen(this, true);
+//
+//        // Weapon button test
+//        Weapon myWeap = new WeaponBuilder()
+//                .position(100, 100)
+//                .imagePath("/assets/Items/sword1.png")
+//                .name("My Fwirst Sword!")
+//                .type(WeaponType.Sword)
+//                .value(15)
+//                .buildWeapon();
+//        //addInactiveObject(myWeap);
+//        loadables.add(myWeap);
+//
+//        myWeap.addToScreen(this, true);
+//
+//        itemDetails = new TextBox(300,75, 300, 400, "" ,
+//                new Font("NoScary", Font.PLAIN, 40), Color.BLACK);
+//
+//        itemDetails.addToScreen(this,true);
+//
+//        ItemButton button = new ItemButton(200, 200, DrawLayer.Entity);
+//        button.setOnClick(() -> {
+//                    currentItemButton = button;
+//                    itemDetails.setText(button.getItem().getDescription());
+//                });
+//
+//        button.addToScreen(this,true);
+//        button.setItem(myWeap);
+//
+//
+//        // Consumable button test
+//        Consumable myCons = new ConsumableBuilder()
+//                .position(800, 100)
+//                .imagePath("/assets/Items/bluepotion.png")
+//                .name("My Fwirst Potion!")
+//                .type(ConsumableType.edible)
+//                .value(15)
+//                .buildConsumable();
+//        //addInactiveObject(myWeap);
+//        loadables.add(myCons);
+//
+//        //myCons.addToScreen(this, true);
+//
+//        ItemButton buttonCons = new ItemButton(200, 250, DrawLayer.Entity);
+//        buttonCons.setOnClick(() -> {
+//            currentItemButton = buttonCons;
+//            itemDetails.setText(buttonCons.getItem().getDescription());
+//        });
+//
+//        buttonCons.addToScreen(this,true);
+//        buttonCons.setItem(myCons);
+//
+//
+//
+//        //TODO: overlay Gridlayout Test
+//        GridContainer items = new GridContainer(this, 3, 3, 50, 50, 10, 250);
+//        ItemButton itemContainerButton;
+//        for(int i = 0; i < 3; i++){
+//            for(int j = 0; j < 3; j++){
+//            itemContainerButton = new ItemButton();
+//            items.addAt(itemContainerButton, i, j);
+//        }
+//
+//        GridContainer equipped = new GridContainer(this, 4, 3, 50, 50, 260, 250);
+//        ItemButton equippedContainerButton;
+//
+//        equippedContainerButton = new ItemButton();
+//        equipped.addAt(equippedContainerButton, 0, 1);
+//        equippedContainerButton = new ItemButton();
+//        equipped.addAt(equippedContainerButton, 1, 0);
+//        equippedContainerButton = new ItemButton();
+//        equipped.addAt(equippedContainerButton, 1, 1);
+//        equippedContainerButton = new ItemButton();
+//        equipped.addAt(equippedContainerButton, 1, 2);
+//        equippedContainerButton = new ItemButton();
+//        equipped.addAt(equippedContainerButton, 2, 1);
+//        equippedContainerButton = new ItemButton();
+//        equipped.addAt(equippedContainerButton, 3, 1);
+//
+//        }
+//
+//
+//        //TODO: implement items.add(new ItemButton(), 1,2);
+//
 
     }
 

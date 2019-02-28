@@ -39,6 +39,7 @@ public class TextBox extends RenderableObject {
     public void draw(Graphics2D graphics) {
         if(displayText.equals("")) parseString(graphics);
         graphics.setFont(font);
+        graphics.setColor(color);
         int fontHeight = graphics.getFontMetrics().getHeight();
         int fontAscent = graphics.getFontMetrics().getAscent();
         int row = 0;
