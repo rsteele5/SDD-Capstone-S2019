@@ -42,7 +42,6 @@ public class GameEngine implements Runnable {
             add(p1);
             add(p2);
         }};
-        Debug.log(true, String.valueOf(players.size()));
     }
 
     public Graphics getGraphics(){
@@ -74,7 +73,7 @@ public class GameEngine implements Runnable {
              */
 
                 //Update
-                physicsEngine.update();
+                if(players.get(0).getState() == Player.PlayerState.sideScroll)  physicsEngine.update();
                 //Render
                 screenManager.update();
                 renderEngine.draw();

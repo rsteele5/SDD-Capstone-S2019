@@ -49,6 +49,7 @@ public class Level extends GameScreen {
         ImageContainer background;
         background = (new ImageContainer(0,0, bg, DrawLayer.Background));
         background.addToScreen(this,true);
+        GameEngine.players.get(0).setState(Player.PlayerState.sideScroll);
         GameEngine.players.get(0).addToScreen(this,true);
         Square square;
         Button b = (new Button(1000,100,
@@ -92,6 +93,7 @@ public class Level extends GameScreen {
 
     @Override
     protected void transitionOff(){
+        GameEngine.players.get(0).setState(Player.PlayerState.asleep);
         exiting = true;
     }
 

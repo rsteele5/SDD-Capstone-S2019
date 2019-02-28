@@ -15,7 +15,7 @@ public class Player extends RenderableObject implements Kinematic {
     PhysicsVector movement = new PhysicsVector(0,0);
     int mov = 0;
     public boolean grounded;
-    public enum PlayerState {
+    public static enum PlayerState {
         sideScroll,
         asleep,
         overWorld
@@ -68,7 +68,6 @@ public class Player extends RenderableObject implements Kinematic {
     @Override
     public void addToScreen(GameScreen screen, boolean isActive){
         super.addToScreen(screen, isActive);
-        playerState = PlayerState.sideScroll;
         if(isActive) screen.kinematics.add(this);
     }
 
@@ -91,9 +90,15 @@ public class Player extends RenderableObject implements Kinematic {
     public boolean setState(PlayerState ps){
         //TODO: Implement error checking
        switch (ps){
-           case overWorld: return true;
-           case asleep: return true;
-           case sideScroll: return true;
+           case overWorld:
+               playerState = ps;
+               return true;
+           case asleep:
+               playerState = ps;
+               return true;
+           case sideScroll:
+               playerState = ps;
+               return true;
        }
        return false;
     }
