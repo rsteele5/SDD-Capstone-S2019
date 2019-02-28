@@ -23,10 +23,11 @@ public class BedroomLevel implements LevelBuilder {
 
     public void buildTerrain(GameScreen gameScreen) {
         //This is where the instruction for how to procedurally generate a level would go
-        GridContainer floorTileContainer = new GridContainer(gameScreen, 1, 9, FloorTile.SIZE, FloorTile.SIZE,0, Level.Y_INIT_BUTTON,0);
+        GridContainer floorTileContainer = new GridContainer(gameScreen, 1, 8, FloorTile.SIZE, FloorTile.SIZE,40, Level.Y_INIT_BUTTON,0);
         FloorTile floorTile;
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 8; i++) {
             floorTile = new FloorTile(0,0,"/assets/levelObjects/WoodTile1.png");
+            gameScreen.kinematics.add(floorTile);
             floorTileContainer.addAt(floorTile, 0, i);
         }
     }
