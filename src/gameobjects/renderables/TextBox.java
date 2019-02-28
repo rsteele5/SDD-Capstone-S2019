@@ -55,7 +55,7 @@ public class TextBox extends RenderableObject {
     }
 
     private void parseString(Graphics2D graphics) {
-        Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
+        //Debug.drawRect(true, graphics, new Rectangle2D.Double(x,y,(double)width, (double) height));
         graphics.setFont(font);
         graphics.setColor(color);
         String newLine = "";
