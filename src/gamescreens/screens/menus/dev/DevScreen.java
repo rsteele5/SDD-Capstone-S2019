@@ -9,7 +9,7 @@ import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.ScreenManager;
 import gamescreens.screens.InventoryScreen;
-import gamescreens.screens.Level;
+import gamescreens.screens.gameplay.level.Level;
 import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;

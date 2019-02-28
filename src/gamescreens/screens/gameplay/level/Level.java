@@ -1,4 +1,4 @@
-package gamescreens.screens;
+package gamescreens.screens.gameplay.level;
 
 import _test.Square;
 import gameengine.GameEngine;

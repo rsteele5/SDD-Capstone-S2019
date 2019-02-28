@@ -179,14 +179,12 @@ public class InventoryScreen extends GameScreen {
         saveButton.setHeight(72);
         saveButton.addToScreen(this,true);
 
-        //Save Button
+        //Options Button
         Button optionsButton = new gameobjects.renderables.buttons.Button(765,234,
                 "/assets/buttons/Button-Options.png",
                 DrawLayer.Entity,
                 () ->{
-                    screenManager.addScreen(new MainMenuScreen(screenManager));
                     screenManager.addScreen(new OptionScreen(screenManager));
-                    currentState = ScreenState.TransitionOff;
                 });
         optionsButton.setWidth(192);
         optionsButton.setHeight(72);

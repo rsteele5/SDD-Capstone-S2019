@@ -80,8 +80,8 @@ public abstract class GameScreen {
         if(gameScreen.childScreen != null)
             removeMe(gameScreen.childScreen);
 
-        if(!overlayScreens.isEmpty()) {
-            for (GameScreen overlay : overlayScreens)
+        if(!gameScreen.overlayScreens.isEmpty()) {
+            for (GameScreen overlay : gameScreen.overlayScreens)
                 removeMe(overlay);
         }
         Debug.log(DebugEnabler.GAME_SCREEN_LOG, gameScreen.name + " - I am being removed!!");
@@ -157,10 +157,11 @@ public abstract class GameScreen {
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
         renderables = new ArrayList<>();
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + " - is initializing");
         initializeScreen();
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - initialized");
         currentState = ScreenState.TransitionOn;
         isLoading = true;
-
         loadContent();
     }
 
@@ -198,7 +199,9 @@ public abstract class GameScreen {
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
         renderables = new ArrayList<>();
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + " - is initializing");
         initializeScreen();
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - initialized");
         currentState = ScreenState.TransitionOn;
         isLoading = true;
         loadContent();
@@ -400,7 +403,7 @@ public abstract class GameScreen {
         exiting = false;
     }
 
-    private void addOverlay(GameScreen overlay){
+    protected void addOverlay(GameScreen overlay){
         if(!overlay.isOverlay){
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,
                     overlay.name +"- is not an overlay. Will not add to overlays.");

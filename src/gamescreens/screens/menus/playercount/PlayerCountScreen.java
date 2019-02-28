@@ -6,7 +6,7 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.screens.ConfirmationPopup;
-import gamescreens.screens.Gameplay.OverworldScreen;
+import gamescreens.screens.gameplay.overworld.OverworldScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 

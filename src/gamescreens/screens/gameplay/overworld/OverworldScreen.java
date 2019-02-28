@@ -1,13 +1,12 @@
-package gamescreens.screens.Gameplay;
+package gamescreens.screens.gameplay.overworld;
 
+import gameengine.GameEngine;
 import gameobjects.renderables.house.HouseTile;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import java.util.ArrayList;
 
 public class OverworldScreen extends GameScreen {
 
@@ -24,6 +23,8 @@ public class OverworldScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
+
+        //House generation
         grassTileContainer = new GridContainer(this, 4, 3, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
         houseTileContainer = new GridContainer(this, 2, 2, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
 
@@ -46,8 +47,14 @@ public class OverworldScreen extends GameScreen {
         houseTileContainer.addAt(bedroom,1,1);
 
 
+        //Player
+
+        GameEngine.players.get(0).reset();
+        GameEngine.players.get(0).addToScreen(this,true);
+
+        //Overlay
+        addOverlay(new OverworldUI(screenManager, this));
 
 
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - is initializing");
     }
 }
