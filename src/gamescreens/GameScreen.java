@@ -64,10 +64,6 @@ public abstract class GameScreen {
     public ArrayList<RenderableObject> renderables;
 
     public void coverWith(GameScreen gameScreen) {
-        if (gameScreen.isRoot) {
-            removeMe(this);
-            return;
-        }
         if (gameScreen.isExclusive) {
             if (childScreen == null) {
                 childScreen = gameScreen;
@@ -80,7 +76,7 @@ public abstract class GameScreen {
     }
 
     //Recursively removes all child screens and overlays
-    private void removeMe(GameScreen gameScreen){
+    public void removeMe(GameScreen gameScreen){
         if(gameScreen.childScreen != null)
             removeMe(gameScreen.childScreen);
 
@@ -88,7 +84,8 @@ public abstract class GameScreen {
             for (GameScreen overlay : overlayScreens)
                 removeMe(overlay);
         }
-        currentState = ScreenState.TransitionOff;
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, gameScreen.name + " - I am being removed!!");
+        gameScreen.currentState = ScreenState.TransitionOff;
     }
 
     //I don't know what this does
@@ -113,6 +110,13 @@ public abstract class GameScreen {
         } else {
             return null;
         }
+    }
+
+    public void setChildScreen(GameScreen screen) {
+        childScreen = screen;
+    }
+    public GameScreen getChildScreen() {
+        return childScreen;
     }
 
 
