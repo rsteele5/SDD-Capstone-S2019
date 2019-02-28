@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 public class Level {
     protected ImageContainer background;
-
-    public void setBackground(String fPath) {
-        this.background = new ImageContainer(0, 0, fPath, DrawLayer.Background);
-    }
-
+    protected final static int Y_INIT_BUTTON = 576;
+    protected final static int WIDTH_BUTTON = 150;
 }
