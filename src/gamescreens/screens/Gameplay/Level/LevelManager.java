@@ -18,6 +18,6 @@ public class LevelManager extends GameScreen {
     @Override
     protected void initializeScreen() {
         lBuild.buildBackground().addToScreen(this, true);
-
+        lBuild.buildTerrain(this);
     }
 }

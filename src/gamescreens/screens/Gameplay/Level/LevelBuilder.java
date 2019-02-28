@@ -1,10 +1,11 @@
 package gamescreens.screens.Gameplay.Level;
 
 import gameobjects.renderables.ImageContainer;
+import gamescreens.GameScreen;
 
 public interface LevelBuilder {
     ImageContainer buildBackground();
-    ImageContainer buildTerrain();
+    void buildTerrain(GameScreen gameScreen);
     void buildPlayer();
     void buildEnemies();
 }
