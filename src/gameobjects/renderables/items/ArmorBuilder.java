@@ -22,7 +22,7 @@ public class ArmorBuilder {
 
     public ArmorBuilder(){ }
 
-    public Armor buildWeapon(){
+    public Armor buildArmor(){
         return new Armor(_x, _y, _imagePath, _layer, _name, _value, _type, _armor);
     }
 
@@ -54,6 +54,11 @@ public class ArmorBuilder {
 
     public ArmorBuilder type(ArmorType _type) {
         this._type = _type;
+        return this;
+    }
+
+    public ArmorBuilder armorPoints(int _armor) {
+        this._armor = _armor;
         return this;
     }
 }

@@ -63,7 +63,7 @@ public class Vendor extends RenderableObject {
                 .name("My Fwirst Helmet")
                 .type(ArmorType.Head)
                 .value(7)
-                .buildWeapon());
+                .buildArmor());
 
         items.add(new ConsumableBuilder()
                 .imagePath("/assets/Items/redpotion.png")

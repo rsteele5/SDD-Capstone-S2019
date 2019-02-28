@@ -29,6 +29,14 @@ public class TempPlayerClass extends RenderableObject{
                 .critChance(3)
                 .buildWeapon());
 
+        items.add(new ArmorBuilder()
+                .imagePath("/assets/Items/helmet1.png")
+                .name("My Fwirst Helmet")
+                .type(ArmorType.Head)
+                .value(11)
+                .armorPoints(12)
+                .buildArmor());
+
         if (items.size() > 0) {
             items.sort(new SortByType());
         }

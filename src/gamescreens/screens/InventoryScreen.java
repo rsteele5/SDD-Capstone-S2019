@@ -383,7 +383,7 @@ public class InventoryScreen extends GameScreen {
                 // Reset previous item's text to ""
                 if (itemDetailsPlayer.getText().length() > 0) {
                     itemDetailsPlayer.setText("");
-
+                    bigEquipment.setItem(null);
                 }
             }
             currentItemButton = itemContainerButton;
