@@ -8,6 +8,7 @@ import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.ScreenManager;
+import gamescreens.screens.Gameplay.Level.BedroomLevel;
 import gamescreens.screens.InventoryScreen;
 import gamescreens.screens.Level;
 import gamescreens.screens.VendorScreen;
@@ -52,6 +53,15 @@ public class DevScreen extends GameScreen {
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
                     screenManager.addScreen(new TestDialogBoxScreen(screenManager));
+                });
+        button.addToScreen(this, true);
+
+        button = new Button(X_INIT_BUTTON +2*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON - 128,
+                "/assets/buttons/Button-NewGame.png",
+                DrawLayer.Entity,
+                () ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Level");
+                    screenManager.addScreen(BedroomLevel.create(screenManager));
                 });
         button.addToScreen(this, true);
 
