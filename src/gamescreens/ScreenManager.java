@@ -38,8 +38,9 @@ public class ScreenManager {
         Debug.log(DebugEnabler.GAME_SCREEN_LOG,  "ScreenManager-add screen " + screen.name);
         if(screen.isRoot){
             Debug.success(DebugEnabler.GAME_SCREEN_LOG, screen.name + " - is a Root");
-            rootScreen.coverWith(screen);
+            screen.setChildScreen(rootScreen);
             rootScreen = screen;
+            rootScreen.removeMe(rootScreen.getChildScreen());
         } else {
             rootScreen.coverWith(screen);
         }
