@@ -67,7 +67,6 @@ public class ConfirmationPopup extends GameScreen {
                     if(onYesBtn != null){
                         onYesBtn.doIt();
                     }
-                    //covering.setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this, true);
 
