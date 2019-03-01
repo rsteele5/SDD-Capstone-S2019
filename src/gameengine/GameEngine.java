@@ -33,7 +33,7 @@ public class GameEngine implements Runnable {
     public static ArrayList<Player> players;
     private static Player p1,p2;
     public GameEngine(){
-        p1 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        p1 = new Player(0,0, "/assets/player/teddyIdleAnimation/Overworld-Teddy-Center.png", DrawLayer.Entity);
         p2 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
         gameSettings = new GameSettings(this);
         screenManager = new ScreenManager(gameSettings);
