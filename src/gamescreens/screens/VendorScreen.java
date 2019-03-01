@@ -61,6 +61,7 @@ public class VendorScreen extends GameScreen {
         imageContainer.addToScreen(this, true);
 
         imageContainer = new ImageContainer(vendor.getX(), vendor.getY(), vendor.getImagePath(), vendor.getDrawLayer());
+        imageContainer.setSize(150,150);
         imageContainer.addToScreen(this, true);
 
         imageContainer = new ImageContainer(player.getX(), player.getY(), player.getImagePath(), player.getDrawLayer());
@@ -152,6 +153,17 @@ public class VendorScreen extends GameScreen {
                         }
                     }
                 });
+        button.addToScreen(this, true);
+
+        // Test button
+        button = new Button(460, 480,
+                "/assets/buttons/Button-Test.png",
+                DrawLayer.Entity,
+                () -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Test Vendor");
+                    screenManager.addScreen(new VendorDialogBoxScreen(screenManager));
+                });
+        button.setSize(100, 50);
         button.addToScreen(this, true);
         //endregion
 
