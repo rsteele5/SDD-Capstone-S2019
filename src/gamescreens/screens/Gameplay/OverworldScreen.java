@@ -1,5 +1,7 @@
 package gamescreens.screens.Gameplay;
 
+import gameengine.GameEngine;
+import gameobjects.Player;
 import gameobjects.renderables.house.HouseTile;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -44,6 +46,10 @@ public class OverworldScreen extends GameScreen {
         houseTileContainer.addAt(bedroom,1,0);
         bedroom = new HouseTile(0,0, "/assets/overworld/bedroom/Overworld-Bedroom4.png");
         houseTileContainer.addAt(bedroom,1,1);
+        GameEngine.players.get(0).setState(Player.PlayerState.overWorld);
+        Debug.log(true, String.valueOf(GameEngine.players.get(0).getState()));
+        GameEngine.players.get(0).reset();
+        GameEngine.players.get(0).addToScreen(this,true);
 
 
 

@@ -49,6 +49,7 @@ public class Level extends GameScreen {
         ImageContainer background;
         background = (new ImageContainer(0,0, bg, DrawLayer.Background));
         background.addToScreen(this,true);
+        GameEngine.players.get(0).setState(Player.PlayerState.sideScroll);
         GameEngine.players.get(0).addToScreen(this,true);
         Square square;
         Button b = (new Button(1000,100,
@@ -56,26 +57,17 @@ public class Level extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
-
                     screenManager.addScreen(new MainMenuScreen(screenManager));
                     setScreenState(ScreenState.TransitionOff);
 
         }));
         b.addToScreen(this,true);
-        square = new Square(100,200,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,200,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(200,300,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(300,200,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(300,300,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
-        square = new Square(300,400,path,DrawLayer.Entity);;
-        square.addToScreen(this, true);
-        square = new Square(400,100,path,DrawLayer.Entity);
-        square.addToScreen(this, true);
+        for(int x1 = 0; x1 < 5; x1++){
+            for(int y1 = 0; y1 < x1; y1++){
+                square = new Square(x1 * 75 + 100,y1*75,path,DrawLayer.Entity);
+                square.addToScreen(this, true);
+            }
+        }
         //Debug.log(true,String.valueOf(GameEngine.players.size()));
        // Debug.log(true,String.valueOf(GameEngine.players.size()));
 
@@ -92,6 +84,7 @@ public class Level extends GameScreen {
 
     @Override
     protected void transitionOff(){
+        GameEngine.players.get(0).setState(Player.PlayerState.asleep);
         exiting = true;
     }
 
