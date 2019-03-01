@@ -5,19 +5,26 @@ import gameengine.physics.Kinematic;
 import gameengine.physics.PhysicsMeta;
 import gameengine.physics.PhysicsVector;
 import gameobjects.renderables.RenderableObject;
+import gameobjects.renderables.SortByType;
+import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import main.utilities.Debug;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Player extends RenderableObject implements Kinematic {
+    private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
+    private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
     private PhysicsVector accel = new PhysicsVector(1,1);
     private PhysicsVector movement = new PhysicsVector(0,0);
     private final int[] ssKeys= new int[] {68,65};
     private final int[] owKeys= new int[] {68,65,83,87};
     private int movFlag = 0;
+    private int gold;
+
     /*
     0b1     =   right
     0b10    =   left
@@ -36,8 +43,37 @@ public class Player extends RenderableObject implements Kinematic {
     public Player(int x, int y, String path, DrawLayer drawLayer){
         super(x,y,path,drawLayer);
         playerState = PlayerState.asleep;
+        initializeItems();
+        this.gold = 10;
     }
 
+    private void initializeItems() {
+        items.add(new WeaponBuilder()
+                .imagePath("/assets/Items/sword1.png")
+                .name("My Fwirst Sword")
+                .type(WeaponType.Sword)
+                .value(11)
+                .minDamage(4)
+                .maxDamage(12)
+                .critChance(3)
+                .buildWeapon());
+
+        items.add(new ArmorBuilder()
+                .imagePath("/assets/Items/helmet1.png")
+                .name("My Fwirst Helmet")
+                .type(ArmorType.Head)
+                .value(11)
+                .armorPoints(12)
+                .buildArmor());
+
+        if (items.size() > 0) {
+            items.sort(new SortByType());
+        }
+
+        for (Item item : items){
+            rItems.add((RenderableObject) item);
+        }
+    }
     @Override
     public void update() { }
 
@@ -146,5 +182,38 @@ public class Player extends RenderableObject implements Kinematic {
                return true;
        }
        return false;
+    }
+
+    public CopyOnWriteArrayList<Item> getItems() {
+        return items;
+    }
+
+    public CopyOnWriteArrayList<RenderableObject> getRenderables() {
+        return rItems;
+    }
+
+    public void addItem(Item item){
+        items.add(item);
+        rItems.add((RenderableObject) item);
+    }
+
+    public void removeItem(Item item){
+        items.remove(item);
+        rItems.remove(item);
+    }
+
+    // Needed for vendor screen
+    public void replaceList(CopyOnWriteArrayList<Item> updatedItems){
+        this.items = updatedItems;
+        rItems.removeAll(rItems);
+        for (Item item : items){
+            rItems.add((RenderableObject) item);
+        }
+    }
+
+    public int getGold(){ return gold;}
+
+    public void changeGold(int amt) {
+        gold += amt;
     }
 }

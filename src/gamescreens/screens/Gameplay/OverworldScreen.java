@@ -1,5 +1,12 @@
 package gamescreens.screens.Gameplay;
 
+import gameengine.GameEngine;
+import gameengine.rendering.Camera;
+import gameengine.rendering.animation.Animator;
+import gameengine.rendering.animation.PlayerIdleAnimation;
+import gameengine.rendering.animation.PlayerWalkingAnimation;
+import gameobjects.Player;
+import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.house.HouseTile;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -26,6 +33,17 @@ public class OverworldScreen extends GameScreen {
     protected void initializeScreen() {
         grassTileContainer = new GridContainer(this, 4, 3, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
         houseTileContainer = new GridContainer(this, 2, 2, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
+
+        setCamera(new Camera(this, GameEngine.players.get(0)));
+
+        RenderableObject player = GameEngine.players.get(0);
+        ((Player)player).reset();
+
+        Animator playerAnimator = new Animator(player);
+        playerAnimator.addAnimation("Walking", new PlayerWalkingAnimation());
+        playerAnimator.setAnimation("Walking");
+        player.addAnimator(playerAnimator);
+
 
         HouseTile grass;
         for(int row = 0; row < 4; row++){
