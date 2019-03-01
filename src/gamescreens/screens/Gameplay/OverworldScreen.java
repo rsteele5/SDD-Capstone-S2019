@@ -1,6 +1,7 @@
 package gamescreens.screens.Gameplay;
 
 import gameengine.GameEngine;
+import gameengine.rendering.Camera;
 import gameobjects.Player;
 import gameobjects.renderables.house.HouseTile;
 import gamescreens.GameScreen;
@@ -29,6 +30,7 @@ public class OverworldScreen extends GameScreen {
         grassTileContainer = new GridContainer(this, 4, 3, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
         houseTileContainer = new GridContainer(this, 2, 2, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
 
+        setCamera(new Camera(this, GameEngine.players.get(0)));
         HouseTile grass;
         for(int row = 0; row < 4; row++){
             for(int col = 0; col < 3; col++){
