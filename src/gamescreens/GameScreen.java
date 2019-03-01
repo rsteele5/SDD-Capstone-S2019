@@ -356,8 +356,10 @@ public abstract class GameScreen {
             }
 
             if(!overlayScreens.isEmpty()) {
-                for (GameScreen overlay : overlayScreens)
-                    overlay.update();
+                for (GameScreen overlay : overlayScreens) {
+                    if(!overlay.isLoading)
+                        overlay.update();
+                }
             }
 
             if(currentState != previousState){
@@ -377,8 +379,12 @@ public abstract class GameScreen {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);
             }
-            for(GameScreen overlay : overlayScreens)
-                overlay.drawScreen(graphics);
+            if(!overlayScreens.isEmpty()) {
+                for (GameScreen overlay : overlayScreens) {
+                    if(!overlay.isLoading)
+                        overlay.drawScreen(graphics);
+                }
+            }
         } else {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);

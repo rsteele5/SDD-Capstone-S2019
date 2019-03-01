@@ -1,4 +1,4 @@
-package gamescreens.screens.gameplay.level;
+package gamescreens.screens.gameplay.Level;
 
 import _test.Square;
 import gameengine.GameEngine;
@@ -32,7 +32,7 @@ public class Level extends GameScreen {
     private CopyOnWriteArrayList<Kinematic> kinematicObjects;
 
     private final int X_INIT_BUTTON = 64;
-    private final int Y_INIT_BUTTON = 576;
+    protected final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
 
