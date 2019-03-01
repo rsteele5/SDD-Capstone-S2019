@@ -1,6 +1,6 @@
 package gamescreens.screens;
 
-import gameobjects.Clickable;
+import gameengine.GameEngine;
 import gameobjects.Player;
 import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.Button;
@@ -11,7 +11,6 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import gamescreens.screens.menus.MainMenuScreen;
-import gamescreens.screens.menus.DevScreen;
 import gamescreens.screens.menus.options.OptionScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -110,13 +109,13 @@ public class InventoryScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        Player player = DevScreen.player;
+        Player player = GameEngine.players.get(0);
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
         equipButtons = new CopyOnWriteArrayList<>();
 
         //Add all the items in the dev screen player to the screen
-        for (RenderableObject renderable: DevScreen.player.getRenderables()){
+        for (RenderableObject renderable: player.getRenderables()){
             renderable.addToScreen(this, false);
         }
 
