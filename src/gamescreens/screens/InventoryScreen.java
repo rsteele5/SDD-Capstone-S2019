@@ -1,6 +1,7 @@
 package gamescreens.screens;
 
 import gameobjects.Clickable;
+import gameobjects.Player;
 import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.buttons.ItemButton;
@@ -118,7 +119,7 @@ public class InventoryScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        TempPlayerClass player = DevScreen.player;
+        Player player = DevScreen.player;
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
         equipButtons = new CopyOnWriteArrayList<>();

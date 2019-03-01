@@ -1,5 +1,6 @@
 package gamescreens.screens;
 
+import gameobjects.Player;
 import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.ItemButton;
 import gamescreens.DrawLayer;
@@ -21,10 +22,14 @@ public class VendorScreen extends GameScreen {
     private Item currentItem = null;
     private TextBox itemDetailsVendor;
     private TextBox itemDetailsPlayer;
+    private TextBox goldTextBox;
+    private String goldText;
     private CopyOnWriteArrayList<Item> playerInventory;
     private CopyOnWriteArrayList<Item> vendorInventory;
     private CopyOnWriteArrayList<ItemButton> playerButtons;
     private CopyOnWriteArrayList<ItemButton> vendorButtons;
+    private Player player;
+    private Vendor vendor;
     //endregion ****************************************/
 
     public VendorScreen(ScreenManager screenManager) {
@@ -34,8 +39,8 @@ public class VendorScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
         //region Initialize variables
-        Vendor vendor = DevScreen.vendor;
-        TempPlayerClass player = DevScreen.player;
+        vendor = DevScreen.vendor;
+        player = DevScreen.player;
         vendorInventory = vendor.getItems();
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
@@ -82,17 +87,36 @@ public class VendorScreen extends GameScreen {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Buy from Vendor");
                     if (vendorInventory.size() > 0 && currentItem != null) {
                         // Item must be in vendor's inventory
-                        if (vendorInventory.indexOf(currentItem) >= 0){
-                            // Move item between inventory arrays
-                            vendorInventory.remove(currentItem);
-                            currentItem.depreciate();
-                            playerInventory.add(currentItem);
-                            playerInventory.sort(new SortByType());
-                            // Reset button items to the updated inventory arrays
-                            resetButtonItems();
-                            currentItemButton.deSelect();
-                            currentItem = null;
-                            itemDetailsVendor.setText("");
+                        if (vendorInventory.indexOf(currentItem) >= 0) {
+                            // Verify that player has enough gold
+                            if (player.getGold() >= currentItem.getValue()) {
+                                // Confirmation
+                                screenManager.addScreen(new ConfirmationPopup(screenManager,
+                                        "You want to purchase " + currentItem.getItemName() +
+                                                " for " + currentItem.getValue() + " gold pieces. Is this correct?",
+                                        () -> {
+                                            // Move item between inventory arrays
+                                            vendorInventory.remove(currentItem);
+                                            currentItem.depreciate();
+                                            playerInventory.add(currentItem);
+                                            playerInventory.sort(new SortByType());
+                                            // Decrease player's gold and display on screen
+                                            player.changeGold(-currentItem.getValue());
+                                            goldTextBox.setText("");
+                                            goldTextBox.setText(getGoldText());
+                                            // Reset button items to the updated inventory arrays
+                                            resetButtonItems();
+                                            currentItemButton.deSelect();
+                                            currentItem = null;
+                                            itemDetailsVendor.setText("");
+                                        }));
+                            }
+                            else {
+                                screenManager.addScreen(new ConfirmationPopup(screenManager,
+                                        "You don't have enough gold for this purchase. Continue shopping?",
+                                        ()->{},
+                                        ()-> this.exiting = true));
+                            }
                         }
                     }
                 });
@@ -106,15 +130,25 @@ public class VendorScreen extends GameScreen {
                     if (playerInventory.size() > 0 && currentItem != null) {
                         // Item must be in player's inventory
                         if (playerInventory.indexOf(currentItem) >= 0){
-                            // Move item between inventory arrays
-                            playerInventory.remove(currentItem);
-                            vendorInventory.add(currentItem);
-                            vendorInventory.sort(new SortByType());
-                            // Reset button items to the updated inventory arrays
-                            resetButtonItems();
-                            currentItemButton.deSelect();
-                            currentItem = null;
-                            itemDetailsPlayer.setText("");
+                            // Confirmation
+                            screenManager.addScreen(new ConfirmationPopup(screenManager,
+                                    "I will buy your " + currentItem.getItemName() +
+                                            " for " + currentItem.getValue() + " gold pieces. Is this correct?",
+                                    ()-> {
+                                        // Move item between inventory arrays
+                                        playerInventory.remove(currentItem);
+                                        vendorInventory.add(currentItem);
+                                        vendorInventory.sort(new SortByType());
+                                        // Increase player's gold and display on screen
+                                        player.changeGold(currentItem.getValue());
+                                        goldTextBox.setText("");
+                                        goldTextBox.setText(getGoldText());
+                                        // Reset button items to the updated inventory arrays
+                                        resetButtonItems();
+                                        currentItemButton.deSelect();
+                                        currentItem = null;
+                                        itemDetailsPlayer.setText("");
+                                    }));
                         }
                     }
                 });
@@ -132,6 +166,15 @@ public class VendorScreen extends GameScreen {
         itemDetailsVendor = new TextBox(x_vendorText, y_position, 210, 200, "",
                 new Font("NoScary", Font.PLAIN, 24), Color.BLACK);
         itemDetailsVendor.addToScreen(this,true);
+        //endregion
+
+        //region TextBox to hold player's available gold
+        int x_goldText = 850;
+        int y_goldText = 20;
+        goldText = getGoldText();
+        goldTextBox = new TextBox(x_goldText, y_goldText, 150, 50, goldText,
+                new Font("NoScary", Font.PLAIN, 48), Color.BLACK);
+        goldTextBox.addToScreen(this, true);
         //endregion
 
         // Create GridContainers for player and vendor item buttons
@@ -228,6 +271,10 @@ public class VendorScreen extends GameScreen {
                 k++;
             }
         }
+    }
+
+    public String getGoldText(){
+        return "Gold: " + player.getGold();
     }
 
     @Override
