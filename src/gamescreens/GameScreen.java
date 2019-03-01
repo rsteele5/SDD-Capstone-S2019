@@ -1,12 +1,10 @@
 package gamescreens;
 
-import gameengine.GameEngine;
 import gameengine.physics.Kinematic;
 import gameengine.rendering.Camera;
 import gameobjects.Clickable;
 import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
-import gamescreens.screens.Level;
 import gamescreens.screens.LoadingScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -84,15 +82,18 @@ public abstract class GameScreen {
 
     //Recursively removes all child screens and overlays
     public void removeMe(GameScreen gameScreen){
-        if(gameScreen.childScreen != null)
-            removeMe(gameScreen.childScreen);
+        if(gameScreen != null) {
+            if (gameScreen.childScreen != null)
+                removeMe(gameScreen.childScreen);
 
-        if(!gameScreen.overlayScreens.isEmpty()) {
-            for (GameScreen overlay : gameScreen.overlayScreens)
-                removeMe(overlay);
+            if (!gameScreen.overlayScreens.isEmpty()) {
+                for (GameScreen overlay : gameScreen.overlayScreens)
+                    removeMe(overlay);
+            }
+            Debug.log(DebugEnabler.GAME_SCREEN_LOG, gameScreen.name + " - Remove Scheduled");
+            gameScreen.currentState = ScreenState.TransitionOff;
         }
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG, gameScreen.name + " - I am being removed!!");
-        gameScreen.currentState = ScreenState.TransitionOff;
+        else Debug.warning(DebugEnabler.GAME_SCREEN_LOG,  "Screen is already removed");
     }
 
     //I don't know what this does
@@ -224,7 +225,7 @@ public abstract class GameScreen {
      * Loads the contents of this main.Game Screen.
      */
     protected void loadContent() {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + " - Load start");
+        Debug.log(DebugEnabler.LOADING, name + " - Load start");
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
             if (loadingScreenRequired) {
@@ -239,10 +240,13 @@ public abstract class GameScreen {
                 childScreen = null;
                 loadingScreen.reset();
             }
-            for (Loadable loadable : loadables) loadable.load();
+            for (Loadable loadable : loadables) {
+                Debug.log(DebugEnabler.LOADING, name + " - Loading: " + loadable.getClass().getName());
+                loadable.load();
+            }
             loadables.clear();
             isLoading = false;
-            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - Loaded");
+            Debug.success(DebugEnabler.LOADING, name + " - Loaded");
         });
         executorService.shutdown();
     }

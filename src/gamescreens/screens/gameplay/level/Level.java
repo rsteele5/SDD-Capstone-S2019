@@ -35,7 +35,7 @@ public class Level extends GameScreen {
     private final int X_BUFFER = 48;
 
     public Level(ScreenManager screenManager) {
-        super(screenManager, "Level");
+        super(screenManager, "Level", true);
     }
 
     /**
@@ -57,10 +57,8 @@ public class Level extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
-                    screenManager.addScreen(new MainMenuScreen(screenManager));
                     setScreenState(ScreenState.TransitionOff);
-
-        }));
+                }));
         b.addToScreen(this,true);
         for(int x1 = 0; x1 < 5; x1++){
             for(int y1 = 0; y1 < x1; y1++){
@@ -68,9 +66,6 @@ public class Level extends GameScreen {
                 square.addToScreen(this, true);
             }
         }
-        //Debug.log(true,String.valueOf(GameEngine.players.size()));
-       // Debug.log(true,String.valueOf(GameEngine.players.size()));
-
 
         Floor floor = new Floor(0,720, "/assets/testAssets/WoodTile2.png", DrawLayer.Entity);
         floor.setWidth(1280);
@@ -84,23 +79,10 @@ public class Level extends GameScreen {
     protected void transitionOn() {
         setScreenState(ScreenState.Active);
     }
-    @Override
-    protected void hiddenUpdate() {
-
-    }
 
     @Override
     protected void transitionOff(){
         GameEngine.players.get(0).setState(Player.PlayerState.asleep);
         exiting = true;
     }
-
-    @Override
-    protected void activeUpdate() {
-        super.activeUpdate();
-        //Debug.log(true,"this " + String.valueOf(GameEngine.players.size()));
-        //Debug.log(true,"global " + String.valueOf(GameEngine.players.size()));
-    }
-
-
 }

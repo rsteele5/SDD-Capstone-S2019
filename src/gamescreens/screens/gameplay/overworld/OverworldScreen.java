@@ -1,11 +1,8 @@
 package gamescreens.screens.gameplay.overworld;
 
 import gameengine.GameEngine;
-<<<<<<< HEAD:src/gamescreens/screens/gameplay/overworld/OverworldScreen.java
-=======
 import gameengine.rendering.Camera;
 import gameobjects.Player;
->>>>>>> the-great-refactor:src/gamescreens/screens/Gameplay/OverworldScreen.java
 import gameobjects.renderables.house.HouseTile;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -24,8 +21,6 @@ public class OverworldScreen extends GameScreen {
 
     public OverworldScreen(ScreenManager screenManager) {
         super(screenManager, "Overworld", 1f);
-        //Overlay
-        UI = new OverworldUI(screenManager, this);
     }
 
     /**
@@ -35,15 +30,17 @@ public class OverworldScreen extends GameScreen {
     protected void initializeScreen() {
 
         //House generation
-        grassTileContainer = new GridContainer(this, 4, 3, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
+        grassTileContainer = new GridContainer(this, 4, 4, HouseTile.SIZE, HouseTile.SIZE,
+                -HouseTile.SIZE, -HouseTile.SIZE,0);
         houseTileContainer = new GridContainer(this, 2, 2, HouseTile.SIZE, HouseTile.SIZE,0, 0,0);
 
-        setCamera(new Camera(this, GameEngine.players.get(0)));
         HouseTile grass;
-        for(int row = 0; row < 4; row++){
-            for(int col = 0; col < 3; col++){
-                grass = new HouseTile(0,0, "/assets/overworld/grass/Overworld-Grass.png");
-                grassTileContainer.addAt(grass,row,col);
+        for(int row = 0; row < grassTileContainer.getRows(); row++){
+            for(int col = 0; col < grassTileContainer.getCols(); col++){
+                if (row <= 0 || row >= 3 || col <= 0 || col >= 3) {
+                    grass = new HouseTile(0, 0, "/assets/overworld/grass/Overworld-Grass.png");
+                    grassTileContainer.addAt(grass, row, col);
+                }
             }
         }
 
@@ -56,17 +53,16 @@ public class OverworldScreen extends GameScreen {
         houseTileContainer.addAt(bedroom,1,0);
         bedroom = new HouseTile(0,0, "/assets/overworld/bedroom/Overworld-Bedroom4.png");
         houseTileContainer.addAt(bedroom,1,1);
+
+        //Player
         GameEngine.players.get(0).setState(Player.PlayerState.overWorld);
         Debug.log(true, String.valueOf(GameEngine.players.get(0).getState()));
         GameEngine.players.get(0).reset();
         GameEngine.players.get(0).addToScreen(this,true);
+        setCamera(new Camera(this, GameEngine.players.get(0)));
 
-
-        //Player
-
-//        GameEngine.players.get(0).reset();
-//        GameEngine.players.get(0).addToScreen(this,true);
-
+        //Overlay
+        UI = new OverworldUI(screenManager, this);
 
 
 
