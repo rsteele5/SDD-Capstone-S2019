@@ -1,3 +1,0 @@
-Health Potion,Health,100,Heals your health for 50 points,,50,/assets/Items/redpotion.png
-Resistance Potion,Resistance,100,Grants 20 Bonus Defense,for 5 minutes,20,/assets/Items/bluepotion.png
-Power Potion,Damage+,100,Grants 10 Bonus Damage,for 5 minutes,10,/assets/Items/yellowpotion.png

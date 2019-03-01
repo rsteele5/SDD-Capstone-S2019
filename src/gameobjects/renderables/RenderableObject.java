@@ -1,5 +1,6 @@
 package gameobjects.renderables;
 
+import gameengine.rendering.animation.Animator;
 import gameobjects.GameObject;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
@@ -19,6 +20,7 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     protected int height;
     protected String imagePath;
     protected BufferedImage image;
+    protected Animator animator;
     //endregion
 
     //region <Construction and Initialization>
@@ -78,8 +80,8 @@ public abstract class RenderableObject extends GameObject implements Loadable {
 
     public void setCurrentImage(BufferedImage currentImage) {
         this.image = currentImage;
-        width = currentImage.getWidth();
-        height = currentImage.getHeight();
+//        width = currentImage.getWidth();
+//        height = currentImage.getHeight();
     }
 
     public DrawLayer getDrawLayer() {
@@ -126,6 +128,9 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     public void draw(Graphics2D graphics) {
         AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
         graphics.setComposite(alphaComposite);
+        if(animator != null){
+            animator.animate();
+        }
         graphics.drawImage(image, x , y, width, height, null);
     }
 
@@ -163,6 +168,13 @@ public abstract class RenderableObject extends GameObject implements Loadable {
         super.addToScreen(screen, isActive);
         if(isActive) addToRenderables(screen);
         screen.loadables.add(this);
+        if(animator != null){
+            screen.loadables.add(animator);
+        }
+    }
+
+    public void addAnimator(Animator animator){
+        this.animator = animator;
     }
 
     private void addToRenderables(GameScreen screen){
@@ -175,5 +187,6 @@ public abstract class RenderableObject extends GameObject implements Loadable {
     }
 
     public abstract void update();
+
 }
 
