@@ -1,6 +1,7 @@
 package _test;
 
 import gameengine.physics.Kinematic;
+import gameengine.physics.PhysicsMeta;
 import gameengine.physics.PhysicsVector;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.DrawLayer;
@@ -22,7 +23,12 @@ public class Square extends RenderableObject implements Kinematic {
 
     @Override
     public PhysicsVector getVelocity() {
-        return new PhysicsVector(0,1).mult(accel);
+        int gravSign = PhysicsMeta.Gravity != 0 ? 1 : 0;
+        PhysicsVector pV = movement.add(new PhysicsVector(0,gravSign)).mult(accel);
+        double y = pV.y;
+        y = y < 1 && y > .5 ? 1 : y;
+        y = y < -.5 && y > -1 ? -1 : y;
+        return new PhysicsVector(pV.x,y);
     }
 
     @Override

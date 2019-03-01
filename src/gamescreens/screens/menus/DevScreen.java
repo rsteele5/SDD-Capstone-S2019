@@ -8,6 +8,8 @@ import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.ScreenManager;
+import gamescreens.screens.Gameplay.Level.BedroomLevel;
+import gamescreens.screens.Gameplay.Level.LevelManager;
 import gamescreens.screens.InventoryScreen;
 import gamescreens.screens.gameplay.level.Level;
 import gamescreens.screens.VendorScreen;
@@ -55,6 +57,15 @@ public class DevScreen extends GameScreen {
                 });
         button.addToScreen(this, true);
 
+        button = new Button(X_INIT_BUTTON+(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON - 128,
+                "/assets/buttons/Button-NewGame.png",
+                DrawLayer.Entity,
+                () ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Level");
+                    screenManager.addScreen(LevelManager.create(screenManager, new BedroomLevel()));
+                });
+        button.addToScreen(this, true);
+
         button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON,
                 "/assets/buttons/Button-Vendor.png",
                 DrawLayer.Entity,
@@ -69,6 +80,7 @@ public class DevScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
+                    exiting = true;
                     screenManager.addScreen(new Level(screenManager));
                 });
         button.addToScreen(this, true);

@@ -2,6 +2,7 @@ package gameengine;
 
 import static gameengine.GameSettings.*;
 
+import gameengine.physics.OverworldEngine;
 import gameobjects.Player;
 import gamescreens.DrawLayer;
 import input.listeners.MouseController;
@@ -28,11 +29,12 @@ public class GameEngine implements Runnable {
     private ScreenManager screenManager;
     private PhysicsEngine physicsEngine;
     private RenderEngine renderEngine;
+    private OverworldEngine overworldEngine;
     public static ArrayList<Player> players;
     private static Player p1,p2;
     public GameEngine(){
-        p1 = new Player(50,50,"/assets/testAssets/square2.png", DrawLayer.Entity);
-        p2 = new Player(50,50,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        p1 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        p2 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
         gameSettings = new GameSettings(this);
         screenManager = new ScreenManager(gameSettings);
         renderEngine = new RenderEngine(screenManager);
@@ -42,7 +44,7 @@ public class GameEngine implements Runnable {
             add(p1);
             add(p2);
         }};
-        Debug.log(true, String.valueOf(players.size()));
+        overworldEngine = new OverworldEngine(screenManager);
     }
 
     public Graphics getGraphics(){
@@ -74,10 +76,17 @@ public class GameEngine implements Runnable {
              */
 
                 //Update
-                physicsEngine.update();
-                //Render
-                screenManager.update();
-                renderEngine.draw();
+            switch (players.get(0).getState()){
+                case sideScroll:
+                    physicsEngine.update();
+                    break;
+                case overWorld:
+                    overworldEngine.update();
+                    break;
+            }
+            //Render
+            screenManager.update();
+            renderEngine.draw();
 
 
             long endTime = System.currentTimeMillis();
