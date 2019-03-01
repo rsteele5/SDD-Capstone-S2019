@@ -48,7 +48,7 @@ public class Armor extends RenderableObject implements Item{
 
     @Override
     public String getItemName() {
-        return null;
+        return name;
     }
 
     @Override

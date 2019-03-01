@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 
 public class ConfirmationPopup extends GameScreen {
 
-    private final int X_TEXT = 450;
+    private final int X_TEXT = 400;
     private final int Y_TEXT = 200;
     private final int W_TEXT = 500;
     private final int H_TEXT = 150;
