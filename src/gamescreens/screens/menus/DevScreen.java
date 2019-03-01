@@ -1,4 +1,4 @@
-package gamescreens.screens.menus.dev;
+package gamescreens.screens.menus;
 
 import _test.TestDialogBoxScreen;
 import gameobjects.renderables.TempPlayerClass;

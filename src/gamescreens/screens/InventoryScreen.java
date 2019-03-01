@@ -1,6 +1,5 @@
 package gamescreens.screens;
 
-import gameobjects.Clickable;
 import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.buttons.ItemButton;
@@ -10,21 +9,12 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import gamescreens.screens.menus.MainMenuScreen;
-import gamescreens.screens.menus.dev.DevScreen;
+import gamescreens.screens.menus.DevScreen;
 import gamescreens.screens.menus.options.OptionScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import static gamescreens.DrawLayer.Effects;
-import static gameobjects.renderables.items.ArmorType.Head;
-import static gameobjects.renderables.items.ArmorType.Chest;
-import static gameobjects.renderables.items.ArmorType.Pants;
-import static gameobjects.renderables.items.ArmorType.Feet;
-import static gameobjects.renderables.items.ArmorType.OffHand;
-import static gamescreens.DrawLayer.Scenery;
-
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
@@ -162,7 +152,6 @@ public class InventoryScreen extends GameScreen {
                     //TODO make this go back to the main menu
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     screenManager.addScreen(new MainMenuScreen(screenManager));
-                    this.setScreenState(ScreenState.TransitionOff);
                 });
         mainMenuButton.setWidth(192);
         mainMenuButton.setHeight(72);

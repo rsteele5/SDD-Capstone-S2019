@@ -7,8 +7,6 @@ import gameobjects.renderables.ImageContainer;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import java.awt.*;
-
 
 public class TeamSplashScreen extends GameScreen {
 
@@ -28,8 +26,6 @@ public class TeamSplashScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initializing Content");
-
         logo = new ImageContainer(0,0, "/assets/backgrounds/BG-TeamLogo.png", DrawLayer.Background);
         logo.addToScreen(this,true);
 
@@ -40,7 +36,6 @@ public class TeamSplashScreen extends GameScreen {
         skipMsg = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Scenery);
         skipMsg.addToScreen(this, true);
 
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,name+"-Initialized Success");
     }
 
 

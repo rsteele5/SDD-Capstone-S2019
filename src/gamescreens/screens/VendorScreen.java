@@ -8,7 +8,7 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.items.Item;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.containers.GridContainer;
-import gamescreens.screens.menus.dev.DevScreen;
+import gamescreens.screens.menus.DevScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import java.awt.*;

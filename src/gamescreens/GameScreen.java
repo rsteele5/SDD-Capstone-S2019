@@ -25,7 +25,7 @@ public abstract class GameScreen {
     protected int x, y;
 
     private GameScreen childScreen;
-    private ArrayList<GameScreen> overlayScreens;
+    protected ArrayList<GameScreen> overlayScreens;
     public LoadingScreen loadingScreen;
 
     //TODO: Used for testing, remove after screen management is working. If it so tickles your pickles
@@ -217,6 +217,7 @@ public abstract class GameScreen {
      * Loads the contents of this main.Game Screen.
      */
     protected void loadContent() {
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + " - Load start");
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
             if (loadingScreenRequired) {
@@ -234,6 +235,7 @@ public abstract class GameScreen {
             for (Loadable loadable : loadables) loadable.load();
             loadables.clear();
             isLoading = false;
+            Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - Loaded");
         });
         executorService.shutdown();
     }
@@ -303,8 +305,8 @@ public abstract class GameScreen {
     }
 
     protected void transitionOff() {
-        if(screenAlpha > 0.055f){
-            screenAlpha -= 0.05f;
+        if(screenAlpha > 0.075f){
+            screenAlpha -= 0.07f;
             setScreenAlpha(screenAlpha);
         } else {
             exiting = true;
@@ -342,8 +344,10 @@ public abstract class GameScreen {
                 default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
             }
 
-            for (GameScreen overlay : overlayScreens)
-                overlay.update();
+            if(!overlayScreens.isEmpty()) {
+                for (GameScreen overlay : overlayScreens)
+                    overlay.update();
+            }
 
             if(currentState != previousState){
                 previousState = currentState;

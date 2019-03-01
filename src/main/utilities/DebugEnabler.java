@@ -10,7 +10,7 @@ public class DebugEnabler {
     public static final boolean RENDERABLE_LOG =        true;
     public static final boolean BUTTON_LOG =            true;
     public static final boolean GAME_ENGINE =           false;
-    public static final boolean FPS =                   true;
+    public static final boolean FPS =                   false;
     public static final boolean GARBAGE_COLLECTION =    true;
     public static final boolean FPS_CURRENT =           false;
 }

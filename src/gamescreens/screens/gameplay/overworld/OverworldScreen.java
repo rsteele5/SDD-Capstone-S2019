@@ -10,12 +10,17 @@ import main.utilities.DebugEnabler;
 
 public class OverworldScreen extends GameScreen {
 
+    //region <Variable Declaration>
+    private OverworldUI UI;
     //Maybe make this into room variables
     private GridContainer grassTileContainer;
     private GridContainer houseTileContainer;
+    //endregion
 
     public OverworldScreen(ScreenManager screenManager) {
         super(screenManager, "Overworld", 1f);
+        //Overlay
+        UI = new OverworldUI(screenManager, this);
     }
 
     /**
@@ -49,12 +54,19 @@ public class OverworldScreen extends GameScreen {
 
         //Player
 
-        GameEngine.players.get(0).reset();
-        GameEngine.players.get(0).addToScreen(this,true);
-
-        //Overlay
-        addOverlay(new OverworldUI(screenManager, this));
+//        GameEngine.players.get(0).reset();
+//        GameEngine.players.get(0).addToScreen(this,true);
 
 
+
+
+    }
+
+    @Override
+    protected void transitionOn() {
+        if(overlayScreens.isEmpty()){
+            Debug.warning(DebugEnabler.GAME_SCREEN_LOG, name + " - Trying to add overlay");
+            addOverlay(UI);
+        }
     }
 }
