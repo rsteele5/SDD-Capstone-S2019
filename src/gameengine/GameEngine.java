@@ -4,6 +4,7 @@ import static gameengine.GameSettings.*;
 
 import gameengine.physics.OverworldEngine;
 import gameobjects.Player;
+import gameobjects.renderables.Vendor;
 import gamescreens.DrawLayer;
 import input.listeners.MouseController;
 import gameengine.physics.PhysicsEngine;
@@ -32,9 +33,12 @@ public class GameEngine implements Runnable {
     private OverworldEngine overworldEngine;
     public static ArrayList<Player> players;
     private static Player p1,p2;
+    public static Vendor vendor;
+
     public GameEngine(){
         p1 = new Player(0,0, "/assets/player/teddyIdleAnimation/Overworld-Teddy-Center.png", DrawLayer.Entity);
         p2 = new Player(0,0,"/assets/testAssets/square2.png", DrawLayer.Entity);
+        vendor = new Vendor(0,0);
         gameSettings = new GameSettings(this);
         screenManager = new ScreenManager(gameSettings);
         renderEngine = new RenderEngine(screenManager);

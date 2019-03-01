@@ -1,5 +1,6 @@
 package gamescreens.screens;
 
+import gameengine.GameEngine;
 import gameobjects.Player;
 import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.ItemButton;
@@ -9,7 +10,6 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.items.Item;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.containers.GridContainer;
-import gamescreens.screens.menus.dev.DevScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import java.awt.*;
@@ -39,8 +39,11 @@ public class VendorScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
         //region Initialize variables
-        vendor = DevScreen.vendor;
-        player = DevScreen.player;
+        vendor = GameEngine.vendor;
+        vendor.setPosition(570, 335);
+        player = GameEngine.players.get(0);
+        player.setPosition(330, 335);
+        player.setImage("/assets/Teddy.png");
         vendorInventory = vendor.getItems();
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
@@ -48,10 +51,10 @@ public class VendorScreen extends GameScreen {
         //endregion
 
         //region Create all renderables
-        for (RenderableObject renderable: DevScreen.vendor.getRenderables()){
+        for (RenderableObject renderable: vendor.getRenderables()){
             renderable.addToScreen(this, false);
         }
-        for (RenderableObject renderable: DevScreen.player.getRenderables()){
+        for (RenderableObject renderable: player.getRenderables()){
             renderable.addToScreen(this, false);
         }
 
@@ -296,10 +299,12 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void transitionOff() {
+        // Change player's image back to overworld image
+        player.setImage("/assets/overworld/Overworld-Teddy.png");
         // Update the original inventory arrays with all the changes that have been made here.
         if (vendorInventory != null && playerInventory != null) {
-            DevScreen.vendor.replaceList(vendorInventory);
-            DevScreen.player.replaceList(playerInventory);
+            vendor.replaceList(vendorInventory);
+            player.replaceList(playerInventory);
         } else {
             Debug.error(DebugEnabler.GAME_SCREEN_LOG, "VendorScreen: Unable to overwrite inventory list");
         }
