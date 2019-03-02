@@ -11,6 +11,7 @@ public class Vendor extends RenderableObject {
     private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
     private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
     private BufferedImage vendorOverworldImage;
+    private BufferedImage vendorLevelImage;
     private final String vendorOverworldPath = "/assets/overworld/vendor/VendorOverworldForward.png";
     private final String vendorLevelPath = "/assets/Vendor.png";
 
@@ -131,14 +132,15 @@ public class Vendor extends RenderableObject {
     }
 
     public BufferedImage getLevelImage(){
-        return image;
+        return vendorLevelImage;
     }
 
     @Override
     public void load() {
-        if(image == null || vendorOverworldImage == null){
-            image = AssetLoader.load(imagePath);
+        if(vendorLevelImage == null || vendorOverworldImage == null){
+            vendorLevelImage = AssetLoader.load(vendorLevelPath);
             vendorOverworldImage = AssetLoader.load(vendorOverworldPath);
+            image = vendorOverworldImage;
             if(width != 0 && height != 0) {
                 setSize(width, height);
             } else {

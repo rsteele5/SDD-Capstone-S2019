@@ -36,9 +36,6 @@ public class RenderEngine extends JPanel {
         try {
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/assets/fonts/NoScary.ttf")));
-            for (Font font : ge.getAllFonts()){
-                Debug.log(DebugEnabler.RENDER_ENGINE,font.getName());
-            }
             Debug.success(DebugEnabler.RENDER_ENGINE,"Font: NoScary registered");
         } catch (IOException |FontFormatException e) {
             Debug.error(DebugEnabler.RENDER_ENGINE,"Font: Cannot be found");
