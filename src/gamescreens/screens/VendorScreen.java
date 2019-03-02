@@ -105,13 +105,13 @@ public class VendorScreen extends GameScreen {
                                         () -> {
                                             // Move item between inventory arrays
                                             vendorInventory.remove(currentItem);
-                                            currentItem.depreciate();
                                             playerInventory.add(currentItem);
                                             playerInventory.sort(new SortByType());
                                             // Decrease player's gold and display on screen
                                             player.changeGold(-currentItem.getValue());
                                             goldTextBox.setText("");
                                             goldTextBox.setText(getGoldText());
+                                            currentItem.depreciate();
                                             // Reset button items to the updated inventory arrays
                                             resetButtonItems();
                                             currentItemButton.deSelect();
