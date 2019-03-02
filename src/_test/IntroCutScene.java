@@ -6,15 +6,17 @@ import gameobjects.renderables.buttons.Button;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
+import gamescreens.screens.TitleScreen;
+import gamescreens.screens.gameplay.overworld.OverworldScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
 import java.awt.*;
 
-public class TestDialogBoxScreen extends GameScreen {
+public class IntroCutScene extends GameScreen {
 
-    public TestDialogBoxScreen(ScreenManager screenManager) {
-        super(screenManager, "TestScreen", true);
+    public IntroCutScene(ScreenManager screenManager) {
+        super(screenManager, "TestScreen");
     }
 
     private final String text = "Arise!...\n\n" +
@@ -34,13 +36,15 @@ public class TestDialogBoxScreen extends GameScreen {
                 new Font("NoScary", Font.PLAIN, 40), Color.WHITE);
         diagBox.addToScreen(this, true);
 
-        Button button = new Button(10,10,
-                "/assets/buttons/Button-Back.png",
-                DrawLayer.Entity,
-                () ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
-                    this.setScreenState(ScreenState.TransitionOff);
-                });
-        button.addToScreen(this,true);
+        ImageContainer skipMsg = new ImageContainer(575,660, "/assets/text/TXT-SkipMsg.png", DrawLayer.Scenery);
+        skipMsg.addToScreen(this, true);
+    }
+
+    @Override
+    public boolean handleClickEvent(int x, int y) {
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, "Clicked the splash screen");
+        exiting = true;
+        screenManager.addScreen(new OverworldScreen(screenManager));
+        return true;
     }
 }

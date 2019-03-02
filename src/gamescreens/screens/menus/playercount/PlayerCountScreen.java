@@ -1,5 +1,6 @@
 package gamescreens.screens.menus.playercount;
 
+import _test.IntroCutScene;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -52,7 +53,7 @@ public class PlayerCountScreen extends GameScreen {
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
                     screenManager.addScreen(new ConfirmationPopup(screenManager,
                             "You selected... \nSOLO\nIs this correct?",
-                            ()-> screenManager.addScreen(new OverworldScreen(screenManager))));
+                            ()-> screenManager.addScreen(new IntroCutScene(screenManager))));
                 });
         button.addToScreen(this, true);
 

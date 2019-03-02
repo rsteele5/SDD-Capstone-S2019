@@ -11,7 +11,6 @@ import gameobjects.renderables.SortByType;
 import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
-import main.utilities.Debug;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -19,6 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Player extends RenderableObject implements Kinematic {
 
+    private int speed = 1;
     private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
     private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
     private PhysicsVector accel = new PhysicsVector(10, 10);
@@ -168,19 +168,11 @@ public class Player extends RenderableObject implements Kinematic {
 
     @Override
     public void setVelocity(PhysicsVector pv) {
-        switch (playerState) {
-            case overWorld:
-                if(pv.x != 0 && pv.y != 0){
-                    pv.x = (pv.x / Math.sqrt(2));
-                    pv.y = (pv.y / Math.sqrt(2));
-                }
-                movement = pv.mult(5);
-                Debug.log(true, "Speeeeeeed!" + Math.sqrt(movement.x * movement.x + movement.y * movement.y));
-                break;
-            case sideScroll:
-                movement = pv;
-                break;
+        if(pv.x != 0 && pv.y != 0){
+            pv.x = (pv.x / Math.sqrt(2));
+            pv.y = (pv.y / Math.sqrt(2));
         }
+        movement = pv.mult(speed);
     }
 
     @Override
@@ -224,6 +216,7 @@ public class Player extends RenderableObject implements Kinematic {
         //TODO: Implement error checking
         switch (ps) {
             case overWorld:
+                speed = 3;
                 imagePath = "/assets/player/teddyIdleAnimation/Overworld-Teddy-Center.png";
                 animator.setAnimation("Idle");
                 addAnimator(animator);
@@ -233,6 +226,7 @@ public class Player extends RenderableObject implements Kinematic {
                 playerState = ps;
                 return true;
             case sideScroll:
+                speed = 1;
                 imagePath = "/assets/testAssets/square2.png";
                 animator = null;
                 rotation = 0;

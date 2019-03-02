@@ -1,8 +1,6 @@
 package gamescreens.screens.menus;
 
-import _test.TestDialogBoxScreen;
-import gameobjects.Player;
-import gameobjects.renderables.Vendor;
+import _test.IntroCutScene;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
@@ -11,7 +9,6 @@ import gamescreens.ScreenManager;
 import gamescreens.screens.gameplay.level.BedroomLevel;
 import gamescreens.screens.gameplay.level.LevelDecorator;
 import gamescreens.screens.InventoryScreen;
-import gamescreens.screens.gameplay.level.Level;
 import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -47,7 +44,7 @@ public class DevScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
-                    screenManager.addScreen(new TestDialogBoxScreen(screenManager));
+                    screenManager.addScreen(new IntroCutScene(screenManager));
                 });
         button.addToScreen(this, true);
 
