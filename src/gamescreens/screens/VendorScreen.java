@@ -32,8 +32,6 @@ public class VendorScreen extends GameScreen {
     private CopyOnWriteArrayList<ItemButton> vendorButtons;
     private Player player;
     private Vendor vendor;
-    private BufferedImage vendorImage;
-    private BufferedImage playerImage;
     //endregion ****************************************/
 
     public VendorScreen(ScreenManager screenManager) {
@@ -42,7 +40,6 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
-        vendorImage =  vendor.getLevelImage();
         int x_vendor = 570;
         int y_vendor = 335;
         int x_player = 330;
@@ -70,7 +67,7 @@ public class VendorScreen extends GameScreen {
         imageContainer = new ImageContainer(0, 0, "/assets/VendorBackground.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(x_vendor, y_vendor, "/assets/Teddy.png", vendor.getDrawLayer());
+        imageContainer = new ImageContainer(x_vendor, y_vendor, "/assets/Vendor.png", vendor.getDrawLayer());
         imageContainer.setSize(150,150);
         imageContainer.addToScreen(this, true);
 
