@@ -66,7 +66,7 @@ public class OverworldScreen extends GameScreen {
 
         //Vendor
         Vendor vendor = GameEngine.vendor;
-        vendor.setPosition(600,600);
+        vendor.setPosition(150,0);
         vendor.setImage("/assets/overworld/vendor/VendorOverworldForward.png");
         //TODO: make vendor trigger box
         vendor.addToScreen(this, true);
