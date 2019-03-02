@@ -216,4 +216,6 @@ public class Player extends RenderableObject implements Kinematic {
     public void changeGold(int amt) {
         gold += amt;
     }
+
+    public void setImage(String imagePath){ this.imagePath = imagePath; }
 }

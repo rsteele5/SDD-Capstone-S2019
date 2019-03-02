@@ -1,6 +1,7 @@
 package gamescreens.screens;
 
 import gameengine.GameEngine;
+import gameobjects.Clickable;
 import gameobjects.Player;
 import gameobjects.renderables.*;
 import gameobjects.renderables.buttons.Button;

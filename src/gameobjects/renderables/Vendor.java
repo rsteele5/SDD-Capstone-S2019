@@ -2,7 +2,6 @@ package gameobjects.renderables;
 
 import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
-import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Vendor extends RenderableObject {
@@ -99,6 +98,8 @@ public class Vendor extends RenderableObject {
     public CopyOnWriteArrayList<RenderableObject> getRenderables() {
         return rItems;
     }
+
+    public void setImage(String imagePath){ this.imagePath = imagePath; }
 
     public void addItem(Item item){
         items.add(item);
