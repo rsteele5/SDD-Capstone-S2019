@@ -163,7 +163,7 @@ public class VendorScreen extends GameScreen {
         button.addToScreen(this, true);
 
         // Test button
-        button = new Button(460, 480,
+        /*button = new Button(460, 480,
                 "/assets/buttons/Button-Test.png",
                 DrawLayer.Entity,
                 () -> {
@@ -171,7 +171,7 @@ public class VendorScreen extends GameScreen {
                     screenManager.addScreen(new VendorDialogBoxScreen(screenManager));
                 });
         button.setSize(100, 50);
-        button.addToScreen(this, true);
+        button.addToScreen(this, true);*/
         //endregion
 
         //region Create text boxes to hold item description
