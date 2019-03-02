@@ -1,11 +1,9 @@
-package gameobjects.renderables.LevelTiles;
+package gameobjects.renderables.levelTiles;
 
 import gameengine.physics.Kinematic;
 import gameengine.physics.PhysicsVector;
-import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.DrawLayer;
-import main.utilities.Loadable;
 
 import java.awt.*;
 

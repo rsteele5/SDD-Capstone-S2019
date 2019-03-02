@@ -7,6 +7,5 @@ public interface Level {
     void buildBackground(GameScreen gameScreen);
     void buildTerrain(GameScreen gameScreen);
     void buildPlayer(GameScreen gameScreen);
-    void buildItems(GameScreen gameScreen);
     void buildEnemies(GameScreen gameScreen);
 }

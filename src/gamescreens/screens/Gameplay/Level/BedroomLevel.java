@@ -4,7 +4,10 @@ import _test.Square;
 import gameengine.GameEngine;
 import gameobjects.Player;
 import gameobjects.renderables.ImageContainer;
-import gameobjects.renderables.LevelTiles.FloorTile;
+import gameobjects.renderables.levelTiles.FloorTile;
+import gameobjects.renderables.items.Weapon;
+import gameobjects.renderables.items.WeaponBuilder;
+import gameobjects.renderables.items.WeaponType;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 
@@ -23,8 +26,8 @@ public class BedroomLevel implements Level {
         FloorTile floorTile2 = new FloorTile(10, 720, "/assets/levelObjects/WoodTile1.png");
         floorTile.setWidth(1260);
         floorTile.setHeight(50);
-        floorTile2.setHeight(96);
         floorTile2.setWidth(50);
+        floorTile2.setHeight(96);
         gameScreen.kinematics.add(floorTile);
         gameScreen.kinematics.add(floorTile2);
         floorTile.addToScreen(gameScreen, true);
@@ -32,10 +35,22 @@ public class BedroomLevel implements Level {
         Square square;
         for(int x1 = 0; x1 < 5; x1++){
             for(int y1 = 0; y1 < x1; y1++){
-                square = new Square(x1 * 75 + 100,y1*75,"/assets/testAssets/square.png",DrawLayer.Entity);
+                square = new Square(x1 * 75 + 100,y1 * 75,"/assets/testAssets/square.png",DrawLayer.Entity);
                 square.addToScreen(gameScreen, true);
             }
         }
+
+        Weapon myWeap = new WeaponBuilder()
+                .position(800, 476)
+                .imagePath("/assets/Items/sword1.png")
+                .name("My Fwirst Sword!")
+                .type(WeaponType.Sword)
+                .value(15)
+                .buildWeapon();
+        myWeap.setWidth(50);
+        myWeap.setHeight(50);
+        gameScreen.kinematics.add(myWeap);
+        myWeap.addToScreen(gameScreen, true);
     }
 
     @Override
@@ -49,9 +64,6 @@ public class BedroomLevel implements Level {
 
     }
 
-    @Override
-    public void buildItems(GameScreen gameScreen) {
-    }
 
     @Override
     public void buildEnemies(GameScreen gameScreen) {
