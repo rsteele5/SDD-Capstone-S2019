@@ -12,6 +12,7 @@ import main.utilities.Loadable;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -24,7 +25,7 @@ public abstract class GameScreen {
     protected int x, y;
 
     private GameScreen childScreen;
-    protected ArrayList<GameScreen> overlayScreens;
+    protected CopyOnWriteArrayList<GameScreen> overlayScreens;
     public LoadingScreen loadingScreen;
     private Camera camera;
 
@@ -96,17 +97,6 @@ public abstract class GameScreen {
         else Debug.warning(DebugEnabler.GAME_SCREEN_LOG,  "Screen is already removed");
     }
 
-    //I don't know what this does
-    public void uncoveredBy(GameScreen gameScreen) {
-        if (childScreen == gameScreen) {
-            if (childScreen.childScreen != null) {
-                childScreen = childScreen.childScreen;
-            } else {
-                childScreen = null;
-            }
-        }
-    }
-
 
     public ArrayList<Kinematic> getPhysicsObjects() {
         if (!isLoading) {
@@ -157,7 +147,7 @@ public abstract class GameScreen {
         this.screenAlpha = screenAlpha;
         x = 0;
         y = 0;
-        overlayScreens = new ArrayList<>();
+        overlayScreens = new CopyOnWriteArrayList<>();
         //GameObjects
         activeObjects = new ArrayList<>();
         inactiveObjects = new ArrayList<>();
@@ -199,7 +189,7 @@ public abstract class GameScreen {
         this.screenAlpha = screenAlpha;
         x = xPos;
         y = yPos;
-        overlayScreens = new ArrayList<>();
+        overlayScreens = new CopyOnWriteArrayList<>();
         //Game Objects
         activeObjects = new ArrayList<>();
         inactiveObjects = new ArrayList<>();
@@ -357,8 +347,10 @@ public abstract class GameScreen {
 
             if(!overlayScreens.isEmpty()) {
                 for (GameScreen overlay : overlayScreens) {
-                    if(!overlay.isLoading)
-                        overlay.update();
+                    if(overlay.isExiting()){
+                        if(!overlay.isLoading)
+                            overlayScreens.remove(overlay);
+                    }else overlay.update();
                 }
             }
 
@@ -373,18 +365,18 @@ public abstract class GameScreen {
         if(!isLoading) {
             if(camera != null){
                 camera.track(graphics);
-            } else {
-                drawLayers(graphics);
-            }
-            if(childScreen != null) {
-                childScreen.drawScreen(graphics);
-            }
+            } else drawLayers(graphics);
+
             if(!overlayScreens.isEmpty()) {
                 for (GameScreen overlay : overlayScreens) {
                     if(!overlay.isLoading)
                         overlay.drawScreen(graphics);
                 }
             }
+            if(childScreen != null) {
+                childScreen.drawScreen(graphics);
+            }
+
         } else {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);

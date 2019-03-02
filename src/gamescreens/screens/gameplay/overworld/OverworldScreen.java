@@ -1,8 +1,10 @@
 package gamescreens.screens.gameplay.overworld;
 
+import _test.VendorDialogBoxOverlayTest;
 import gameengine.GameEngine;
 import gameengine.rendering.Camera;
 import gameobjects.Player;
+import gameobjects.renderables.Vendor;
 import gameobjects.renderables.house.HouseTile;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
@@ -14,6 +16,7 @@ public class OverworldScreen extends GameScreen {
 
     //region <Variable Declaration>
     private OverworldUI UI;
+    private VendorDialogBoxOverlayTest vendorDialogBox;
     //Maybe make this into room variables
     private GridContainer grassTileContainer;
     private GridContainer houseTileContainer;
@@ -61,18 +64,28 @@ public class OverworldScreen extends GameScreen {
         GameEngine.players.get(0).addToScreen(this,true);
         setCamera(new Camera(this, GameEngine.players.get(0)));
 
-        //Overlay
+        //Vendor
+        Vendor vendor = GameEngine.vendor;
+        vendor.setPosition(600,600);
+        vendor.setImage("/assets/overworld/vendor/VendorOverworldForward.png");
+        //TODO: make vendor trigger box
+        vendor.addToScreen(this, true);
+
+        //Overlay TODO: Fix layering
         UI = new OverworldUI(screenManager, this);
+        vendorDialogBox = new VendorDialogBoxOverlayTest(screenManager,this, 460,100);
+        addOverlay(UI);
+        addOverlay(vendorDialogBox);
 
 
 
     }
 
-    @Override
-    protected void transitionOn() {
-        if(overlayScreens.isEmpty()){
-            Debug.warning(DebugEnabler.GAME_SCREEN_LOG, name + " - Trying to add overlay");
-            addOverlay(UI);
-        }
-    }
+//    @Override
+//    protected void transitionOn() {
+//        if(overlayScreens.isEmpty()){
+//            Debug.warning(DebugEnabler.GAME_SCREEN_LOG, name + " - Trying to add overlay");
+//            addOverlay(UI);
+//        }
+//    }
 }
