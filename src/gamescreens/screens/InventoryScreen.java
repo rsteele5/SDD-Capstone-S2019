@@ -277,7 +277,7 @@ public class InventoryScreen extends GameScreen {
         bigEquipment.addToScreen(this, true);
 
         //Use Buttons
-        Font noScaryHeader2 = new Font("NoScary", Font.PLAIN, 42);
+        Font noScaryHeader2 = new Font("NoScary", Font.PLAIN, 35);
         useButton = new ButtonText(503, 465, "/assets/buttons/Button-Inventory-Empty.png", DrawLayer.Entity,noScaryHeader2,Color.BLACK);
         useButton.addToScreen(this, true);
     }
