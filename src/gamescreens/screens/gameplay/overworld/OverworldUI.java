@@ -6,6 +6,8 @@ import gamescreens.GameScreen;
 import gamescreens.Overlay;
 import gamescreens.ScreenManager;
 import gamescreens.screens.InventoryScreen;
+import gamescreens.screens.gameplay.level.BedroomLevel;
+import gamescreens.screens.gameplay.level.LevelDecorator;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -35,5 +37,16 @@ public class OverworldUI extends Overlay {
                 });
         inventoryButton.addToScreen(this, true);
 
+        actionButton = new Button(20+350, 20,
+                "/assets/buttons/Button-NewGame.png",
+                DrawLayer.Entity,
+                () ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - level");
+                    //TODO save players location
+                    parentScreen.setCamera(null);
+                    screenManager.addScreen(LevelDecorator.create(screenManager, new BedroomLevel()));
+
+        });
+        actionButton.addToScreen(this, true);
     }
 }

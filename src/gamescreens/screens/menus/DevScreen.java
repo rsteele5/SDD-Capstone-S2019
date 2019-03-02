@@ -39,15 +39,6 @@ public class DevScreen extends GameScreen {
         //Create buttons
         Button button;
 
-        button = new Button(X_INIT_BUTTON,Y_INIT_BUTTON - 128,
-                "/assets/buttons/Button-Test.png",
-                DrawLayer.Entity,
-                () ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Test");
-                    screenManager.addScreen(new IntroCutScene(screenManager));
-                });
-        button.addToScreen(this, true);
-
         button = new Button(X_INIT_BUTTON+(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON - 128,
                 "/assets/buttons/Button-NewGame.png",
                 DrawLayer.Entity,

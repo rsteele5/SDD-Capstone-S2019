@@ -49,13 +49,13 @@ public class Consumable extends RenderableObject implements Item {
     }
 
     @Override
-    public String getDescription() {
+    public String getDescription(boolean desc) {
         return name +
                 "\nType: " + type.name() +
                 "\nAffect: " + affect.name() +
                 "\nEffectiveness: " + minAffect + "-" + maxAffect +
                 "\nValue: " + value + " gold" +
-                description;
+                (desc ? description : "");
     }
 
     @Override

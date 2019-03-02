@@ -435,7 +435,7 @@ public abstract class GameScreen {
             renderable.setAlpha(screenAlpha);
     }
 
-    protected void setCamera(Camera camera){
+    public void setCamera(Camera camera){
         this.camera = camera;
     }
     //endregion

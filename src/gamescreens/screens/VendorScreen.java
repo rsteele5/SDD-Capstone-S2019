@@ -260,8 +260,8 @@ public class VendorScreen extends GameScreen {
             currentItem = currentItemButton.getItem();
             if (currentItemButton.getItem() != null) {
                 if (sender.equals("vendor")) {
-                    itemDetailsVendor.setText(currentItem.getDescription());
-                } else itemDetailsPlayer.setText(currentItem.getDescription());
+                    itemDetailsVendor.setText(currentItem.getDescription(true));
+                } else itemDetailsPlayer.setText(currentItem.getDescription(true));
             } else {
                 currentItem = null;
                 currentItemButton.deSelect();

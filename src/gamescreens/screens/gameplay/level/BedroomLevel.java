@@ -2,6 +2,7 @@ package gamescreens.screens.gameplay.level;
 
 import _test.Square;
 import gameengine.GameEngine;
+import gameengine.rendering.Camera;
 import gameobjects.Player;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.levelTiles.FloorTile;
@@ -56,6 +57,8 @@ public class BedroomLevel implements Level {
     @Override
     public void buildPlayer(GameScreen gameScreen) {
         Player player = GameEngine.players.get(0);
+        gameScreen.setCamera(new Camera(gameScreen, player));
+        player.setState(Player.PlayerState.sideScroll);
         player.reset();
         player.setX(10);
         player.setY(476);

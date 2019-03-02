@@ -169,8 +169,8 @@ public class Player extends RenderableObject implements Kinematic {
     @Override
     public void setVelocity(PhysicsVector pv) {
         if(pv.x != 0 && pv.y != 0){
-            pv.x = (pv.x / Math.sqrt(2));
-            pv.y = (pv.y / Math.sqrt(2));
+//            pv.x = (pv.x / Math.sqrt(2));
+//            pv.y = (pv.y / Math.sqrt(2));
         }
         movement = pv.mult(speed);
     }

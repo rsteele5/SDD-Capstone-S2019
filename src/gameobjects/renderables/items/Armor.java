@@ -52,13 +52,13 @@ public class Armor extends RenderableObject implements Item{
     }
 
     @Override
-    public String getDescription() {
+    public String getDescription(boolean desc) {
         //TODO make this general for all armor
         return name +
                 "\nType: " + type.name() +
                 "\nArmor Points: " + armor +
                 "\nValue: " + value + " gold" +
-                description;
+                (desc ? description : "");
     }
 
     @Override
