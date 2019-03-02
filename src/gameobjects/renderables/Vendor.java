@@ -68,7 +68,8 @@ public class Vendor extends RenderableObject {
                 .imagePath("/assets/Items/helmet1.png")
                 .name("My Fwirst Helmet")
                 .type(ArmorType.Head)
-                .value(7)
+                .value(11)
+                .armorPoints(12)
                 .buildArmor());
 
         items.add(new ConsumableBuilder()
