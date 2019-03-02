@@ -42,13 +42,14 @@ public class ButtonText extends Button{
 
     @Override
     public void draw(Graphics2D graphics) {
+        graphics.setColor(color);
         super.draw(graphics);
         graphics.setFont(font);
-        graphics.setColor(color);
-        //int fontHeight = graphics.getFontMetrics().getHeight();
+        //graphics.setColor(color);
+        int fontHeight = graphics.getFontMetrics().getHeight();
         int width = graphics.getFontMetrics().stringWidth(text);
         int fontAscent = graphics.getFontMetrics().getAscent();
-        graphics.drawString(text, x+(image.getWidth()/2)-(width/2), y+(image.getHeight()/10)+fontAscent);
+        graphics.drawString(text, x+(image.getWidth()/2)-(width/2), y+fontHeight);
     }
 
     public void setText(String text) {
