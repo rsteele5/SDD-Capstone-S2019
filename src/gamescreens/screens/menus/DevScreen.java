@@ -61,7 +61,7 @@ public class DevScreen extends GameScreen {
                 "/assets/buttons/Button-NewGame.png",
                 DrawLayer.Entity,
                 () ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Level");
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - level");
                     screenManager.addScreen(LevelManager.create(screenManager, new BedroomLevel(screenManager)));
                 });
         button.addToScreen(this, true);

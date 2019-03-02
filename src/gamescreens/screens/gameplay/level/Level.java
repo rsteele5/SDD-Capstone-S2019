@@ -1,9 +1,8 @@
-package gamescreens.screens.gameplay.Level;
+package gamescreens.screens.gameplay.level;
 
 import _test.Square;
 import gameengine.GameEngine;
 import gameengine.rendering.Camera;
-import gameengine.rendering.RenderEngine;
 import gameengine.rendering.animation.Animator;
 import gameengine.rendering.animation.PlayerIdleAnimation;
 import gameobjects.Player;
@@ -16,15 +15,9 @@ import gamescreens.ScreenManager;
 import gameengine.physics.Kinematic;
 import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
-import gamescreens.screens.menus.MainMenuScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Level extends GameScreen {
@@ -37,7 +30,7 @@ public class Level extends GameScreen {
     private final int X_BUFFER = 48;
 
     public Level(ScreenManager screenManager) {
-        super(screenManager, "Level", true);
+        super(screenManager, "level", true);
     }
 
     /**

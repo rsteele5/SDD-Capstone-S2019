@@ -5,6 +5,7 @@ import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.LevelTiles.FloorTile;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
+import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 
 public class BedroomLevel implements LevelBuilder {
