@@ -23,6 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class InventoryScreen extends GameScreen {
     /* Initialize variables *****************/
     //region<Variable Declarations>
+    private Player.PlayerState previousPlayerState;
     private CopyOnWriteArrayList<Item> playerInventory;
     private CopyOnWriteArrayList<ItemButton> playerButtons;
     private CopyOnWriteArrayList<ItemButton> equipButtons;
@@ -111,6 +112,8 @@ public class InventoryScreen extends GameScreen {
     @Override
     protected void initializeScreen() {
         Player player = GameEngine.players.get(0);
+        previousPlayerState = player.getState();
+        player.setState(Player.PlayerState.asleep);
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
         equipButtons = new CopyOnWriteArrayList<>();
@@ -151,7 +154,6 @@ public class InventoryScreen extends GameScreen {
                 "/assets/buttons/Button-MainMenu.png",
                 DrawLayer.Entity,
                 () ->{
-                    //TODO make this go back to the main menu
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     screenManager.addScreen(new MainMenuScreen(screenManager));
                 });
@@ -165,6 +167,7 @@ public class InventoryScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     //TODO Save stuff
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Save");
                 });
         saveButton.setWidth(192);
         saveButton.setHeight(72);
@@ -175,6 +178,7 @@ public class InventoryScreen extends GameScreen {
                 "/assets/buttons/Button-Options.png",
                 DrawLayer.Entity,
                 () ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Options");
                     screenManager.addScreen(new OptionScreen(screenManager));
                 });
         optionsButton.setWidth(192);
@@ -185,8 +189,11 @@ public class InventoryScreen extends GameScreen {
         Button backButton = new gameobjects.renderables.buttons.Button(765,336,
                 "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
-                () -> currentState = ScreenState.TransitionOff
-        );
+                () -> {
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
+                    player.setState(previousPlayerState);
+                    currentState = ScreenState.TransitionOff;
+                });
         backButton.setWidth(192);
         backButton.setHeight(72);
         backButton.addToScreen(this,true);
