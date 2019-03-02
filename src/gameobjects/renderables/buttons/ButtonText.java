@@ -18,26 +18,24 @@ public class ButtonText extends Button{
     private Color color;
 
     public ButtonText(int x, int y, String imagePath, DrawLayer drawLayer) {
-        super(x, y, imagePath, drawLayer);
+        super(x, y, imagePath, drawLayer, null);
         text = ""; color = Color.WHITE;
     }
 
     public ButtonText(int x, int y, String imagepath, DrawLayer drawLayer, Font font, Color color) {
-        super(x, y, imagepath, drawLayer);
+        this(x, y, imagepath, drawLayer);
         this.font = font;
-        this.text = "";
         this.color = color;
     }
 
-    public ButtonText(int x, int y, String imagepath, DrawLayer drawLayer, Font font, String text, Color color) {
-        super(x, y, imagepath, drawLayer);
-        this.font = font;
+    public ButtonText(int x, int y, String imagepath, DrawLayer drawLayer, Font font, Color color, String text) {
+        this(x, y, imagepath, drawLayer,font,color);
         this.text = text;
     }
 
-    public ButtonText(int x, int y, DrawLayer drawLayer, Action handleOnClick) {
-        super(x, y, "", drawLayer, handleOnClick);
-
+    public ButtonText(int x, int y, String imagepath, DrawLayer drawLayer, Font font, Color color, String text,  Action handleOnClick) {
+        this(x, y, imagepath, drawLayer,font,color, text);
+        onClick = handleOnClick;
     }
 
     @Override

@@ -5,6 +5,7 @@ import gameengine.physics.PhysicsMeta;
 import gameengine.physics.PhysicsVector;
 import gameengine.rendering.animation.Animator;
 import gameengine.rendering.animation.PlayerIdleAnimation;
+import gameengine.rendering.animation.PlayerSSIdleAnimation;
 import gameengine.rendering.animation.PlayerWalkingAnimation;
 import gameobjects.renderables.RenderableObject;
 import gameobjects.renderables.SortByType;
@@ -61,6 +62,7 @@ public class Player extends RenderableObject implements Kinematic {
         animator = new Animator(this);
         animator.addAnimation("Walking", new PlayerWalkingAnimation());
         animator.addAnimation("Idle", new PlayerIdleAnimation());
+        animator.addAnimation("SS_Idle", new PlayerSSIdleAnimation());
     }
 
     private void initializeItems() {
@@ -169,6 +171,7 @@ public class Player extends RenderableObject implements Kinematic {
     @Override
     public void setVelocity(PhysicsVector pv) {
         if(pv.x != 0 && pv.y != 0){
+            //TODO: this is broken. Needs to make speed constant in all directions
 //            pv.x = (pv.x / Math.sqrt(2));
 //            pv.y = (pv.y / Math.sqrt(2));
         }
@@ -217,9 +220,7 @@ public class Player extends RenderableObject implements Kinematic {
         switch (ps) {
             case overWorld:
                 speed = 3;
-                imagePath = "/assets/player/teddyIdleAnimation/Overworld-Teddy-Center.png";
                 animator.setAnimation("Idle");
-                addAnimator(animator);
                 playerState = ps;
                 return true;
             case asleep:
@@ -227,8 +228,8 @@ public class Player extends RenderableObject implements Kinematic {
                 return true;
             case sideScroll:
                 speed = 1;
-                imagePath = "/assets/testAssets/square2.png";
-                animator = null;
+                animator.setAnimation("SS_Idle");
+                image = animator.getDisplayImage("SS_Idle");
                 rotation = 0;
                 playerState = ps;
                 return true;

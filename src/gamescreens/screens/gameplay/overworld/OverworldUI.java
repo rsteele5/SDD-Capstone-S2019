@@ -1,6 +1,7 @@
 package gamescreens.screens.gameplay.overworld;
 
 import gameobjects.renderables.buttons.Button;
+import gameobjects.renderables.buttons.ButtonText;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.Overlay;
@@ -10,6 +11,8 @@ import gamescreens.screens.gameplay.level.BedroomLevel;
 import gamescreens.screens.gameplay.level.LevelDecorator;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
+
+import java.awt.*;
 
 public class OverworldUI extends Overlay {
 
@@ -37,9 +40,9 @@ public class OverworldUI extends Overlay {
                 });
         inventoryButton.addToScreen(this, true);
 
-        actionButton = new Button(20+350, 20,
-                "/assets/buttons/Button-NewGame.png",
-                DrawLayer.Entity,
+        actionButton = new ButtonText(350, 20,
+                "/assets/buttons/Button-Empty.png",
+                DrawLayer.Entity, new Font("NoScary", Font.PLAIN, 72), Color.WHITE, "Fight!",
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - level");
                     //TODO save players location
