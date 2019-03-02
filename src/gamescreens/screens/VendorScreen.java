@@ -31,6 +31,7 @@ public class VendorScreen extends GameScreen {
     private CopyOnWriteArrayList<ItemButton> playerButtons;
     private CopyOnWriteArrayList<ItemButton> vendorButtons;
     private Player player;
+    private Player.PlayerState previousPlayerState;
     private Vendor vendor;
     //endregion ****************************************/
 
@@ -48,6 +49,8 @@ public class VendorScreen extends GameScreen {
         //region Initialize variables
         vendor = GameEngine.vendor;
         player = GameEngine.players.get(0);
+        previousPlayerState = player.getState();
+        player.setState(Player.PlayerState.asleep);
         vendorInventory = vendor.getItems();
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
@@ -84,6 +87,7 @@ public class VendorScreen extends GameScreen {
                 DrawLayer.Entity,
                 () -> {
                     Debug.success(DebugEnabler.BUTTON_LOG, "Clicked Button - Exit Vendor");
+                    player.setState(previousPlayerState);
                     this.setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this, true);
