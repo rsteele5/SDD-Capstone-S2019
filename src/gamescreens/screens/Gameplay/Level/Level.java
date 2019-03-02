@@ -1,13 +1,12 @@
 package gamescreens.screens.Gameplay.Level;
 
-import gameobjects.Player;
 import gameobjects.renderables.ImageContainer;
-import gamescreens.DrawLayer;
+import gamescreens.GameScreen;
 
-import java.util.ArrayList;
-
-public class Level {
-    protected ImageContainer background;
-    protected final static int Y_INIT_BUTTON = 576;
-    protected final static int WIDTH_BUTTON = 150;
+public interface Level {
+    void buildBackground(GameScreen gameScreen);
+    void buildTerrain(GameScreen gameScreen);
+    void buildPlayer(GameScreen gameScreen);
+    void buildItems(GameScreen gameScreen);
+    void buildEnemies(GameScreen gameScreen);
 }

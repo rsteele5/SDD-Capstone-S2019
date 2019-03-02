@@ -9,7 +9,7 @@ import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.ScreenManager;
 import gamescreens.screens.Gameplay.Level.BedroomLevel;
-import gamescreens.screens.Gameplay.Level.LevelManager;
+import gamescreens.screens.Gameplay.Level.LevelDecorator;
 import gamescreens.screens.InventoryScreen;
 import gamescreens.screens.Level;
 import gamescreens.screens.VendorScreen;
@@ -62,7 +62,7 @@ public class DevScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Level");
-                    screenManager.addScreen(LevelManager.create(screenManager, new BedroomLevel()));
+                    screenManager.addScreen(LevelDecorator.create(screenManager, new BedroomLevel()));
                 });
         button.addToScreen(this, true);
 

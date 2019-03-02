@@ -81,7 +81,7 @@ public class Level extends GameScreen {
        // Debug.log(true,String.valueOf(GameEngine.players.size()));
 
 
-        Floor floor = new Floor(0,720, "/assets/testAssets/WoodTile2.png", DrawLayer.Entity);
+        Floor floor = new Floor(0,620, "/assets/testAssets/WoodTile2.png", DrawLayer.Entity);
         floor.setWidth(1280);
         floor.setHeight(30);
         floor.addToScreen(this, true);

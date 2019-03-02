@@ -1,45 +1,60 @@
 package gamescreens.screens.Gameplay.Level;
 
+import _test.Square;
 import gameengine.GameEngine;
+import gameobjects.Player;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.LevelTiles.FloorTile;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
-import gamescreens.ScreenManager;
-import gamescreens.containers.GridContainer;
 
-public class BedroomLevel implements LevelBuilder {
-    private Level level;
-
-    public BedroomLevel() {
-        this.level = new Level();
-    }
+public class BedroomLevel implements Level {
 
 
     @Override
-    public ImageContainer buildBackground() {
-        return new ImageContainer(0, 0, "/assets/backgrounds/BG-Level.png", DrawLayer.Background);
+    public void buildBackground(GameScreen gameScreen) {
+        ImageContainer background = new ImageContainer(0, 0, "/assets/backgrounds/BG-Level.png", DrawLayer.Background);
+        background.addToScreen(gameScreen, true);
     }
 
     public void buildTerrain(GameScreen gameScreen) {
         //This is where the instruction for how to procedurally generate a level would go
-        GridContainer floorTileContainer = new GridContainer(gameScreen, 1, 8, FloorTile.SIZE, FloorTile.SIZE,40, Level.Y_INIT_BUTTON,0);
-        FloorTile floorTile;
-        for (int i = 0; i < 8; i++) {
-            floorTile = new FloorTile(0,0,"/assets/levelObjects/WoodTile1.png");
-            gameScreen.kinematics.add(floorTile);
-            floorTileContainer.addAt(floorTile, 0, i);
+        FloorTile floorTile = new FloorTile(10, 576, "/assets/levelObjects/WoodTile1.png");
+        FloorTile floorTile2 = new FloorTile(10, 720, "/assets/levelObjects/WoodTile1.png");
+        floorTile.setWidth(1260);
+        floorTile.setHeight(50);
+        floorTile2.setHeight(96);
+        floorTile2.setWidth(50);
+        gameScreen.kinematics.add(floorTile);
+        gameScreen.kinematics.add(floorTile2);
+        floorTile.addToScreen(gameScreen, true);
+
+        Square square;
+        for(int x1 = 0; x1 < 5; x1++){
+            for(int y1 = 0; y1 < x1; y1++){
+                square = new Square(x1 * 75 + 100,y1*75,"/assets/testAssets/square.png",DrawLayer.Entity);
+                square.addToScreen(gameScreen, true);
+            }
         }
     }
 
     @Override
     public void buildPlayer(GameScreen gameScreen) {
-        GameEngine.players.get(0).addToScreen(gameScreen, true);
+        Player player = GameEngine.players.get(0);
+        player.reset();
+        player.setX(10);
+        player.setY(476);
+        player.setState(Player.PlayerState.sideScroll);
+        player.addToScreen(gameScreen, true);
+
     }
 
     @Override
-    public void buildEnemies() {
+    public void buildItems(GameScreen gameScreen) {
+    }
 
+    @Override
+    public void buildEnemies(GameScreen gameScreen) {
     }
 
 }
