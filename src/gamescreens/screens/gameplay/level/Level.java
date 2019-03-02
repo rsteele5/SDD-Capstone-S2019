@@ -39,6 +39,7 @@ public class Level extends GameScreen {
         String bg = "/assets/backgrounds/BG-BlackCover.png";
         String path = "/assets/testAssets/square.png";
         RenderableObject player = GameEngine.players.get(0);
+
 //        ((Player)player).reset();
 //        Animator playerAnimator = new Animator(player);
 //        playerAnimator.addAnimation("Idle", new PlayerIdleAnimation());
@@ -75,10 +76,6 @@ public class Level extends GameScreen {
         setCamera(new Camera(this, GameEngine.players.get(0)));
     }
 
-    @Override
-    protected void transitionOn() {
-        setScreenState(ScreenState.Active);
-    }
 
     @Override
     protected void transitionOff(){
