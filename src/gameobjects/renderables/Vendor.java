@@ -2,16 +2,22 @@ package gameobjects.renderables;
 
 import gameobjects.renderables.items.*;
 import gamescreens.DrawLayer;
+import main.utilities.AssetLoader;
+
+import java.awt.image.BufferedImage;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Vendor extends RenderableObject {
     private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
     private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
+    private BufferedImage vendorOverworldImage;
+    private final String vendorOverworldPath = "/assets/overworld/vendor/VendorOverworldForward.png";
+    private final String vendorLevelPath = "/assets/Vendor.png";
 
     // Default constructor
     public Vendor(int x, int y){
         super(x, y);
-        this.imagePath = "/assets/Vendor.png";
+        this.imagePath = vendorLevelPath;
         this.drawLayer = DrawLayer.Entity;
         initializeItems();
     }
@@ -117,6 +123,27 @@ public class Vendor extends RenderableObject {
         rItems.removeAll(rItems);
         for (Item item : items){
             rItems.add((RenderableObject) item);
+        }
+    }
+
+    public BufferedImage getOverworldImage(){
+        return vendorOverworldImage;
+    }
+
+    public BufferedImage getLevelImage(){
+        return image;
+    }
+
+    @Override
+    public void load() {
+        if(image == null || vendorOverworldImage == null){
+            image = AssetLoader.load(imagePath);
+            vendorOverworldImage = AssetLoader.load(vendorOverworldPath);
+            if(width != 0 && height != 0) {
+                setSize(width, height);
+            } else {
+                setSize(image.getWidth(), image.getHeight());
+            }
         }
     }
 }

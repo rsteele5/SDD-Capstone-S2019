@@ -13,6 +13,8 @@ import gamescreens.containers.GridContainer;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageFilter;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
@@ -30,6 +32,8 @@ public class VendorScreen extends GameScreen {
     private CopyOnWriteArrayList<ItemButton> vendorButtons;
     private Player player;
     private Vendor vendor;
+    private BufferedImage vendorImage;
+    private BufferedImage playerImage;
     //endregion ****************************************/
 
     public VendorScreen(ScreenManager screenManager) {
@@ -38,12 +42,15 @@ public class VendorScreen extends GameScreen {
 
     @Override
     protected void initializeScreen() {
+        vendorImage =  vendor.getLevelImage();
+        int x_vendor = 570;
+        int y_vendor = 335;
+        int x_player = 330;
+
+
         //region Initialize variables
         vendor = GameEngine.vendor;
-        vendor.setPosition(570, 335);
         player = GameEngine.players.get(0);
-        player.setPosition(330, 335);
-        player.setImage("/assets/Teddy.png");
         vendorInventory = vendor.getItems();
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
@@ -63,11 +70,11 @@ public class VendorScreen extends GameScreen {
         imageContainer = new ImageContainer(0, 0, "/assets/VendorBackground.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(vendor.getX(), vendor.getY(), vendor.getImagePath(), vendor.getDrawLayer());
+        imageContainer = new ImageContainer(x_vendor, y_vendor, "/assets/Teddy.png", vendor.getDrawLayer());
         imageContainer.setSize(150,150);
         imageContainer.addToScreen(this, true);
 
-        imageContainer = new ImageContainer(player.getX(), player.getY(), player.getImagePath(), player.getDrawLayer());
+        imageContainer = new ImageContainer(x_player, y_vendor, "/assets/Teddy.png", player.getDrawLayer());
         imageContainer.setSize(90, 140);
         imageContainer.addToScreen(this, true);
         //endregion
