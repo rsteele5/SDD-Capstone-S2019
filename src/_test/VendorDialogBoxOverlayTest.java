@@ -1,28 +1,30 @@
-package gamescreens.screens;
+package _test;
 
-import gameobjects.GameObject;
 import gameobjects.renderables.DialogBox;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
+import gamescreens.Overlay;
 import gamescreens.ScreenManager;
+import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
 import java.awt.*;
 
-public class VendorDialogBoxScreen extends GameScreen {
+public class VendorDialogBoxOverlayTest extends Overlay {
+
     private final String welcome = "Hey Teddy! Would you like to come in and check out my new wares?";
 
 
-    public VendorDialogBoxScreen(ScreenManager screenManager) {
-        super(screenManager, "VendorDialogBoxScreen", true, 550, 250);
-
+    public VendorDialogBoxOverlayTest(ScreenManager screenManager, GameScreen parentScreen, int xPos, int yPos) {
+        super(screenManager, parentScreen, "VendorDialogBox", xPos, yPos, 1f);
     }
 
-
-
+    /**
+     * Initializes all of the stuff you want on your screen
+     */
     @Override
     protected void initializeScreen() {
 
@@ -35,7 +37,7 @@ public class VendorDialogBoxScreen extends GameScreen {
                 new Font("NoScary", Font.PLAIN, 40), Color.WHITE);
         diagBox.addToScreen(this, true);
 
-        Button button = new Button(100,140,
+        gameobjects.renderables.buttons.Button button = new gameobjects.renderables.buttons.Button(100,140,
                 "/assets/buttons/Button-Yes.png",
                 DrawLayer.Entity,
                 () ->{
@@ -56,6 +58,4 @@ public class VendorDialogBoxScreen extends GameScreen {
         button.setSize(75,30);
         button.addToScreen(this,true);
     }
-
-
 }
