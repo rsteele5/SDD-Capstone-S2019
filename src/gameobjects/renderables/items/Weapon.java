@@ -1,14 +1,17 @@
 package gameobjects.renderables.items;
 
+import gameengine.physics.Kinematic;
+import gameengine.physics.PhysicsVector;
 import gameobjects.renderables.RenderableObject;
 import gamescreens.DrawLayer;
 import main.utilities.AssetLoader;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import static java.lang.Math.round;
 
-public class Weapon extends RenderableObject implements Item {
+public class Weapon extends RenderableObject implements Item, Kinematic {
     // Item Variables
     protected BufferedImage icon;
     protected String name;
@@ -93,6 +96,31 @@ public class Weapon extends RenderableObject implements Item {
     public void load() {
         super.load();
         icon = AssetLoader.resizeImage(image, image.getWidth()/2, image.getHeight()/2);
+    }
+
+    @Override
+    public PhysicsVector getVelocity() {
+        return new PhysicsVector(0,0);
+    }
+
+    @Override
+    public void setVelocity(PhysicsVector pv) {
+
+    }
+
+    @Override
+    public PhysicsVector getAcceleration() {
+        return new PhysicsVector(0,0);
+    }
+
+    @Override
+    public void setAcceleration(PhysicsVector pv) {
+
+    }
+
+    @Override
+    public Rectangle getHitbox() {
+        return new Rectangle(x, y, width, height);
     }
 }
 

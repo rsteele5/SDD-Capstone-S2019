@@ -9,10 +9,10 @@ public class PlayerWalkingAnimation extends Animation{
         AnimationImage walking3 = new AnimationImage(path + "Overworld-Teddy-Walking3.png", 10);
         AnimationImage walking4 = new AnimationImage(path + "Overworld-Teddy-Walking4.png", 10);
 
-        addAnimationImage(walking1);
         addAnimationImage(walking2);
         addAnimationImage(walking3);
         addAnimationImage(walking4);
+        addAnimationImage(walking1);
     }
 
     @Override

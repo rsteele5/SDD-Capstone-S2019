@@ -21,7 +21,7 @@ public class Player extends RenderableObject implements Kinematic {
 
     private CopyOnWriteArrayList<Item> items = new CopyOnWriteArrayList<>();
     private CopyOnWriteArrayList<RenderableObject> rItems = new CopyOnWriteArrayList<>();
-    private PhysicsVector accel = new PhysicsVector(1, 1);
+    private PhysicsVector accel = new PhysicsVector(10, 10);
     private PhysicsVector movement = new PhysicsVector(0, 0);
     private final int[] ssKeys = new int[]{68, 65};
     private final int[] owKeys = new int[]{68, 65, 83, 87};
@@ -103,14 +103,6 @@ public class Player extends RenderableObject implements Kinematic {
                     animator.setAnimation("Idle");
             }
         }
-
-
-        Debug.log(true, "Player rotation: " + Math.toDegrees(rotation));
-//        if(rotation != newRot){
-//            rotation = newRot;
-//
-//        }
-
     }
 
     private void setVelocity(int flags) {
@@ -176,7 +168,19 @@ public class Player extends RenderableObject implements Kinematic {
 
     @Override
     public void setVelocity(PhysicsVector pv) {
-        movement = pv;
+        switch (playerState) {
+            case overWorld:
+                if(pv.x != 0 && pv.y != 0){
+                    pv.x = (pv.x / Math.sqrt(2));
+                    pv.y = (pv.y / Math.sqrt(2));
+                }
+                movement = pv.mult(5);
+                Debug.log(true, "Speeeeeeed!" + Math.sqrt(movement.x * movement.x + movement.y * movement.y));
+                break;
+            case sideScroll:
+                movement = pv;
+                break;
+        }
     }
 
     @Override
@@ -221,8 +225,6 @@ public class Player extends RenderableObject implements Kinematic {
         switch (ps) {
             case overWorld:
                 imagePath = "/assets/player/teddyIdleAnimation/Overworld-Teddy-Center.png";
-
-
                 animator.setAnimation("Idle");
                 addAnimator(animator);
                 playerState = ps;

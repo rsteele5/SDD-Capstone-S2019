@@ -1,24 +1,20 @@
-package gameobjects.renderables.LevelTiles;
+package gameobjects.renderables.levelTiles;
 
 import gameengine.physics.Kinematic;
 import gameengine.physics.PhysicsVector;
-import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.RenderableObject;
 import gamescreens.DrawLayer;
 
 import java.awt.*;
 
-public class FloorTile extends ImageContainer implements Kinematic {
-    public static final int SIZE = 150;
+public class FloorTile extends RenderableObject implements Kinematic {
 
     public FloorTile(int x, int y, String path) {
         super(x, y, path, DrawLayer.Entity);
-        width = SIZE;
-        height = SIZE;
     }
 
     @Override
     public void update() {
-
     }
 
     @Override
@@ -42,6 +38,5 @@ public class FloorTile extends ImageContainer implements Kinematic {
     @Override
     public Rectangle getHitbox() {
         return new Rectangle(x, y, width, height);
-
     }
 }

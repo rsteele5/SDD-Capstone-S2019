@@ -1,4 +1,4 @@
-package gamescreens.screens.gameplay.level;
+package gamescreens.screens.menus;
 
 import _test.Square;
 import gameengine.GameEngine;
@@ -18,7 +18,7 @@ import main.utilities.DebugEnabler;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Level extends GameScreen {
+public class SideScroll extends GameScreen {
     private CopyOnWriteArrayList<GameObject> onScreen;
     private CopyOnWriteArrayList<Kinematic> kinematicObjects;
 
@@ -27,7 +27,7 @@ public class Level extends GameScreen {
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
 
-    public Level(ScreenManager screenManager) {
+    public SideScroll(ScreenManager screenManager) {
         super(screenManager, "level", true);
     }
 

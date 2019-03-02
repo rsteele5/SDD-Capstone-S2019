@@ -8,7 +8,7 @@ public class PhysicsVector{
         this.y = y;
     }
 
-    private double magnitude(double x, double y) {
+    public double magnitude(double x, double y) {
         return Math.sqrt(x * x + y * y);
     }
 

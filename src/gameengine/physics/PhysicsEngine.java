@@ -1,6 +1,9 @@
 package gameengine.physics;
 
+import gameengine.GameEngine;
 import gameobjects.Player;
+import gameobjects.renderables.ImageContainer;
+import gameobjects.renderables.items.Weapon;
 import gamescreens.ScreenManager;
 import gameobjects.GameObject;
 import main.Game;
@@ -61,6 +64,10 @@ public class PhysicsEngine {
                     if(((Kinematic)obj1).getHitbox().intersects(((Kinematic)obj2).getHitbox())){
                         if(obj1  instanceof Player) ((Player) obj1).grounded = true;
                         if(obj2  instanceof Player) ((Player) obj2).grounded = true;
+                        if (obj1 instanceof Weapon && obj2 instanceof Player)  {
+                            GameEngine.players.get(0).addItem((Weapon) obj1);
+                            Debug.log(true, "Weapon Get!");
+                        }
                         ((Kinematic) obj1).setAcceleration(new PhysicsVector(1,1));
                         ((Kinematic) obj2).setAcceleration(new PhysicsVector(1,1));
                         Rectangle intersect = ((Kinematic) obj1).getHitbox().intersection(((Kinematic)obj2).getHitbox());
