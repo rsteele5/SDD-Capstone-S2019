@@ -6,7 +6,7 @@ import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.screens.ConfirmationPopup;
-import gamescreens.screens.Gameplay.OverworldScreen;
+import gamescreens.screens.gameplay.overworld.OverworldScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -52,10 +52,7 @@ public class PlayerCountScreen extends GameScreen {
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Solo");
                     screenManager.addScreen(new ConfirmationPopup(screenManager,
                             "You selected... \nSOLO\nIs this correct?",
-                            ()->{
-                                this.exiting = true;
-                                screenManager.addScreen(new OverworldScreen(screenManager));
-                            }));
+                            ()-> screenManager.addScreen(new OverworldScreen(screenManager))));
                 });
         button.addToScreen(this, true);
 

@@ -1,4 +1,4 @@
-package gamescreens.screens.menus.dev;
+package gamescreens.screens.menus;
 
 import _test.TestDialogBoxScreen;
 import gameobjects.Player;
@@ -8,10 +8,10 @@ import gamescreens.GameScreen;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
 import gamescreens.ScreenManager;
-import gamescreens.screens.Gameplay.Level.BedroomLevel;
-import gamescreens.screens.Gameplay.Level.LevelManager;
+import gamescreens.screens.gameplay.level.BedroomLevel;
+import gamescreens.screens.gameplay.level.LevelManager;
 import gamescreens.screens.InventoryScreen;
-import gamescreens.screens.Level;
+import gamescreens.screens.gameplay.level.Level;
 import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -23,8 +23,6 @@ public class DevScreen extends GameScreen {
     private final int Y_INIT_BUTTON = 576;
     private final int WIDTH_BUTTON = 256;
     private final int X_BUFFER = 48;
-    public static Vendor vendor;
-    public static Player player;
 
     //endregion
 
@@ -37,10 +35,6 @@ public class DevScreen extends GameScreen {
     protected void initializeScreen() {
         //Background image
         ImageContainer imageContainer;
-
-        //Vendor and Player initialization
-        vendor = new Vendor(570,335);
-        player = new Player(330, 335, "/assets/Teddy.png", DrawLayer.Entity);
 
         imageContainer = new ImageContainer(0,0, "/assets/backgrounds/BG-DevMenu.png", DrawLayer.Background);
         imageContainer.addToScreen(this, true);
@@ -61,8 +55,8 @@ public class DevScreen extends GameScreen {
                 "/assets/buttons/Button-NewGame.png",
                 DrawLayer.Entity,
                 () ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Level");
-                    screenManager.addScreen(LevelManager.create(screenManager, new BedroomLevel()));
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - level");
+                    screenManager.addScreen(LevelManager.create(screenManager, new BedroomLevel(screenManager)));
                 });
         button.addToScreen(this, true);
 

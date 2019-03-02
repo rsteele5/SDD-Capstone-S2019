@@ -4,14 +4,10 @@ package gameengine.rendering;
 
 //Java Imports
 import javax.swing.JPanel;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsEnvironment;
-import java.awt.Color;
-import java.awt.Transparency;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 //Project Imports
 import gameengine.GameEngine;
@@ -37,6 +33,16 @@ public class RenderEngine extends JPanel {
         screenManager = myScreenManager;
         setBackground(Color.BLACK);
         graphicsConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+        try {
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/assets/fonts/NoScary.ttf")));
+            for (Font font : ge.getAllFonts()){
+                Debug.log(DebugEnabler.RENDER_ENGINE,font.getName());
+            }
+            Debug.success(DebugEnabler.RENDER_ENGINE,"Font: NoScary registered");
+        } catch (IOException |FontFormatException e) {
+            Debug.error(DebugEnabler.RENDER_ENGINE,"Font: Cannot be found");
+        }
     }
 
     public ScreenManager getScreenManager() {

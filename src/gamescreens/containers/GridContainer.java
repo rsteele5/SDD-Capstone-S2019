@@ -63,8 +63,6 @@ public class GridContainer {
                 renderable.setPosition(x + ((itemWidth + padding) * col)
                         ,y + (itemWidth + padding) * row);
                 renderable.addToScreen(parentScreen,true);
-                Debug.success(DebugEnabler.GAME_SCREEN_LOG,
-                        "Grid - addAt(" + renderable.getX() + ", " + renderable.getY());
             }else {
                 Debug.error(DebugEnabler.GAME_SCREEN_LOG, "- addAt() was passed null");
             }
@@ -79,6 +77,15 @@ public class GridContainer {
     public Rectangle2D getBoundingBox() {
         return new Rectangle2D.Double(x, y, width, height);
     }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getCols() {
+        return cols;
+    }
+
 
 
     //TODO: figure out where this shit goes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

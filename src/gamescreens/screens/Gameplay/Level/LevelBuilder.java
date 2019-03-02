@@ -1,4 +1,4 @@
-package gamescreens.screens.Gameplay.Level;
+package gamescreens.screens.gameplay.level;
 
 import gameobjects.renderables.ImageContainer;
 import gamescreens.GameScreen;

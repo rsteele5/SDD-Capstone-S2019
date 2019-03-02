@@ -1,12 +1,10 @@
 package gamescreens;
 
-import gameengine.GameEngine;
 import gameengine.physics.Kinematic;
 import gameengine.rendering.Camera;
 import gameobjects.Clickable;
 import gameobjects.GameObject;
 import gameobjects.renderables.RenderableObject;
-import gamescreens.screens.Level;
 import gamescreens.screens.LoadingScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
@@ -26,7 +24,7 @@ public abstract class GameScreen {
     protected int x, y;
 
     private GameScreen childScreen;
-    private ArrayList<GameScreen> overlayScreens;
+    protected ArrayList<GameScreen> overlayScreens;
     public LoadingScreen loadingScreen;
     private Camera camera;
 
@@ -84,15 +82,18 @@ public abstract class GameScreen {
 
     //Recursively removes all child screens and overlays
     public void removeMe(GameScreen gameScreen){
-        if(gameScreen.childScreen != null)
-            removeMe(gameScreen.childScreen);
+        if(gameScreen != null) {
+            if (gameScreen.childScreen != null)
+                removeMe(gameScreen.childScreen);
 
-        if(!overlayScreens.isEmpty()) {
-            for (GameScreen overlay : overlayScreens)
-                removeMe(overlay);
+            if (!gameScreen.overlayScreens.isEmpty()) {
+                for (GameScreen overlay : gameScreen.overlayScreens)
+                    removeMe(overlay);
+            }
+            Debug.log(DebugEnabler.GAME_SCREEN_LOG, gameScreen.name + " - Remove Scheduled");
+            gameScreen.currentState = ScreenState.TransitionOff;
         }
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG, gameScreen.name + " - I am being removed!!");
-        gameScreen.currentState = ScreenState.TransitionOff;
+        else Debug.warning(DebugEnabler.GAME_SCREEN_LOG,  "Screen is already removed");
     }
 
     //I don't know what this does
@@ -164,10 +165,11 @@ public abstract class GameScreen {
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
         renderables = new ArrayList<>();
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + " - is initializing");
         initializeScreen();
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - initialized");
         currentState = ScreenState.TransitionOn;
         isLoading = true;
-
         loadContent();
     }
 
@@ -205,7 +207,9 @@ public abstract class GameScreen {
         kinematics = new ArrayList<>();
         loadables = new ArrayList<>();
         renderables = new ArrayList<>();
+        Debug.log(DebugEnabler.GAME_SCREEN_LOG, name + " - is initializing");
         initializeScreen();
+        Debug.success(DebugEnabler.GAME_SCREEN_LOG, name + " - initialized");
         currentState = ScreenState.TransitionOn;
         isLoading = true;
         loadContent();
@@ -221,6 +225,7 @@ public abstract class GameScreen {
      * Loads the contents of this main.Game Screen.
      */
     protected void loadContent() {
+        Debug.log(DebugEnabler.LOADING, name + " - Load start");
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(() -> {
             if (loadingScreenRequired) {
@@ -235,9 +240,13 @@ public abstract class GameScreen {
                 childScreen = null;
                 loadingScreen.reset();
             }
-            for (Loadable loadable : loadables) loadable.load();
+            for (Loadable loadable : loadables) {
+                Debug.log(DebugEnabler.LOADING, name + " - Loading: " + loadable.getClass().getName());
+                loadable.load();
+            }
             loadables.clear();
             isLoading = false;
+            Debug.success(DebugEnabler.LOADING, name + " - Loaded");
         });
         executorService.shutdown();
     }
@@ -307,8 +316,8 @@ public abstract class GameScreen {
     }
 
     protected void transitionOff() {
-        if(screenAlpha > 0.055f){
-            screenAlpha -= 0.05f;
+        if(screenAlpha > 0.075f){
+            screenAlpha -= 0.07f;
             setScreenAlpha(screenAlpha);
         } else {
             exiting = true;
@@ -346,8 +355,12 @@ public abstract class GameScreen {
                 default: Debug.error(DebugEnabler.GAME_SCREEN_LOG, "Unknown screen state");
             }
 
-            for (GameScreen overlay : overlayScreens)
-                overlay.update();
+            if(!overlayScreens.isEmpty()) {
+                for (GameScreen overlay : overlayScreens) {
+                    if(!overlay.isLoading)
+                        overlay.update();
+                }
+            }
 
             if(currentState != previousState){
                 previousState = currentState;
@@ -366,8 +379,12 @@ public abstract class GameScreen {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);
             }
-            for(GameScreen overlay : overlayScreens)
-                overlay.drawScreen(graphics);
+            if(!overlayScreens.isEmpty()) {
+                for (GameScreen overlay : overlayScreens) {
+                    if(!overlay.isLoading)
+                        overlay.drawScreen(graphics);
+                }
+            }
         } else {
             if(childScreen != null) {
                 childScreen.drawScreen(graphics);
@@ -411,7 +428,7 @@ public abstract class GameScreen {
         exiting = false;
     }
 
-    private void addOverlay(GameScreen overlay){
+    protected void addOverlay(GameScreen overlay){
         if(!overlay.isOverlay){
             Debug.error(DebugEnabler.GAME_SCREEN_LOG,
                     overlay.name +"- is not an overlay. Will not add to overlays.");

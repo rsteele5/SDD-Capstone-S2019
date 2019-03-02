@@ -1,5 +1,6 @@
 package gamescreens.screens;
 
+import gameengine.GameEngine;
 import gameobjects.Clickable;
 import gameobjects.Player;
 import gameobjects.renderables.*;
@@ -11,21 +12,11 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import gamescreens.screens.menus.MainMenuScreen;
-import gamescreens.screens.menus.dev.DevScreen;
 import gamescreens.screens.menus.options.OptionScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
-import static gamescreens.DrawLayer.Effects;
-import static gameobjects.renderables.items.ArmorType.Head;
-import static gameobjects.renderables.items.ArmorType.Chest;
-import static gameobjects.renderables.items.ArmorType.Pants;
-import static gameobjects.renderables.items.ArmorType.Feet;
-import static gameobjects.renderables.items.ArmorType.OffHand;
-import static gamescreens.DrawLayer.Scenery;
-
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
@@ -119,13 +110,13 @@ public class InventoryScreen extends GameScreen {
      */
     @Override
     protected void initializeScreen() {
-        Player player = DevScreen.player;
+        Player player = GameEngine.players.get(0);
         playerInventory = player.getItems();
         playerButtons = new CopyOnWriteArrayList<>();
         equipButtons = new CopyOnWriteArrayList<>();
 
         //Add all the items in the dev screen player to the screen
-        for (RenderableObject renderable: DevScreen.player.getRenderables()){
+        for (RenderableObject renderable: player.getRenderables()){
             renderable.addToScreen(this, false);
         }
 
@@ -163,7 +154,6 @@ public class InventoryScreen extends GameScreen {
                     //TODO make this go back to the main menu
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
                     screenManager.addScreen(new MainMenuScreen(screenManager));
-                    this.setScreenState(ScreenState.TransitionOff);
                 });
         mainMenuButton.setWidth(192);
         mainMenuButton.setHeight(72);
@@ -180,14 +170,12 @@ public class InventoryScreen extends GameScreen {
         saveButton.setHeight(72);
         saveButton.addToScreen(this,true);
 
-        //Save Button
+        //Options Button
         Button optionsButton = new gameobjects.renderables.buttons.Button(765,234,
                 "/assets/buttons/Button-Options.png",
                 DrawLayer.Entity,
                 () ->{
-                    screenManager.addScreen(new MainMenuScreen(screenManager));
                     screenManager.addScreen(new OptionScreen(screenManager));
-                    currentState = ScreenState.TransitionOff;
                 });
         optionsButton.setWidth(192);
         optionsButton.setHeight(72);

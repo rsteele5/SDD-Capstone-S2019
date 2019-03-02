@@ -5,7 +5,6 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gameobjects.renderables.buttons.Button;
-import gamescreens.screens.menus.dev.DevScreen;
 import gamescreens.screens.menus.options.OptionScreen;
 import gamescreens.screens.menus.playercount.PlayerCountScreen;
 import main.utilities.Debug;
@@ -65,4 +64,10 @@ public class MainMenuScreen extends GameScreen {
         button.addToScreen(this,true);
     }
     //endregion
+
+
+    @Override
+    protected void transitionOff() {
+        exiting = true;
+    }
 }

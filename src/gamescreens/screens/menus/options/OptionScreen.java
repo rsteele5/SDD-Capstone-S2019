@@ -60,10 +60,10 @@ public class OptionScreen extends GameScreen {
         button.addToScreen(this,true);
 
         button = new Button(X_INIT_BUTTON+3*(X_BUFFER+WIDTH_BUTTON),Y_INIT_BUTTON,
-                "/assets/buttons/Button-MainMenu.png",
+                "/assets/buttons/Button-Back.png",
                 DrawLayer.Entity,
                 () ->{
-                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Main Menu");
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Back");
                     this.setScreenState(ScreenState.TransitionOff);
                 });
         button.addToScreen(this,true);

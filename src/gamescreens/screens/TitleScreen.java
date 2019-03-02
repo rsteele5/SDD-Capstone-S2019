@@ -6,8 +6,6 @@ import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gameobjects.renderables.ImageContainer;
 import gamescreens.screens.menus.MainMenuScreen;
-import main.utilities.Debug;
-import main.utilities.DebugEnabler;
 
 public class TitleScreen extends GameScreen {
     //region <Variables>
@@ -55,15 +53,8 @@ public class TitleScreen extends GameScreen {
 
     @Override
     public void transitionOff() {
-        Debug.success(DebugEnabler.GAME_SCREEN_LOG,"Constructing MainMenuScreen");
         screenManager.addScreen(new MainMenuScreen(screenManager));
         exiting = true;
-    }
-
-    @Override
-    public void hiddenUpdate() {
-        Debug.log(DebugEnabler.GAME_SCREEN_LOG,name+"-CurrentState: Hidden"); //TODO: handle hidden state
-            exiting = true;
     }
 
     @Override
@@ -76,7 +67,7 @@ public class TitleScreen extends GameScreen {
     //region <Support Functions>
     @Override
     public boolean handleClickEvent(int x, int y) {
-        screenManager.addScreen(new MainMenuScreen(screenManager));
+        currentState = ScreenState.TransitionOff;
         return true;
     }
     //endregion
