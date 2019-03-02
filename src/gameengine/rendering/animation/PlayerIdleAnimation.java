@@ -25,4 +25,9 @@ public class PlayerIdleAnimation extends Animation{
         addAnimationImage(lookRight2);
         addAnimationImage(lookRight1);
     }
+
+    @Override
+    public String getName() {
+        return "Idle";
+    }
 }

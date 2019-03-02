@@ -1,9 +1,8 @@
-package gamescreens.screens.Gameplay;
+package gamescreens.screens.gameplay;
 
 import gameengine.GameEngine;
 import gameengine.rendering.Camera;
 import gameengine.rendering.animation.Animator;
-import gameengine.rendering.animation.PlayerIdleAnimation;
 import gameengine.rendering.animation.PlayerWalkingAnimation;
 import gameobjects.Player;
 import gameobjects.renderables.RenderableObject;
@@ -13,8 +12,6 @@ import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
-
-import java.util.ArrayList;
 
 public class OverworldScreen extends GameScreen {
 
@@ -38,12 +35,7 @@ public class OverworldScreen extends GameScreen {
 
         RenderableObject player = GameEngine.players.get(0);
         ((Player)player).reset();
-
-        Animator playerAnimator = new Animator(player);
-        playerAnimator.addAnimation("Walking", new PlayerWalkingAnimation());
-        playerAnimator.setAnimation("Walking");
-        player.addAnimator(playerAnimator);
-
+        ((Player) player).setState(Player.PlayerState.overWorld);
 
         HouseTile grass;
         for(int row = 0; row < 4; row++){

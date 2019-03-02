@@ -143,6 +143,9 @@ public abstract class RenderableObject extends GameObject implements Loadable {
                 setSize(image.getWidth(), image.getHeight());
             }
         }
+        if(animator != null){
+            animator.load();
+        }
     }
 
     @Override

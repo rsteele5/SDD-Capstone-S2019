@@ -49,4 +49,8 @@ public class Animator implements Loadable {
             animation.load();
         }
     }
+
+    public String getCurrentAnimationName(){
+        return activeAnimation.getName();
+    }
 }

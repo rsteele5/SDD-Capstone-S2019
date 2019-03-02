@@ -3,8 +3,6 @@ package gamescreens.screens.gameplay.level;
 import _test.Square;
 import gameengine.GameEngine;
 import gameengine.rendering.Camera;
-import gameengine.rendering.animation.Animator;
-import gameengine.rendering.animation.PlayerIdleAnimation;
 import gameobjects.Player;
 import gameobjects.renderables.Floor;
 import gameobjects.renderables.ImageContainer;
@@ -41,11 +39,11 @@ public class Level extends GameScreen {
         String bg = "/assets/backgrounds/BG-BlackCover.png";
         String path = "/assets/testAssets/square.png";
         RenderableObject player = GameEngine.players.get(0);
-        ((Player)player).reset();
-        Animator playerAnimator = new Animator(player);
-        playerAnimator.addAnimation("Idle", new PlayerIdleAnimation());
-        playerAnimator.setAnimation("Idle");
-        player.addAnimator(playerAnimator);
+//        ((Player)player).reset();
+//        Animator playerAnimator = new Animator(player);
+//        playerAnimator.addAnimation("Idle", new PlayerIdleAnimation());
+//        playerAnimator.setAnimation("Idle");
+//        player.addAnimator(playerAnimator);
 
 
         ImageContainer background;

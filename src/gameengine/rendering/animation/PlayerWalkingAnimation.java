@@ -14,4 +14,9 @@ public class PlayerWalkingAnimation extends Animation{
         addAnimationImage(walking3);
         addAnimationImage(walking4);
     }
+
+    @Override
+    public String getName() {
+        return "Walking";
+    }
 }

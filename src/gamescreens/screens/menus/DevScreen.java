@@ -74,7 +74,6 @@ public class DevScreen extends GameScreen {
                 DrawLayer.Entity,
                 () ->{
                     Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Physics");
-                    exiting = true;
                     screenManager.addScreen(new Level(screenManager));
                 });
         button.addToScreen(this, true);

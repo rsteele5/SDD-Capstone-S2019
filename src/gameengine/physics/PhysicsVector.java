@@ -16,6 +16,16 @@ public class PhysicsVector{
         return Math.atan(nY/nX); //NOTE: The direction will be in radians
     }
 
+    public double direction(){
+        double direction;
+        if(x < 0){
+            direction = Math.atan(y/x)+(Math.PI);
+        } else {
+            direction = Math.atan(y/x);
+        }
+        return direction;
+    }
+
     public void normalize() {
         double nMag = magnitude(x, y);
         if (nMag == 0) {
