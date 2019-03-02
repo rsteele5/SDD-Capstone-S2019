@@ -45,13 +45,13 @@ public class Weapon extends RenderableObject implements Item {
     }
 
     @Override
-    public String getDescription() {
+    public String getDescription(boolean desc) {
         return  name +
                 "\nType: " + type.name() +
                 "\nDamage: " + minDamage + "-" + maxDamage +
                 "\nCrit Chance: " + critChance + "%" +
                 "\nValue: " + value + " gold" +
-                description;
+                (desc ? description : "");
     }
 
     @Override
