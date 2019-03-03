@@ -1,5 +1,7 @@
 package gamescreens.screens.gameplay.overworld;
 
+import gameengine.GameEngine;
+import gameengine.rendering.Camera;
 import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.buttons.ButtonText;
 import gamescreens.DrawLayer;
@@ -7,6 +9,7 @@ import gamescreens.GameScreen;
 import gamescreens.Overlay;
 import gamescreens.ScreenManager;
 import gamescreens.screens.InventoryScreen;
+import gamescreens.screens.VendorScreen;
 import gamescreens.screens.gameplay.level.BedroomLevel;
 import gamescreens.screens.gameplay.level.LevelDecorator;
 import main.utilities.Debug;
@@ -51,5 +54,27 @@ public class OverworldUI extends Overlay {
 
         });
         actionButton.addToScreen(this, true);
+
+        Button cameraOnButton = new ButtonText(650,20,
+                "/assets/buttons/Button-Empty.png",
+                DrawLayer.Entity,
+                new Font("NoScary", Font.PLAIN, 58),
+                Color.WHITE, "Camera Off!",
+                () ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
+                    parentScreen.setCamera(null);
+                });
+        cameraOnButton.addToScreen(this, true);
+
+        Button cameraOffButton = new ButtonText(920,20,
+                "/assets/buttons/Button-Empty.png",
+                DrawLayer.Entity,
+                new Font("NoScary", Font.PLAIN, 58),
+                Color.WHITE, "Camera On!",
+                () ->{
+                    Debug.success(DebugEnabler.BUTTON_LOG,"Clicked Button - Vendor");
+                    parentScreen.setCamera(new Camera(parentScreen, GameEngine.players.get(0)));
+                });
+        cameraOffButton.addToScreen(this, true);
     }
 }

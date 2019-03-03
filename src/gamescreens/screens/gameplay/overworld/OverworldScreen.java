@@ -5,10 +5,13 @@ import gameengine.GameEngine;
 import gameengine.rendering.Camera;
 import gameobjects.Player;
 import gameobjects.renderables.Vendor;
+import gameobjects.renderables.buttons.Button;
 import gameobjects.renderables.house.HouseTile;
+import gamescreens.DrawLayer;
 import gamescreens.GameScreen;
 import gamescreens.ScreenManager;
 import gamescreens.containers.GridContainer;
+import gamescreens.screens.VendorScreen;
 import main.utilities.Debug;
 import main.utilities.DebugEnabler;
 
@@ -76,8 +79,6 @@ public class OverworldScreen extends GameScreen {
         vendorDialogBox = new VendorDialogBoxOverlayTest(screenManager,this, 460,100);
         addOverlay(UI);
         addOverlay(vendorDialogBox);
-
-
 
     }
 
